@@ -1,4 +1,4 @@
-angular.module('myApp', ['ngRoute'])
+angular.module('myApp', ['ngRoute', 'btford.socket-io'])
 	.config(['$routeProvider', function($routeProvider) {
 		$routeProvider.when('/', {
 			templateUrl: 'views/home.html',

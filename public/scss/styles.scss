@@ -1,0 +1,41 @@
+@import "bourbon";
+@import "neat";
+
+html {
+  box-sizing: border-box;
+  list-style-type: none;
+  border: 1px black solid;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+a:link, a:visited {
+    text-decoration: none;
+    color: #2A221E;
+}
+
+a:hover, a:active {
+    text-decoration: none;
+    color: #2A221E;
+}
+#gameArea {
+	@include outer-container;
+}
+/*-----------------------Home------------------------*/
+.title {
+	@include fill-parent;
+	margin: 2em 0;
+}
+.category-cont {
+	@include fill-parent;
+	padding: 1em;
+}
+.categoryBtn {
+	@include span-columns(8);
+	@include shift(2);
+}
+
+/*-----------------------gamePlay------------------------*/
+
+/*-----------------------gameOver------------------------*/
+

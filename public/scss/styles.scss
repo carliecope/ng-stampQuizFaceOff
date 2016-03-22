@@ -24,18 +24,37 @@ a:hover, a:active {
 /*-----------------------Home------------------------*/
 .title {
 	@include fill-parent;
-	margin: 2em 0;
+	text-align: center;
+  margin: 2em 0;
 }
 .category-cont {
 	@include fill-parent;
 	padding: 1em;
 }
 .categoryBtn {
-	@include span-columns(8);
-	@include shift(2);
+  @include fill-parent;
 }
 
 /*-----------------------gamePlay------------------------*/
-
+.header {
+  @include fill-parent;
+  list-style-type: none;
+}
+.header_element {
+  @include span-columns(4);
+  display: inline;
+}
+.question_stamp_cont {
+  @include fill-parent;
+}
+.stampImg_cont {
+  @include span-columns(6);
+}
+.question_cont {
+  @include span-columns(6);
+}
+.answer_cont {
+  @include fill-parent;
+}
 /*-----------------------gameOver------------------------*/
 

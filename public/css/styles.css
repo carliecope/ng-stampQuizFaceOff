@@ -32,6 +32,7 @@ a:hover, a:active {
 /*-----------------------Home------------------------*/
 .title {
   width: 100%;
+  text-align: center;
   margin: 2em 0; }
 
 .category-cont {
@@ -39,13 +40,42 @@ a:hover, a:active {
   padding: 1em; }
 
 .categoryBtn {
+  width: 100%; }
+
+/*-----------------------gamePlay------------------------*/
+.header {
+  width: 100%;
+  list-style-type: none; }
+
+.header_element {
   float: left;
   display: block;
   margin-right: 2.35765%;
-  width: 65.88078%;
-  margin-left: 17.05961%; }
-  .categoryBtn:last-child {
+  width: 31.76157%;
+  display: inline; }
+  .header_element:last-child {
     margin-right: 0; }
 
-/*-----------------------gamePlay------------------------*/
+.question_stamp_cont {
+  width: 100%; }
+
+.stampImg_cont {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 48.82117%; }
+  .stampImg_cont:last-child {
+    margin-right: 0; }
+
+.question_cont {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 48.82117%; }
+  .question_cont:last-child {
+    margin-right: 0; }
+
+.answer_cont {
+  width: 100%; }
+
 /*-----------------------gameOver------------------------*/

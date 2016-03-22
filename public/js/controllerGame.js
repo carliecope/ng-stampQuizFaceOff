@@ -1,3 +1,3 @@
-myApp.controller('HomeCtrl', ['$scope', 'mySocket', function($scope, mySocket) {
+angular.module('myApp').controller('HomeCtrl', ['$scope', 'mySocket', function($scope, mySocket) {
 
 }]);

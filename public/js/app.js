@@ -12,7 +12,4 @@ angular.module('myApp', ['ngRoute'])
 		}).otherwise('error', {
 			template: '<p>Error - Page not Found</p>'
 		});
-	}])
-	.factory('mySocket', function(socketFactory) {
-		return socketFactory();
-	});
+	}]);

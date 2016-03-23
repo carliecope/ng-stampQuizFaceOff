@@ -45,19 +45,28 @@ a:hover, a:active {
 /*-----------------------gamePlay------------------------*/
 .header {
   width: 100%;
-  list-style-type: none; }
+  list-style-type: none;
+  overflow: hidden;
+  background-color: #6194BC;
+  color: white; }
 
 .header_element {
   float: left;
   display: block;
   margin-right: 2.35765%;
   width: 31.76157%;
-  display: inline; }
+  display: inline;
+  text-align: center; }
   .header_element:last-child {
     margin-right: 0; }
 
+/*----------question box----------*/
 .question_stamp_cont {
-  width: 100%; }
+  width: 100%;
+  padding: 1em;
+  overflow: hidden;
+  background-color: #A5D1F3;
+  color: #606060; }
 
 .stampImg_cont {
   float: left;
@@ -75,7 +84,65 @@ a:hover, a:active {
   .question_cont:last-child {
     margin-right: 0; }
 
+/*----------answer box----------*/
+.answer_score_cont {
+  width: 100%;
+  padding: 0;
+  overflow: hidden;
+  border: black 1px solid;
+  background-color: #6194BC; }
+
+.answers_cont {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 65.88078%;
+  border: black 1px solid;
+  overflow: hidden;
+  text-align: center;
+  height: 100%;
+  padding: 0;
+  background-color: #ECECEC; }
+  .answers_cont:last-child {
+    margin-right: 0; }
+  .answers_cont:nth-child(4n) {
+    margin-right: 0; }
+  .answers_cont:nth-child(4n+1) {
+    clear: left; }
+
 .answer_cont {
-  width: 100%; }
+  width: 100%;
+  overflow: hidden;
+  padding: 0; }
+
+.answer_list {
+  width: 100%;
+  list-style-type: none;
+  height: 100%;
+  overflow: hidden;
+  padding: 0; }
+
+.answerBtn {
+  width: 80%;
+  padding: 0.5em;
+  margin: 0.5em 0;
+  font-size: 1em; }
+
+.scoreBar {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 14.70196%;
+  padding: 0;
+  border: black 1px solid; }
+  .scoreBar:last-child {
+    margin-right: 0; }
+
+.bar {
+  width: 30%;
+  margin: 0 auto;
+  height: 4em;
+  border: black 1px solid;
+  background-color: #ECECEC; }
 
 /*-----------------------gameOver------------------------*/

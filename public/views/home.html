@@ -1,10 +1,15 @@
+<div ng-controller="WelcomeCtrl as ctrl">
+	<h2>{{ userName }}</h2>
+</div>
+
 <h1 class="homeTitle">Philatelist Face-Off</h1>
+
 <div class="categoty-cont">
-	<button class="categoryBtn">Americana</button>
-	<button class="categoryBtn">Famous American Leaders</button>
-	<button class="categoryBtn">Music History</button>
-	<button class="categoryBtn">Famous Quotes</button>
-	<button class="categoryBtn">US Presidents</button>
-	<button class="categoryBtn">Transportation</button>
-	<button class="categoryBtn">Animals</button>
+	<button class="categoryBtn" ng-click="categoryClick('Americana', userName)">Americana</button>
+	<button class="categoryBtn" ng-click="categoryClick('AmericanLeaders', userName)">Famous American Leaders</button>
+	<button class="categoryBtn" ng-click="categoryClick('MusicHistory', userName)">Music History</button>
+	<button class="categoryBtn" ng-click="categoryClick('FamousQuotes', userName)">Famous Quotes</button>
+	<button class="categoryBtn" ng-click="categoryClick('USPresidents', userName)">US Presidents</button>
+	<button class="categoryBtn" ng-click="categoryClick('Transportation', userName)">Transportation</button>
+	<button class="categoryBtn" ng-click="categoryClick('Animals', userName)">Animals</button>
 </div>

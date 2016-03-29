@@ -1,18 +1,33 @@
 angular.module('myApp')
 
 //Game Play ------------------
-.controller('gamePlayCtrl', ['$scope', '$rootScope', 'socket', function($scope, $rootScope, socket) {
-	
-	socket.emit('join:game', {
-			category : category,
-			userName : $rootScope.userName
-		});
-	socket.on('send:gameData', {
-		gameData: gameData
-	});
-	
-	console.log(gameData);
+.controller('gamePlayCtrl', ['$scope', '$rootScope', 'socket', 'welcomeModal', 'currentCategory', function($scope, $rootScope, socket, welcomeModal, currentCategory) {
+	console.log('gamePlayCtrl');
 
+	socket.emit('join', {
+			category : currentCategory.category,
+			userName : welcomeModal.userName
+		});
+	
+	socket.on('gameStarted', function(gameData) {
+		$scope.question = gameData.question,
+		$scope.answerCorrect = gameData.answerCorrect,
+		$scope.answer1 = gameData.answerA,
+		$scope.answer2 = gameData.answerB,
+		$scope.answer3 = gameData.answerC,
+
+		console.log(gameData);
+	});
+
+	this.submitAnswer = function(answer) {
+
+	};
+
+	
+	this.randomizeCorrectAnsNum = function() {
+		//min = 1 (inclusive), max= 5 (exclusive)
+  		return Math.floor(Math.random() * (5 - 1)) + 1;
+	};
 }])
 
 //Game Over ----------------------
@@ -21,31 +36,38 @@ angular.module('myApp')
 }])
 
 //Home Screen Categories -----------------
-.controller('HomeCtrl', ['$scope', '$location', '$rootScope', 'socket', 'welcomeModal', function($scope, $location, $rootScope, socket, welcomeModal) {
+.controller('HomeCtrl', ['$scope', '$location', '$rootScope', 'socket', 'welcomeModal', 'currentCategory', function($scope, $location, $rootScope, socket, welcomeModal, currentCategory) {
 	
+	$scope.welcomeModal = welcomeModal;
+	$scope.currentCategory = currentCategory;
+
 	var firstTimeUser = true;
-	welcomeModal.showModal = welcomeModal.activate;
+	$scope.showModal = welcomeModal.activate;
 	
 	if (firstTimeUser === true) {
 		$(document).ready(function() {
 			firstTimeUser = false;
-			welcomeModal.showModal(); 
+			$scope.showModal(); 
 		}); 
 	}
 
-	this.categoryClick = function(category, userName) {
-		$location.path('/gamePlay/' + category + '/' + userName);
+	$scope.categoryClick = function(category) {
+		currentCategory.category = category;
+		$location.path('/gamePlay/' + category + '/' + welcomeModal.userName);
 	};
 }])
 
 //Username/Welcome Modal --------------------------
 .controller('WelcomeCtrl', ['$scope', '$rootScope', 'socket', 'welcomeModal', function($scope, $rootScope, socket, welcomeModal) {
 	
-	welcomeModal.closeMe = welcomeModal.deactivate;
+	console.log(welcomeModal.userName);
 
-	this.submit = function() {
-		$rootScope.userName = this.userName;
-		welcomeModal.closeMe();
+	$scope.closeMe = welcomeModal.deactivate;
+
+	$scope.updateUserName = function(userName) {
+		welcomeModal.userName = userName;
+		console.log(welcomeModal.userName);
+		$scope.closeMe();
 	}; 
 
 }]);

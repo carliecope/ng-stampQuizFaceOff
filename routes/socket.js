@@ -1,62 +1,72 @@
+module.exports = function (io) {
 var uuid = require('node-uuid');
 
-var categories {
-	Americana : {
+var categories = {
+	Music : {
+		rooms: {},
+		openRoom: null 
+	},
+	Science : {
+		rooms: {},
+		openRoom: null 
+	},
+	Movies : {
+		rooms: {},
+		openRoom: null 
+	},
+	Aviation : {
+		rooms: {},
+		openRoom: null 
+	},
+	USPresidents : {
+		rooms: {},
+		openRoom: null 
+	},
+	Olympics : {
 		rooms: {},
 		openRoom: null 
 	}
-	AmericanLeaders : {
-		rooms: {},
-		openRoom: null 
-	}
-	MusicHistory : {
-		rooms: {},
-		openRoom: null 
-	}
-	FamousQuotes : {
-		rooms: {},
-		openRoom: null 
-	}
-	Transportation : {
-		rooms: {},
-		openRoom: null 
-	}
-	Animals : {
-		rooms: {},
-		openRoom: null 
-	}
-}
+};
 
 //Sample object returned from database
-var gameData {
-	stampImg: url('public/img/ET.jpg'),
+var gameData = {
+	stampImg: "url('public/img/ET.jpg')",
 	question: "In the movie ET, ten year old boy, Elliot, lures the alien to his bedroom using which candy?",
 	answerCorrect: "Reese's Pieces",
-	answer1: "M & M's",
-	answer2: "Skittles",
-	answer3: "Gum drops"
-}
+	answerA: "M & M's",
+	answerB: "Skittles",
+	answerC: "Gum drops"
+};
 
-socket:on('join:game', function(data) {
-	var category = categories[data.category];
-	
-	if (category.openRoom != null) {
-		
-		category.rooms[category.openRoom].player2 = data.userName; 
-		socket.join(category.openRoom);
-		io.to(category.openRoom);
+io.on('connection', function(socket) {
 
-		io.emit('send:gameData', {
-			gameData: gameData;
-		});
+	socket.on('join', function(data) {
+		var category = categories[data.category];
+		console.log(data);
 		
-		category.openRoom = null;
-	} else {
-		var roomId = uuid.v4();
-		category.rooms[roomId] = {};
-		category.rooms[roomId].player1 = data.userName;
-		socket.join(roomId);
-		io.to(roomId).emit("Awaiting player");
-		category.openRoom = roomId;
-	}
+		if (category.openRoom != null) {
+			
+			category.rooms[category.openRoom].player2 = data.userName; 
+			socket.join(category.openRoom);
+			io.to(category.openRoom);
+
+			console.log(category.openRoom);
+
+			io.emit('gameStarted', gameData);
+
+			category.openRoom = null;
+		} else {
+			var roomId = uuid.v4();
+			category.rooms[roomId] = {};
+			category.rooms[roomId].player1 = data.userName;
+			socket.join(roomId);
+			
+			io.to(roomId).emit('waiting', { roomId: roomId });
+			category.openRoom = roomId;
+
+			console.log(category.openRoom);
+		}
+	});
 });
+
+};

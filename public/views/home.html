@@ -1,15 +1,12 @@
-<div ng-controller="WelcomeCtrl as ctrl">
-	<h2>{{ userName }}</h2>
-</div>
+<h2 ng-bind="welcomeModal.userName"></h2>
 
 <h1 class="homeTitle">Philatelist Face-Off</h1>
 
 <div class="categoty-cont">
-	<button class="categoryBtn" ng-click="categoryClick('Americana', userName)">Americana</button>
-	<button class="categoryBtn" ng-click="categoryClick('AmericanLeaders', userName)">Famous American Leaders</button>
-	<button class="categoryBtn" ng-click="categoryClick('MusicHistory', userName)">Music History</button>
-	<button class="categoryBtn" ng-click="categoryClick('FamousQuotes', userName)">Famous Quotes</button>
-	<button class="categoryBtn" ng-click="categoryClick('USPresidents', userName)">US Presidents</button>
-	<button class="categoryBtn" ng-click="categoryClick('Transportation', userName)">Transportation</button>
-	<button class="categoryBtn" ng-click="categoryClick('Animals', userName)">Animals</button>
+	<button class="categoryBtn" ng-click="categoryClick('Music')">Music</button>
+	<button class="categoryBtn" ng-click="categoryClick('Science')">Science</button>
+	<button class="categoryBtn" ng-click="categoryClick('Movies')">Movies</button>
+	<button class="categoryBtn" ng-click="categoryClick('Aviation')">Aviation</button>
+	<button class="categoryBtn" ng-click="categoryClick('USPresidents')">US Presidents</button>
+	<button class="categoryBtn" ng-click="categoryClick('Olympics')">Olympics</button>
 </div>

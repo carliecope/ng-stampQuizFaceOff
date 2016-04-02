@@ -25,7 +25,7 @@
 		<img id="stampImg" src="img/ET.jpg">
 	</div>
 	<div class="question_cont">
-		<h2>What is the corrent answer for this stamp related question pertaining to the stamp at the left?</h2>
+		<h2>{{ question }}</h2>
 	</div>
 </div>
 
@@ -37,20 +37,11 @@
 		<div class="bar"> </div>
 	</div>
 	<div class="answers_cont">
-		<ul class="answer_list">
-			<li class="answer_cont">
-				<button class="answerBtn" id="answer1" ng-click="gamePlay.submitAnswer(answer1)">Answer 1</button>
-			</li>
-			<li class="answer_cont">
-				<button class="answerBtn" id="answer2" ng-click="gamePlay.submitAnswer(answer2)">Answer 2</button>
-			</li>
-			<li class="answer_cont">
-				<button class="answerBtn" id="answer3" ng-click="gamePlay.submitAnswer(answer3)">Answer 3</button>
-			</li>
-			<li class="answer_cont">
-				<button class="answerBtn" id="answer4" ng-click="gamePlay.submitAnswer(answer4)">Answer 4</button>
-			</li>
-		</ul>
+		<div class="answer_list">
+			<div class="answer_cont">
+				<button class="answerBtn" ng-repeat="answer in answerArray" ng-click="gamePlay.submitAnswer()">{{ answer.round.correct }}</button>
+			</div>
+		</div>
 	</div>
 	<div class="scoreBar">
 		<div class="bar"> </div>

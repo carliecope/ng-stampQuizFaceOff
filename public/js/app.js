@@ -21,7 +21,15 @@ angular.module('myApp', ['ngRoute', 'btford.socket-io', 'btford.modal'])
 		return btfModal({
 			controller: 'WelcomeCtrl',
 			controllerAs: 'welcome',
-			templateUrl: 'views/welcome.html',
+			templateUrl: 'views/welcome.html'
+		});
+	})
+	.factory('loadingModal', function(btfModal) {
+
+		return btfModal({
+			controller: 'LoadingCtrl',
+			controllerAs: 'loading',
+			templateUrl: 'views/loading.html'
 		});
 	})
 	.factory('currentCategory', function() {
@@ -88,3 +96,5 @@ angular.module('myApp', ['ngRoute', 'btford.socket-io', 'btford.modal'])
 			}
 		};
 	});
+
+

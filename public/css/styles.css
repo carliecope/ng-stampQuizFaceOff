@@ -1,3 +1,4 @@
+@import url(https://fonts.googleapis.com/css?family=Coming+Soon);
 html {
   box-sizing: border-box; }
 
@@ -6,7 +7,8 @@ html {
 
 html {
   box-sizing: border-box;
-  list-style-type: none; }
+  list-style-type: none;
+  font-family: 'Coming Soon', cursive; }
 
 *, *:before, *:after {
   box-sizing: inherit; }
@@ -22,7 +24,8 @@ a:hover, a:active {
 #gameArea {
   max-width: 68em;
   margin-left: auto;
-  margin-right: auto; }
+  margin-right: auto;
+  height: 100%; }
   #gameArea::after {
     clear: both;
     content: "";
@@ -43,6 +46,65 @@ a:hover, a:active {
   padding: 0.5em;
   margin: 0.5em 0;
   font-size: 1em; }
+
+/*-----------------------Welcome Modal------------------------*/
+.btf-modal {
+  background-image: url("../img/Postcard.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  padding: 4em;
+  position: fixed;
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 65.88078%;
+  margin-left: 17.05961%;
+  height: 100%;
+  /*background-color: #f1c40f;*/
+  /* needed styles for the overlay */
+  z-index: 10;
+  /* keep on top of other elements on the page */
+  outline: 9999px solid rgba(0, 0, 0, 0.5); }
+  .btf-modal:last-child {
+    margin-right: 0; }
+
+.welcome_text {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 48.82117%;
+  height: 100%; }
+  .welcome_text:last-child {
+    margin-right: 0; }
+
+.welcome {
+  color: red;
+  font-size: 3em;
+  margin: 2em 0 1em 0; }
+
+.form_cont {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 48.82117%;
+  padding: 0 4em 0 4em;
+  overflow: hidden;
+  margin: 14em 0; }
+  .form_cont:last-child {
+    margin-right: 0; }
+
+.userName_input {
+  width: 100%;
+  margin: 0 auto;
+  line-height: 4em; }
+
+.submitBtn_cont {
+  width: 100%;
+  overflow: hidden;
+  margin: 2em 0; }
+
+#userSubmitBtn {
+  float: right; }
 
 /*-----------------------gamePlay------------------------*/
 .header {

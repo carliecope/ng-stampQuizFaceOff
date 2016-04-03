@@ -93,8 +93,12 @@ module.exports = function (io) {
 				category.rooms[roomId] = {};
 				category.rooms[roomId].player1 = data.userName;
 				socket.join(roomId);
-				
-				io.to(roomId).emit('waiting', { roomId: roomId });
+
+				var waiting = true;
+				io.to(roomId).emit({ 
+					roomId: roomId,
+					waiting: waiting
+				});
 				category.openRoom = roomId;
 
 				console.log(category.openRoom);
@@ -103,10 +107,10 @@ module.exports = function (io) {
 		socket.on('sendAnsFeedback', function(data) {
 
 			io.to(data.roomId).emit('getOpponentFeedback', {
-					userName: data.userName,
-					score: data.score,
-					isCorrect: data.isCorrect
-				});
+				userName: data.userName,
+				score: data.score,
+				isCorrect: data.isCorrect
+			});
 		});
 	});
 };

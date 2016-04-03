@@ -3,14 +3,12 @@ angular.module('myApp')
 //Game Play ------------------
 .controller('gamePlayCtrl', ['$scope', '$rootScope', 'socket', 'welcomeModal', 'currentCategory', 'gameData', function($scope, $rootScope, socket, welcomeModal, currentCategory, gameData) {
 	console.log('in gamePlayCtrl');
-	console.log(gameData);
+	console.log(gameCopy);
 
 	$scope.currentAnswer = "";
 	$scope.currentRound = 1;
 	
-	setGameRounds(gameData.gameInfo);
-
-	gameData.setPlayer1Name(welcomeModal.userName);
+	$scope.setGameRounds(gameData.gameCopy);
 
 	/*
 	socket.emit('join', {
@@ -93,40 +91,53 @@ angular.module('myApp')
 }])
 
 //Game Over ----------------------
-.controller('gameOverCtrl', ['$scope', 'socket', function($scope, socket) {
+.controller('GameOverCtrl', ['$scope', 'socket', function($scope, socket) {
 
 }])
 
 //Home Screen Categories -----------------
-.controller('HomeCtrl', ['$scope', '$location', '$rootScope', '$q', '$timeout', 'socket', 'welcomeModal', 'currentCategory', 'gameData', function($scope, $location, $rootScope, $q, $timeout, socket, welcomeModal, currentCategory, gameData) {
-	
+.controller('HomeCtrl', ['$scope', '$location', '$rootScope', '$q', '$timeout', 'socket', 'welcomeModal', 'currentCategory', 'gameData', 'loadingModal', function($scope, $location, $rootScope, $q, $timeout, socket, welcomeModal, loadingModal, currentCategory, gameData) {
+	console.log('home controller');
+	console.log(gameData.firstTimeUser);
+	console.log(gameData.player2);
 	$scope.welcomeModal = welcomeModal;
 	$scope.currentCategory = currentCategory;
-	$scope.userName = gameData.getPlayer1Name();
+	$scope.gameData = gameData;
 
-	$scope.showModal = welcomeModal.activate;
+	$scope.showWelcome = welcomeModal.activate;
+	$scope.showLoading = loadingModal.activate;
 
-	if (gameData.getFirstTimeUser()) {
-		$scope.showModal(); 
+	//var firstTimeUser = gameData.getFirstTimeUser();
+
+	if (true) {
+		$scope.showWelcome(); 
 	}
+	//$scope.userName = gameData.getPlayer1Name();
 
 	function wait() {
 		var defer = $q.defer();
 		$timeout(function() {
 			defer.resolve();
-		}, 6000);
+		}, 2000);
 		return defer.promise;
+    }
+    function notifyUser() {
+
     }
 
 	$scope.categoryClick = function(category) {
 		currentCategory.category = category;
 
+		var userName = gameData.getPlayer1Name();
+
 		socket.emit('join', {
 			category : currentCategory.category,
-			userName : welcomeModal.userName
+			userName : userName
 		});
 
 		wait().then(function() {
+
+		}).then(function() {
 			$location.path('/gamePlay/' + category + '/' + welcomeModal.userName);
 		});
 	};
@@ -134,11 +145,9 @@ angular.module('myApp')
 	socket.on('gameStarted', function(response) {
 		gameData.gameCopy = response;
 
-		if (response.player1 === welcomeModal.userName) {
-			gameData.player1.name = response.player1;
+		if (response.player1 === $scope.userName) {
 			gameData.player2.name = response.player2;
 		} else {
-			gameData.player1.name = response.player2;
 			gameData.player2.name = response.player1;
 		}
 
@@ -160,4 +169,11 @@ angular.module('myApp')
 		$scope.closeMe();
 	}; 
 
+}])
+//Username/Loading Modal --------------------------
+.controller('LoadingCtrl', ['$scope', '$rootScope', 'socket', 'loadingModal', function($scope, $rootScope, socket, loadingModal) {
+
+	$scope.closeMe = loadingModal.deactivate;
+
 }]);
+

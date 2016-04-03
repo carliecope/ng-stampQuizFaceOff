@@ -1,5 +1,6 @@
 @import "bourbon";
 @import "neat";
+@import url(https://fonts.googleapis.com/css?family=Coming+Soon);
 
 $red: #E4001B;
 $dark_blue: #6194BC;
@@ -12,6 +13,7 @@ $gray: #606060;
 html {
   box-sizing: border-box;
   list-style-type: none;
+  font-family: 'Coming Soon', cursive;
 }
 *, *:before, *:after {
   box-sizing: inherit;
@@ -27,6 +29,7 @@ a:hover, a:active {
 }
 #gameArea {
 	@include outer-container;
+  height: 100%;
 }
 /*-----------------------Home------------------------*/
 .homeTitle {
@@ -44,7 +47,53 @@ a:hover, a:active {
   margin: 0.5em 0;
   font-size: 1em;
 }
+/*-----------------------Welcome Modal------------------------*/
+.btf-modal {
+  background-image: url("../img/Postcard.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  padding: 4em;
 
+  position: fixed;
+  @include span-columns(8);
+  @include shift(2);
+  height: 100%;
+
+  /*background-color: #f1c40f;*/
+  
+  /* needed styles for the overlay */
+  z-index: 10; /* keep on top of other elements on the page */
+  outline: 9999px solid rgba(0,0,0,0.5);
+}
+.welcome_text {
+  @include span-columns(6);
+  height: 100%;
+}
+.welcome {
+  color: red;
+  font-size: 3em;
+  margin: 2em 0 1em 0
+}
+
+.form_cont {
+  @include span-columns(6);
+  padding: 0 4em 0 4em;
+  overflow: hidden;
+  margin: 14em 0;
+}
+.userName_input {
+  width: 100%;
+  margin: 0 auto;
+  line-height: 4em;
+}
+.submitBtn_cont {
+  width: 100%;
+  overflow: hidden;
+  margin: 2em 0;
+}
+#userSubmitBtn {
+  float: right;
+}
 /*-----------------------gamePlay------------------------*/
 .header {
   @include fill-parent;

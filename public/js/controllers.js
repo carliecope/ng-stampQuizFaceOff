@@ -3,16 +3,22 @@ angular.module('myApp')
 //Game Play ------------------
 .controller('gamePlayCtrl', ['$scope', '$rootScope', 'socket', 'welcomeModal', 'currentCategory', 'gameData', function($scope, $rootScope, socket, welcomeModal, currentCategory, gameData) {
 	console.log('in gamePlayCtrl');
+	console.log(gameData);
+
 	$scope.currentAnswer = "";
 	$scope.currentRound = 1;
+	
+	setGameRounds(gameData.gameInfo);
 
 	gameData.setPlayer1Name(welcomeModal.userName);
 
+	/*
 	socket.emit('join', {
-			category : currentCategory.category,
-			userName : welcomeModal.userName
-		});
+		category : currentCategory.category,
+		userName : welcomeModal.userName
+	}); */
 	
+	/*
 	socket.on('gameStarted', function(response) {
 		console.log(response);
 		$scope.round1 = response.round1;
@@ -22,25 +28,25 @@ angular.module('myApp')
 		gameData.player1.name = response.player1;
 		gameData.player2.name = response.player2;
 		gameData.roomId.roomId = response.category.openRoom;
-	});
+	}); */
 
 	socket.on('getOpponentFeedback', function(response) {
 		if (response.userName != welcomeModal.userName) {
-			gameData.setPlayer2Name(response.userName);
 			gameData.setPlayer2Score(response.score);
-		};
+		}
 	});
 
 	$scope.submitAnswer = function(answer) {
 		var isCorrect = null;
+
 		if ($scope.currentAnswer === $scope['round' + $scope.currentRound]) {
 			isCorrect = true;
 		} else {
 			isCorrect = false;
 		}
 
-		socket.emit('answerFeedback', {
-			userName: users.player1.name,
+		socket.emit('sendAnsFeedback', {
+			userName: gameData.getPlayer1Name(),
 			roomId: gameData.roomId.roomId,
 			score: users.player1.score,
 			isCorrect: isCorrect
@@ -52,6 +58,17 @@ angular.module('myApp')
 
 		$scope.question = round.question;
 		$scope.answerArray = $scope.shuffleAnswers([round.correct, round.ans1, round.ans2, round.ans3]);
+	};
+
+	$scope.countdownTick = function() {
+
+	};
+
+	$scope.setGameRounds = function(gameInfo) {
+		$scope.round1 = gameInfo.round1;
+		$scope.round2 = gameInfo.round2;
+		$scope.round3 = gameInfo.round3;
+		$scope.round4 = gameInfo.round4;
 	};
 
 	$scope.shuffleAnswers = function(array) {
@@ -81,46 +98,65 @@ angular.module('myApp')
 }])
 
 //Home Screen Categories -----------------
-.controller('HomeCtrl', ['$scope', '$location', '$rootScope', '$q', '$timeout', 'socket', 'welcomeModal', 'currentCategory', function($scope, $location, $rootScope, $q, $timeout, socket, welcomeModal, currentCategory) {
+.controller('HomeCtrl', ['$scope', '$location', '$rootScope', '$q', '$timeout', 'socket', 'welcomeModal', 'currentCategory', 'gameData', function($scope, $location, $rootScope, $q, $timeout, socket, welcomeModal, currentCategory, gameData) {
 	
 	$scope.welcomeModal = welcomeModal;
 	$scope.currentCategory = currentCategory;
+	$scope.userName = gameData.getPlayer1Name();
 
-	var firstTimeUser = true;
 	$scope.showModal = welcomeModal.activate;
-	
-	if (firstTimeUser === true) {
-		$(document).ready(function() {
-			firstTimeUser = false;
-			$scope.showModal(); 
-		}); 
+
+	if (gameData.getFirstTimeUser()) {
+		$scope.showModal(); 
 	}
 
 	function wait() {
 		var defer = $q.defer();
 		$timeout(function() {
 			defer.resolve();
-		}, 2000);
+		}, 6000);
 		return defer.promise;
     }
 
 	$scope.categoryClick = function(category) {
 		currentCategory.category = category;
-		
+
+		socket.emit('join', {
+			category : currentCategory.category,
+			userName : welcomeModal.userName
+		});
+
 		wait().then(function() {
 			$location.path('/gamePlay/' + category + '/' + welcomeModal.userName);
-		})
+		});
 	};
+
+	socket.on('gameStarted', function(response) {
+		gameData.gameCopy = response;
+
+		if (response.player1 === welcomeModal.userName) {
+			gameData.player1.name = response.player1;
+			gameData.player2.name = response.player2;
+		} else {
+			gameData.player1.name = response.player2;
+			gameData.player2.name = response.player1;
+		}
+
+		gameData.roomId.roomId = response.category.openRoom;
+
+		console.log(gameData.gameCopy);
+	});
 }])
 
 //Username/Welcome Modal --------------------------
-.controller('WelcomeCtrl', ['$scope', '$rootScope', 'socket', 'welcomeModal', function($scope, $rootScope, socket, welcomeModal) {
+.controller('WelcomeCtrl', ['$scope', '$rootScope', 'socket', 'welcomeModal', 'gameData', function($scope, $rootScope, socket, welcomeModal, gameData) {
 
 	$scope.closeMe = welcomeModal.deactivate;
 
 	$scope.updateUserName = function(userName) {
-		welcomeModal.userName = userName;
-		console.log(welcomeModal.userName);
+		gameData.setFirstTimeUser(false);
+		gameData.setPlayer1Name(userName);
+		
 		$scope.closeMe();
 	}; 
 

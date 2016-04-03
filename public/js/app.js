@@ -17,30 +17,39 @@ angular.module('myApp', ['ngRoute', 'btford.socket-io', 'btford.modal'])
 		return socketFactory();
 	})
 	.factory('welcomeModal', function(btfModal) {
+
 		return btfModal({
 			controller: 'WelcomeCtrl',
 			controllerAs: 'welcome',
 			templateUrl: 'views/welcome.html',
-			userName: ""
 		});
 	})
 	.factory('currentCategory', function() {
 		return {
 			category: ""
-		}
+		};
 	})
 	.factory('gameData', function() {
+		var firstTimeUser = true;
+		var gameCopy = {};
+
 		var player1 = {
 			name: "",
 			score: ""
-		}
+		};
 		var player2 = {
 			name: "",
 			score: ""
-		}
+		};
 		var roomId = "";
 
 		return {
+			setFirstTimeUser: function(value) {
+				firstTimeUser = value;
+			},
+			setGameInfo: function(response) {
+				gameCopy = response;
+			},
 			setPlayer1Name: function(name) {
 				player1.name = name;
 			},
@@ -55,6 +64,12 @@ angular.module('myApp', ['ngRoute', 'btford.socket-io', 'btford.modal'])
 			},
 			setRoomId: function(roomId) {
 				roomId = roomId;
+			},
+			getFirstTimeUser: function() {
+				return firstTimeUser;
+			},
+			getGameInfo: function() {
+				return gameCopy;
 			},
 			getRoomId: function() {
 				return roomId;

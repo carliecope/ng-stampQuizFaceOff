@@ -100,7 +100,7 @@ module.exports = function (io) {
 				console.log(category.openRoom);
 			}
 		});
-		socket.on('answerFeedback', function(data) {
+		socket.on('sendAnsFeedback', function(data) {
 
 			io.to(data.roomId).emit('getOpponentFeedback', {
 					userName: data.userName,

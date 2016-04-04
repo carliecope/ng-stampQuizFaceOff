@@ -1,4 +1,4 @@
-angular.module('myApp', ['ngRoute', 'btford.socket-io', 'btford.modal'])
+angular.module('myApp', ['ngRoute', 'btford.socket-io', 'btford.modal', 'ngAnimate'])
 	.config(['$routeProvider', function($routeProvider) {
 		$routeProvider.when('/', {
 			templateUrl: 'views/home.html',

@@ -1,12 +1,30 @@
-<h2 ng-bind="userName"></h2>
-
 <h1 class="homeTitle">Philatelist Face-Off</h1>
 
+<h2 ng-bind="userName"></h2>
+
 <div class="categoty-cont">
-	<button class="categoryBtn" ng-click="categoryClick('Music')">Music</button>
-	<button class="categoryBtn" ng-click="categoryClick('Science')">Science</button>
-	<button class="categoryBtn" ng-click="categoryClick('Movies')">Movies</button>
-	<button class="categoryBtn" ng-click="categoryClick('Aviation')">Aviation</button>
-	<button class="categoryBtn" ng-click="categoryClick('USPresidents')">US Presidents</button>
-	<button class="categoryBtn" ng-click="categoryClick('Olympics')">Olympics</button>
+	<span class="categoryBtn_cont" ng-click="categoryClick('Music')">
+		<img class="stamp_outline"src="../img/stpBorder_dkBlue.png">
+		<h2 class="category">Music</h2>
+	</span>
+	<span class="categoryBtn_cont" ng-click="categoryClick('Science')">
+		<img class="stamp_outline" src="../img/stpBorder_dkBlue.png">
+		<h2 class="category">Science</h2>
+	</span>
+	<span class="categoryBtn_cont" ng-click="categoryClick('Movies')">
+		 <img class="stamp_outline" src="../img/stpBorder_dkBlue.png">
+		 <h2 class="category">Movies</h2>
+	</span>
+	<span class="categoryBtn_cont" ng-click="categoryClick('Aviation')">
+		<img class="stamp_outline" src="../img/stpBorder_dkBlue.png">
+		<h2 class="category">Aviation</h2>
+	</span>
+	<span class="categoryBtn_cont" ng-click="categoryClick('USPresidents')">
+		<img class="stamp_outline" src="../img/stpBorder_dkBlue.png">
+		<h2 class="category">US Presidents</h2>
+	</span>
+	<span class="categoryBtn_cont" ng-click="categoryClick('Olympics')">
+		<img class="stamp_outline" src="../img/stpBorder_dkBlue.png">
+		<h2 class="category">Olympics</h2>
+	</span>
 </div>

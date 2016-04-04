@@ -96,7 +96,7 @@ angular.module('myApp')
 }])
 
 //Home Screen Categories -----------------
-.controller('HomeCtrl', ['$scope', '$location', '$rootScope', '$q', '$timeout', 'socket', 'welcomeModal', 'currentCategory', 'gameData', 'loadingModal', function($scope, $location, $rootScope, $q, $timeout, socket, welcomeModal, loadingModal, currentCategory, gameData) {
+.controller('HomeCtrl', ['$scope', '$location', '$rootScope', '$q', '$timeout', 'socket', 'welcomeModal', 'currentCategory', 'gameData', 'loadingModal', function($scope, $location, $rootScope, $q, $timeout, socket, welcomeModal, currentCategory, gameData, loadingModal) {
 	console.log('home controller');
 	console.log(gameData.firstTimeUser);
 	console.log(gameData.player2);
@@ -107,12 +107,12 @@ angular.module('myApp')
 	$scope.showWelcome = welcomeModal.activate;
 	$scope.showLoading = loadingModal.activate;
 
-	//var firstTimeUser = gameData.getFirstTimeUser();
+	var firstTimeUser = gameData.getFirstTimeUser();
 
-	if (true) {
+	if (firstTimeUser) {
 		$scope.showWelcome(); 
 	}
-	//$scope.userName = gameData.getPlayer1Name();
+	$scope.userName = gameData.getPlayer1Name();
 
 	function wait() {
 		var defer = $q.defer();

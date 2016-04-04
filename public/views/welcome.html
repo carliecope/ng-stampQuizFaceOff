@@ -1,17 +1,15 @@
 <div class="btf-modal">
 	<div class="welcome_text">
 		<h3 class="welcome">Greetings!</h3>
-		<p>Welcome to Philatelist Face-Off, a quiz game all about stamp trivia. <br> Please create a username:</p>
+		<p class="wel_instruction">Welcome to Philatelist Face-Off - a pair-player quiz game all about stamp-related trivia. Please create a username:</p>
 	</div>
 	<div class="form_cont">
 		<form name="usernameForm" ng-submit="updateUserName(userName)">
-			<input class="userName_input" type=text name="userName" ng-model="userName" required>
+			<input class="userName_input" type=text name="userName" ng-model="userName" placeholder="e.g. stampChamp" required>
 			<div class="submitBtn_cont">
 				<input type="submit" id="userSubmitBtn">
 			</div>
 			
 		</form>
 	</div>
-	
-
 </div>

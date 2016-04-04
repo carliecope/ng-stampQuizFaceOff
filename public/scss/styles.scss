@@ -24,10 +24,12 @@ a:link, a:visited {
     text-decoration: none;
     color: #2A221E;
 }
-
 a:hover, a:active {
     text-decoration: none;
     color: #2A221E;
+}
+body {
+  height: 100%;
 }
 #gameArea {
 	@include outer-container;
@@ -35,6 +37,12 @@ a:hover, a:active {
   height: 100%;
 }
 /*-----------------------Home------------------------*/
+.userName_bar {
+  @include fill-parent;
+  text-align: center;
+  overflow: hidden;
+  background-color: white;
+}
 .homeTitle {
 	@include fill-parent;
 	text-align: center;
@@ -66,31 +74,33 @@ a:hover, a:active {
 
 /*-----------------------Welcome Modal------------------------*/
 .btf-modal {
-  background-image: url("../img/Postcard.jpg");
-  background-repeat: no-repeat;
-  background-size: 100%;
-  background-color: white;
-  padding: 4em;
-
-  position: fixed;
   @include span-columns(8);
   @include shift(2);
+  @include omega();
+  position: fixed;
   height: 100%;
-
-  /*background-color: #f1c40f;*/
+  background-color: $off-white;
   
   /* needed styles for the overlay */
   z-index: 10; /* keep on top of other elements on the page */
   outline: 9999px solid rgba(0,0,0,0.5);
 }
+.img_holder {
+  @include fill-parent;
+  background-image: url("../img/Postcard.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden; 
+}
 .welcome_text {
   @include span-columns(6);
   height: 100%;
+  padding-left: 4em;
 }
 .welcome {
     color: $red;
     font-size: 3em;
-    margin: 1.5em 0 0.5em 0
+    margin: 4em 0 0.5em 0
 }
 .wel_instruction {
   font-size: 1em;
@@ -99,12 +109,16 @@ a:hover, a:active {
   padding: 0.5em;
   border-radius: 0.8em; 
 }
-
 .form_cont {
   @include span-columns(6);
-  padding: 0 4em 0 4em;
+  padding-right: 6em;
+  padding-left: 2em;
   overflow: hidden;
   margin: 14em 0;
+  height: 100%;
+}
+.usernameForm {
+  padding: 0 2em;
 }
 .userName_input {
   width: 100%;

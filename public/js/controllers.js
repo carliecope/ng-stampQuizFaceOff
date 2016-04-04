@@ -97,23 +97,23 @@ angular.module('myApp')
 
 //Home Screen Categories -----------------
 .controller('HomeCtrl', ['$scope', '$location', '$rootScope', '$q', '$timeout', 'socket', 'welcomeModal', 'currentCategory', 'gameData', 'loadingModal', function($scope, $location, $rootScope, $q, $timeout, socket, welcomeModal, currentCategory, gameData, loadingModal) {
-	console.log('home controller');
-	console.log(gameData.firstTimeUser);
-	console.log(gameData.player2);
+	//Dependancies
 	$scope.welcomeModal = welcomeModal;
 	$scope.currentCategory = currentCategory;
 	$scope.gameData = gameData;
 
+	//Modal Activation methods
 	$scope.showWelcome = welcomeModal.activate;
 	$scope.showLoading = loadingModal.activate;
 
+	//Show Welcome modal if first time user
 	var firstTimeUser = gameData.getFirstTimeUser();
 
 	if (firstTimeUser) {
 		$scope.showWelcome(); 
 	}
-	$scope.userName = gameData.getPlayer1Name();
-
+	
+	//Handle category selection 
 	function wait() {
 		var defer = $q.defer();
 		$timeout(function() {
@@ -124,7 +124,6 @@ angular.module('myApp')
     function notifyUser() {
 
     }
-
 	$scope.categoryClick = function(category) {
 		currentCategory.category = category;
 

@@ -154,6 +154,75 @@ input[type="text"] {
     cursor: pointer;
   }
 }
+/*-----------------------preGame------------------------*/
+
+/*------------top----------*/
+.top_half {
+  @include fill-parent;
+}
+.player1_cont {
+  @include span-columns(6);
+  margin-top: 15em;
+  bottom: 0;
+  border: 1px black solid;
+}
+#player1_icon {
+  display: inline;
+}
+.player1_name {
+  display: inline;
+}
+/*------------divide----------*/
+.divider_cont {
+  @include fill-parent;
+  overflow: hidden;
+  border: 1px black solid;
+}
+.icon_holder {
+  @include span-columns(2);
+  @include shift(5);
+}
+.versus_text {
+  @include span-columns(2);
+  @include shift(5);
+  padding: 1em;
+  border: 5px black solid;
+  border-radius: 50%;
+}
+#mail_icon {
+  margin: 0 auto;
+}
+/*------------bottom----------*/
+.bottom_half {
+  @include fill-parent;
+}
+.player2_cont {
+  @include span-columns(6);
+  @include shift(6);
+  border: 1px black solid;
+  top: 0;
+}
+.player2_name {
+  display: inline;
+}
+/*---no opponent----*/
+.play_solo_ask {
+  @include fill-parent;
+  text-align: center;
+}
+.btn_cont {
+  @include fill-parent;
+}
+#playSoloBtn {
+    padding: 0.5em;
+    margin: 0.5em 0;
+    font-size: 1em;
+}
+#waitBtn {
+    padding: 0.5em;
+    margin: 0.5em 0;
+    font-size: 1em;
+}
 /*-----------------------gamePlay------------------------*/
 .header {
   @include fill-parent;

@@ -5,16 +5,21 @@ angular.module('myApp', ['ngRoute', 'btford.socket-io', 'btford.modal', 'ngAnima
 			controller: 'HomeCtrl as home'
 		}).when('/gamePlay/:category/:userName', {
 			templateUrl: 'views/gamePlay.html',
-			controller: 'gamePlayCtrl as gamePlay'
+			controller: 'GamePlayCtrl as gamePlay'
 		}).when('/gameOver', {
 			templateUrl: 'views/gameOver.html',
-			controller: 'gameOverCtrl as gameOver'
+			controller: 'GameOverCtrl as gameOver'
+		}).when('/preGame', {
+			templateUrl: 'views/preGame.html',
+			controller: 'PregameCtrl as preGame'
 		}).otherwise('error', {
 			template: '<p>Error - Page not Found</p>'
 		});
 	}])
 	.factory('socket', function(socketFactory) {
-		return socketFactory();
+		var mySocket = socketFactory();
+		mySocket.forward('gameStarted');
+		return mySocket;
 	})
 	.factory('welcomeModal', function(btfModal) {
 
@@ -24,12 +29,12 @@ angular.module('myApp', ['ngRoute', 'btford.socket-io', 'btford.modal', 'ngAnima
 			templateUrl: 'views/welcome.html'
 		});
 	})
-	.factory('loadingModal', function(btfModal) {
+	.factory('countDownModal', function(btfModal) {
 
 		return btfModal({
-			controller: 'LoadingCtrl',
-			controllerAs: 'loading',
-			templateUrl: 'views/loading.html'
+			controller: 'CountDownCtrl',
+			controllerAs: 'countDown',
+			templateUrl: 'views/roundCountDown.html'
 		});
 	})
 	.factory('currentCategory', function() {

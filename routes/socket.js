@@ -84,8 +84,9 @@ module.exports = function (io) {
 
 				response.player1 = room.player1;
 				response.player2 = room.player2;
+				response.roomId = category.openRoom;
 
-				io.emit('gameStarted', response, category.openRoom);
+				io.emit('gameStarted', response);
 
 				category.openRoom = null;
 			} else {
@@ -95,7 +96,7 @@ module.exports = function (io) {
 				socket.join(roomId);
 
 				var waiting = true;
-				io.to(roomId).emit({ 
+				io.to(roomId).emit('gameStarted', { 
 					roomId: roomId,
 					waiting: waiting
 				});

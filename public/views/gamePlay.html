@@ -2,7 +2,7 @@
 	<div class="header_element">
 		<img id="playerOneIcon " src="">
 		<div id="playerOneInfo">
-			<h3>Player 1</h3>
+			<h3 ng-bind="gameData.getPlayer1Name()"></h3>
 			<p>Points: {{}}</p>
 		</div>
 	</div>
@@ -14,7 +14,7 @@
 	</div>
 	<div class="header_element">
 		<div id="playerOneInfo">
-			<h3>Player 2</h3>
+			<h3 ng-bind="gameData.getPlayer2Name()"></h3>
 			<p>Points: {{}}</p>
 		</div>
 		<img id="playerTwoIcon " src="">

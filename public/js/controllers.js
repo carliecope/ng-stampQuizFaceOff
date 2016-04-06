@@ -1,32 +1,15 @@
 angular.module('myApp')
 
 //Game Play ------------------
-.controller('gamePlayCtrl', ['$scope', '$rootScope', 'socket', 'welcomeModal', 'currentCategory', 'gameData', function($scope, $rootScope, socket, welcomeModal, currentCategory, gameData) {
-	console.log('in gamePlayCtrl');
-	console.log(gameCopy);
+.controller('GamePlayCtrl', ['$scope', '$rootScope', 'socket', 'welcomeModal', 'gamePauseModal', 'currentCategory', 'gameData', function($scope, $rootScope, socket, welcomeModal, gamePauseModal, currentCategory, gameData) {
+	console.log(gameData.gameCopy);
 
+	//Game state variables
 	$scope.currentAnswer = "";
 	$scope.currentRound = 1;
-	
-	$scope.setGameRounds(gameData.gameCopy);
 
-	/*
-	socket.emit('join', {
-		category : currentCategory.category,
-		userName : welcomeModal.userName
-	}); */
-	
-	/*
-	socket.on('gameStarted', function(response) {
-		console.log(response);
-		$scope.round1 = response.round1;
-		$scope.round2 = response.round2;
-		$scope.round3 = response.round3;
-		$scope.round4 = response.round4;
-		gameData.player1.name = response.player1;
-		gameData.player2.name = response.player2;
-		gameData.roomId.roomId = response.category.openRoom;
-	}); */
+	//Set game round info 
+	$scope.setGameRounds(gameData.gameCopy);
 
 	socket.on('getOpponentFeedback', function(response) {
 		if (response.userName != welcomeModal.userName) {
@@ -96,7 +79,7 @@ angular.module('myApp')
 }])
 
 //Home Screen Categories -----------------
-.controller('HomeCtrl', ['$scope', '$location', '$rootScope', '$q', '$timeout', 'socket', 'welcomeModal', 'currentCategory', 'gameData', 'loadingModal', function($scope, $location, $rootScope, $q, $timeout, socket, welcomeModal, currentCategory, gameData, loadingModal) {
+.controller('HomeCtrl', ['$scope', '$location', '$q', '$timeout', 'socket', 'welcomeModal', 'currentCategory', 'gameData', function($scope, $location, $q, $timeout, socket, welcomeModal, currentCategory, gameData) {
 	//Dependancies
 	$scope.welcomeModal = welcomeModal;
 	$scope.currentCategory = currentCategory;
@@ -104,7 +87,6 @@ angular.module('myApp')
 
 	//Modal Activation methods
 	$scope.showWelcome = welcomeModal.activate;
-	$scope.showLoading = loadingModal.activate;
 
 	//Show Welcome modal if first time user
 	var firstTimeUser = gameData.getFirstTimeUser();
@@ -133,31 +115,33 @@ angular.module('myApp')
 			category : currentCategory.category,
 			userName : userName
 		});
-
-		wait().then(function() {
-
-		}).then(function() {
-			$location.path('/gamePlay/' + category + '/' + welcomeModal.userName);
-		});
 	};
 
-	socket.on('gameStarted', function(response) {
-		gameData.gameCopy = response;
+	$scope.$on('socket:gameStarted', function(e, response) {
+		if (!response.waiting) {
+			gameData.setGameInfo(response);
 
-		if (response.player1 === $scope.userName) {
-			gameData.player2.name = response.player2;
+			if (response.player1 === $scope.userName) {
+				gameData.setPlayer2Name(response.player2);
+			} else {
+				gameData.setPlayer2Name(response.player1);
+			}
+
+			gameData.setRoomId(response.roomId);
+			console.log(response);
+
+			$location.path('/preGame');
 		} else {
-			gameData.player2.name = response.player1;
+			gameData.setGameInfo(response);
+			gameData.setRoomId(response.roomId);
+			$location.path('/preGame');
+			console.log(response);
 		}
-
-		gameData.roomId.roomId = response.category.openRoom;
-
-		console.log(gameData.gameCopy);
 	});
 }])
 
 //Username/Welcome Modal --------------------------
-.controller('WelcomeCtrl', ['$scope', '$rootScope', 'socket', 'welcomeModal', 'gameData', function($scope, $rootScope, socket, welcomeModal, gameData) {
+.controller('WelcomeCtrl', ['$scope', 'socket', 'welcomeModal', 'gameData', function($scope, socket, welcomeModal, gameData) {
 
 	$scope.closeMe = welcomeModal.deactivate;
 
@@ -167,12 +151,14 @@ angular.module('myApp')
 		
 		$scope.closeMe();
 	}; 
+}])
+//Round Countdown Modal --------------------------
+.controller('CountDownCtrl', ['$scope', 'socket', 'countDownModal', 'gameData', function($scope, socket, countDownModal, gameData) {
+
+	$scope.closeMe = gamePauseModal.deactivate;
+	$scope.closeMe();
 
 }])
-//Username/Loading Modal --------------------------
-.controller('LoadingCtrl', ['$scope', '$rootScope', 'socket', 'loadingModal', function($scope, $rootScope, socket, loadingModal) {
-
-	$scope.closeMe = loadingModal.deactivate;
+.controller('PregameCtrl', ['$scope', 'socket', 'gameData', function($scope, socket, gameData) {
 
 }]);
-

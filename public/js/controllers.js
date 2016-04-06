@@ -1,6 +1,79 @@
 angular.module('myApp')
 
-//Game Play ------------------
+//Username/Welcome Modal --------------------------
+.controller('WelcomeCtrl', ['$scope', 'socket', 'welcomeModal', 'gameData', function($scope, socket, welcomeModal, gameData) {
+
+	$scope.closeMe = welcomeModal.deactivate;
+
+	$scope.updateUserName = function(userName) {
+		gameData.setFirstTimeUser(false);
+		gameData.setPlayer1Name(userName);
+		
+		$scope.closeMe();
+	}; 
+}])
+//Home Screen Categories -----------------------------
+.controller('HomeCtrl', ['$scope', '$location', '$q', '$timeout', 'socket', 'welcomeModal', 'currentCategory', 'gameData', function($scope, $location, $q, $timeout, socket, welcomeModal, currentCategory, gameData) {
+	//Dependancies
+	$scope.welcomeModal = welcomeModal;
+	$scope.currentCategory = currentCategory;
+	$scope.gameData = gameData;
+
+	//Modal Activation methods
+	$scope.showWelcome = welcomeModal.activate;
+
+	//Show Welcome modal if first time user
+	var firstTimeUser = gameData.getFirstTimeUser();
+
+	if (firstTimeUser) {
+		$scope.showWelcome(); 
+	}
+	
+	$scope.categoryClick = function(category) {
+		currentCategory.category = category;
+
+		var userName = gameData.getPlayer1Name();
+
+		socket.emit('join', {
+			category : currentCategory.category,
+			userName : userName
+		});
+	};
+
+	$scope.$on('socket:gameStarted', function(e, response) {
+		if (!response.waiting) {
+			gameData.setGameInfo(response);
+
+			if (response.player1 === $scope.userName) {
+				gameData.setPlayer2Name(response.player2);
+			} else {
+				gameData.setPlayer2Name(response.player1);
+			}
+
+			gameData.setRoomId(response.roomId);
+			console.log(response);
+
+			$location.path('/preGame');
+		} else {
+			gameData.setGameInfo(response);
+			gameData.setRoomId(response.roomId);
+			$location.path('/preGame');
+			console.log(response);
+		}
+	});
+}])
+//Pre game  ------------------------------------------------
+.controller('PregameCtrl', ['$scope', 'socket', 'gameData', function($scope, socket, gameData) {
+
+}])
+//Round Countdown Modal --------------------------------------
+.controller('CountDownCtrl', ['$scope', 'socket', 'countDownModal', 'gameData', function($scope, socket, countDownModal, gameData) {
+
+	$scope.closeMe = gamePauseModal.deactivate;
+	$scope.closeMe();
+
+}])
+//Game Play ---------------------------------------------------
 .controller('GamePlayCtrl', ['$scope', '$rootScope', 'socket', 'welcomeModal', 'gamePauseModal', 'currentCategory', 'gameData', function($scope, $rootScope, socket, welcomeModal, gamePauseModal, currentCategory, gameData) {
 	console.log(gameData.gameCopy);
 
@@ -72,93 +145,9 @@ angular.module('myApp')
 	};
 
 }])
-
-//Game Over ----------------------
+//Game Over ---------------------------------------------------
 .controller('GameOverCtrl', ['$scope', 'socket', function($scope, socket) {
 
-}])
-
-//Home Screen Categories -----------------
-.controller('HomeCtrl', ['$scope', '$location', '$q', '$timeout', 'socket', 'welcomeModal', 'currentCategory', 'gameData', function($scope, $location, $q, $timeout, socket, welcomeModal, currentCategory, gameData) {
-	//Dependancies
-	$scope.welcomeModal = welcomeModal;
-	$scope.currentCategory = currentCategory;
-	$scope.gameData = gameData;
-
-	//Modal Activation methods
-	$scope.showWelcome = welcomeModal.activate;
-
-	//Show Welcome modal if first time user
-	var firstTimeUser = gameData.getFirstTimeUser();
-
-	if (firstTimeUser) {
-		$scope.showWelcome(); 
-	}
-	
-	//Handle category selection 
-	function wait() {
-		var defer = $q.defer();
-		$timeout(function() {
-			defer.resolve();
-		}, 2000);
-		return defer.promise;
-    }
-    function notifyUser() {
-
-    }
-	$scope.categoryClick = function(category) {
-		currentCategory.category = category;
-
-		var userName = gameData.getPlayer1Name();
-
-		socket.emit('join', {
-			category : currentCategory.category,
-			userName : userName
-		});
-	};
-
-	$scope.$on('socket:gameStarted', function(e, response) {
-		if (!response.waiting) {
-			gameData.setGameInfo(response);
-
-			if (response.player1 === $scope.userName) {
-				gameData.setPlayer2Name(response.player2);
-			} else {
-				gameData.setPlayer2Name(response.player1);
-			}
-
-			gameData.setRoomId(response.roomId);
-			console.log(response);
-
-			$location.path('/preGame');
-		} else {
-			gameData.setGameInfo(response);
-			gameData.setRoomId(response.roomId);
-			$location.path('/preGame');
-			console.log(response);
-		}
-	});
-}])
-
-//Username/Welcome Modal --------------------------
-.controller('WelcomeCtrl', ['$scope', 'socket', 'welcomeModal', 'gameData', function($scope, socket, welcomeModal, gameData) {
-
-	$scope.closeMe = welcomeModal.deactivate;
-
-	$scope.updateUserName = function(userName) {
-		gameData.setFirstTimeUser(false);
-		gameData.setPlayer1Name(userName);
-		
-		$scope.closeMe();
-	}; 
-}])
-//Round Countdown Modal --------------------------
-.controller('CountDownCtrl', ['$scope', 'socket', 'countDownModal', 'gameData', function($scope, socket, countDownModal, gameData) {
-
-	$scope.closeMe = gamePauseModal.deactivate;
-	$scope.closeMe();
-
-}])
-.controller('PregameCtrl', ['$scope', 'socket', 'gameData', function($scope, socket, gameData) {
-
 }]);
+
+

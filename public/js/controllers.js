@@ -1,34 +1,20 @@
 angular.module('myApp')
 
 //Username/Welcome Modal --------------------------
-.controller('WelcomeCtrl', ['$scope', 'socket', 'welcomeModal', 'gameData', function($scope, socket, welcomeModal, gameData) {
-
-	$scope.closeMe = welcomeModal.deactivate;
+.controller('WelcomeCtrl', ['$scope', '$location', 'socket', 'gameData', function($scope, $location, socket, gameData) {
 
 	$scope.updateUserName = function(userName) {
 		gameData.setFirstTimeUser(false);
 		gameData.setPlayer1Name(userName);
 		
-		$scope.closeMe();
+		$location.path('/home');
 	}; 
 }])
 //Home Screen Categories -----------------------------
-.controller('HomeCtrl', ['$scope', '$location', '$q', '$timeout', 'socket', 'welcomeModal', 'currentCategory', 'gameData', function($scope, $location, $q, $timeout, socket, welcomeModal, currentCategory, gameData) {
-	//Dependancies
-	$scope.welcomeModal = welcomeModal;
+.controller('HomeCtrl', ['$scope', '$location', '$q', '$timeout', 'socket', 'currentCategory', 'gameData', function($scope, $location, $q, $timeout, socket, currentCategory, gameData) {
 	$scope.currentCategory = currentCategory;
 	$scope.gameData = gameData;
 
-	//Modal Activation methods
-	$scope.showWelcome = welcomeModal.activate;
-
-	//Show Welcome modal if first time user
-	var firstTimeUser = gameData.getFirstTimeUser();
-
-	if (firstTimeUser) {
-		$scope.showWelcome(); 
-	}
-	
 	$scope.categoryClick = function(category) {
 		currentCategory.category = category;
 
@@ -41,30 +27,56 @@ angular.module('myApp')
 	};
 
 	$scope.$on('socket:gameStarted', function(e, response) {
-		if (!response.waiting) {
-			gameData.setGameInfo(response);
+		gameData.setGameInfo(response);
 
+		if(response.player2) {
 			if (response.player1 === $scope.userName) {
 				gameData.setPlayer2Name(response.player2);
 			} else {
 				gameData.setPlayer2Name(response.player1);
 			}
-
-			gameData.setRoomId(response.roomId);
-			console.log(response);
-
-			$location.path('/preGame');
-		} else {
-			gameData.setGameInfo(response);
-			gameData.setRoomId(response.roomId);
-			$location.path('/preGame');
-			console.log(response);
 		}
+		
+		gameData.setRoomId(response.roomId);
+
+		$location.path('/preGame');
 	});
 }])
 //Pre game  ------------------------------------------------
-.controller('PregameCtrl', ['$scope', 'socket', 'gameData', function($scope, socket, gameData) {
+.controller('PregameCtrl', ['$scope', '$location', '$window', 'socket', 'gameData', function($scope, $location, $window, socket, gameData) {
+	console.log(gameData.getPlayer2Name());
 
+	if (gameData.getPlayer2Name() === "") {
+		$scope.waiting = true;
+	}
+	$scope.countdownNum = 15;
+	$scope.toGame = function() {
+		$location.path('/gamePlay');
+	};
+	$scope.wait = function() {
+		$scope.opponentCountdown = true;
+		$scope.countdownNum = 15;
+		console.log("countdownNum set to 15");
+
+		this.interval = $window.setInterval($scope.countdownTick.bind(this), 1000);
+	};
+	$scope.countdownTick = function() {
+		console.log($scope.countdownNum);
+		console.log(this);
+
+		if ($scope.countdownNum >= 1) {
+			$scope.countdownNum--;
+		}
+		if ($scope.countdownNum === 0) {
+			$window.clearInterval(this.interval);
+			$scope.opponentCountdown = false;
+		}
+	};
+	
+	$scope.$on('socket:gameStarted', function(e, response) {
+		$scope.newOpponent = true;
+		$location.path('/preGame');
+	});
 }])
 //Round Countdown Modal --------------------------------------
 .controller('CountDownCtrl', ['$scope', 'socket', 'countDownModal', 'gameData', function($scope, socket, countDownModal, gameData) {
@@ -74,15 +86,16 @@ angular.module('myApp')
 
 }])
 //Game Play ---------------------------------------------------
-.controller('GamePlayCtrl', ['$scope', '$rootScope', 'socket', 'welcomeModal', 'gamePauseModal', 'currentCategory', 'gameData', function($scope, $rootScope, socket, welcomeModal, gamePauseModal, currentCategory, gameData) {
-	console.log(gameData.gameCopy);
+.controller('GamePlayCtrl', ['$scope', '$rootScope', 'socket', 'welcomeModal', 'countDownModal', 'currentCategory', 'gameData', function($scope, $rootScope, socket, welcomeModal, countDownModal, currentCategory, gameData) {
+	$scope.game = gameData.getGameInfo();
+	console.log($scope.game);
 
 	//Game state variables
 	$scope.currentAnswer = "";
 	$scope.currentRound = 1;
 
 	//Set game round info 
-	$scope.setGameRounds(gameData.gameCopy);
+	$scope.setGameRounds($scope.game);
 
 	socket.on('getOpponentFeedback', function(response) {
 		if (response.userName != welcomeModal.userName) {

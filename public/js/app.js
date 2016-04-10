@@ -1,9 +1,12 @@
 angular.module('myApp', ['ngRoute', 'btford.socket-io', 'btford.modal', 'ngAnimate'])
 	.config(['$routeProvider', function($routeProvider) {
 		$routeProvider.when('/', {
+			templateUrl: 'views/welcome.html',
+			controller: 'WelcomeCtrl as welcome'
+		}).when('/home', {
 			templateUrl: 'views/home.html',
 			controller: 'HomeCtrl as home'
-		}).when('/gamePlay/:category/:userName', {
+		}).when('/gamePlay', {
 			templateUrl: 'views/gamePlay.html',
 			controller: 'GamePlayCtrl as gamePlay'
 		}).when('/gameOver', {
@@ -21,16 +24,7 @@ angular.module('myApp', ['ngRoute', 'btford.socket-io', 'btford.modal', 'ngAnima
 		mySocket.forward('gameStarted');
 		return mySocket;
 	})
-	.factory('welcomeModal', function(btfModal) {
-
-		return btfModal({
-			controller: 'WelcomeCtrl',
-			controllerAs: 'welcome',
-			templateUrl: 'views/welcome.html'
-		});
-	})
 	.factory('countDownModal', function(btfModal) {
-
 		return btfModal({
 			controller: 'CountDownCtrl',
 			controllerAs: 'countDown',

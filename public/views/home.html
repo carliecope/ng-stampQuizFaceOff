@@ -1,32 +1,46 @@
 <div class="userName_bar">
 	<h2 class="userName" ng-bind="gameData.getPlayer1Name()"></h2>
 </div>
-
-<h1 class="homeTitle">Philatelist Face-Off</h1>
+<div class="homeTitle_cont">
+	<h1 class="homeTitle">Philatelist Face-Off</h1>
+	<p class="choose">Choose a category:</p>
+</div>
 
 <div class="categoty-cont">
 	<span class="categoryBtn_cont" ng-click="categoryClick('Music')">
-		<img class="stamp_outline"src="../img/stpBorder_dkBlue.png">
+		<div class="stamp_outline">
+			<img class="category_icon" src="../img/icon_music.png">
+		</div>
 		<h2 class="category">Music</h2>
 	</span>
 	<span class="categoryBtn_cont" ng-click="categoryClick('Science')">
-		<img class="stamp_outline" src="../img/stpBorder_dkBlue.png">
+		<div class="stamp_outline">
+			<img class="category_icon" src="../img/icon_science.png">
+		</div>
 		<h2 class="category">Science</h2>
 	</span>
 	<span class="categoryBtn_cont" ng-click="categoryClick('Movies')">
-		 <img class="stamp_outline" src="../img/stpBorder_dkBlue.png">
+		 <div class="stamp_outline">
+			<img class="category_icon" src="../img/icon_movie.png">
+		</div>
 		 <h2 class="category">Movies</h2>
 	</span>
 	<span class="categoryBtn_cont" ng-click="categoryClick('Aviation')">
-		<img class="stamp_outline" src="../img/stpBorder_dkBlue.png">
+		<div class="stamp_outline">
+			<img class="category_icon" src="../img/icon_aviation.png">
+		</div>
 		<h2 class="category">Aviation</h2>
 	</span>
 	<span class="categoryBtn_cont" ng-click="categoryClick('USPresidents')">
-		<img class="stamp_outline" src="../img/stpBorder_dkBlue.png">
+		<div class="stamp_outline">
+			<img class="category_icon" src="../img/icon_president.png">
+		</div>
 		<h2 class="category">US Presidents</h2>
 	</span>
 	<span class="categoryBtn_cont" ng-click="categoryClick('Olympics')">
-		<img class="stamp_outline" src="../img/stpBorder_dkBlue.png">
+		<div class="stamp_outline">
+			<img class="category_icon" src="../img/icon_olympic.png">
+		</div>
 		<h2 class="category">Olympics</h2>
 	</span>
 </div>

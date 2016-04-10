@@ -6,15 +6,19 @@ $red: #E4001B;
 $dark_blue: #6194BC;
 $med_blue: #A5D1F3;
 $lite_blue: #D0EAFF;
-$off-white: #F4E9D3;
+$off-white: #EEEEEE;
 $gray: #606060;
 
+$min_width: 320px;
+$mid_width: 768px;
+$max_width: 1024px;
 
 html {
   box-sizing: border-box;
   list-style-type: none;
   font-family: 'Coming Soon', cursive;
   background-color: $off-white;
+  margin: 0;
   height: 100%;
 }
 *, *:before, *:after {
@@ -28,74 +32,32 @@ a:hover, a:active {
     text-decoration: none;
     color: #2A221E;
 }
-body {
-  height: 100%;
-}
 #gameArea {
-	@include outer-container;
   background-color: $off-white;
+  margin: 0;
   height: 100%;
+  position: relative;
 }
-/*-----------------------Home------------------------*/
-.userName_bar {
+/*-----------------------Welcome------------------------*/
+.postcard_cont {
   @include fill-parent;
-  text-align: center;
-  overflow: hidden;
-  background-color: white;
-}
-.homeTitle {
-	@include fill-parent;
-	text-align: center;
-  margin: 0 0 1em 0;
-  padding: 0.5em;
-  background-color: $off-white;
-}
-.category-cont {
-	@include fill-parent;
-  overflow: hidden;
-}
-.categoryBtn_cont {
-  @include span-columns(6);
-  @include omega();
-  background-color: white;
-  display: inline;
-  overflow: hidden;
-}
-.categoryBtn_cont:hover {
-  cursor: pointer;
-}
-.stamp_outline {
-  @include span-columns(2 of 6);
-  margin-bottom: 0.5em;
-}
-.category {
-  @include span-columns(4 of 6);
-}
-
-/*-----------------------Welcome Modal------------------------*/
-.btf-modal {
-  @include span-columns(8);
-  @include shift(2);
-  @include omega();
-  position: fixed;
-  height: 100%;
-  background-color: $off-white;
-  
-  /* needed styles for the overlay */
-  z-index: 10; /* keep on top of other elements on the page */
-  outline: 9999px solid rgba(0,0,0,0.5);
-}
-.img_holder {
-  @include fill-parent;
-  background-image: url("../img/Postcard.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
   overflow: hidden; 
+
+  @include media(min-width $mid_width) {
+    @include fill-parent;
+    background-image: url("../img/Postcard.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
 }
 .welcome_text {
-  @include span-columns(6);
+  @include fill-parent;
   height: 100%;
-  padding-left: 4em;
+  
+  @include media(min-width $mid_width) {
+    @include span-columns(6);
+    padding-left: 4em;
+  }
 }
 .welcome {
     color: $red;
@@ -110,12 +72,15 @@ body {
   border-radius: 0.8em; 
 }
 .form_cont {
-  @include span-columns(6);
-  padding-right: 6em;
-  padding-left: 2em;
   overflow: hidden;
-  margin: 14em 0;
   height: 100%;
+  
+  @include media(min-width $mid_width) {
+    @include span-columns(6);
+    padding-right: 6em;
+    padding-left: 2em;
+    margin: 14em 0;
+  }
 }
 .usernameForm {
   padding: 0 2em;
@@ -133,6 +98,7 @@ input[type="text"] {
 }
 .submitBtn_cont {
   width: 100%;
+  padding-right: 0.4em;
   overflow: hidden;
   margin: 2em 0;
 }
@@ -153,6 +119,61 @@ input[type="text"] {
     background-color: $off-white;
     cursor: pointer;
   }
+}
+/*-----------------------Home------------------------*/
+.userName_bar {
+  @include fill-parent;
+  text-align: center;
+  overflow: hidden;
+  background-color: white;
+}
+.userName {
+  margin: 0.1em 0;
+}
+.homeTitle_cont {
+  @include fill-parent;
+  text-align: center;
+}
+.homeTitle {
+	@include fill-parent;
+	text-align: center;
+  margin: 0.1em 0;
+  padding: 0.1em 0;
+  background-color: $off-white;
+}
+.choose {
+  @include fill-parent;
+  margin: 0.1em 0;
+}
+.category-cont {
+	@include fill-parent;
+  overflow: hidden;
+}
+.categoryBtn_cont {
+  @include span-columns(6);
+  @include omega();
+  display: inline;
+  overflow: hidden;
+}
+.stamp_outline {
+  width: 10em;
+  height: 10em;
+  margin: 0 auto;
+  background-image: url("../img/stpBorder_dkBlue.png");
+  background-repeat: no-repeat;
+  background-size: 10em 10em;
+}
+.category {
+  @include fill-parent;
+  text-align: center;
+  margin: 0 0.2em;
+}
+.category_icon {
+  width: 4em;
+  margin: 3em 3em;
+}
+.categoryBtn_cont:hover {
+  cursor: pointer;
 }
 /*-----------------------preGame------------------------*/
 

@@ -94,12 +94,9 @@ module.exports = function (io) {
 				category.rooms[roomId] = {};
 				category.rooms[roomId].player1 = data.userName;
 				socket.join(roomId);
+				response.roomId = roomId;
 
-				var waiting = true;
-				io.to(roomId).emit('gameStarted', { 
-					roomId: roomId,
-					waiting: waiting
-				});
+				io.to(roomId).emit('gameStarted', response);
 				category.openRoom = roomId;
 
 				console.log(category.openRoom);

@@ -1,7 +1,7 @@
 <div class="top_half">
 	<div class="player1_cont">
 		<img id="player1_icon" src="../img/mail_circle_red.png">
-		<h1 class="player1_name">Player One</h1>
+		<h1 class="player1_name" ng-bind="gameData.getPlayer1Name()"></h1>
 	</div>
 </div>
 <div class="divider_cont">
@@ -11,15 +11,18 @@
 	</div>
 </div>
 <div class="bottom_half">
-	<div ng-hide="" class="player2_cont">
-		<h1 class="player2_name">Player Two</h1>
+	<div ng-hide="waiting" class="player2_cont">
+		<h1 class="player2_name" ng-bind="gameData.getPlayer2Name()"></h1>
 		<img id="player2_icon" src="../img/mail_circle_red.png">
 	</div>
-	<div ng-hide="" class="play_solo_ask">
-		<p>Looks like there are no available opponents at this time.</p>
-		<div class="btn_cont">
-			<button id="playSoloBtn">Play Solo!</button>
-			<button id="waitBtn">Wait for Opponent</button>
+	<div ng-hide="!waiting" class="play_solo_ask">
+		<p ng-hide="opponentCountdown">Looks like there are no available opponents at this time.</p>
+		<p ng-hide="!opponentCountdown">Wating for new opponent...</p>
+		
+		<div ng-hide="opponentCountdown" class="btn_cont">
+			<button id="playSoloBtn" ng-click="toGame()">Play Solo!</button>
+			<button id="waitBtn" ng-click="wait()">Wait for Opponent</button>
 		</div>
+		<div class="countdownNum" ng-bind="countdownNum"></div>
 	</div>
 </div>

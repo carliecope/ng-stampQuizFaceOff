@@ -58,7 +58,7 @@ angular.module('myApp')
 		$scope.countdownNum = 15;
 		console.log("countdownNum set to 15");
 
-		this.interval = $window.setInterval($scope.countdownTick.bind(this), 1000);
+		$scope.interval = $window.setInterval($scope.countdownTick.bind(this), 1000);
 	};
 	$scope.countdownTick = function() {
 		console.log($scope.countdownNum);
@@ -68,7 +68,7 @@ angular.module('myApp')
 			$scope.countdownNum--;
 		}
 		if ($scope.countdownNum === 0) {
-			$window.clearInterval(this.interval);
+			$window.clearInterval($scope.interval);
 			$scope.opponentCountdown = false;
 		}
 	};
@@ -86,7 +86,7 @@ angular.module('myApp')
 
 }])
 //Game Play ---------------------------------------------------
-.controller('GamePlayCtrl', ['$scope', '$rootScope', 'socket', 'welcomeModal', 'countDownModal', 'currentCategory', 'gameData', function($scope, $rootScope, socket, welcomeModal, countDownModal, currentCategory, gameData) {
+.controller('GamePlayCtrl', ['$scope', 'socket', 'countDownModal', 'currentCategory', 'gameData', function($scope, socket, countDownModal, currentCategory, gameData) {
 	$scope.game = gameData.getGameInfo();
 	console.log($scope.game);
 
@@ -94,11 +94,17 @@ angular.module('myApp')
 	$scope.currentAnswer = "";
 	$scope.currentRound = 1;
 
+	//Set rounds 
+	$scope.round1 = game.round1;
+	$scope.round2 = game.round2;
+	$scope.round3 = game.round3;
+	$scope.round4 = game.round4;
+
 	//Set game round info 
 	$scope.setGameRounds($scope.game);
 
 	socket.on('getOpponentFeedback', function(response) {
-		if (response.userName != welcomeModal.userName) {
+		if (response.userName != getPlayer1Name()) {
 			gameData.setPlayer2Score(response.score);
 		}
 	});
@@ -131,13 +137,6 @@ angular.module('myApp')
 
 	};
 
-	$scope.setGameRounds = function(gameInfo) {
-		$scope.round1 = gameInfo.round1;
-		$scope.round2 = gameInfo.round2;
-		$scope.round3 = gameInfo.round3;
-		$scope.round4 = gameInfo.round4;
-	};
-
 	$scope.shuffleAnswers = function(array) {
   		var currentIndex = array.length, temporaryValue, randomIndex;
 
@@ -156,7 +155,6 @@ angular.module('myApp')
   		}
   		return array;
 	};
-
 }])
 //Game Over ---------------------------------------------------
 .controller('GameOverCtrl', ['$scope', 'socket', function($scope, socket) {

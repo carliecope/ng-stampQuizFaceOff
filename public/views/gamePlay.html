@@ -1,28 +1,35 @@
 <header class="header">
 	<div class="header_element">
-		<img id="playerOneIcon " src="">
-		<div id="playerOneInfo">
-			<h3 ng-bind="gameData.getPlayer1Name()"></h3>
-			<p>Points: {{}}</p>
+		<div class="playerOneIcon_cont">
+			<img id="playerOneIcon" src="../img/user_icon_white32.png">
+		</div>
+		<div class="playerOneInfo_cont">
+			<h3 ng-bind="gameData.getPlayer1Name()">playerOne</h3>
+			<h3>Points: {{}}</h3>
 		</div>
 	</div>
 	<div class="header_element">
-		<div id="timeBox">
+		<div class="timeBox">
 			<h3>Time Left </h3>
-			<p>{{}}</p>
+			<h3>{{}}</h3>
 		</div>
 	</div>
 	<div class="header_element">
-		<div id="playerOneInfo">
-			<h3 ng-bind="gameData.getPlayer2Name()"></h3>
-			<p>Points: {{}}</p>
+		<div class="playerTwoInfo_cont">
+			<h3 ng-bind="gameData.getPlayer2Name()">playerTwo</h3>
+			<h3>Points: {{}}</h3>
 		</div>
-		<img id="playerTwoIcon " src="">
+		<div class="playerTwoIcon_cont">
+			<img id="playerTwoIcon" src="../img/user_icon_white32.png">
+		</div>
 	</div>
 </header>
 <div class="question_stamp_cont">
-	<div class="stampImg_cont">
-		<img id="stampImg" src="img/ET.jpg">
+	<div class="stamp_cont">
+		<div class="img_cont">
+			<img id="stampImg" src="img/ET.jpg">
+		</div>
+		
 	</div>
 	<div class="question_cont">
 		<h2>{{ question }}</h2>
@@ -39,7 +46,11 @@
 	<div class="answers_cont">
 		<div class="answer_list">
 			<div class="answer_cont">
-				<button class="answerBtn" ng-repeat="answer in answerArray" ng-click="gamePlay.submitAnswer()">{{ answer.round.correct }}</button>
+				<!--<button class="answerBtn" ng-repeat="answer in answerArray" ng-click="gamePlay.submitAnswer()">{{ answer.round.correct }}</button>-->
+				<button class="answerBtn" ng-click="gamePlay.submitAnswer()">answer</button>
+				<button class="answerBtn" ng-click="gamePlay.submitAnswer()">answer</button>
+				<button class="answerBtn" ng-click="gamePlay.submitAnswer()">answer</button>
+				<button class="answerBtn" ng-click="gamePlay.submitAnswer()">answer</button>
 			</div>
 		</div>
 	</div>

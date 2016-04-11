@@ -1,19 +1,21 @@
 angular.module('myApp')
 
-//Username/Welcome Modal --------------------------
+//Username/Welcome View --------------------------
 .controller('WelcomeCtrl', ['$scope', '$location', 'socket', 'gameData', function($scope, $location, socket, gameData) {
 
 	$scope.updateUserName = function(userName) {
 		gameData.setFirstTimeUser(false);
 		gameData.setPlayer1Name(userName);
+
+		console.log("player one name: " + gameData.getPlayer1Name());
 		
 		$location.path('/home');
 	}; 
 }])
-//Home Screen Categories -----------------------------
+//Home Screen -----------------------------
 .controller('HomeCtrl', ['$scope', '$location', '$q', '$timeout', 'socket', 'currentCategory', 'gameData', function($scope, $location, $q, $timeout, socket, currentCategory, gameData) {
-	$scope.currentCategory = currentCategory;
 	$scope.gameData = gameData;
+	$scope.currentCategory = currentCategory;
 
 	$scope.categoryClick = function(category) {
 		currentCategory.category = category;
@@ -43,39 +45,55 @@ angular.module('myApp')
 	});
 }])
 //Pre game  ------------------------------------------------
-.controller('PregameCtrl', ['$scope', '$location', '$window', 'socket', 'gameData', function($scope, $location, $window, socket, gameData) {
-	console.log(gameData.getPlayer2Name());
+.controller('PregameCtrl', ['$scope', '$location', '$interval', 'socket', 'gameData', function($scope, $location, $interval, socket, gameData) {
+	$scope.gameData = gameData;
 
 	if (gameData.getPlayer2Name() === "") {
 		$scope.waiting = true;
 	}
 	$scope.countdownNum = 15;
+	$scope.faceOffNum = 3;
+	
 	$scope.toGame = function() {
 		$location.path('/gamePlay');
 	};
 	$scope.wait = function() {
 		$scope.opponentCountdown = true;
 		$scope.countdownNum = 15;
-		console.log("countdownNum set to 15");
 
-		$scope.interval = $window.setInterval($scope.countdownTick.bind(this), 1000);
+		$scope.countdownInterval = $interval($scope.countdownTick.bind(this), 1000);
+
 	};
 	$scope.countdownTick = function() {
-		console.log($scope.countdownNum);
-		console.log(this);
 
 		if ($scope.countdownNum >= 1) {
 			$scope.countdownNum--;
 		}
 		if ($scope.countdownNum === 0) {
-			$window.clearInterval($scope.interval);
+			$interval.cancel($scope.countdownInterval);
 			$scope.opponentCountdown = false;
 		}
 	};
-	
+	$scope.faceOffTick = function() {
+		if ($scope.faceOffNum >= 1) {
+			$scope.faceOffNum--;
+		}
+		if ($scope.faceOffNum === 0) {
+			$interval.cancel($scope.faceOffInterval);
+			$location.path('/gamePlay');
+		}
+	}
+
+	if(gameData.getPlayer2Name()) {
+		$scope.faceOffInterval = $interval($scope.faceOffTick.bind(this), 1000);	
+	}	
 	$scope.$on('socket:gameStarted', function(e, response) {
 		$scope.newOpponent = true;
-		$location.path('/preGame');
+		
+		if (response.player2) {
+			gameData.setPlayer2Name(response.player2);
+		}
+		$scope.faceOffInterval = $interval($scope.faceOffTick.bind(this), 1000);
 	});
 }])
 //Round Countdown Modal --------------------------------------

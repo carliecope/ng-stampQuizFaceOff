@@ -86,6 +86,8 @@ module.exports = function (io) {
 				response.player2 = room.player2;
 				response.roomId = category.openRoom;
 
+				console.log(response);
+
 				io.emit('gameStarted', response);
 
 				category.openRoom = null;
@@ -94,7 +96,9 @@ module.exports = function (io) {
 				category.rooms[roomId] = {};
 				category.rooms[roomId].player1 = data.userName;
 				socket.join(roomId);
+				
 				response.roomId = roomId;
+				response.player1 = data.userName;
 
 				io.to(roomId).emit('gameStarted', response);
 				category.openRoom = roomId;
@@ -103,6 +107,8 @@ module.exports = function (io) {
 			}
 		});
 		socket.on('sendAnsFeedback', function(data) {
+			var category = categories[data.category];
+			var room = category.rooms[data.roomId];
 
 			io.to(data.roomId).emit('getOpponentFeedback', {
 				userName: data.userName,

@@ -1,4 +1,4 @@
-angular.module('myApp', ['ngRoute', 'btford.socket-io', 'btford.modal', 'ngAnimate'])
+angular.module('myApp', ['ngRoute', 'btford.socket-io', 'ngAnimate'])
 	.config(['$routeProvider', function($routeProvider) {
 		$routeProvider.when('/', {
 			templateUrl: 'views/welcome.html',
@@ -23,13 +23,6 @@ angular.module('myApp', ['ngRoute', 'btford.socket-io', 'btford.modal', 'ngAnima
 		var mySocket = socketFactory();
 		mySocket.forward('gameStarted');
 		return mySocket;
-	})
-	.factory('countDownModal', function(btfModal) {
-		return btfModal({
-			controller: 'CountDownCtrl',
-			controllerAs: 'countDown',
-			templateUrl: 'views/roundCountDown.html'
-		});
 	})
 	.factory('currentCategory', function() {
 		return {

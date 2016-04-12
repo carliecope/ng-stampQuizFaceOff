@@ -6,8 +6,6 @@ angular.module('myApp')
 	$scope.updateUserName = function(userName) {
 		gameData.setFirstTimeUser(false);
 		gameData.setPlayer1Name(userName);
-
-		console.log("player one name: " + gameData.getPlayer1Name());
 		
 		$location.path('/home');
 	}; 
@@ -62,7 +60,6 @@ angular.module('myApp')
 		$scope.countdownNum = 15;
 
 		$scope.countdownInterval = $interval($scope.countdownTick.bind(this), 1000);
-
 	};
 	$scope.countdownTick = function() {
 
@@ -82,7 +79,7 @@ angular.module('myApp')
 			$interval.cancel($scope.faceOffInterval);
 			$location.path('/gamePlay');
 		}
-	}
+	};
 
 	if(gameData.getPlayer2Name()) {
 		$scope.faceOffInterval = $interval($scope.faceOffTick.bind(this), 1000);	
@@ -96,30 +93,24 @@ angular.module('myApp')
 		$scope.faceOffInterval = $interval($scope.faceOffTick.bind(this), 1000);
 	});
 }])
-//Round Countdown Modal --------------------------------------
-.controller('CountDownCtrl', ['$scope', 'socket', 'countDownModal', 'gameData', function($scope, socket, countDownModal, gameData) {
-
-	$scope.closeMe = gamePauseModal.deactivate;
-	$scope.closeMe();
-
-}])
 //Game Play ---------------------------------------------------
-.controller('GamePlayCtrl', ['$scope', 'socket', 'countDownModal', 'currentCategory', 'gameData', function($scope, socket, countDownModal, currentCategory, gameData) {
-	$scope.game = gameData.getGameInfo();
-	console.log($scope.game);
+.controller('GamePlayCtrl', ['$scope', '$interval', 'socket', 'currentCategory', 'gameData', function($scope, $interval, socket, currentCategory, gameData) {
+	$scope.gameData = gameData;
+ 	
+ 	var game = gameData.getGameInfo();
+ 	$scope.showModal = true;
+	
+	console.log(game);
 
 	//Game state variables
 	$scope.currentAnswer = "";
 	$scope.currentRound = 1;
 
 	//Set rounds 
-	$scope.round1 = game.round1;
-	$scope.round2 = game.round2;
-	$scope.round3 = game.round3;
-	$scope.round4 = game.round4;
-
-	//Set game round info 
-	$scope.setGameRounds($scope.game);
+	$scope.round1 = game.gameData.round1;
+	$scope.round2 = game.gameData.round2;
+	$scope.round3 = game.gameData.round3;
+	$scope.round4 = game.gameData.round4;
 
 	socket.on('getOpponentFeedback', function(response) {
 		if (response.userName != getPlayer1Name()) {
@@ -151,10 +142,6 @@ angular.module('myApp')
 		$scope.answerArray = $scope.shuffleAnswers([round.correct, round.ans1, round.ans2, round.ans3]);
 	};
 
-	$scope.countdownTick = function() {
-
-	};
-
 	$scope.shuffleAnswers = function(array) {
   		var currentIndex = array.length, temporaryValue, randomIndex;
 
@@ -173,6 +160,27 @@ angular.module('myApp')
   		}
   		return array;
 	};
+
+	//Next round modal ------
+	$scope.nextRoundTickNum = 3;
+	
+	$scope.nextRoundTick = function() {
+
+		if ($scope.nextRoundTickNum >= 1) {
+			$scope.nextRoundTickNum--;
+		}
+		if ($scope.nextRoundTickNum === 0) {
+			$interval.cancel($scope.nextRoundInterval);
+
+			$scope.showModal = false;
+			
+			if ($scope.currentRound != 1) {
+				$scope.currentRound++;
+				$scope.showNewRound();
+			}
+		}
+	};
+	$scope.nextRoundInterval = $interval($scope.nextRoundTick.bind(this), 1000);
 }])
 //Game Over ---------------------------------------------------
 .controller('GameOverCtrl', ['$scope', 'socket', function($scope, socket) {

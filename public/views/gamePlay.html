@@ -1,5 +1,7 @@
-<div ng-show="showModal">
-	<h1>Next game in: </h1>
+<div ng-show="showModal" class="overlay"></div>
+<div ng-show="showModal" class="nextRoundModal">
+	<h1 class="roundText">Round {{ currentRoundNum }}</h1>
+	<h1>Starting in:</h1>
 	<h1 ng-bind="nextRoundTickNum"></h1>
 </div>
 
@@ -16,7 +18,7 @@
 	<div class="header_element">
 		<div class="timeBox">
 			<h3>Time Left </h3>
-			<h3>{{}}</h3>
+			<h3>{{ answerTimeTickNum }}</h3>
 		</div>
 	</div>
 	<div class="header_element">
@@ -49,15 +51,7 @@
 		<div class="bar"> </div>
 	</div>
 	<div class="answers_cont">
-		<div class="answer_list">
-			<div class="answer_cont">
-				<!--<button class="answerBtn" ng-repeat="answer in answerArray" ng-click="gamePlay.submitAnswer()">{{ answer.round.correct }}</button>-->
-				<button class="answerBtn" ng-click="gamePlay.submitAnswer()">answer</button>
-				<button class="answerBtn" ng-click="gamePlay.submitAnswer()">answer</button>
-				<button class="answerBtn" ng-click="gamePlay.submitAnswer()">answer</button>
-				<button class="answerBtn" ng-click="gamePlay.submitAnswer()">answer</button>
-			</div>
-		</div>
+		<button class="answerBtn" ng-repeat="answer in answerArray" ng-click="submitAnswer()">{{ answer }}</button>
 	</div>
 	<div class="scoreBar">
 		<div class="bar"> </div>

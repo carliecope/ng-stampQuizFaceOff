@@ -95,52 +95,18 @@ angular.module('myApp')
 }])
 //Game Play ---------------------------------------------------
 .controller('GamePlayCtrl', ['$scope', '$interval', 'socket', 'currentCategory', 'gameData', function($scope, $interval, socket, currentCategory, gameData) {
+	//Get game info
 	$scope.gameData = gameData;
- 	
- 	var game = gameData.getGameInfo();
- 	$scope.showModal = true;
-	
-	console.log(game);
+	var game = gameData.getGameInfo();
 
-	//Game state variables
+ 	//Game state variables
 	$scope.currentAnswer = "";
-	$scope.currentRound = 1;
-
-	//Set rounds 
-	$scope.round1 = game.gameData.round1;
-	$scope.round2 = game.gameData.round2;
-	$scope.round3 = game.gameData.round3;
-	$scope.round4 = game.gameData.round4;
-
-	socket.on('getOpponentFeedback', function(response) {
-		if (response.userName != getPlayer1Name()) {
-			gameData.setPlayer2Score(response.score);
-		}
-	});
-
-	$scope.submitAnswer = function(answer) {
-		var isCorrect = null;
-
-		if ($scope.currentAnswer === $scope['round' + $scope.currentRound]) {
-			isCorrect = true;
-		} else {
-			isCorrect = false;
-		}
-
-		socket.emit('sendAnsFeedback', {
-			userName: gameData.getPlayer1Name(),
-			roomId: gameData.roomId.roomId,
-			score: users.player1.score,
-			isCorrect: isCorrect
-		});
-	};
-
-	$scope.showNewRound = function() {
-		var round = $scope['round' + $scope.currentRound];
-
-		$scope.question = round.question;
-		$scope.answerArray = $scope.shuffleAnswers([round.correct, round.ans1, round.ans2, round.ans3]);
-	};
+	$scope.currentRoundNum = 1;
+	$scope.showModal = true;
+	$scope.nextRoundTickNum = 3;
+	$scope.answerTimeTickNum = 10;
+	$scope.question = "";
+	$scope.answerArray = [];
 
 	$scope.shuffleAnswers = function(array) {
   		var currentIndex = array.length, temporaryValue, randomIndex;
@@ -161,8 +127,31 @@ angular.module('myApp')
   		return array;
 	};
 
-	//Next round modal ------
-	$scope.nextRoundTickNum = 3;
+	$scope.showNewRound = function() {
+		var currentRound = game.gameData['round' + $scope.currentRoundNum];
+		console.log(currentRound);
+
+		$scope.question = currentRound.question;
+		$scope.answerArray = $scope.shuffleAnswers([currentRound.correct, currentRound.ans1, currentRound.ans2, currentRound.ans3]);
+		console.log($scope.answerArray);
+	};
+
+	$scope.submitAnswer = function(answer) {
+		var isCorrect = null;
+
+		if ($scope.currentAnswer === $scope['round' + $scope.currentRoundNum]) {
+			isCorrect = true;
+		} else {
+			isCorrect = false;
+		}
+
+		socket.emit('sendAnsFeedback', {
+			userName: gameData.getPlayer1Name(),
+			roomId: gameData.roomId.roomId,
+			score: users.player1.score,
+			isCorrect: isCorrect
+		});
+	};
 	
 	$scope.nextRoundTick = function() {
 
@@ -173,14 +162,38 @@ angular.module('myApp')
 			$interval.cancel($scope.nextRoundInterval);
 
 			$scope.showModal = false;
+			$scope.answerTimeTick();
 			
-			if ($scope.currentRound != 1) {
-				$scope.currentRound++;
-				$scope.showNewRound();
-			}
+			// if ($scope.currentRoundNum != 1) {
+			// 	$scope.currentRoundNum++;
+			// 	$scope.showNewRound();
+			// }
 		}
 	};
 	$scope.nextRoundInterval = $interval($scope.nextRoundTick.bind(this), 1000);
+
+	$scope.answerTimeTick = function() {
+
+		if ($scope.answerTimeTickNum >= 1) {
+			$scope.answerTimeTickNum--;
+		}
+		if ($scope.answerTimeTickNum === 0) {
+			$interval.cancel($scope.answerTimeInterval);
+
+			//cue answer feedback here 
+		}
+	};
+	$scope.answerTimeInterval = $interval($scope.answerTimeTick.bind(this), 1000);
+	
+	socket.on('getOpponentFeedback', function(response) {
+		if (response.userName != getPlayer1Name()) {
+			gameData.setPlayer2Score(response.score);
+		}
+	});
+
+	console.log(game);
+ 	$scope.showNewRound();
+ 	
 }])
 //Game Over ---------------------------------------------------
 .controller('GameOverCtrl', ['$scope', 'socket', function($scope, socket) {

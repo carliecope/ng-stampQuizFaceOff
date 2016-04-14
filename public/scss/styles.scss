@@ -429,10 +429,13 @@ input[type="text"] {
   padding: 0;
 }
 .bar {
-  width: 30%;
-  margin: 0 auto;
+  @include fill-parent;
+  margin: 0.1em 0;
   height: 4em;
   border: $red 3px solid;
+  background-color: $white;
+}
+.correct {
   background-color: $red;
 }
 

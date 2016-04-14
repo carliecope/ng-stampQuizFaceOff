@@ -57,7 +57,7 @@ angular.module('myApp', ['ngRoute', 'btford.socket-io', 'ngAnimate'])
 				player2.name = name;
 			},
 			setPlayer1Score: function(score) {
-				player1.score = score;
+				player1.score += score;
 			},
 			setPlayer2Score: function(score) {
 				player2.score = score;

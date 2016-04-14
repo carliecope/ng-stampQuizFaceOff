@@ -21,7 +21,7 @@
 			<h3>{{ answerTimeTickNum }}</h3>
 		</div>
 	</div>
-	<div class="header_element">
+	<div ng-show="haveOpponent" class="header_element">
 		<div class="playerTwoInfo_cont">
 			<h3 ng-bind="gameData.getPlayer2Name()">playerTwo</h3>
 			<h3>Points: {{}}</h3>
@@ -45,18 +45,18 @@
 
 <div class="answer_score_cont">
 	<div class="scoreBar">
-		<div class="bar"> </div>
-		<div class="bar"> </div>
-		<div class="bar"> </div>
-		<div class="bar"> </div>
+		<div class="bar correct"> </div>
+		<div class="bar correct"> </div>
+		<div class="bar correct"> </div>
+		<div class="bar correct"> </div>
 	</div>
 	<div class="answers_cont">
-		<button class="answerBtn" ng-repeat="answer in answerArray" ng-click="submitAnswer()">{{ answer }}</button>
+		<button class="answerBtn" ng-repeat="answer in answerArray" ng-click="submitAnswer(answer)">{{ answer }}</button>
 	</div>
-	<div class="scoreBar">
-		<div class="bar"> </div>
-		<div class="bar"> </div>
-		<div class="bar"> </div>
-		<div class="bar"> </div>
+	<div ng-show="haveOpponent" class="scoreBar">
+		<div class="bar correct"> </div>
+		<div class="bar correct"> </div>
+		<div class="bar correct"> </div>
+		<div class="bar correct"> </div>
 	</div>
 </div>

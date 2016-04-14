@@ -487,10 +487,13 @@ input[type="text"] {
     margin-right: 0; }
 
 .bar {
-  width: 30%;
-  margin: 0 auto;
+  width: 100%;
+  margin: 0.1em 0;
   height: 4em;
   border: #E4001B 3px solid;
+  background-color: #FFFFFF; }
+
+.correct {
   background-color: #E4001B; }
 
 /*-----------------------gameOver------------------------*/

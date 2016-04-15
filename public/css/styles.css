@@ -9,7 +9,7 @@ html {
   box-sizing: border-box;
   list-style-type: none;
   font-family: 'Coming Soon', cursive;
-  background-color: #FFFFFF;
+  background-color: #333333;
   min-height: 100%;
   margin: 0; }
 
@@ -24,60 +24,74 @@ a:hover, a:active {
   text-decoration: none;
   color: #2A221E; }
 
-#gameArea {
-  background-color: #FFFFFF;
-  min-height: 100%;
-  margin: 0;
-  position: relative; }
+.body {
+  background-color: #333333;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  margin: 0; }
 
 /*-----------------------Welcome------------------------*/
-.postcard_cont {
+.welcome_container {
+  width: 100%;
+  height: 100%;
+  padding: 1em; }
+
+.postcard {
   width: 100%;
   overflow: hidden;
-  background-color: #F6EBD4; }
-  @media screen and (min-width: 768px) {
-    .postcard_cont {
-      width: 100%;
+  background-color: #333333;
+  height: 100%; }
+  @media screen and (min-width: 768px) and (max-width: 1024px) {
+    .postcard {
       background-image: url("../img/Postcard.jpg");
       background-repeat: no-repeat;
-      background-size: cover; } }
+      background-size: contain; } }
 
 .welcome_text {
-  width: 100%;
-  height: 100%; }
-  @media screen and (min-width: 768px) {
+  width: 100%; }
+  @media screen and (min-width: 768px) and (max-width: 1024px) {
     .welcome_text {
       float: left;
       display: block;
       margin-right: 2.35765%;
       width: 48.82117%;
+      height: 100%;
       padding-left: 4em; }
       .welcome_text:last-child {
         margin-right: 0; } }
 
 .welcome {
-  color: #E4001B;
+  color: #DC2829;
   font-size: 3em;
   margin: 4em 0 0.5em 0; }
+  @media screen and (max-width: 768px) {
+    .welcome {
+      color: #F2F2F2; } }
 
 .wel_instruction {
   font-size: 1em;
+  font-weight: bolder;
+  color: #333333;
   opacity: 0.65;
   padding: 0.5em;
-  border-radius: 0.8em; }
+  border-radius: 0.8em;
+  background-color: #F2F2F2; }
 
 .form_cont {
-  overflow: hidden;
-  height: 100%; }
-  @media screen and (min-width: 768px) {
+  overflow: hidden; }
+  @media screen and (min-width: 768px) and (max-width: 1024px) {
     .form_cont {
       float: left;
       display: block;
       margin-right: 2.35765%;
       width: 48.82117%;
-      padding-right: 6em;
+      height: 100%;
+      padding-right: 7em;
       padding-left: 2em;
-      margin: 14em 0; }
+      margin: 15em 0; }
       .form_cont:last-child {
         margin-right: 0; } }
 
@@ -88,8 +102,9 @@ a:hover, a:active {
   width: 100%;
   margin: 0 auto;
   line-height: 2.5em;
-  border: #FFFFFF 2px solid;
-  border-radius: 4px; }
+  border: #F2F2F2 2px solid;
+  border-radius: 4px;
+  padding-left: 0.5em; }
 
 input[type="text"] {
   font-size: 1em;
@@ -103,9 +118,10 @@ input[type="text"] {
 
 #userSubmitBtn {
   float: right;
-  font: 'Coming Soon', cursive;
-  background-color: #FFFFFF;
-  border: #FFFFFF 2px solid;
+  font-family: 'Coming Soon', cursive;
+  font-weight: bolder;
+  background-color: #F2F2F2;
+  border: #F2F2F2 2px solid;
   text-shadow: none;
   text-shadow: none;
   border-radius: 4px;
@@ -121,7 +137,7 @@ input[type="text"] {
 .home_title_cont {
   width: 100%;
   text-align: center;
-  background-color: #E4001B; }
+  background-color: #DC2829; }
 
 .userName_bar {
   width: 100%;
@@ -132,14 +148,14 @@ input[type="text"] {
     display: inline; }
   .userName_bar .userName {
     margin: 0;
-    color: #FFFFFF;
+    color: #F2F2F2;
     font-size: 1.2em;
     display: inline; }
 
 .home_title {
   width: 100%;
   text-align: center;
-  color: #FFFFFF;
+  color: #F2F2F2;
   margin: 0;
   padding: 0; }
 
@@ -152,7 +168,7 @@ input[type="text"] {
   text-align: center;
   margin: 0.2em 0;
   font-size: 1.2em;
-  color: #383838; }
+  color: #333333; }
 
 .categoryBtn_cont {
   float: left;
@@ -180,7 +196,7 @@ input[type="text"] {
   width: 100%;
   text-align: center;
   margin: 0 0.2em;
-  color: #383838; }
+  color: #333333; }
 
 .category_icon {
   width: 4em;
@@ -212,7 +228,7 @@ input[type="text"] {
 .divider_cont {
   width: 100%;
   overflow: hidden;
-  background-color: #E4001B;
+  background-color: #DC2829;
   height: 2.2em; }
 
 .icon_holder {
@@ -274,18 +290,18 @@ input[type="text"] {
   margin: 0.5em 0;
   font-size: 1em;
   background-color: white;
-  border: #E4001B solid 3px;
+  border: #DC2829 solid 3px;
   border-radius: 0.5em;
-  color: #E4001B; }
+  color: #DC2829; }
 
 #waitBtn {
   padding: 0.5em;
   margin: 0.5em 0;
   font-size: 1em;
-  background-color: #E4001B;
-  border: #E4001B solid 3px;
+  background-color: #DC2829;
+  border: #DC2829 solid 3px;
   border-radius: 0.5em;
-  color: #FFFFFF; }
+  color: #F2F2F2; }
 
 #waitBtn:hover {
   cursor: pointer; }
@@ -309,7 +325,7 @@ input[type="text"] {
   position: fixed;
   overflow: hidden;
   text-align: center;
-  background-color: #E4001B;
+  background-color: #DC2829;
   border-radius: 0.5em;
   padding: 0.5em;
   top: 50%;
@@ -319,19 +335,19 @@ input[type="text"] {
   margin-left: -8em;
   margin-top: -7em; }
   .nextRoundModal h1 {
-    color: #FFFFFF;
+    color: #F2F2F2;
     text-align: center;
     margin: 0 auto; }
   .nextRoundModal .roundText {
-    color: #E4001B;
-    background-color: #FFFFFF;
+    color: #DC2829;
+    background-color: #F2F2F2;
     font-weight: bolder;
     border-radius: 0.5em; }
 
 .header {
   width: 100%;
   overflow: hidden;
-  background-color: #E4001B;
+  background-color: #DC2829;
   color: white; }
 
 .header_element {
@@ -391,12 +407,12 @@ input[type="text"] {
   .timeBox h3 {
     margin: 0; }
 
-/*----------question_stamp cont----------*/
+/*----------question & stamp cont----------*/
 .question_stamp_cont {
   width: 100%;
   overflow: hidden;
-  background-color: #FFFFFF;
-  color: #383838; }
+  background-color: #F2F2F2;
+  color: #333333; }
 
 .stamp_cont {
   width: 100%; }
@@ -430,7 +446,7 @@ input[type="text"] {
   width: 100%;
   padding: 0;
   overflow: hidden;
-  background-color: #FFFFFF; }
+  background-color: #F2F2F2; }
 
 .answers_cont {
   float: left;
@@ -441,7 +457,7 @@ input[type="text"] {
   text-align: center;
   height: 20em;
   padding: 0;
-  background-color: #FFFFFF; }
+  background-color: #F2F2F2; }
   .answers_cont:last-child {
     margin-right: 0; }
   .answers_cont:nth-child(4n) {
@@ -458,13 +474,13 @@ input[type="text"] {
   padding: 0.5em;
   margin: 0.5em 0;
   font-size: 1em;
-  background-color: #FFFFFF;
+  background-color: #F2F2F2;
   border: 3px black solid;
   border-radius: 0.5em;
   color: black; }
   .answerBtn:last-child {
     margin-right: 0; }
-  @media screen and (min-width: 414) {
+  @media screen and (min-width: 414px) {
     .answerBtn {
       float: left;
       display: block;
@@ -490,11 +506,11 @@ input[type="text"] {
   width: 100%;
   margin: 0.1em 0;
   height: 4em;
-  border: #E4001B 3px solid;
-  background-color: #FFFFFF; }
+  border: #DC2829 3px solid;
+  background-color: #F2F2F2; }
 
 .correct {
-  background-color: #E4001B; }
+  background-color: #DC2829; }
 
 /*-----------------------gameOver------------------------*/
 .game_category {

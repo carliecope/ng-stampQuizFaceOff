@@ -2,26 +2,25 @@
 @import "neat";
 @import url(https://fonts.googleapis.com/css?family=Coming+Soon);
 
-$red: #E4001B;
-$med_blue: #61AEE8; 
-$lite_blue: #D0EAFF;
-$white: #FFFFFF;
+$red: #DC2829;
+$blue: #84D4EF;
+$white: #F2F2F2;
 $off_white: #ECECEC;
-$text_gray: #333333;
-$dark_gray: #565656;
-$gray_blk: #383838;
+$gray_dk: #333333;
+$gray_md: #777777;
+$gray_lt: #C7C7C7;
 $postcard: #F6EBD4;
 
-$min_width: 320px;
-$max_phone_width: 414;
-$mid_width: 768px;
-$max_width: 1024px;
+$min_phone_width: 320px;
+$max_phone_width: 414px;
+$min_tablet_width: 768px;
+$max_tablet_width: 1024px;
 
 html {
   box-sizing: border-box;
   list-style-type: none;
   font-family: 'Coming Soon', cursive;
-  background-color: $white;
+  background-color: $gray_dk;
   min-height: 100%;
   margin: 0;
 }
@@ -36,54 +35,69 @@ a:hover, a:active {
     text-decoration: none;
     color: #2A221E;
 }
-#gameArea {
-  background-color: $white;
-  min-height: 100%;
+.body {
+  background-color: $gray_dk;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
   margin: 0;
-  position: relative;
 }
 /*-----------------------Welcome------------------------*/
-.postcard_cont {
+.welcome_container {
+  @include fill-parent;
+  height: 100%;
+  padding: 1em;
+}
+.postcard {
   @include fill-parent;
   overflow: hidden; 
-  background-color: $postcard;
+  background-color: $gray_dk;
+  height: 100%;
 
-  @include media(min-width $mid_width) {
-    @include fill-parent;
+  @include media(min-width $min_tablet_width max-width $max_tablet_width) {
     background-image: url("../img/Postcard.jpg");
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
   }
 }
 .welcome_text {
   @include fill-parent;
-  height: 100%;
   
-  @include media(min-width $mid_width) {
+  @include media(min-width $min_tablet_width max-width $max_tablet_width) {
     @include span-columns(6);
+    height: 100%;
     padding-left: 4em;
   }
 }
 .welcome {
     color: $red;
     font-size: 3em;
-    margin: 4em 0 0.5em 0
+    margin: 4em 0 0.5em 0;
+    
+    @include media(max-width $min_tablet_width) {
+      color: $white;
+    }
 }
 .wel_instruction {
   font-size: 1em;
+  font-weight: bolder;
+  color: $gray_dk;
   opacity: 0.65;
   padding: 0.5em;
   border-radius: 0.8em; 
+  background-color: $white;
 }
 .form_cont {
   overflow: hidden;
-  height: 100%;
   
-  @include media(min-width $mid_width) {
+ @include media(min-width $min_tablet_width max-width $max_tablet_width) {
     @include span-columns(6);
-    padding-right: 6em;
+    height: 100%;
+    padding-right: 7em;
     padding-left: 2em;
-    margin: 14em 0;
+    margin: 15em 0;
   }
 }
 .usernameForm {
@@ -95,6 +109,7 @@ a:hover, a:active {
   line-height: 2.5em;
   border: $white 2px solid;
   border-radius: 4px;
+  padding-left: 0.5em;
 }
 input[type="text"] {
     font-size: 1em; 
@@ -108,7 +123,8 @@ input[type="text"] {
 }
 #userSubmitBtn {
   float: right;
-  font: 'Coming Soon', cursive;
+  font-family: 'Coming Soon', cursive;
+  font-weight: bolder;
   background-color: $white;
   border: $white 2px solid;
   text-shadow: none;
@@ -161,7 +177,7 @@ input[type="text"] {
   text-align: center;
   margin: 0.2em 0;
   font-size: 1.2em;
-  color: $gray_blk;
+  color: $gray_dk;
 }
 .categoryBtn_cont {
   @include span-columns(6);
@@ -184,7 +200,7 @@ input[type="text"] {
   @include fill-parent;
   text-align: center;
   margin: 0 0.2em;
-  color: $gray_blk;
+  color: $gray_dk;
 }
 .category_icon {
   width: 4em;
@@ -361,12 +377,12 @@ input[type="text"] {
     margin: 0;
   }
 }
-/*----------question_stamp cont----------*/
+/*----------question & stamp cont----------*/
 .question_stamp_cont {
   @include fill-parent;
   overflow: hidden;
   background-color: $white;
-  color: $gray_blk;
+  color: $gray_dk;
 }
 .stamp_cont {
   @include fill-parent;
@@ -379,14 +395,14 @@ input[type="text"] {
     margin: 0 auto;
   }
 
-  @include media(min-width $mid_width) {
+  @include media(min-width $min_tablet_width) {
     @include span-columns(6);
   }
 }
 .question_cont {
   @include fill-parent;
 
-  @include media(min-width $mid_width) {
+  @include media(min-width $min_tablet_width) {
     @include span-columns(6);
   }
 }

@@ -1,3 +1,4 @@
+<!------------Round Countdown Modal------------>
 <div ng-show="showModal" class="overlay"></div>
 <div ng-show="showModal" class="nextRoundModal">
 	<h1 class="roundText">Round {{ currentRoundNum }}</h1>
@@ -5,19 +6,20 @@
 	<h1 ng-bind="nextRoundTickNum"></h1>
 </div>
 
+<!------------Game Play Body------------>
 <header class="header">
 	<div class="header_element">
 		<div class="playerOneIcon_cont">
 			<img id="playerOneIcon" src="../img/user_icon_white32.png">
 		</div>
 		<div class="playerOneInfo_cont">
-			<h3 ng-bind="gameData.getPlayer1Name()">playerOne</h3>
+			<h3 ng-bind="gameData.getPlayer1Name()"></h3>
 			<h3>Points: {{}}</h3>
 		</div>
 	</div>
 	<div class="header_element">
 		<div class="timeBox">
-			<h3>Time Left </h3>
+			<h3>Time Left</h3>
 			<h3>{{ answerTimeTickNum }}</h3>
 		</div>
 	</div>

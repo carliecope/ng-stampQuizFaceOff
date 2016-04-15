@@ -1,23 +1,22 @@
 <header>
-	<h3 class="resultsTitle">Results</h3>
-	<h2 id="game_category">{{Category}}</h2>
-	<h1 id="game_result">{{You_Won}}</h1>
+	<h2 class="game_category">{{ currentCategory }}</h2>
+	<h1 class="game_outcome">{{ game_outcome }}</h1>
 </header>
-<section class="players_results">
+<section class="player_results">
 	<div class="playerOneResult">
-		<h2>{{playerOneScore}}</h2>
-		<h3>{{playerOneName}}</h3>
+		<h2>{{ player1Name }}</h2>
+		<h3>{{ player1Score }}</h3>
 	</div>
 	<div class="playerTwoResult">
-		<h2>{{playerTwoScore}}</h2>
-		<h3>{{playerTwoName}}</h3>
+		<h2>{{player2Name}}</h2>
+		<h3>{{player2Score}}</h3>
 	</div>
 </section>
 <section class="gameOverNav">
 	<div class="btn_cont">
-		<button class="rematchBtn">Rematch!</button>
+		<button class="rematchBtn" ng-click="">Rematch!</button>
 	</div>
 	<div class="btn_cont">
-		<button class="newCategoryBtn">New Category</button>
+		<button class="homeBtn" ng-click="">Home</button>
 	</div>
 </section>

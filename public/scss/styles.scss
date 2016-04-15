@@ -440,30 +440,27 @@ input[type="text"] {
 }
 
 /*-----------------------gameOver------------------------*/
-.resultsTitle {
+.game_category {
   @include fill-parent;
   text-align: center;
 }
-#game_category {
+.game_outcome {
   @include fill-parent;
   text-align: center;
 }
-#game_result {
-  @include fill-parent;
-  text-align: center;
-}
-
-.players_results {
+.player_results {
   @include fill-parent;
   overflow: hidden;
 }
 .playerOneResult {
   @include span-columns(6);
   text-align: right;
+  overflow: hidden;
 }
 .playerTwoResult {
   @include span-columns(6);
   text-align: left;
+  overflow: hidden;
 }
 .gameOverNav {
   @include fill-parent;
@@ -472,13 +469,14 @@ input[type="text"] {
 .btn_cont {
   @include fill-parent;
   text-align: center;
+  overflow: hidden;
 }
 .rematchBtn {
   padding: 0.5em;
   margin: 0.5em 0;
   font-size: 1em;
 }
-.newCategoryBtn {
+.homeBtn {
   padding: 0.5em;
   margin: 0.5em 0;
   font-size: 1em;

@@ -497,19 +497,15 @@ input[type="text"] {
   background-color: #E4001B; }
 
 /*-----------------------gameOver------------------------*/
-.resultsTitle {
+.game_category {
   width: 100%;
   text-align: center; }
 
-#game_category {
+.game_outcome {
   width: 100%;
   text-align: center; }
 
-#game_result {
-  width: 100%;
-  text-align: center; }
-
-.players_results {
+.player_results {
   width: 100%;
   overflow: hidden; }
 
@@ -518,7 +514,8 @@ input[type="text"] {
   display: block;
   margin-right: 2.35765%;
   width: 48.82117%;
-  text-align: right; }
+  text-align: right;
+  overflow: hidden; }
   .playerOneResult:last-child {
     margin-right: 0; }
 
@@ -527,7 +524,8 @@ input[type="text"] {
   display: block;
   margin-right: 2.35765%;
   width: 48.82117%;
-  text-align: left; }
+  text-align: left;
+  overflow: hidden; }
   .playerTwoResult:last-child {
     margin-right: 0; }
 
@@ -537,14 +535,15 @@ input[type="text"] {
 
 .btn_cont {
   width: 100%;
-  text-align: center; }
+  text-align: center;
+  overflow: hidden; }
 
 .rematchBtn {
   padding: 0.5em;
   margin: 0.5em 0;
   font-size: 1em; }
 
-.newCategoryBtn {
+.homeBtn {
   padding: 0.5em;
   margin: 0.5em 0;
   font-size: 1em; }

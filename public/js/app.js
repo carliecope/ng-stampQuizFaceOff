@@ -25,8 +25,15 @@ angular.module('myApp', ['ngRoute', 'btford.socket-io', 'ngAnimate'])
 		return mySocket;
 	})
 	.factory('currentCategory', function() {
+		var category = "";
+		
 		return {
-			category: ""
+			setCategory: function(newCategory) {
+				category = newCategory;
+			},
+			getCategory: function() {
+				return category;
+			}
 		};
 	})
 	.factory('gameData', function() {

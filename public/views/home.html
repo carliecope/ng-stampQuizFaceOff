@@ -1,14 +1,18 @@
 <div class="home_title_cont">
-	<div class="userName_bar">
-		<img class="home_user_icon" src="../img/user_icon_white32.png">
-		<h2 class="userName" ng-bind="gameData.getPlayer1Name()"></h2>
+	<div class="title_box">
+		<h1 class="home_title">Philatelist Face-Off</h1>
+		<h2 class="choose">Choose a category!</h2>
 	</div>
-	<h1 class="home_title">Philatelist Face-Off</h1>
-	<h2 class="choose">Choose a category:</h2>
+	<div class="userName_box">
+		<div class="username_cont">
+			<h2 class="userName_home" ng-bind="gameData.getPlayer1Name()"></h2>
+			<img class="home_user_icon" src="../img/user_icon_white32.png">
+		</div>
+	</div>
 </div>
 <div class="category_cont">
 	<div class="music_cont" ng-click="categoryClick('Music')">
-		<div class="stamp_cont">
+		<div class="stamp_cont_music">
 			<img class="stamp" src="../img/stamp_music.gif">
 			<div class="category_text_cont">
 				<img class="category_icon" src="../img/icon_music_blk.png">
@@ -18,7 +22,7 @@
 	</div>
 
 	<div class="science_cont" ng-click="categoryClick('Science')">
-		<div class="stamp_cont">
+		<div class="stamp_cont_science">
 			<img class="stamp" src="../img/stamp_science.gif">
 			<div class="category_text_cont">
 				<img class="category_icon" src="../img/icon_science_blk.png">
@@ -27,8 +31,28 @@
 		</div>
 	</div>
 
+	<div class="presidents_cont" ng-click="categoryClick('USPresidents')">
+		<div class="stamp_cont_presidents">
+			<img class="stamp" src="../img/stamp_presidents.gif">
+			<div class="category_text_cont">
+				<img class="category_icon" src="../img/icon_president_blk.png">
+				<h2 class="category">US Presidents</h2>
+			</div>
+		</div>
+	</div>
+
+	<div class="olympics_cont" ng-click="categoryClick('Olympics')">
+		<div class="stamp_cont_olympics">
+			<img class="stamp" src="../img/stamp_olympics.gif">
+			<div class="category_text_cont">
+				<img class="category_icon" src="../img/icon_olympic_blk.png">
+				<h2 class="category">Olympics</h2>
+			</div>
+		</div>
+	</div>
+
 	<div class="movies_cont" ng-click="categoryClick('Movies')">
-		<div class="stamp_cont">
+		<div class="stamp_cont_movies">
 			<img class="stamp" src="../img/stamp_movies.jpg">
 			<div class="category_text_cont">
 				<img class="category_icon" src="../img/icon_movie_blk.png">
@@ -38,7 +62,7 @@
 	</div>
 
 	<div class="aviation_cont" ng-click="categoryClick('Aviation')">
-		<div class="stamp_cont">
+		<div class="stamp_cont_aviation">
 			<img class="stamp" src="../img/stamp_aviation.gif">
 			<div class="category_text_cont">
 				<img class="category_icon" src="../img/icon_aviation_blk.png">
@@ -47,23 +71,4 @@
 		</div>
 	</div>
 
-	<div class="olympics_cont" ng-click="categoryClick('Olympics')">
-		<div class="stamp_cont">
-			<img class="stamp" src="../img/stamp_olympics.gif">
-			<div class="category_text_cont">
-				<img class="category_icon" src="../img/icon_olympic_blk.png">
-				<h2 class="category">Olympics</h2>
-			</div>
-		</div>
-	</div>
-
-	<div class="presidents_cont" ng-click="categoryClick('USPresidents')">
-		<div class="stamp_cont">
-			<img class="stamp" src="../img/stamp_presidents.gif">
-			<div class="category_text_cont">
-				<img class="category_icon" src="../img/icon_president_blk.png">
-				<h2 class="category">US Presidents</h2>
-			</div>
-		</div>
-	</div>
 </div>

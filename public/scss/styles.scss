@@ -15,6 +15,9 @@ $min_phone_width: 320px;
 $max_phone_width: 414px;
 $min_tablet_width: 768px;
 $max_tablet_width: 1024px;
+$min_laptop_width: 1200px;
+$max_laptop_width: 1600px;
+
 $max_postcard_width: 1400px;
 
 html {
@@ -58,17 +61,17 @@ a:hover, a:active {
   height: 100%;
 
   @include media(min-width $min_tablet_width max-width $max_tablet_width) {
-    background-image: url("../img/Postcard.jpg");
+    background-image: url("../img/vintage-postcard.jpg");
     background-repeat: no-repeat;
     background-size: contain;
     position: fixed;
-    top: 65%;
+    top: 50%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
   }
   @include media(min-width $max_tablet_width max-width $max_postcard_width) {
-    background-image: url("../img/Postcard.jpg");
+    background-image: url("../img/vintage-postcard.jpg");
     background-repeat: no-repeat;
     background-size: contain;
     position: fixed;
@@ -162,78 +165,115 @@ input[type="text"] {
 /*-----------------------Home------------------------*/
 .home_title_cont {
   @include fill-parent;
-  text-align: center;
   background-color: $blue;
-}
-.userName_bar {
-  @include fill-parent;
-  text-align: center;
   overflow: hidden;
-  .home_user_icon {
-    height: 1.2em;
-    display: inline;
-  }
-  .userName {
-    margin: 0;
-    color: $white;
-    font-size: 1.2em;
-    display: inline;
-  }
+}
+.title_box {
+  @include span-columns(5);
+  @include shift(1);
+  @include omega();
 }
 .home_title {
-	@include fill-parent;
-	text-align: center;
+  @include fill-parent;
   color: $gray_dk;
-  margin: 0;
+  font-size: 1.7em;
+  height: 1.2em;
+  margin: 0.2em 0;
   padding: 0;
 }
 .choose {
   @include fill-parent;
-  text-align: center;
   margin: 0.2em 0;
+  font-size: 1em;
+  color: $white;
+}
+.userName_box {
+  @include span-columns(5);
+  @include omega();
+  height: 100%;
+  overflow: hidden;
+}
+.username_cont {
+  float: right;
+}
+.home_user_icon {
+  height: 1em;
+  display: inline;
+}
+.userName_home {
+  margin-left: 0.2em;
+  color: $white;
   font-size: 1.2em;
-  color: $gray_dk;
+  display: inline;
 }
 .category_cont {
   @include outer-container;
   overflow: hidden;
+  background-image: url("../img/vintage-postcard.jpg");
+  background-repeat: no-repeat;
+  background-position: 96% 5%;
+  height: 40em;
 }
 .music_cont, .science_cont, .movies_cont, .aviation_cont, .presidents_cont, .olympics_cont {
   overflow: hidden;
-  height: 16em;
+  height: 50%;
 }
 .music_cont {
-  @include span-columns(4);
+  @include span-columns(3);
   @include shift(1);
   @include omega();
+
+  .stamp_cont_music {
+    height: 12em;
+    margin: 4em 0;
+  }
 }
 .science_cont {
-  @include span-columns(6);
+  @include span-columns(4);
   @include omega();
   margin-left: 1em;
-}
-.movies_cont {
-  @include span-columns(4);
-  @include shift(2);
-  @include omega();
-}
-.aviation_cont {
-  @include span-columns(6);
-  @include omega();
-}
-.olympics_cont {
-  @include span-columns(6);
-  @include shift(1)
-  @include omega();
+
+  .stamp_cont_science {
+    height: 12em;
+    margin-top: 9em;
+  }
 }
 .presidents_cont {
-  @include span-columns(5);
+  @include span-columns(4);
   @include omega();
   padding-left: 1em;
+  
+  .stamp_cont_presidents {
+    height: 12em;
+    margin: 4em 0 0 1em;
+  }
 }
-.stamp_cont {
-  height: 100%;
-  margin: auto;
+.olympics_cont {
+  @include span-columns(5);
+  @include omega();
+  
+  .stamp_cont_olympics {
+    height: 12em;
+    margin: 2em 0 4em 1em;;
+  }
+}
+.movies_cont {
+  @include span-columns(3);
+  @include omega();
+  
+  .stamp_cont_movies {
+    height: 12em;
+    margin: 4em 0;
+  }
+}
+.aviation_cont {
+  @include span-columns(4);
+  @include omega();
+  
+  .stamp_cont_aviation {
+    height: 12em;
+    margin: 1em 0 0 1em;;
+  }
 }
 .stamp {
   height: 100%;
@@ -242,7 +282,6 @@ input[type="text"] {
   @include fill-parent;
   position: relative;
   height: 100%;
-  margin-bottom: -16em;
   
   .category {
     display: inline;

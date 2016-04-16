@@ -46,17 +46,17 @@ a:hover, a:active {
   height: 100%; }
   @media screen and (min-width: 768px) and (max-width: 1024px) {
     .postcard {
-      background-image: url("../img/Postcard.jpg");
+      background-image: url("../img/vintage-postcard.jpg");
       background-repeat: no-repeat;
       background-size: contain;
       position: fixed;
-      top: 65%;
+      top: 50%;
       left: 50%;
       -webkit-transform: translate(-50%, -50%);
       transform: translate(-50%, -50%); } }
   @media screen and (min-width: 1024px) and (max-width: 1400px) {
     .postcard {
-      background-image: url("../img/Postcard.jpg");
+      background-image: url("../img/vintage-postcard.jpg");
       background-repeat: no-repeat;
       background-size: contain;
       position: fixed;
@@ -151,41 +151,66 @@ input[type="text"] {
 /*-----------------------Home------------------------*/
 .home_title_cont {
   width: 100%;
-  text-align: center;
-  background-color: #84D4EF; }
-
-.userName_bar {
-  width: 100%;
-  text-align: center;
+  background-color: #84D4EF;
   overflow: hidden; }
-  .userName_bar .home_user_icon {
-    height: 1.2em;
-    display: inline; }
-  .userName_bar .userName {
-    margin: 0;
-    color: #F2F2F2;
-    font-size: 1.2em;
-    display: inline; }
+
+.title_box {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 40.29137%;
+  margin-left: 8.5298%;
+  margin-right: 0; }
+  .title_box:last-child {
+    margin-right: 0; }
 
 .home_title {
   width: 100%;
-  text-align: center;
   color: #333333;
-  margin: 0;
+  font-size: 1.7em;
+  height: 1.2em;
+  margin: 0.2em 0;
   padding: 0; }
 
 .choose {
   width: 100%;
-  text-align: center;
   margin: 0.2em 0;
+  font-size: 1em;
+  color: #F2F2F2; }
+
+.userName_box {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 40.29137%;
+  margin-right: 0;
+  height: 100%;
+  overflow: hidden; }
+  .userName_box:last-child {
+    margin-right: 0; }
+
+.username_cont {
+  float: right; }
+
+.home_user_icon {
+  height: 1em;
+  display: inline; }
+
+.userName_home {
+  margin-left: 0.2em;
+  color: #F2F2F2;
   font-size: 1.2em;
-  color: #333333; }
+  display: inline; }
 
 .category_cont {
   max-width: 68em;
   margin-left: auto;
   margin-right: auto;
-  overflow: hidden; }
+  overflow: hidden;
+  background-image: url("../img/vintage-postcard.jpg");
+  background-repeat: no-repeat;
+  background-position: 96% 5%;
+  height: 40em; }
   .category_cont::after {
     clear: both;
     content: "";
@@ -193,70 +218,82 @@ input[type="text"] {
 
 .music_cont, .science_cont, .movies_cont, .aviation_cont, .presidents_cont, .olympics_cont {
   overflow: hidden;
-  height: 16em; }
+  height: 50%; }
 
 .music_cont {
   float: left;
   display: block;
   margin-right: 2.35765%;
-  width: 31.76157%;
+  width: 23.23176%;
   margin-left: 8.5298%;
   margin-right: 0; }
   .music_cont:last-child {
     margin-right: 0; }
+  .music_cont .stamp_cont_music {
+    height: 12em;
+    margin: 4em 0; }
 
 .science_cont {
   float: left;
   display: block;
   margin-right: 2.35765%;
-  width: 48.82117%;
+  width: 31.76157%;
   margin-right: 0;
   margin-left: 1em; }
   .science_cont:last-child {
     margin-right: 0; }
-
-.movies_cont {
-  float: left;
-  display: block;
-  margin-right: 2.35765%;
-  width: 31.76157%;
-  margin-left: 17.05961%;
-  margin-right: 0; }
-  .movies_cont:last-child {
-    margin-right: 0; }
-
-.aviation_cont {
-  float: left;
-  display: block;
-  margin-right: 2.35765%;
-  width: 48.82117%;
-  margin-right: 0; }
-  .aviation_cont:last-child {
-    margin-right: 0; }
-
-.olympics_cont {
-  float: left;
-  display: block;
-  margin-right: 2.35765%;
-  width: 48.82117%;
-  margin-left: 8.5298%;
-  margin-right: 0; }
-  .olympics_cont:last-child {
-    margin-right: 0; }
+  .science_cont .stamp_cont_science {
+    height: 12em;
+    margin-top: 9em; }
 
 .presidents_cont {
   float: left;
   display: block;
   margin-right: 2.35765%;
-  width: 40.29137%;
+  width: 31.76157%;
   margin-right: 0;
   padding-left: 1em; }
   .presidents_cont:last-child {
     margin-right: 0; }
+  .presidents_cont .stamp_cont_presidents {
+    height: 12em;
+    margin: 4em 0 0 1em; }
 
-.stamp_cont {
-  height: 100%;
-  margin: auto; }
+.olympics_cont {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 40.29137%;
+  margin-right: 0; }
+  .olympics_cont:last-child {
+    margin-right: 0; }
+  .olympics_cont .stamp_cont_olympics {
+    height: 12em;
+    margin: 2em 0 4em 1em; }
+
+.movies_cont {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 23.23176%;
+  margin-right: 0; }
+  .movies_cont:last-child {
+    margin-right: 0; }
+  .movies_cont .stamp_cont_movies {
+    height: 12em;
+    margin: 4em 0; }
+
+.aviation_cont {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 31.76157%;
+  margin-right: 0; }
+  .aviation_cont:last-child {
+    margin-right: 0; }
+  .aviation_cont .stamp_cont_aviation {
+    height: 12em;
+    margin: 1em 0 0 1em; }
 
 .stamp {
   height: 100%; }
@@ -264,8 +301,7 @@ input[type="text"] {
 .category_text_cont {
   width: 100%;
   position: relative;
-  height: 100%;
-  margin-bottom: -16em; }
+  height: 100%; }
   .category_text_cont .category {
     display: inline; }
   .category_text_cont .category_icon {

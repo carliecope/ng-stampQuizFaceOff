@@ -9,7 +9,7 @@ html {
   box-sizing: border-box;
   list-style-type: none;
   font-family: 'Coming Soon', cursive;
-  background-color: #333333;
+  background-color: #F2F2F2;
   min-height: 100%;
   margin: 0; }
 
@@ -25,7 +25,7 @@ a:hover, a:active {
   color: #2A221E; }
 
 .body {
-  background-color: #333333;
+  background-color: #F2F2F2;
   position: fixed;
   top: 0;
   left: 0;
@@ -42,7 +42,7 @@ a:hover, a:active {
 .postcard {
   width: 100%;
   overflow: hidden;
-  background-color: #333333;
+  background-color: #F2F2F2;
   height: 100%; }
   @media screen and (min-width: 768px) and (max-width: 1024px) {
     .postcard {
@@ -83,9 +83,6 @@ a:hover, a:active {
   color: #DC2829;
   font-size: 3em;
   margin: 4em 0 0.5em 0; }
-  @media screen and (max-width: 768px) {
-    .welcome {
-      color: #F2F2F2; } }
 
 .wel_instruction {
   font-size: 1em;
@@ -138,8 +135,8 @@ input[type="text"] {
   float: right;
   font-family: 'Coming Soon', cursive;
   font-weight: bolder;
-  background-color: #F2F2F2;
-  border: #F2F2F2 2px solid;
+  background-color: white;
+  border: white 2px solid;
   text-shadow: none;
   text-shadow: none;
   border-radius: 4px;
@@ -155,7 +152,7 @@ input[type="text"] {
 .home_title_cont {
   width: 100%;
   text-align: center;
-  background-color: #DC2829; }
+  background-color: #84D4EF; }
 
 .userName_bar {
   width: 100%;
@@ -173,13 +170,9 @@ input[type="text"] {
 .home_title {
   width: 100%;
   text-align: center;
-  color: #F2F2F2;
+  color: #333333;
   margin: 0;
   padding: 0; }
-
-.category-cont {
-  width: 100%;
-  overflow: hidden; }
 
 .choose {
   width: 100%;
@@ -188,37 +181,96 @@ input[type="text"] {
   font-size: 1.2em;
   color: #333333; }
 
-.categoryBtn_cont {
+.category_cont {
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden; }
+  .category_cont::after {
+    clear: both;
+    content: "";
+    display: table; }
+
+.music_cont, .science_cont, .movies_cont, .aviation_cont, .presidents_cont, .olympics_cont {
+  overflow: hidden;
+  height: 16em; }
+
+.music_cont {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 31.76157%;
+  margin-left: 8.5298%;
+  margin-right: 0; }
+  .music_cont:last-child {
+    margin-right: 0; }
+
+.science_cont {
   float: left;
   display: block;
   margin-right: 2.35765%;
   width: 48.82117%;
   margin-right: 0;
-  display: inline;
-  overflow: hidden; }
-  .categoryBtn_cont:last-child {
+  margin-left: 1em; }
+  .science_cont:last-child {
     margin-right: 0; }
 
-.stamp_outline {
-  width: 10em;
-  height: 10em;
-  margin: 0 auto;
-  background-image: url("../img/border_blue256.png");
-  background-repeat: no-repeat;
-  background-size: 10em 10em; }
+.movies_cont {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 31.76157%;
+  margin-left: 17.05961%;
+  margin-right: 0; }
+  .movies_cont:last-child {
+    margin-right: 0; }
 
-.stamp_outline:hover {
-  cursor: pointer; }
+.aviation_cont {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 48.82117%;
+  margin-right: 0; }
+  .aviation_cont:last-child {
+    margin-right: 0; }
 
-.category {
+.olympics_cont {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 48.82117%;
+  margin-left: 8.5298%;
+  margin-right: 0; }
+  .olympics_cont:last-child {
+    margin-right: 0; }
+
+.presidents_cont {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 40.29137%;
+  margin-right: 0;
+  padding-left: 1em; }
+  .presidents_cont:last-child {
+    margin-right: 0; }
+
+.stamp_cont {
+  height: 100%;
+  margin: auto; }
+
+.stamp {
+  height: 100%; }
+
+.category_text_cont {
   width: 100%;
-  text-align: center;
-  margin: 0 0.2em;
-  color: #333333; }
-
-.category_icon {
-  width: 4em;
-  margin: 3em 3em; }
+  position: relative;
+  height: 100%;
+  margin-bottom: -16em; }
+  .category_text_cont .category {
+    display: inline; }
+  .category_text_cont .category_icon {
+    display: inline;
+    height: 2em; }
 
 /*-----------------------preGame------------------------*/
 /*------------top----------*/

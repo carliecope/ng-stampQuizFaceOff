@@ -21,7 +21,7 @@ html {
   box-sizing: border-box;
   list-style-type: none;
   font-family: 'Coming Soon', cursive;
-  background-color: $gray_dk;
+  background-color: $white;
   min-height: 100%;
   margin: 0;
 }
@@ -37,7 +37,7 @@ a:hover, a:active {
     color: #2A221E;
 }
 .body {
-  background-color: $gray_dk;
+  background-color: $white;
   position: fixed;
   top: 0;
   left: 0;
@@ -54,7 +54,7 @@ a:hover, a:active {
 .postcard {
   @include fill-parent;
   overflow: hidden; 
-  background-color: $gray_dk;
+  background-color: $white;
   height: 100%;
 
   @include media(min-width $min_tablet_width max-width $max_tablet_width) {
@@ -95,10 +95,6 @@ a:hover, a:active {
     color: $red;
     font-size: 3em;
     margin: 4em 0 0.5em 0;
-    
-    @include media(max-width $min_tablet_width) {
-      color: $white;
-    }
 }
 .wel_instruction {
   font-size: 1em;
@@ -148,8 +144,8 @@ input[type="text"] {
   float: right;
   font-family: 'Coming Soon', cursive;
   font-weight: bolder;
-  background-color: $white;
-  border: $white 2px solid;
+  background-color: white;
+  border: white 2px solid;
   text-shadow: none;
   text-shadow: none;
   border-radius: 4px;
@@ -167,7 +163,7 @@ input[type="text"] {
 .home_title_cont {
   @include fill-parent;
   text-align: center;
-  background-color: $red;
+  background-color: $blue;
 }
 .userName_bar {
   @include fill-parent;
@@ -187,13 +183,9 @@ input[type="text"] {
 .home_title {
 	@include fill-parent;
 	text-align: center;
-  color: $white;
+  color: $gray_dk;
   margin: 0;
   padding: 0;
-}
-.category-cont {
-	@include fill-parent;
-  overflow: hidden;
 }
 .choose {
   @include fill-parent;
@@ -202,32 +194,63 @@ input[type="text"] {
   font-size: 1.2em;
   color: $gray_dk;
 }
-.categoryBtn_cont {
-  @include span-columns(6);
-  @include omega();
-  display: inline;
+.category_cont {
+  @include outer-container;
   overflow: hidden;
 }
-.stamp_outline {
-  width: 10em;
-  height: 10em;
-  margin: 0 auto;
-  background-image: url("../img/border_blue256.png");
-  background-repeat: no-repeat;
-  background-size: 10em 10em;
+.music_cont, .science_cont, .movies_cont, .aviation_cont, .presidents_cont, .olympics_cont {
+  overflow: hidden;
+  height: 16em;
 }
-.stamp_outline:hover {
-  cursor: pointer;
+.music_cont {
+  @include span-columns(4);
+  @include shift(1);
+  @include omega();
 }
-.category {
+.science_cont {
+  @include span-columns(6);
+  @include omega();
+  margin-left: 1em;
+}
+.movies_cont {
+  @include span-columns(4);
+  @include shift(2);
+  @include omega();
+}
+.aviation_cont {
+  @include span-columns(6);
+  @include omega();
+}
+.olympics_cont {
+  @include span-columns(6);
+  @include shift(1)
+  @include omega();
+}
+.presidents_cont {
+  @include span-columns(5);
+  @include omega();
+  padding-left: 1em;
+}
+.stamp_cont {
+  height: 100%;
+  margin: auto;
+}
+.stamp {
+  height: 100%;
+}
+.category_text_cont {
   @include fill-parent;
-  text-align: center;
-  margin: 0 0.2em;
-  color: $gray_dk;
-}
-.category_icon {
-  width: 4em;
-  margin: 3em 3em;
+  position: relative;
+  height: 100%;
+  margin-bottom: -16em;
+  
+  .category {
+    display: inline;
+  }
+  .category_icon {
+    display: inline;
+    height: 2em;
+  }
 }
 /*-----------------------preGame------------------------*/
 

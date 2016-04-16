@@ -48,7 +48,22 @@ a:hover, a:active {
     .postcard {
       background-image: url("../img/Postcard.jpg");
       background-repeat: no-repeat;
-      background-size: contain; } }
+      background-size: contain;
+      position: fixed;
+      top: 65%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%); } }
+  @media screen and (min-width: 1024px) and (max-width: 1400px) {
+    .postcard {
+      background-image: url("../img/Postcard.jpg");
+      background-repeat: no-repeat;
+      background-size: contain;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%); } }
 
 .welcome_text {
   width: 100%; }
@@ -59,7 +74,8 @@ a:hover, a:active {
       margin-right: 2.35765%;
       width: 48.82117%;
       height: 100%;
-      padding-left: 4em; }
+      padding-left: 4em;
+      padding-right: 1em; }
       .welcome_text:last-child {
         margin-right: 0; } }
 
@@ -75,10 +91,12 @@ a:hover, a:active {
   font-size: 1em;
   font-weight: bolder;
   color: #333333;
-  opacity: 0.65;
   padding: 0.5em;
   border-radius: 0.8em;
   background-color: #F2F2F2; }
+  @media screen and (min-width: 768px) and (max-width: 1024px) {
+    .wel_instruction {
+      opacity: 0.65; } }
 
 .form_cont {
   overflow: hidden; }

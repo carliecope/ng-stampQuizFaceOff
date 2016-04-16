@@ -15,6 +15,7 @@ $min_phone_width: 320px;
 $max_phone_width: 414px;
 $min_tablet_width: 768px;
 $max_tablet_width: 1024px;
+$max_postcard_width: 1400px;
 
 html {
   box-sizing: border-box;
@@ -60,7 +61,25 @@ a:hover, a:active {
     background-image: url("../img/Postcard.jpg");
     background-repeat: no-repeat;
     background-size: contain;
+    position: fixed;
+    top: 65%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
   }
+  @include media(min-width $max_tablet_width max-width $max_postcard_width) {
+    background-image: url("../img/Postcard.jpg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+  @include media(min-width $max_postcard_width) {
+
+    }
 }
 .welcome_text {
   @include fill-parent;
@@ -69,6 +88,7 @@ a:hover, a:active {
     @include span-columns(6);
     height: 100%;
     padding-left: 4em;
+    padding-right: 1em;
   }
 }
 .welcome {
@@ -84,10 +104,13 @@ a:hover, a:active {
   font-size: 1em;
   font-weight: bolder;
   color: $gray_dk;
-  opacity: 0.65;
   padding: 0.5em;
   border-radius: 0.8em; 
   background-color: $white;
+
+  @include media(min-width $min_tablet_width max-width $max_tablet_width) {
+    opacity: 0.65;
+  }
 }
 .form_cont {
   overflow: hidden;

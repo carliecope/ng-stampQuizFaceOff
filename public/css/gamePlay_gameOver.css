@@ -1,0 +1,286 @@
+@import url(https://fonts.googleapis.com/css?family=Coming+Soon);
+html {
+  box-sizing: border-box; }
+
+*, *::after, *::before {
+  box-sizing: inherit; }
+
+/*-----------------------gamePlay------------------------*/
+/*--------Countdown Modal---------------*/
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 10; }
+
+.nextRoundModal {
+  z-index: 11;
+  position: fixed;
+  overflow: hidden;
+  text-align: center;
+  background-color: #84D4EF;
+  border-radius: 0.5em;
+  padding: 0.5em;
+  top: 50%;
+  left: 50%;
+  width: 16em;
+  height: 14em;
+  margin-left: -8em;
+  margin-top: -7em; }
+  .nextRoundModal h1 {
+    color: #333333;
+    text-align: center;
+    margin: 0 auto; }
+  .nextRoundModal .roundText {
+    color: #333333;
+    background-color: #F2F2F2;
+    font-weight: bolder;
+    border-radius: 0.5em; }
+
+/*--------Header---------------*/
+.header {
+  width: 100%;
+  overflow: hidden;
+  background-color: #84D4EF;
+  color: white;
+  height: 8%; }
+
+.header_element {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 31.76157%;
+  display: inline;
+  text-align: center; }
+  .header_element:last-child {
+    margin-right: 0; }
+
+.playerOneIcon_cont {
+  float: left;
+  display: block;
+  margin-right: 7.42297%;
+  width: 46.28851%;
+  padding: 2.35765%; }
+  .playerOneIcon_cont:last-child {
+    margin-right: 0; }
+
+.playerOneInfo_cont {
+  float: left;
+  display: block;
+  margin-right: 7.42297%;
+  width: 46.28851%;
+  padding: 2.35765%; }
+  .playerOneInfo_cont:last-child {
+    margin-right: 0; }
+  .playerOneInfo_cont h3 {
+    width: 100%;
+    margin: 0;
+    color: #333333; }
+
+.playerTwoIcon_cont {
+  float: left;
+  display: block;
+  margin-right: 7.42297%;
+  width: 46.28851%;
+  padding: 2.35765%; }
+  .playerTwoIcon_cont:last-child {
+    margin-right: 0; }
+
+.playerTwoInfo_cont {
+  float: left;
+  display: block;
+  margin-right: 7.42297%;
+  width: 46.28851%;
+  padding: 2.35765%; }
+  .playerTwoInfo_cont:last-child {
+    margin-right: 0; }
+  .playerTwoInfo_cont h3 {
+    width: 100%;
+    margin: 0;
+    color: #333333; }
+
+.timeBox {
+  overflow: hidden; }
+  .timeBox h3 {
+    margin: 0;
+    color: #333333; }
+
+.gamePlayArea {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  height: 92%; }
+
+.gamePlayArea::before {
+  content: ' ';
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  opacity: 0.7;
+  background-image: url("../img/vintage-postcard.jpg");
+  background-repeat: no-repeat;
+  background-position: 96% 6%; }
+
+/*----------question & stamp cont----------*/
+.question_stamp_cont {
+  width: 100%;
+  overflow: hidden;
+  background-color: #F2F2F2;
+  color: #333333; }
+
+.stamp_cont {
+  width: 100%; }
+  .stamp_cont .img_cont {
+    margin: 0 auto;
+    padding: 2em; }
+  .stamp_cont #stampImg {
+    margin: 0 auto; }
+  @media screen and (min-width: 768px) {
+    .stamp_cont {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 48.82117%; }
+      .stamp_cont:last-child {
+        margin-right: 0; } }
+
+.question_cont {
+  width: 100%; }
+  @media screen and (min-width: 768px) {
+    .question_cont {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 48.82117%; }
+      .question_cont:last-child {
+        margin-right: 0; } }
+
+/*----------answer box----------*/
+.answer_score_cont {
+  width: 100%;
+  padding: 0;
+  overflow: hidden;
+  background-color: #F2F2F2; }
+
+.answers_cont {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 82.94039%;
+  overflow: hidden;
+  text-align: center;
+  height: 20em;
+  padding: 0;
+  background-color: #F2F2F2; }
+  .answers_cont:last-child {
+    margin-right: 0; }
+  .answers_cont:nth-child(4n) {
+    margin-right: 0; }
+  .answers_cont:nth-child(4n+1) {
+    clear: left; }
+
+.answerBtn {
+  float: left;
+  display: block;
+  margin-right: 2.84259%;
+  width: 79.43148%;
+  margin-left: 10.28426%;
+  padding: 0.5em;
+  margin: 0.5em 0;
+  font-size: 1em;
+  background-color: #F2F2F2;
+  border: 3px black solid;
+  border-radius: 0.5em;
+  color: black; }
+  .answerBtn:last-child {
+    margin-right: 0; }
+  @media screen and (min-width: 414px) {
+    .answerBtn {
+      float: left;
+      display: block;
+      margin-right: 2.84259%;
+      width: 48.57871%;
+      margin-left: 0%;
+      height: 8em;
+      display: inline; }
+      .answerBtn:last-child {
+        margin-right: 0; } }
+
+.scoreBar {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 6.17215%;
+  overflow: hidden;
+  padding: 0; }
+  .scoreBar:last-child {
+    margin-right: 0; }
+
+.bar {
+  width: 100%;
+  margin: 0.1em 0;
+  height: 4em;
+  border: #DC2829 3px solid;
+  background-color: #F2F2F2; }
+
+.correct {
+  background-color: #DC2829; }
+
+/*-----------------------gameOver------------------------*/
+.game_category {
+  width: 100%;
+  text-align: center; }
+
+.game_outcome {
+  width: 100%;
+  text-align: center; }
+
+.player_results {
+  width: 100%;
+  overflow: hidden; }
+
+.playerOneResult {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 48.82117%;
+  text-align: right;
+  overflow: hidden; }
+  .playerOneResult:last-child {
+    margin-right: 0; }
+
+.playerTwoResult {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 48.82117%;
+  text-align: left;
+  overflow: hidden; }
+  .playerTwoResult:last-child {
+    margin-right: 0; }
+
+.gameOverNav {
+  width: 100%;
+  overflow: hidden; }
+
+.btn_cont {
+  width: 100%;
+  text-align: center;
+  overflow: hidden; }
+
+.rematchBtn {
+  padding: 0.5em;
+  margin: 0.5em 0;
+  font-size: 1em; }
+
+.homeBtn {
+  padding: 0.5em;
+  margin: 0.5em 0;
+  font-size: 1em; }

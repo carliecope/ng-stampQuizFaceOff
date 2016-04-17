@@ -1,0 +1,229 @@
+@import url(https://fonts.googleapis.com/css?family=Coming+Soon);
+html {
+  box-sizing: border-box; }
+
+*, *::after, *::before {
+  box-sizing: inherit; }
+
+/*-----------------------Home------------------------*/
+/*---------Title Bar----------*/
+.home_title_cont {
+  width: 100%;
+  background-color: #84D4EF;
+  overflow: hidden; }
+
+.title_box {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 40.29137%;
+  margin-left: 8.5298%;
+  margin-right: 0; }
+  .title_box:last-child {
+    margin-right: 0; }
+
+.home_title {
+  width: 100%;
+  color: #333333;
+  font-size: 1.7em;
+  height: 1.2em;
+  margin: 0.2em 0;
+  padding: 0; }
+
+.choose {
+  width: 100%;
+  margin: 0.2em 0;
+  font-size: 1em;
+  color: #F2F2F2; }
+
+.userName_box {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 40.29137%;
+  margin-right: 0;
+  height: 100%;
+  overflow: hidden; }
+  .userName_box:last-child {
+    margin-right: 0; }
+
+.username_cont {
+  float: right; }
+
+.home_user_icon {
+  height: 1em;
+  display: inline; }
+
+.userName_home {
+  margin-left: 0.2em;
+  color: #F2F2F2;
+  font-size: 1.2em;
+  display: inline; }
+
+/*---------Categories----------*/
+.category_cont {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  height: 40em; }
+
+.category_cont::before {
+  content: ' ';
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  opacity: 0.7;
+  background-image: url("../img/vintage-postcard.jpg");
+  background-repeat: no-repeat;
+  background-position: 96% 6%; }
+
+.music_cont, .science_cont, .movies_cont, .aviation_cont, .presidents_cont, .olympics_cont {
+  overflow: hidden; }
+  @media screen and (min-width: 768px) {
+    .music_cont, .science_cont, .movies_cont, .aviation_cont, .presidents_cont, .olympics_cont {
+      height: 50%;
+      z-index: 2; } }
+
+.music_cont {
+  width: 100%; }
+  @media screen and (min-width: 768px) {
+    .music_cont {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 23.23176%;
+      margin-left: 8.5298%;
+      margin-right: 0; }
+      .music_cont:last-child {
+        margin-right: 0; } }
+  .music_cont .music_img {
+    margin: 1em 0; }
+    @media screen and (min-width: 768px) and (max-width: 1024px) {
+      .music_cont .music_img {
+        height: 12em;
+        margin: 4em 0; } }
+
+.science_cont {
+  width: 100%; }
+  @media screen and (min-width: 768px) {
+    .science_cont {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 31.76157%;
+      margin-right: 0;
+      margin-left: 1em; }
+      .science_cont:last-child {
+        margin-right: 0; } }
+  .science_cont .stamp_cont_science {
+    margin: 1em 0; }
+    @media screen and (min-width: 768px) and (max-width: 1024px) {
+      .science_cont .stamp_cont_science {
+        height: 12em;
+        margin-top: 7em; } }
+
+.presidents_cont {
+  width: 100%; }
+  @media screen and (min-width: 768px) {
+    .presidents_cont {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 31.76157%;
+      margin-right: 0;
+      padding-left: 1em; }
+      .presidents_cont:last-child {
+        margin-right: 0; } }
+  .presidents_cont .stamp_cont_presidents {
+    margin: 1em 0; }
+    @media screen and (min-width: 768px) and (max-width: 1024px) {
+      .presidents_cont .stamp_cont_presidents {
+        height: 12em;
+        margin: 4em 0 0 1em; } }
+
+.olympics_cont {
+  width: 100%; }
+  @media screen and (min-width: 768px) {
+    .olympics_cont {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 40.29137%;
+      margin-right: 0; }
+      .olympics_cont:last-child {
+        margin-right: 0; } }
+  .olympics_cont .stamp_cont_olympics {
+    margin: 1em 0; }
+    @media screen and (min-width: 768px) and (max-width: 1024px) {
+      .olympics_cont .stamp_cont_olympics {
+        height: 12em;
+        margin: 2em 0 4em 3em; } }
+
+.movies_cont {
+  width: 100%; }
+  @media screen and (min-width: 768px) {
+    .movies_cont {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 23.23176%;
+      margin-right: 0; }
+      .movies_cont:last-child {
+        margin-right: 0; } }
+  .movies_cont .stamp_cont_movies {
+    margin: 1em 0; }
+    @media screen and (min-width: 768px) and (max-width: 1024px) {
+      .movies_cont .stamp_cont_movies {
+        height: 12em;
+        margin: 4em 0; } }
+
+.aviation_cont {
+  width: 100%; }
+  @media screen and (min-width: 768px) {
+    .aviation_cont {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 31.76157%;
+      margin-right: 0; }
+      .aviation_cont:last-child {
+        margin-right: 0; } }
+  .aviation_cont .stamp_cont_aviation {
+    height: 12em;
+    margin: 1em 0 0 1em; }
+    @media screen and (min-width: 768px) and (max-width: 1024px) {
+      .aviation_cont .stamp_cont_aviation {
+        height: 12em;
+        margin: 1em 0 0 1em; } }
+
+.stamp {
+  height: 100%;
+  border-radius: 5px;
+  border: #F2F2F2 2px solid;
+  box-shadow: 6px 5px 5px #333333; }
+
+.category_text_cont {
+  width: 100%;
+  position: relative;
+  height: 12em;
+  margin-top: -12.5em;
+  background-color: #F2F2F2;
+  border: #F2F2F2 3px solid;
+  opacity: 0.7; }
+
+.category {
+  display: inline;
+  height: 2em;
+  margin-top: -1em;
+  transform: translate(0, 50%); }
+
+.category_icon {
+  transform: translate(50px, 100px);
+  display: inline;
+  height: 2em;
+  margin-top: -1em;
+  transform: translate(0, 50%); }

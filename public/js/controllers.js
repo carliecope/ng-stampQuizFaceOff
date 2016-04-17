@@ -43,9 +43,11 @@ angular.module('myApp')
 	});
 }])
 //Pre game  ------------------------------------------------
-.controller('PregameCtrl', ['$scope', '$location', '$interval', 'socket', 'gameData', function($scope, $location, $interval, socket, gameData) {
+.controller('PregameCtrl', ['$scope', '$location', '$interval', 'socket', 'gameData', 'currentCategory', function($scope, $location, $interval, socket, gameData, currentCategory) {
 	$scope.gameData = gameData;
+	$scope.currentCategory = currentCategory;
 
+	$scope.category = $scope.currentCategory.getCategory();
 
 	if (gameData.getPlayer2Name() === "") {
 		$scope.waiting = true;
@@ -113,7 +115,8 @@ angular.module('myApp')
 
  	//Game state variables
 	$scope.currentRoundNum = 1;
-	$scope.showModal = true;
+	// $scope.showModal = true;
+	$scope.showModal = false;
 	$scope.nextRoundTickNum = 3;
 	$scope.answerTimeTickNum = 10;
 	$scope.question = "";
@@ -251,7 +254,7 @@ angular.module('myApp')
 		}
 	});
 	
-	$scope.nextRoundInterval = $interval($scope.nextRoundTick.bind(this), 1000);
+	// $scope.nextRoundInterval = $interval($scope.nextRoundTick.bind(this), 1000);
  	
 }])
 //Game Over ---------------------------------------------------

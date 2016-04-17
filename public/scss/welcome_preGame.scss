@@ -1,0 +1,257 @@
+@import "bourbon";
+@import "neat";
+@import url(https://fonts.googleapis.com/css?family=Coming+Soon);
+
+$red: #DC2829;
+$blue: #84D4EF;
+$white: #F2F2F2;
+$off_white: #ECECEC;
+$gray_dk: #333333;
+$gray_md: #777777;
+$gray_lt: #C7C7C7;
+$postcard: #F6EBD4;
+
+$min_phone_width: 320px;
+$max_phone_width: 414px;
+$min_tablet_width: 768px;
+$max_tablet_width: 1024px;
+$min_laptop_width: 1200px;
+$max_laptop_width: 1600px;
+$max_desktop_width: 2000px;
+
+$max_postcard_width: 1420px;
+$postcard_large: 420px;
+
+html {
+  box-sizing: border-box;
+  list-style-type: none;
+  font-family: 'Coming Soon', cursive;
+  background-color: $white;
+  min-height: 100%;
+  margin: 0;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+a:link, a:visited {
+    text-decoration: none;
+    color: #2A221E;
+}
+a:hover, a:active {
+    text-decoration: none;
+    color: #2A221E;
+}
+.body {
+  @include outer-container($max_desktop_width);
+  background-color: $white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+}
+/*-----------------------Welcome------------------------*/
+.welcome_container {
+  @include fill-parent;
+  height: 100%;
+  padding: 1em;
+}
+.postcard {
+  @include fill-parent;
+  overflow: hidden; 
+  background-color: $white;
+  height: 100%;
+
+  @include media(min-width $min_tablet_width) {
+    background-image: url("../img/vintage-postcard.jpg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+  @include media(min-width $max_postcard_width) {
+    background-size: cover;
+  }
+}
+.welcome_text {
+  @include fill-parent;
+  
+  @include media(min-width $min_tablet_width) {
+    @include span-columns(5);
+    height: 100%;
+    padding-left: 4em;
+    padding-right: 1em;
+  }
+}
+.welcome {
+    color: $red;
+    font-size: 3em;
+    margin: 4em 0 0.5em 0;
+
+    @include media(min-width $max_tablet_width) {
+      font-size: 4em;
+    }
+}
+.wel_instruction {
+  font-size: 1em;
+  font-weight: bolder;
+  color: $gray_dk;
+  padding: 0.5em;
+  border-radius: 0.8em; 
+  background-color: $white;
+
+  @include media(min-width $min_tablet_width max-width $max_tablet_width) {
+    opacity: 0.65;
+  }
+}
+.form_cont {
+  overflow: hidden;
+  
+ @include media(min-width $min_tablet_width) {
+    @include span-columns(7);
+    height: 100%;
+    padding-right: 7em;
+    padding-left: 2em;
+  }
+}
+.usernameForm {
+
+  @include media(min-width $min_tablet_width) {
+    margin: 60% 0;
+  }
+}
+.userName_input {
+  width: 100%;
+  margin: 0 auto;
+  line-height: 2.5em;
+  border: $white 2px solid;
+  border-radius: 4px;
+  padding-left: 0.5em;
+}
+input[type="text"] {
+    font-size: 1em; 
+    font-family: 'Coming Soon', cursive;
+}
+.submitBtn_cont {
+  width: 100%;
+  padding-right: 0.4em;
+  overflow: hidden;
+  margin: 2em 0;
+}
+#userSubmitBtn {
+  float: right;
+  font-family: 'Coming Soon', cursive;
+  font-weight: bolder;
+  background-color: white;
+  border: white 2px solid;
+  text-shadow: none;
+  text-shadow: none;
+  border-radius: 4px;
+  padding: 0.8em;
+  &:focus {
+    outline: 0;
+  }
+  &:hover {
+    background-color: $off_white;
+    cursor: pointer;
+    border: $off-white 2px solid;
+  }
+}
+/*-----------------------preGame------------------------*/
+.nav_bar {
+  @include fill-parent;
+  background-color: $blue;
+  text-align: center;
+}
+/*------------top----------*/
+.top_half {
+  @include fill-parent;
+}
+.player1_cont {
+  @include span-columns(6);
+  margin-top: 15em;
+  bottom: 0;
+}
+#player1_icon {
+  display: inline;
+  margin-left: 2em;
+}
+.player1_name {
+  display: inline;
+  color: $gray_dk;
+}
+/*------------divide----------*/
+.divider_cont {
+  @include fill-parent;
+  overflow: hidden;
+  background-color: $blue;
+  height: 2.2em;
+}
+.icon_holder {
+  @include span-columns(2);
+  @include shift(5);
+}
+#mail_icon {
+  margin: 0 auto;
+}
+/*------------bottom----------*/
+.bottom_half {
+  @include fill-parent;
+  color: $gray_dk;
+}
+.player2_cont {
+  @include span-columns(6);
+  @include shift(6);
+  top: 0;
+}
+.player2_name {
+  display: inline;
+  color: $gray_dk;
+}
+/*---no opponent----*/
+.play_solo_ask {
+  @include fill-parent;
+  text-align: center;
+  h2 {
+    color: $gray_dk;
+    font-size: 1.2em;
+  }
+}
+.btn_cont {
+  @include fill-parent;
+}
+.countdownNum {
+  font-size: 1.2em;
+  color: $gray_dk;
+}
+#playSoloBtn {
+    padding: 0.5em;
+    margin: 0.5em 0;
+    font-size: 1em;
+    background-color: white;
+    border: $blue solid 3px;
+    border-radius: 0.5em;
+    color: $gray_dk;
+}
+#waitBtn {
+    padding: 0.5em;
+    margin: 0.5em 0;
+    font-size: 1em;
+    background-color: $blue;
+    border: $blue solid 3px;
+    border-radius: 0.5em;
+    color: $gray_dk;
+}
+#waitBtn:hover {
+  cursor: pointer;
+}
+#playSoloBtn:hover {
+  cursor: pointer;
+  background-color: $off_white;
+}
+
+

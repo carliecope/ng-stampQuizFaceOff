@@ -1,0 +1,113 @@
+@import url(https://fonts.googleapis.com/css?family=Coming+Soon);
+html {
+  box-sizing: border-box; }
+
+*, *::after, *::before {
+  box-sizing: inherit; }
+
+/*-----------------------preGame------------------------*/
+.preGame_title {
+  text-align: center;
+  margin-bottom: 0;
+  margin-top: 0; }
+
+.preGame_category {
+  text-align: center;
+  margin-bottom: 0;
+  margin-top: 0; }
+
+/*------------top----------*/
+.top_half {
+  width: 100%;
+  position: relative;
+  height: 41vh; }
+
+.player1 {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 48.82117%;
+  position: absolute;
+  bottom: 5%;
+  left: 5%; }
+  .player1:last-child {
+    margin-right: 0; }
+  .player1 .player1_icon {
+    display: inline;
+    margin-left: 2em; }
+  .player1 .player1_name {
+    display: inline;
+    color: #333333; }
+
+/*------------divide----------*/
+.divider {
+  width: 100%;
+  height: 4vh;
+  overflow: hidden;
+  background-color: #84D4EF; }
+
+.mail_icon {
+  height: 4vh;
+  width: 4vh;
+  position: relative;
+  left: 50vw;
+  margin-left: -2vw; }
+
+/*------------bottom----------*/
+.bottom_half {
+  width: 100%;
+  height: 47vh;
+  color: #333333; }
+
+.player2 {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 48.82117%;
+  margin-left: 51.17883%;
+  top: 0; }
+  .player2:last-child {
+    margin-right: 0; }
+  .player2 .player2_name {
+    display: inline;
+    color: #333333; }
+
+/*---no opponent----*/
+.play_solo_ask {
+  width: 100%;
+  text-align: center; }
+  .play_solo_ask h2 {
+    color: #333333;
+    font-size: 1.2em; }
+
+.btn_cont {
+  width: 100%; }
+
+.countdownNum {
+  font-size: 1.2em;
+  color: #333333; }
+
+#playSoloBtn {
+  padding: 0.5em;
+  margin: 0.5em 0;
+  font-size: 1em;
+  background-color: white;
+  border: #84D4EF solid 3px;
+  border-radius: 0.5em;
+  color: #333333; }
+
+#waitBtn {
+  padding: 0.5em;
+  margin: 0.5em 0;
+  font-size: 1em;
+  background-color: #84D4EF;
+  border: #84D4EF solid 3px;
+  border-radius: 0.5em;
+  color: #333333; }
+
+#waitBtn:hover {
+  cursor: pointer; }
+
+#playSoloBtn:hover {
+  cursor: pointer;
+  background-color: #ECECEC; }

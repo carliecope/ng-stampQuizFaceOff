@@ -1,0 +1,129 @@
+@import "bourbon";
+@import "neat";
+@import url(https://fonts.googleapis.com/css?family=Coming+Soon);
+
+$red: #DC2829;
+$blue: #84D4EF;
+$white: #F2F2F2;
+$off_white: #ECECEC;
+$gray_dk: #333333;
+$gray_md: #777777;
+$gray_lt: #C7C7C7;
+$postcard: #F6EBD4;
+
+$min_phone_width: 320px;
+$max_phone_width: 414px;
+$min_tablet_width: 768px;
+$max_tablet_width: 1024px;
+$min_laptop_width: 1200px;
+$max_laptop_width: 1600px;
+$max_desktop_width: 2000px;
+
+$max_postcard_width: 1420px;
+$postcard_large: 420px;
+
+/*-----------------------preGame------------------------*/
+.preGame_title {
+  text-align: center;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+.preGame_category {
+  text-align: center;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+/*------------top----------*/
+.top_half {
+  @include fill-parent;
+  position: relative;
+  height: 41vh;
+}
+.player1 {
+  @include span-columns(6);
+  position: absolute;
+  bottom: 5%;
+  left: 5%;
+
+  .player1_icon {
+    display: inline;
+    margin-left: 2em;
+  }
+  .player1_name {
+    display: inline;
+    color: $gray_dk;
+  }
+}
+/*------------divide----------*/
+.divider {
+  @include fill-parent;
+  height: 4vh;
+  overflow: hidden;
+  background-color: $blue;
+}
+.mail_icon {
+  height: 4vh;
+  width: 4vh;
+  position: relative;
+  left: 50vw;
+  margin-left: -2vw; 
+}
+/*------------bottom----------*/
+.bottom_half {
+  @include fill-parent;
+  height: 47vh;
+  color: $gray_dk;
+}
+.player2 {
+  @include span-columns(6);
+  @include shift(6);
+  top: 0;
+
+  .player2_name {
+    display: inline;
+    color: $gray_dk;
+  }
+}
+/*---no opponent----*/
+.play_solo_ask {
+  @include fill-parent;
+  text-align: center;
+  h2 {
+    color: $gray_dk;
+    font-size: 1.2em;
+  }
+}
+.btn_cont {
+  @include fill-parent;
+}
+.countdownNum {
+  font-size: 1.2em;
+  color: $gray_dk;
+}
+#playSoloBtn {
+    padding: 0.5em;
+    margin: 0.5em 0;
+    font-size: 1em;
+    background-color: white;
+    border: $blue solid 3px;
+    border-radius: 0.5em;
+    color: $gray_dk;
+}
+#waitBtn {
+    padding: 0.5em;
+    margin: 0.5em 0;
+    font-size: 1em;
+    background-color: $blue;
+    border: $blue solid 3px;
+    border-radius: 0.5em;
+    color: $gray_dk;
+}
+#waitBtn:hover {
+  cursor: pointer;
+}
+#playSoloBtn:hover {
+  cursor: pointer;
+  background-color: $off_white;
+}
+
+

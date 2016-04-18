@@ -1,0 +1,209 @@
+@import "bourbon";
+@import "neat";
+@import url(https://fonts.googleapis.com/css?family=Coming+Soon);
+
+$red: #DC2829;
+$blue: #84D4EF;
+$white: #F2F2F2;
+$off_white: #ECECEC;
+$gray_dk: #333333;
+$gray_md: #777777;
+$gray_lt: #C7C7C7;
+$postcard: #F6EBD4;
+
+$min_phone_width: 320px;
+$max_phone_width: 414px;
+$min_tablet_width: 768px;
+$max_tablet_width: 1024px;
+$min_laptop_width: 1200px;
+$max_laptop_width: 1600px;
+$max_desktop_width: 2000px;
+
+$max_postcard_width: 1420px;
+$postcard_large: 420px;
+
+/*-----------------------gamePlay------------------------*/
+/*--------Countdown Modal---------------*/
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 10;
+}
+.nextRoundModal {
+  z-index: 11;
+  position: fixed;
+  overflow: hidden;
+  text-align: center;
+  background-color: $blue;
+  border-radius: 0.5em;
+  padding: 0.5em;
+  top: 50%; 
+  left: 50%;
+  width: 16em;
+  height: 14em;
+  margin-left: -8em;
+  margin-top: -7em;
+  h1 {
+    color: $gray_dk;
+    text-align: center;
+    margin: 0 auto;
+  }
+  .roundText {
+    color: $gray_dk;
+    background-color: $white;
+    font-weight: bolder;
+    border-radius: 0.5em;
+  }
+}
+/*--------Game Play---------------*/
+/*-----Header----------*/
+.header_element {
+  @include span-columns(4);
+  display: inline;
+  text-align: center;
+}
+.playerOneIcon_cont {
+  @include span-columns(2 of 4);
+  @include pad();
+  #playerOneIcon {
+  }
+}
+.playerOneInfo_cont {
+  @include span-columns(2 of 4);
+  @include pad();
+  h3 {
+    @include fill-parent;
+    margin: 0;
+    color: $gray_dk;
+  }
+}
+.playerTwoIcon_cont {
+  @include span-columns(2 of 4);
+  @include pad();
+  #playerTwoIcon {
+  }
+}
+.playerTwoInfo_cont {
+  @include span-columns(2 of 4);
+  @include pad();
+  h3 {
+    @include fill-parent;
+    margin: 0;
+    color: $gray_dk;
+  }
+}
+.timeBox {
+  overflow: hidden;
+  h3 {
+    margin: 0;
+    color: $gray_dk;
+  }
+}
+/*----------Ask Container----------*/
+.ask_container {
+  width: 100vw;
+  overflow: hidden;
+  height: 40%;
+  background-color: transparent;
+  color: $gray_dk;
+}
+.question_block {
+  width: 100vw;
+
+  @include media(min-width $min_tablet_width max-width $max_tablet_width) {
+    width: 50vw;
+    height: 100%;
+    float: left;
+    padding: 3em;
+  }
+}
+.question {
+  background-color: $white;
+  color: $gray_dk;
+  border-radius: 1em;
+  padding: 1em;
+  opacity: 0.9;
+}
+.stamp_block {
+  width: 100vw;
+
+  @include media(min-width $min_tablet_width max-width $max_tablet_width) {
+    width: 50vw;
+    height: 100%;
+    float: left;
+    padding: 4em;
+  }
+}
+#stampImg {
+  width: 100%;
+  border-radius: 5px;
+  border: $white 2px solid;
+  box-shadow: 6px 5px 5px #333333;
+
+    @include media(min-width $min_tablet_width max-width $max_tablet_width) {
+    
+    }
+  }
+/*---------Answer Container----------*/
+.answer_container {
+  width: 100vw;
+  overflow: hidden;
+  height: 50%;
+  padding: 0;
+  background-color: transparent;
+}
+.answers {
+  width: 80vw;
+  height: 100%;
+  float: left;
+  overflow: hidden;
+  background-color: transparent;
+  text-align: center;
+}
+.answerBtn {
+  width: 30vw;
+  margin: 5% 5vw;
+  height: 18vh;
+  float: left;
+  font-size: 4vw;
+  background-color: $white;
+  border: 2px solid $white;
+  border-radius: 0.4em;
+  opacity: 0.8;
+  color: $gray_dk;
+
+  @include media(min-width $min_tablet_width max-width $max_tablet_width) {
+    
+  }
+}
+.scoreBar {
+  width: 10vw;
+  float: left;
+  height: 100%;
+  overflow: hidden;
+  padding: 0;
+}
+.bar_left {
+  width: 75%;
+  margin: 0;
+  height: 25%;
+  border: $blue 3px solid;
+  border-radius: 0.5em;
+  background-color: transparent;
+}
+.bar_right {
+  width: 75%;
+  float: right;
+  margin: 0;
+  height: 25%;
+  border: $blue 3px solid;
+  border-radius: 0.5em;
+  background-color: transparent;
+}
+
+
+

@@ -1,0 +1,67 @@
+@import "bourbon";
+@import "neat";
+@import url(https://fonts.googleapis.com/css?family=Coming+Soon);
+
+$red: #DC2829;
+$blue: #84D4EF;
+$white: #F2F2F2;
+$off_white: #ECECEC;
+$gray_dk: #333333;
+$gray_md: #777777;
+$gray_lt: #C7C7C7;
+$postcard: #F6EBD4;
+
+$min_phone_width: 320px;
+$max_phone_width: 414px;
+$min_tablet_width: 768px;
+$max_tablet_width: 1024px;
+$min_laptop_width: 1200px;
+$max_laptop_width: 1600px;
+$max_desktop_width: 2000px;
+
+$max_postcard_width: 1420px;
+$postcard_large: 420px;
+
+
+/*-----------------------gameOver------------------------*/
+.game_category {
+  @include fill-parent;
+  text-align: center;
+}
+.game_outcome {
+  @include fill-parent;
+  text-align: center;
+}
+.player_results {
+  @include fill-parent;
+  overflow: hidden;
+}
+.playerOneResult {
+  @include span-columns(6);
+  text-align: right;
+  overflow: hidden;
+}
+.playerTwoResult {
+  @include span-columns(6);
+  text-align: left;
+  overflow: hidden;
+}
+.gameOverNav {
+  @include fill-parent;
+  overflow: hidden;
+}
+.btn_cont {
+  @include fill-parent;
+  text-align: center;
+  overflow: hidden;
+}
+.rematchBtn {
+  padding: 0.5em;
+  margin: 0.5em 0;
+  font-size: 1em;
+}
+.homeBtn {
+  padding: 0.5em;
+  margin: 0.5em 0;
+  font-size: 1em;
+}

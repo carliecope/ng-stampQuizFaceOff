@@ -24,198 +24,165 @@ $postcard_large: 420px;
 
 /*-----------------------Home------------------------*/
 /*---------Title Bar----------*/
-.home_title_cont {
-  @include fill-parent;
-  background-color: $blue;
-  overflow: hidden;
-}
-.title_box {
+.home_title_block {
   @include span-columns(5);
   @include shift(1);
   @include omega();
+  height: 100%;
+
+  .home_title {
+    @include fill-parent;
+    color: $gray_dk;
+    height: 4vh;
+    font-size: 2.6vh;
+    padding: 0;
+    margin: 0.5vh 0 0 0;
+  }
+  .choose {
+    @include fill-parent;
+    color: $white;
+    font-size: 1.7vh;
+    padding: 0;
+    margin: 0;
+  }
 }
-.home_title {
-  @include fill-parent;
-  color: $gray_dk;
-  font-size: 1.7em;
-  height: 1.2em;
-  margin: 0.2em 0;
-  padding: 0;
-}
-.choose {
-  @include fill-parent;
-  margin: 0.2em 0;
-  font-size: 1em;
-  color: $white;
-}
-.userName_box {
+.userName_block {
   @include span-columns(5);
   @include omega();
-  height: 100%;
   overflow: hidden;
+  height: 100%;
 }
 .username_cont {
   float: right;
+  overflow: hidden;
+  margin-top: 2vh;
 }
-.home_user_icon {
-  height: 1em;
+.username_home {
+  color: $white;
+  font-size: 2vh;
+  margin: 0;
   display: inline;
 }
-.userName_home {
-  margin-left: 0.2em;
-  color: $white;
-  font-size: 1.2em;
+.home_username_icon {
+  height: 2vh;
+  margin: 0;
   display: inline;
 }
 /*---------Categories----------*/
-
-.category_cont {
-  @include fill-parent;
-  position: relative;
-  overflow: hidden;
-  height: 40em;
-}
-.category_cont::before {
-  content: ' ';
-  display: block;
-  position: absolute;
-  right: 0;
-  top: 0;
-  height: 100%;
-  width: 100%;
-  z-index: -1;
-  opacity: 0.7;
-  background-image: url("../img/vintage-postcard.jpg");
-  background-repeat: no-repeat;
-  background-position: 96% 6%;
-}
-.music_cont, .science_cont, .movies_cont, .aviation_cont, .presidents_cont, .olympics_cont {
+.music_block, .science_block, .movies_block, .aviation_block, .presidents_block, .olympics_block {
   overflow: hidden;
 
-  @include media(min-width $min_tablet_width) {
-    height: 50%;
+  @include media(min-width $min_tablet_width max-width $max_tablet_width) {
+    height: 28vh;
     z-index: 2;
   }
 }
-.music_cont {
+.music_block {
   @include fill-parent;
 
-  @include media(min-width $min_tablet_width) {
-    @include span-columns(3);
+  @include media(min-width $min_tablet_width max-width $max_tablet_width) {
+    @include span-columns(5);
     @include shift(1);
     @include omega();
+    margin-top: 4vh;
   }
 
   .music_img {
-    margin: 1em 0;
 
     @include media(min-width $min_tablet_width max-width $max_tablet_width) {
-      height: 12em;
-      margin: 4em 0;
+
     }
   }
 }
-.science_cont {
+.science_block {
   @include fill-parent;
 
-  @include media(min-width $min_tablet_width) {
-    @include span-columns(4);
+  @include media(min-width $min_tablet_width max-width $max_tablet_width) {
+    @include span-columns(5);
     @include omega();
-    margin-left: 1em;
+    margin-top: 4vh;
   }
 
   .stamp_cont_science {
-    margin: 1em 0;
 
     @include media(min-width $min_tablet_width max-width $max_tablet_width) {
-      height: 12em;
-      margin-top: 7em;
+
     }
   }
 }
-.presidents_cont {
+.olympics_block {
   @include fill-parent;
 
-  @include media(min-width $min_tablet_width) {
-    @include span-columns(4);
-    @include omega();
-    padding-left: 1em;
-  }
-  
-  .stamp_cont_presidents {
-    margin: 1em 0;
-  
-    @include media(min-width $min_tablet_width max-width $max_tablet_width) {
-      height: 12em;
-      margin: 4em 0 0 1em;
-    }
-  }
-}
-.olympics_cont {
-  @include fill-parent;
-
-  @include media(min-width $min_tablet_width) {
+  @include media(min-width $min_tablet_width max-width $max_tablet_width) {
     @include span-columns(5);
+    @include shift(1);
     @include omega();
   }
   
   .stamp_cont_olympics {
-    margin: 1em 0;
 
     @include media(min-width $min_tablet_width max-width $max_tablet_width) {
-      height: 12em;
-      margin: 2em 0 4em 3em;
+
     }
   }
 }
-.movies_cont {
+.presidents_block {
   @include fill-parent;
 
-  @include media(min-width $min_tablet_width) {
-    @include span-columns(3);
+  @include media(min-width $min_tablet_width max-width $max_tablet_width) {
+    @include span-columns(5);
+    @include omega();
+  }
+  
+  .stamp_cont_presidents {
+  
+    @include media(min-width $min_tablet_width max-width $max_tablet_width) {
+
+    }
+  }
+}
+.movies_block {
+  @include fill-parent;
+
+  @include media(min-width $min_tablet_width max-width $max_tablet_width) {
+    @include span-columns(5);
+    @include shift(1);
     @include omega();
   }
   
   .stamp_cont_movies {
-    margin: 1em 0;
   
   @include media(min-width $min_tablet_width max-width $max_tablet_width) {
-      height: 12em;
-      margin: 4em 0;
+
     }
   }
 }
-.aviation_cont {
+.aviation_block {
   @include fill-parent;
 
-  @include media(min-width $min_tablet_width) {
-    @include span-columns(4);
+  @include media(min-width $min_tablet_width max-width $max_tablet_width) {
+    @include span-columns(5);
     @include omega();
   }
   
   .stamp_cont_aviation {
-    height: 12em;
-    margin: 1em 0 0 1em;
 
     @include media(min-width $min_tablet_width max-width $max_tablet_width) {
-      height: 12em;
-      margin: 1em 0 0 1em;
+
     }
   }
 }
 .stamp {
-  height: 100%;
   border-radius: 5px;
   border: $white 2px solid;
   box-shadow: 6px 5px 5px #333333;
 }
-.category_text_cont {
-  @include fill-parent;
+.category_label {
   position: relative;
-  height: 12em;
-  margin-top: -12.5em;
+  overflow: hidden;
   background-color: $white;
   border: $white 3px solid;
+  border-radius: 0.5em;
   opacity: 0.7;
 }
 .category {

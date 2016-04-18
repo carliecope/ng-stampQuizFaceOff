@@ -115,7 +115,7 @@ angular.module('myApp')
 
  	//Game state variables
 	$scope.currentRoundNum = 1;
-	// $scope.showModal = true;
+	$scope.showModal = true;
 	$scope.showModal = false;
 	$scope.nextRoundTickNum = 3;
 	$scope.answerTimeTickNum = 10;
@@ -254,7 +254,7 @@ angular.module('myApp')
 		}
 	});
 	
-	// $scope.nextRoundInterval = $interval($scope.nextRoundTick.bind(this), 1000);
+	$scope.nextRoundInterval = $interval($scope.nextRoundTick.bind(this), 1000);
  	
 }])
 //Game Over ---------------------------------------------------

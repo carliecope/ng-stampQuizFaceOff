@@ -1,0 +1,58 @@
+@import url(https://fonts.googleapis.com/css?family=Coming+Soon);
+html {
+  box-sizing: border-box; }
+
+*, *::after, *::before {
+  box-sizing: inherit; }
+
+/*-----------------------gameOver------------------------*/
+.game_category {
+  width: 100%;
+  text-align: center; }
+
+.game_outcome {
+  width: 100%;
+  text-align: center; }
+
+.player_results {
+  width: 100%;
+  overflow: hidden; }
+
+.playerOneResult {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 48.82117%;
+  text-align: right;
+  overflow: hidden; }
+  .playerOneResult:last-child {
+    margin-right: 0; }
+
+.playerTwoResult {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 48.82117%;
+  text-align: left;
+  overflow: hidden; }
+  .playerTwoResult:last-child {
+    margin-right: 0; }
+
+.gameOverNav {
+  width: 100%;
+  overflow: hidden; }
+
+.btn_cont {
+  width: 100%;
+  text-align: center;
+  overflow: hidden; }
+
+.rematchBtn {
+  padding: 0.5em;
+  margin: 0.5em 0;
+  font-size: 1em; }
+
+.homeBtn {
+  padding: 0.5em;
+  margin: 0.5em 0;
+  font-size: 1em; }

@@ -32,7 +32,7 @@ module.exports = function (io) {
 	var gameData = {
 		round1 : {
 			stampImg: "url('public/img/ET.jpg')",
-			question: "In the movie ET, ten year old boy, Elliot, lures the alien to his bedroom using which candy?",
+			question: "In the movie ET, a ten year old boy named Elliot, lures an alien to his bedroom using which candy?",
 			correct: "Reese's Pieces",
 			ans1: "M & M's",
 			ans2: "Skittles",
@@ -40,7 +40,7 @@ module.exports = function (io) {
 		},
 		round2 : {
 			stampImg: "url('public/img/ET.jpg')",
-			question: "In the movie ET, ten year old boy, Elliot, lures the alien to his bedroom using which candy?",
+			question: "In the movie ET, a ten year old boy named Elliot, lures an alien to his bedroom using which candy?",
 			correct: "Reese's Pieces",
 			ans1: "M & M's",
 			ans2: "Skittles",
@@ -48,7 +48,7 @@ module.exports = function (io) {
 		},
 		round3 : {
 			stampImg: "url('public/img/ET.jpg')",
-			question: "In the movie ET, ten year old boy, Elliot, lures the alien to his bedroom using which candy?",
+			question: "In the movie ET, a ten year old boy named Elliot, lures an alien to his bedroom using which candy?",
 			correct: "Reese's Pieces",
 			ans1: "M & M's",
 			ans2: "Skittles",
@@ -56,7 +56,7 @@ module.exports = function (io) {
 		},
 		round4 : {
 			stampImg: "url('public/img/ET.jpg')",
-			question: "In the movie ET, ten year old boy, Elliot, lures the alien to his bedroom using which candy?",
+			question: "In the movie ET, a ten year old boy named Elliot, lures an alien to his bedroom using which candy?",
 			correct: "Reese's Pieces",
 			ans1: "M & M's",
 			ans2: "Skittles",

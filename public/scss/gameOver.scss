@@ -24,44 +24,61 @@ $postcard_large: 420px;
 
 
 /*-----------------------gameOver------------------------*/
-.game_category {
+
+.gameOver_container {
   @include fill-parent;
-  text-align: center;
+  background-color: transparent;
+  height: 26vh;
+  margin: 10vh 0 0 0;
+  position: relative;
+  overflow: hidden;
 }
-.game_outcome {
-  @include fill-parent;
-  text-align: center;
+.gameOver_container::before {
+  content: ' ';
+  display: block;
+  position: absolute;
+  background-color: $white;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  opacity: 0.7;
 }
 .player_results {
   @include fill-parent;
   overflow: hidden;
 }
-.playerOneResult {
-  @include span-columns(6);
-  text-align: right;
-  overflow: hidden;
-}
-.playerTwoResult {
-  @include span-columns(6);
-  text-align: left;
-  overflow: hidden;
-}
-.gameOverNav {
+.game_outcome {
   @include fill-parent;
-  overflow: hidden;
+  text-align: center;
 }
-.btn_cont {
+.player1_soloResult {
   @include fill-parent;
   text-align: center;
   overflow: hidden;
 }
-.rematchBtn {
-  padding: 0.5em;
-  margin: 0.5em 0;
-  font-size: 1em;
+.player1_pairResult {
+  @include span-columns(6);
+  text-align: right;
+  overflow: hidden;
+}
+.player2_pairResult {
+  @include span-columns(6);
+  text-align: left;
+  overflow: hidden;
+}
+.homeBtn_container {
+  @include fill-parent;
+  text-align: center;
+  overflow: hidden;
 }
 .homeBtn {
-  padding: 0.5em;
-  margin: 0.5em 0;
-  font-size: 1em;
+    padding: 0.5em;
+    margin: 0.5em 0;
+    font-size: 1.5vh;
+    background-color: $white;
+    border: $blue solid 3px;
+    border-radius: 0.5em;
+    color: $gray_dk;
 }

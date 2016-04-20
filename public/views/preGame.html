@@ -1,33 +1,34 @@
 <div class="wrapper">
 	<div class="header">
-		<h1 class="preGame_title">Philatelist Face-Off</h1>
-		<h3 class="preGame_category" ng-bind="category"></h3>
+		<h1 class="center_title">Philatelist Face-Off</h1>
+		<h3 class="center_category" ng-bind="category"></h3>
 	</div>
-	<div class="gameArea_white">
-		<div class="top_half">
-			<div class="player1">
-				<img class="player1_icon" src="../img/user_circle_red64.png">
-				<h1 class="player1_name" ng-bind="gameData.getPlayer1Name()"></h1>
-			</div>
-		</div>
 
-		<div class="divider">
-			<img class="mail_icon" src="../img/user_icon_white32.png">
-		</div>
-
-		<div class="bottom_half">
-			<div ng-hide="waiting" class="player2">
-				<h1 class="player2_name" ng-bind="gameData.getPlayer2Name()"></h1>
-				<img id="player2_icon" src="../img/user_circle_red64.png">
-			</div>
-			<div ng-hide="!waiting" class="play_solo_ask">
-				<h2 ng-hide="opponentCountdown">Looks like there are no available opponents at this time.</h2>
-				<div ng-hide="opponentCountdown" class="btn_cont">
-					<button id="playSoloBtn" ng-click="toGame()">Play Solo</button>
-					<button id="waitBtn" ng-click="wait()">Wait for Opponent</button>
+	<div class="gameArea">
+		<div class="pregame_container">
+			<div class="top">
+				<div class="player1">
+					<img class="player1_icon" src="../img/user_circle_red64.png">
+					<h1 class="player1_name" ng-bind="gameData.getPlayer1Name()"></h1>
 				</div>
-				<h2 ng-hide="!opponentCountdown">Wating for new opponent...</h2>
-				<div ng-hide="!opponentCountdown" class="countdownNum" ng-bind="countdownNum"></div>
+			</div>
+			<div class="divider">
+				<img class="mail_icon" src="../img/user_icon_white32.png">
+			</div>
+			<div class="bottom">
+				<div ng-hide="waiting" class="player2">
+					<h1 class="player2_name" ng-bind="gameData.getPlayer2Name()"></h1>
+					<img id="player2_icon" src="../img/user_circle_red64.png">
+				</div>
+				<div ng-hide="!waiting" class="play_solo_ask">
+					<h2 ng-hide="opponentCountdown">Looks like there are no available opponents at this time.</h2>
+					<div ng-hide="opponentCountdown" class="btn_cont">
+						<button id="playSoloBtn" ng-click="toGame()">Play Solo</button>
+						<button id="waitBtn" ng-click="wait()">Wait for Opponent</button>
+					</div>
+						<h2 ng-hide="!opponentCountdown">Wating for new opponent...</h2>
+						<div ng-hide="!opponentCountdown" class="countdownNum" ng-bind="countdownNum"></div>
+				</div>
 			</div>
 		</div>
 	</div>

@@ -40,7 +40,7 @@ $postcard_large: 420px;
   }
   .choose {
     @include fill-parent;
-    color: $white;
+    color: $gray_dk;
     font-size: 1.7vh;
     padding: 0;
     margin: 0;
@@ -58,10 +58,11 @@ $postcard_large: 420px;
   margin-top: 2vh;
 }
 .username_home {
-  color: $white;
+  color: $gray_dk;
   font-size: 2vh;
   margin: 0;
   display: inline;
+  margin-right: 1vw;
 }
 .home_username_icon {
   height: 2vh;

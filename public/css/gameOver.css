@@ -6,53 +6,69 @@ html {
   box-sizing: inherit; }
 
 /*-----------------------gameOver------------------------*/
-.game_category {
+.gameOver_container {
   width: 100%;
-  text-align: center; }
+  background-color: transparent;
+  height: 26vh;
+  margin: 10vh 0 0 0;
+  position: relative;
+  overflow: hidden; }
 
-.game_outcome {
+.gameOver_container::before {
+  content: ' ';
+  display: block;
+  position: absolute;
+  background-color: #F2F2F2;
+  right: 0;
+  top: 0;
+  height: 100%;
   width: 100%;
-  text-align: center; }
+  z-index: -1;
+  opacity: 0.7; }
 
 .player_results {
   width: 100%;
   overflow: hidden; }
 
-.playerOneResult {
+.game_outcome {
+  width: 100%;
+  text-align: center; }
+
+.player1_soloResult {
+  width: 100%;
+  text-align: center;
+  overflow: hidden; }
+
+.player1_pairResult {
   float: left;
   display: block;
   margin-right: 2.35765%;
   width: 48.82117%;
   text-align: right;
   overflow: hidden; }
-  .playerOneResult:last-child {
+  .player1_pairResult:last-child {
     margin-right: 0; }
 
-.playerTwoResult {
+.player2_pairResult {
   float: left;
   display: block;
   margin-right: 2.35765%;
   width: 48.82117%;
   text-align: left;
   overflow: hidden; }
-  .playerTwoResult:last-child {
+  .player2_pairResult:last-child {
     margin-right: 0; }
 
-.gameOverNav {
-  width: 100%;
-  overflow: hidden; }
-
-.btn_cont {
+.homeBtn_container {
   width: 100%;
   text-align: center;
   overflow: hidden; }
 
-.rematchBtn {
-  padding: 0.5em;
-  margin: 0.5em 0;
-  font-size: 1em; }
-
 .homeBtn {
   padding: 0.5em;
   margin: 0.5em 0;
-  font-size: 1em; }
+  font-size: 1.5vh;
+  background-color: #F2F2F2;
+  border: #84D4EF solid 3px;
+  border-radius: 0.5em;
+  color: #333333; }

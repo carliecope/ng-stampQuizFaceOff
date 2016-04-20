@@ -70,7 +70,7 @@ module.exports = function (io) {
 			var category = categories[data.category];
 			var response = {};
 			response.gameData = gameData;
-			console.log(data);
+			// console.log(data);
 			
 			if (category.openRoom != null) {
 				
@@ -80,13 +80,13 @@ module.exports = function (io) {
 				socket.join(category.openRoom);
 				io.to(category.openRoom);
 
-				console.log(category.openRoom);
+				// console.log(category.openRoom);
 
 				response.player1 = room.player1;
 				response.player2 = room.player2;
 				response.roomId = category.openRoom;
 
-				console.log(response);
+				// console.log(response);
 
 				io.emit('gameStarted', response);
 
@@ -103,7 +103,7 @@ module.exports = function (io) {
 				io.to(roomId).emit('gameStarted', response);
 				category.openRoom = roomId;
 
-				console.log(category.openRoom);
+				// console.log(category.openRoom);
 			}
 		});
 		socket.on('sendAnsFeedback', function(data) {
@@ -113,7 +113,6 @@ module.exports = function (io) {
 			io.to(data.roomId).emit('getOpponentFeedback', {
 				userName: data.userName,
 				score: data.score,
-				isCorrect: data.isCorrect
 			});
 		});
 	});

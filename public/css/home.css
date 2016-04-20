@@ -26,7 +26,7 @@ html {
     margin: 0.5vh 0 0 0; }
   .home_title_block .choose {
     width: 100%;
-    color: #F2F2F2;
+    color: #333333;
     font-size: 1.7vh;
     padding: 0;
     margin: 0; }
@@ -48,10 +48,11 @@ html {
   margin-top: 2vh; }
 
 .username_home {
-  color: #F2F2F2;
+  color: #333333;
   font-size: 2vh;
   margin: 0;
-  display: inline; }
+  display: inline;
+  margin-right: 1vw; }
 
 .home_username_icon {
   height: 2vh;

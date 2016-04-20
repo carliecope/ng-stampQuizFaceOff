@@ -15,7 +15,7 @@
 			</div>
 			<div class="playerOneInfo_cont">
 				<h3 ng-bind="gameData.getPlayer1Name()"></h3>
-				<h3>Points: {{}}</h3>
+				<h3>Points: {{ gameData.getPlayer1Score() }}</h3>
 			</div>
 		</div>
 		<div class="header_element">
@@ -27,7 +27,7 @@
 		<div ng-show="haveOpponent" class="header_element">
 			<div class="playerTwoInfo_cont">
 				<h3 ng-bind="gameData.getPlayer2Name()">playerTwo</h3>
-				<h3>Points: {{}}</h3>
+				<h3>Points: {{ player2Score }}</h3>
 			</div>
 			<div class="playerTwoIcon_cont">
 				<img id="playerTwoIcon" src="../img/user_icon_white32.png">
@@ -45,19 +45,13 @@
 		</div>
 		<div class="answer_container">
 			<div class="scoreBar">
-				<div class="bar_left"> </div>
-				<div class="bar_left"> </div>
-				<div class="bar_left"> </div>
-				<div class="bar_left"> </div>
+				<div ng-repeat="p1Correct in p1CorrectArray track by $index" ng-class="p1Correct ? 'blue' : 'white'" class="bar_left"></div>
 			</div>
 			<div class="answers">
 				<button class="answerBtn" ng-repeat="answer in answerArray" ng-click="submitAnswer(answer)">{{ answer }}</button>
 			</div>
 			<div ng-show="haveOpponent" class="scoreBar">
-				<div class="bar_right"> </div>
-				<div class="bar_right"> </div>
-				<div class="bar_right"> </div>
-				<div class="bar_right"> </div>
+				<div ng-repeat="p2Correct in p2CorrectArray track by $index" ng-class="p2Correct ? 'blue' : 'white'" class="bar_right" ></div>
 			</div>
 		</div>
 	</div>

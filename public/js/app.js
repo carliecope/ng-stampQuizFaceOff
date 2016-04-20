@@ -42,11 +42,11 @@ angular.module('myApp', ['ngRoute', 'btford.socket-io', 'ngAnimate'])
 
 		var player1 = {
 			name: "",
-			score: ""
+			score: 0
 		};
 		var player2 = {
 			name: "",
-			score: ""
+			score: 0
 		};
 		var roomId = "";
 
@@ -65,12 +65,15 @@ angular.module('myApp', ['ngRoute', 'btford.socket-io', 'ngAnimate'])
 			},
 			setPlayer1Score: function(score) {
 				player1.score += score;
+				return player1.score;
 			},
 			setPlayer2Score: function(score) {
-				player2.score = score;
+				player2.score += score;
+				return player2.score;
 			},
-			setRoomId: function(roomId) {
-				roomId = roomId;
+			setRoomId: function(newRoomId) {
+				roomId = newRoomId;
+				return roomId;
 			},
 			getFirstTimeUser: function() {
 				return firstTimeUser;

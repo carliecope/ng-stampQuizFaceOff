@@ -70,25 +70,29 @@ a:hover, a:active {
     height: 100%;
     width: 100%;
     z-index: -1;
-    opacity: 0.7;
+    opacity: 0.9;
     background-image: url("../img/vintage-postcard.jpg");
     background-repeat: no-repeat;
     background-position: 96% 4%; } }
 
-.gameArea_white {
-  width: 100%;
-  position: relative;
-  background-color: #F2F2F2;
-  overflow: hidden;
-  height: 92vh; }
+.center_title {
+  color: #333333;
+  text-align: center;
+  font-size: 2.3vh;
+  margin: 0.5vh 0 0 0; }
+
+.center_category {
+  color: #333333;
+  text-align: center;
+  font-size: 1.5vh;
+  margin: 0.5vh 0; }
 
 .blue {
   background-color: #84D4EF; }
 
+.white {
+  background-color: #F2F2F2; }
+
 .gray_dk {
   background-color: #333333;
   opacity: 0.9; }
-
-.column-2 {
-  float: left;
-  width: 50vw; }

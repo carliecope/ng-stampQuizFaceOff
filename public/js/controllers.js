@@ -116,11 +116,17 @@ angular.module('myApp')
  	//Game state variables
 	$scope.currentRoundNum = 1;
 	$scope.showModal = true;
-	$scope.showModal = false;
 	$scope.nextRoundTickNum = 3;
 	$scope.answerTimeTickNum = 10;
 	$scope.question = "";
 	$scope.answerArray = [];
+	
+	$scope.p1CorrectArray = [];
+	$scope.p2CorrectArray = [];
+
+	$scope.showCorrectAnswer = function() {
+
+	};
 	
 	$scope.shuffleAnswers = function(array) {
   		var currentIndex = array.length, temporaryValue, randomIndex;
@@ -152,21 +158,24 @@ angular.module('myApp')
 
 	$scope.submitAnswer = function(answer) {
 		if (!$scope.timeUp) {
-			
-			var isCorrect = null;
 
 			if (answer === $scope.currentRoundText.correct) {
-				isCorrect = true;
+				
+				$scope.p1CorrectArray.push(true);
+
 				gameData.setPlayer1Score(10);
+
 			} else {
-				isCorrect = false;
+				$scope.p1CorrectArray.push(false);
 			}
+			console.log($scope.p1CorrectArray);
+
+			console.log(gameData.getPlayer1Score());
 
 			socket.emit('sendAnsFeedback', {
 				userName: gameData.getPlayer1Name(),
-				roomId: gameData.getRoomId(),
+				roomId: $scope.gameData.getRoomId(),
 				score: gameData.getPlayer1Score(),
-				isCorrect: isCorrect
 			});
 
 			$scope.player1Answered = true;
@@ -184,6 +193,9 @@ angular.module('myApp')
 		if ($scope.haveOpponent) {
 			
 			if ($scope.player1Answered && $scope.player2Answered) {
+				
+				$scope.player1Answered = false;
+				$scope.player2Answered = false;
 
 				if ($scope.currentRoundNum > 4) {
 					$location.path('/gameOver');
@@ -213,6 +225,14 @@ angular.module('myApp')
 		if ($scope.answerTimeTickNum === 0) {
 			
 			$interval.cancel($scope.answerTimeInterval);
+
+			$scope.p1CorrectArray.push(false);
+
+			if ($scope.player2Answered === false) {
+				$scope.p2CorrectArray.push(false);
+			}
+			$scope.player1Answered = false;
+			$scope.player2Answered = false;
 
 			$scope.timeUp = true;
 			$scope.answerTimeTickNum = 10;
@@ -247,10 +267,17 @@ angular.module('myApp')
 	};
 	
 	socket.on('getOpponentFeedback', function(response) {
-		if (response.userName != getPlayer1Name()) {
-			gameData.setPlayer2Score(response.score);
+		if (response.userName != gameData.getPlayer1Name()) {
 
 			$scope.player2Answered = true;
+
+			if ($scope.player2Score != response.score) {
+				$scope.p2CorrectArray.push(true);
+			} else {
+				$scope.p2CorrectArray.push(false);
+			}
+			$scope.player2Score = gameData.setPlayer2Score(response.score);
+			console.log(gameData.setPlayer2Score(response.score));
 		}
 	});
 	

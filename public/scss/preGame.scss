@@ -33,11 +33,32 @@ $postcard_large: 420px;
   margin-bottom: 0;
   margin-top: 0;
 }
+.pregame_container {
+  @include fill-parent;
+  background-color: transparent;
+  height: 26vh;
+  margin: 32vh 0 0 0;
+  position: relative;
+  overflow: hidden;
+}
+.pregame_container::before {
+  content: ' ';
+  display: block;
+  position: absolute;
+  background-color: $white;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  opacity: 0.7;
+}
 /*------------top----------*/
-.top_half {
+.top {
   @include fill-parent;
   position: relative;
-  height: 41vh;
+  background-color: transparent;
+  height: 10vh;
 }
 .player1 {
   @include span-columns(6);
@@ -52,6 +73,7 @@ $postcard_large: 420px;
   .player1_name {
     display: inline;
     color: $gray_dk;
+    font-size: 2vh;
   }
 }
 /*------------divide----------*/
@@ -69,9 +91,10 @@ $postcard_large: 420px;
   margin-left: -2vw; 
 }
 /*------------bottom----------*/
-.bottom_half {
+.bottom {
   @include fill-parent;
-  height: 47vh;
+  background-color: transparent;
+  height: 12vh;
   color: $gray_dk;
 }
 .player2 {
@@ -82,6 +105,7 @@ $postcard_large: 420px;
   .player2_name {
     display: inline;
     color: $gray_dk;
+    font-size: 2vh;
   }
 }
 /*---no opponent----*/
@@ -90,20 +114,21 @@ $postcard_large: 420px;
   text-align: center;
   h2 {
     color: $gray_dk;
-    font-size: 1.2em;
+    font-size: 2vh;
+    margin: 0.5vh 0;
   }
 }
 .btn_cont {
   @include fill-parent;
 }
 .countdownNum {
-  font-size: 1.2em;
+  font-size: 2vh;
   color: $gray_dk;
 }
 #playSoloBtn {
     padding: 0.5em;
     margin: 0.5em 0;
-    font-size: 1em;
+    font-size: 1.5vh;
     background-color: white;
     border: $blue solid 3px;
     border-radius: 0.5em;
@@ -112,7 +137,7 @@ $postcard_large: 420px;
 #waitBtn {
     padding: 0.5em;
     margin: 0.5em 0;
-    font-size: 1em;
+    font-size: 1.5vh;
     background-color: $blue;
     border: $blue solid 3px;
     border-radius: 0.5em;

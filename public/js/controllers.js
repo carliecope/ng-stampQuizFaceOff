@@ -106,6 +106,7 @@ angular.module('myApp')
 	//Get game info
 	$scope.gameData = gameData;
 	var game = gameData.getGameInfo();
+	$scope.currentCategory = currentCategory;
 
 	if (gameData.getPlayer2Name() === "") {
 		$scope.haveOpponent = false;
@@ -148,6 +149,8 @@ angular.module('myApp')
 	};
 
 	$scope.showNewRound = function() {
+		$scope.player2Answered = true;
+
 		$scope.currentRoundText = game.gameData['round' + $scope.currentRoundNum];
 		//console.log($scope.currentRoundText);
 
@@ -157,6 +160,7 @@ angular.module('myApp')
 	};
 
 	$scope.submitAnswer = function(answer) {
+		console.log('submit ans function');
 		if (!$scope.timeUp) {
 
 			if (answer === $scope.currentRoundText.correct) {
@@ -168,14 +172,14 @@ angular.module('myApp')
 			} else {
 				$scope.p1CorrectArray.push(false);
 			}
-			console.log($scope.p1CorrectArray);
-
-			console.log(gameData.getPlayer1Score());
+			console.log('p1CorrectArray' + $scope.p1CorrectArray);
+			console.log( 'getPlayer1Score() is ' + gameData.getPlayer1Score());
 
 			socket.emit('sendAnsFeedback', {
 				userName: gameData.getPlayer1Name(),
 				roomId: $scope.gameData.getRoomId(),
 				score: gameData.getPlayer1Score(),
+				category: currentCategory.getCategory()
 			});
 
 			$scope.player1Answered = true;
@@ -228,11 +232,11 @@ angular.module('myApp')
 
 			$scope.p1CorrectArray.push(false);
 
-			if ($scope.player2Answered === false) {
-				$scope.p2CorrectArray.push(false);
-			}
-			$scope.player1Answered = false;
-			$scope.player2Answered = false;
+			socket.emit('sendNoAnswer', {
+				userName: gameData.getPlayer1Name(),
+				roomId: $scope.gameData.getRoomId(),
+				category: currentCategory.getCategory()
+			});
 
 			$scope.timeUp = true;
 			$scope.answerTimeTickNum = 10;
@@ -277,7 +281,16 @@ angular.module('myApp')
 				$scope.p2CorrectArray.push(false);
 			}
 			$scope.player2Score = gameData.setPlayer2Score(response.score);
-			console.log(gameData.setPlayer2Score(response.score));
+			console.log('p2CorrectArray' + $scope.p2CorrectArray);
+		}
+	});
+
+	socket.on('getNoAnswer', function(response) {
+		if (response.userName != gameData.getPlayer1Name()) {
+
+			$scope.player2Answered = false;
+			$scope.p2CorrectArray.push(false);
+			console.log('p2CorrectArray' + $scope.p2CorrectArray);
 		}
 	});
 	
@@ -298,19 +311,16 @@ angular.module('myApp')
 	$scope.player2Name = gameData.getPlayer2Name();
 	$scope.player2Score = gameData.getPlayer2Score();
 
-	//document.onload ()?
-	$scope.showOutcome = function() {
-
-	};
-
-	$scope.rematch = function() {
-		//handle if other player chooses to rematch, else 'opponent left the room'
-		$location.path('/gamePlay');
-	};
-
 	$scope.returnHome = function() {
 
-		//reset category
+		socket.emit('exitRoom', {
+			userName: gameData.getPlayer1Name(),
+			roomId: $scope.gameData.getRoomId(),
+			category: currentCategory.getCategory()
+		});
+
+		//reset scores and categories here ---------------------
+
 		//increase player game count??
 		$location.path('/home');
 	};

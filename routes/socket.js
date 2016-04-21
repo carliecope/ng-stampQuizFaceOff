@@ -114,6 +114,22 @@ module.exports = function (io) {
 				userName: data.userName,
 				score: data.score,
 			});
+			console.log(data);
+		});
+		socket.on('sendNoAnswer', function(data) {
+			var category = categories[data.category];
+			var room = category.rooms[data.roomId];
+
+			io.to(data.roomId).emit('getNoAnswer', {
+				userName: data.userName
+			});
+			console.log(data);
+		});
+		socket.on('exitRoom', function(data) {
+			var category = categories[data.category];
+			var room = category.rooms[data.roomId];
+
+			socket.leave(category.roomId);
 		});
 	});
 };

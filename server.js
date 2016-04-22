@@ -11,4 +11,4 @@ var io = socket_io.listen(server);
 require('./routes/socket.js')(io);
 
 
-server.listen(80);
+server.listen(process.env.PORT || 8080);

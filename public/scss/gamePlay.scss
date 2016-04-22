@@ -112,14 +112,14 @@ $postcard_large: 420px;
   color: $gray_dk;
 }
 .question_block {
-  width: 100vw;
 
-  @include media(min-width $min_tablet_width max-width $max_tablet_width) {
+
+  // @include media(min-width $min_tablet_width max-width $max_tablet_width) {
     width: 50vw;
     height: 100%;
     float: left;
     padding: 3em;
-  }
+  // }
 }
 .question {
   background-color: $white;
@@ -129,14 +129,13 @@ $postcard_large: 420px;
   opacity: 0.9;
 }
 .stamp_block {
-  width: 100vw;
 
-  @include media(min-width $min_tablet_width max-width $max_tablet_width) {
+  // @include media(min-width $min_tablet_width max-width $max_tablet_width) {
     width: 50vw;
     height: 100%;
     float: left;
     padding: 6em;
-  }
+  // }
 }
 #stampImg {
   width: 100%;

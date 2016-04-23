@@ -107,7 +107,7 @@ $postcard_large: 420px;
 .welcome {
     @include fill-parent;
     color: $rust;
-    font-size: 8vw;
+    font-size: 10.5vw;
     margin: 0;
     
     @media screen and (min-device-width: $min_md_width) { 
@@ -117,7 +117,7 @@ $postcard_large: 420px;
 }
 .wel_instruction {
   @include fill-parent;
-  font-size: 5vw;
+  font-size: 3.5vw;
   font-weight: bolder;
   color: $rust;
   padding: 0.5em;
@@ -131,7 +131,6 @@ $postcard_large: 420px;
 .form_cont {
   @include fill-parent;
   overflow: hidden;
-  font-size: 5vw;
   
  @media screen and (min-device-width: $min_md_width) { 
     @include span-columns(7);
@@ -142,7 +141,7 @@ $postcard_large: 420px;
 }
 .usernameForm {
   @include fill-parent;
-  font-size: 5vw;
+  font-size: 3.5vw;
 
   @media screen and (min-device-width: $min_md_width) { 
     margin: 60% 0;
@@ -151,14 +150,14 @@ $postcard_large: 420px;
 .userName_input {
   @include fill-parent;
   margin: 0 auto;
-  line-height: 2.5em;
+  font-size: 3.5vw;
   border: $white 2px solid;
   background-color: $white;
   border-radius: 4px;
   padding-left: 0.5em;
 }
 input[type="text"] {
-    font-size: 5vw;
+    font-size: 3.5vw;
     font-family: 'Coming Soon', cursive;
 }
 .submitBtn_cont {
@@ -171,7 +170,7 @@ input[type="text"] {
   float: right;
   font-family: 'Coming Soon', cursive;
   font-weight: bolder;
-  font-size: 5vw;
+  font-size: 3vw;
   background-color: $white;
   border: 2px $white solid;
   text-shadow: none;

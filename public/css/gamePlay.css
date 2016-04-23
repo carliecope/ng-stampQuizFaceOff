@@ -111,13 +111,10 @@ html {
   color: #333333; }
 
 .question_block {
-  width: 100vw; }
-  @media screen and (min-width: 768px) and (max-width: 1024px) {
-    .question_block {
-      width: 50vw;
-      height: 100%;
-      float: left;
-      padding: 3em; } }
+  width: 50vw;
+  height: 100%;
+  float: left;
+  padding: 3em; }
 
 .question {
   background-color: #F2F2F2;
@@ -127,13 +124,10 @@ html {
   opacity: 0.9; }
 
 .stamp_block {
-  width: 100vw; }
-  @media screen and (min-width: 768px) and (max-width: 1024px) {
-    .stamp_block {
-      width: 50vw;
-      height: 100%;
-      float: left;
-      padding: 6em; } }
+  width: 50vw;
+  height: 100%;
+  float: left;
+  padding: 6em; }
 
 #stampImg {
   width: 100%;

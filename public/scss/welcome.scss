@@ -12,39 +12,91 @@ $gray_lt: #C7C7C7;
 $postcard: #F6EBD4;
 $rust: #800000;
 
-$min_phone_width: 320px;
-$max_phone_width: 414px;
-$min_tablet_width: 768px;
-$max_tablet_width: 1024px;
-$min_laptop_width: 1200px;
-$max_laptop_width: 1600px;
-$max_desktop_width: 2000px;
+$min_sm_width: 320px;
+$max_sm_width: 480px;
 
+$min_md_width: 768px;
+$max_md_width: 1024px;
+
+$min_lg_width: 1224px;
+// $max_lg_width: 1600px;
+
+$min_xl_width: 1824px;
+
+// Dimensions: 1800 × 1270 / 2.35 = 765.9 x 540.4
 $max_postcard_width: 1420px;
 $postcard_large: 420px;
+
+// $bp_small : 24em;
+// $bp_small_2 : 29.75em;
+// $bp_small_3 : 39.8em;
+// $bp_med : 46.8em;
+// $bp_med_2 : 48em;
+// $bp_large : 50em;
+// $bp_large_2 : 54.5em;
+// $bp_xl : 60em;
+// $bp_xl_2 : 67em;
+
+// @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (orientation : portrait) { 
+//     /* iPhone 6 Portrait */ 
+// }
+
+
+// @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (orientation : landscape) { 
+//     /* iPhone 6 landscape */
+// }
+
+
+// @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (orientation : portrait) { 
+//     /* iPhone 6+ Portrait */
+// }
+
+
+// @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (orientation : landscape) { 
+//     /* iPhone 6+ landscape */
+// }
+
+// @media only screen and (max-device-width: 640px), only screen and (max-device-width: 667px), only screen and (max-width: 480px){ 
+//     /* iPhone 6 and iPhone 6+ portrait and landscape */
+// }
+
+// @media only screen and (max-device-width: 640px), only screen and (max-device-width: 667px), only screen and (max-width: 480px) and (orientation : portrait){ 
+//     /* iPhone 6 and iPhone 6+ portrait */
+// }
+
+// @media only screen and (max-device-width: 640px), only screen and (max-device-width: 667px), only screen and (max-width: 480px) and (orientation : landscape){ 
+//     /* iPhone 6 and iPhone 6+ landscape */
+// }
 
 /*-----------------------Welcome------------------------*/
 .postcard {
   @include fill-parent;
-    overflow: hidden;
-    height: 53vh;
-    background-color: $white;
-    position: absolute;
-    bottom: 30vh;
-    box-shadow: 6px 5px 5px $gray_dk;
-    border-top: 1px solid $gray_dk;
-    border-bottom: 1px solid $gray_dk;
+  overflow: hidden;
+  background-color: white;
+  opacity: 0.8;
+  padding: 0 1em;
+  border-radius: 3.5em;
+  margin-top: 19vh;
+  padding: 3vh;
 
-  @include media(min-width $min_tablet_width) {
-    background-image: url("../img/vintage-postcard.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
+    @media screen and (min-device-width: $min_md_width) { 
+      position: absolute;
+      bottom: 30vh;
+      background-image: url("../img/vintage-postcard.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      opacity: 1;
+      padding: 0;
+      border-radius: 0;
+      box-shadow: 6px 5px 5px $gray_dk;
+      border-top: 1px solid $gray_dk;
+      border-bottom: 1px solid $gray_dk;
   }
 }
 .welcome_text {
   @include fill-parent;
   
-  @include media(min-width $min_tablet_width) {
+  @media screen and (min-device-width: $min_md_width) { 
     @include span-columns(5);
     height: 100%;
     padding-left: 4em;
@@ -52,15 +104,18 @@ $postcard_large: 420px;
   }
 }
 .welcome {
+    @include fill-parent;
     color: $rust;
-    font-size: 3em;
-    margin: 4em 0 0.5em 0;
-
-    @include media(min-width $max_tablet_width) {
+    font-size: 5.5vw;
+    margin: 0;
+    
+    @media screen and (min-device-width: $min_md_width) { 
       font-size: 4em;
+      margin: 4em 0 0.5em 0;
     }
 }
 .wel_instruction {
+  @include fill-parent;
   font-size: 1em;
   font-weight: bolder;
   color: $rust;
@@ -68,14 +123,15 @@ $postcard_large: 420px;
   border-radius: 0.8em; 
   background-color: $white;
 
-  @include media(min-width $min_tablet_width max-width $max_tablet_width) {
+  @media screen and (min-device-width: $min_md_width) { 
     opacity: 0.9;
   }
 }
 .form_cont {
+  @include fill-parent;
   overflow: hidden;
   
- @include media(min-width $min_tablet_width) {
+ @media screen and (min-device-width: $min_md_width) { 
     @include span-columns(7);
     height: 100%;
     padding-right: 7em;
@@ -83,13 +139,14 @@ $postcard_large: 420px;
   }
 }
 .usernameForm {
+  @include fill-parent;
 
-  @include media(min-width $min_tablet_width) {
+  @media screen and (min-device-width: $min_md_width) { 
     margin: 60% 0;
   }
 }
 .userName_input {
-  width: 100%;
+  @include fill-parent;
   margin: 0 auto;
   line-height: 2.5em;
   border: $white 2px solid;
@@ -102,7 +159,7 @@ input[type="text"] {
     font-family: 'Coming Soon', cursive;
 }
 .submitBtn_cont {
-  width: 100%;
+  @include fill-parent;
   padding-right: 0.4em;
   overflow: hidden;
   margin: 2em 0;

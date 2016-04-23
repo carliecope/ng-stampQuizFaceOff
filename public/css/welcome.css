@@ -9,22 +9,29 @@ html {
 .postcard {
   width: 100%;
   overflow: hidden;
-  height: 53vh;
-  background-color: #F2F2F2;
-  position: absolute;
-  bottom: 30vh;
-  box-shadow: 6px 5px 5px #333333;
-  border-top: 1px solid #333333;
-  border-bottom: 1px solid #333333; }
-  @media screen and (min-width: 768px) {
+  background-color: white;
+  opacity: 0.8;
+  padding: 0 1em;
+  border-radius: 3.5em;
+  margin-top: 19vh;
+  padding: 3vh; }
+  @media screen and (min-device-width: 768px) {
     .postcard {
+      position: absolute;
+      bottom: 30vh;
       background-image: url("../img/vintage-postcard.jpg");
       background-repeat: no-repeat;
-      background-size: cover; } }
+      background-size: cover;
+      opacity: 1;
+      padding: 0;
+      border-radius: 0;
+      box-shadow: 6px 5px 5px #333333;
+      border-top: 1px solid #333333;
+      border-bottom: 1px solid #333333; } }
 
 .welcome_text {
   width: 100%; }
-  @media screen and (min-width: 768px) {
+  @media screen and (min-device-width: 768px) {
     .welcome_text {
       float: left;
       display: block;
@@ -37,27 +44,31 @@ html {
         margin-right: 0; } }
 
 .welcome {
+  width: 100%;
   color: #800000;
-  font-size: 3em;
-  margin: 4em 0 0.5em 0; }
-  @media screen and (min-width: 1024px) {
+  font-size: 5.5vw;
+  margin: 0; }
+  @media screen and (min-device-width: 768px) {
     .welcome {
-      font-size: 4em; } }
+      font-size: 4em;
+      margin: 4em 0 0.5em 0; } }
 
 .wel_instruction {
+  width: 100%;
   font-size: 1em;
   font-weight: bolder;
   color: #800000;
   padding: 0.5em;
   border-radius: 0.8em;
   background-color: #F2F2F2; }
-  @media screen and (min-width: 768px) and (max-width: 1024px) {
+  @media screen and (min-device-width: 768px) {
     .wel_instruction {
       opacity: 0.9; } }
 
 .form_cont {
+  width: 100%;
   overflow: hidden; }
-  @media screen and (min-width: 768px) {
+  @media screen and (min-device-width: 768px) {
     .form_cont {
       float: left;
       display: block;
@@ -69,9 +80,11 @@ html {
       .form_cont:last-child {
         margin-right: 0; } }
 
-@media screen and (min-width: 768px) {
-  .usernameForm {
-    margin: 60% 0; } }
+.usernameForm {
+  width: 100%; }
+  @media screen and (min-device-width: 768px) {
+    .usernameForm {
+      margin: 60% 0; } }
 
 .userName_input {
   width: 100%;

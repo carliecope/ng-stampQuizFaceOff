@@ -30,14 +30,15 @@ a:hover, a:active {
   max-width: 68em;
   margin-left: auto;
   margin-right: auto;
-  border-top: 1px solid #84D4EF; }
+  border-top: 1px solid white; }
   .wrapper::after {
     clear: both;
     content: "";
     display: table; }
-  @media screen and (min-device-width: 1024px) {
+  @media screen and (min-device-width: 768px) {
     .wrapper {
-      height: 100vh; } }
+      height: 100vh;
+      border-top: 1px solid #84D4EF; } }
 
 /*-----Header----------*/
 .header {
@@ -51,7 +52,7 @@ a:hover, a:active {
   width: 100%;
   position: relative;
   overflow: hidden; }
-  @media screen and (min-device-width: 1024px) {
+  @media screen and (min-device-width: 768px) {
     .gameArea {
       height: 92vh; } }
 
@@ -68,7 +69,7 @@ a:hover, a:active {
   background-image: url("../img/vintage-postcard.jpg");
   background-repeat: no-repeat;
   background-position: 95% 10%; }
-  @media screen and (min-device-width: 768px) {
+  @media screen and (min-device-width: 1024px) {
     .gameArea::before {
       opacity: 0.9; } }
 
@@ -86,7 +87,7 @@ a:hover, a:active {
 
 .bkground_blue {
   background-color: white; }
-  @media screen and (min-device-width: 1024px) {
+  @media screen and (min-device-width: 768px) {
     .bkground_blue {
       background-color: #84D4EF; } }
 

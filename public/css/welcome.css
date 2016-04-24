@@ -82,7 +82,7 @@ html {
   width: 100%; }
   @media screen and (min-device-width: 768px) {
     .usernameForm {
-      margin: 60% 0; } }
+      margin-top: 19vh; } }
 
 .userName_input {
   width: 100%;
@@ -91,16 +91,20 @@ html {
   background-color: #F2F2F2;
   border-radius: 4px;
   padding: 0.2em; }
+  .userName_input .userName_input:focus {
+    outline: none; }
 
 input[type="text"] {
   font-family: 'Coming Soon', cursive;
   font-size: 1em;
   height: 3em;
   border: none; }
+  input[type="text"] input[type="text"]:focus {
+    outline: none; }
   @media screen and (min-device-width: 768px) {
     input[type="text"] {
       font-size: 1em;
-      height: 1.2em; } }
+      height: 2em; } }
 
 .submitBtn_cont {
   width: 100%;
@@ -129,4 +133,5 @@ input[type="text"] {
     cursor: pointer; }
   @media screen and (min-device-width: 768px) {
     #userSubmitBtn {
-      font-size: 0.7em; } }
+      font-size: 1em;
+      padding: 0.3em; } }

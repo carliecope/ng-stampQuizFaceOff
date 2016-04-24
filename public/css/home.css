@@ -20,16 +20,21 @@ html {
   .home_title_block .home_title {
     width: 100%;
     color: #333333;
-    height: 4vh;
-    font-size: 2.6vh;
-    padding: 0;
-    margin: 0.5vh 0 0 0; }
+    font-size: 1.2em;
+    margin: 0.1em 0;
+    padding: 0; }
+    @media screen and (min-device-width: 768px) {
+      .home_title_block .home_title {
+        font-size: 2em; } }
   .home_title_block .choose {
     width: 100%;
     color: #333333;
-    font-size: 1.7vh;
+    font-size: 0.7em;
     padding: 0;
     margin: 0; }
+    @media screen and (min-device-width: 768px) {
+      .home_title_block .choose {
+        font-size: 1em; } }
 
 .userName_block {
   float: left;
@@ -49,10 +54,10 @@ html {
 
 .username_home {
   color: #333333;
-  font-size: 2vh;
+  font-size: 1.2em;
   margin: 0;
   display: inline;
-  margin-right: 1vw; }
+  margin-right: 0.5em; }
 
 .home_username_icon {
   height: 2vh;
@@ -81,7 +86,7 @@ html {
   border-color: rgba(0, 0, 0, 0.5);
   border-radius: 5px;
   text-align: center; }
-  @media screen and (min-device-width: 1024px) {
+  @media screen and (min-device-width: 768px) {
     .grid-item {
       width: 50%;
       height: 33%; } }
@@ -95,29 +100,26 @@ html {
 
 .stamp {
   border-radius: 5px;
-  border: #F2F2F2 2px solid;
+  border: #333333 2px solid;
   box-shadow: 6px 5px 5px #333333;
   position: inline; }
   @media screen and (max-device-width: 1024px) {
     .stamp {
-      max-width: 60%; } }
+      max-height: 69%; } }
 
 .category_label {
   overflow: hidden;
-  background-color: #F2F2F2;
+  background-color: transparent;
   opacity: 0.8;
   border-radius: 0.5em;
   margin: 0.1em 0;
-  margin: 2% 20%; }
-  @media screen and (min-device-width: 506px) and (max-device-width: 1024px) {
-    .category_label {
-      margin: 2% 25%; } }
+  margin: 0; }
 
 .category {
   display: inline;
   font-size: 2em;
   margin: 0; }
-  @media screen and (min-device-width: 767px) {
+  @media screen and (min-device-width: 768px) {
     .category {
       font-size: 1.5em; } }
 
@@ -125,6 +127,7 @@ html {
   display: inline;
   height: 2em;
   margin: 0.5em 0.5em 0 0; }
-  @media screen and (min-device-width: 767px) {
+  @media screen and (min-device-width: 768px) {
     .category_icon {
-      font-size: 1.5em; } }
+      font-size: 1em;
+      margin: 0.1em 0.1em 0 0; } }

@@ -30,12 +30,14 @@ a:hover, a:active {
   max-width: 68em;
   margin-left: auto;
   margin-right: auto;
-  height: 100vh;
   border-top: 1px solid #84D4EF; }
   .wrapper::after {
     clear: both;
     content: "";
     display: table; }
+  @media screen and (min-device-width: 1024px) {
+    .wrapper {
+      height: 100vh; } }
 
 /*-----Header----------*/
 .header {
@@ -48,13 +50,15 @@ a:hover, a:active {
 .gameArea {
   width: 100%;
   position: relative;
-  overflow: hidden;
-  height: 92vh; }
+  overflow: hidden; }
+  @media screen and (min-device-width: 1024px) {
+    .gameArea {
+      height: 92vh; } }
 
 .gameArea::before {
   content: ' ';
   display: block;
-  position: absolute;
+  position: fixed;
   right: 0;
   top: 0;
   height: 100%;
@@ -79,6 +83,12 @@ a:hover, a:active {
   text-align: center;
   font-size: 1.5vh;
   margin: 0.5vh 0; }
+
+.bkground_blue {
+  background-color: white; }
+  @media screen and (min-device-width: 1024px) {
+    .bkground_blue {
+      background-color: #84D4EF; } }
 
 .blue {
   background-color: #84D4EF; }

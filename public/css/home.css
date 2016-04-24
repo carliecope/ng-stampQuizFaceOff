@@ -73,7 +73,7 @@ html {
   width: 50%; }
 
 .grid-item {
-  width: 50%;
+  width: 100%;
   height: 33%;
   float: left;
   background: transparent;
@@ -81,6 +81,10 @@ html {
   border-color: rgba(0, 0, 0, 0.5);
   border-radius: 5px;
   text-align: center; }
+  @media screen and (min-device-width: 1024px) {
+    .grid-item {
+      width: 50%;
+      height: 33%; } }
   @media screen and (min-device-width: 1024px) {
     .grid-item {
       width: 33.3%;
@@ -92,24 +96,26 @@ html {
 .stamp {
   border-radius: 5px;
   border: #F2F2F2 2px solid;
-  box-shadow: 6px 5px 5px #333333; }
-  @media screen and (min-device-width: 320px) and (max-device-width: 505px) {
+  box-shadow: 6px 5px 5px #333333;
+  position: inline; }
+  @media screen and (max-device-width: 1024px) {
     .stamp {
       max-width: 60%; } }
-  @media screen and (min-device-width: 506px) and (max-device-width: 1024px) {
-    .stamp {
-      max-width: 50%; } }
 
 .category_label {
   overflow: hidden;
   background-color: #F2F2F2;
   opacity: 0.8;
   border-radius: 0.5em;
-  margin: 0.1em 0; }
+  margin: 0.1em 0;
+  margin: 2% 20%; }
+  @media screen and (min-device-width: 506px) and (max-device-width: 1024px) {
+    .category_label {
+      margin: 2% 25%; } }
 
 .category {
   display: inline;
-  font-size: 1em;
+  font-size: 2em;
   margin: 0; }
   @media screen and (min-device-width: 767px) {
     .category {
@@ -117,7 +123,8 @@ html {
 
 .category_icon {
   display: inline;
-  height: 1em; }
+  height: 2em;
+  margin: 0.5em 0.5em 0 0; }
   @media screen and (min-device-width: 767px) {
     .category_icon {
       font-size: 1.5em; } }

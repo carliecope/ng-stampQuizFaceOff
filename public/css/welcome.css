@@ -14,7 +14,7 @@ html {
   border-radius: 5px;
   padding: 0.4em;
   margin-top: 10vh; }
-  @media screen and (min-device-width: 768px) {
+  @media screen and (min-width: 768px) {
     .postcard {
       background-image: url("../img/vintage-postcard.jpg");
       background-repeat: no-repeat;
@@ -28,7 +28,7 @@ html {
 .welcome_text {
   width: 100%;
   overflow: hidden; }
-  @media screen and (min-device-width: 768px) {
+  @media screen and (min-width: 768px) {
     .welcome_text {
       float: left;
       display: block;
@@ -46,7 +46,7 @@ html {
   color: #800000;
   font-size: 2.5em;
   margin: 0; }
-  @media screen and (min-device-width: 768px) {
+  @media screen and (min-width: 768px) {
     .welcome {
       font-size: 3em; } }
 
@@ -58,7 +58,7 @@ html {
   padding: 0.5em;
   border-radius: 0.8em;
   background-color: #F2F2F2; }
-  @media screen and (min-device-width: 768px) {
+  @media screen and (min-width: 768px) {
     .wel_instruction {
       font-size: 1em;
       opacity: 0.9; } }
@@ -66,7 +66,7 @@ html {
 .form_cont {
   width: 100%;
   overflow: hidden; }
-  @media screen and (min-device-width: 768px) {
+  @media screen and (min-width: 768px) {
     .form_cont {
       float: left;
       display: block;
@@ -80,7 +80,7 @@ html {
 
 .usernameForm {
   width: 100%; }
-  @media screen and (min-device-width: 768px) {
+  @media screen and (min-width: 768px) {
     .usernameForm {
       margin-top: 19vh; } }
 
@@ -101,7 +101,7 @@ input[type="text"] {
   border: none; }
   input[type="text"] input[type="text"]:focus {
     outline: none; }
-  @media screen and (min-device-width: 768px) {
+  @media screen and (min-width: 768px) {
     input[type="text"] {
       font-size: 1em;
       height: 2em; } }
@@ -131,7 +131,7 @@ input[type="text"] {
     border: 2px #800000 solid;
     color: #F2F2F2;
     cursor: pointer; }
-  @media screen and (min-device-width: 768px) {
+  @media screen and (min-width: 768px) {
     #userSubmitBtn {
       font-size: 1em;
       padding: 0.3em; } }

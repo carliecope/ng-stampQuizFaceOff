@@ -11,13 +11,15 @@ angular.module('myApp')
 	}; 
 }])
 //Home Screen -----------------------------
-.controller('HomeCtrl', ['$scope', '$location', '$q', '$timeout', 'socket', 'currentCategory', 'gameData', function($scope, $location, $q, $timeout, socket, currentCategory, gameData) {
+.controller('HomeCtrl', ['$scope', '$location', '$q', '$timeout','$window', 'socket', 'currentCategory', 'gameData', function($scope, $location, $q, $timeout, $window, socket, currentCategory, gameData) {
+	//Grid styles
 	$('.grid').masonry({
 	  itemSelector: '.grid-item',
 	  columnWidth: '.grid-sizer',
 	  percentPosition: true
 	});
 
+	//Game and category selection handling 
 	$scope.gameData = gameData;
 	$scope.currentCategory = currentCategory;
 

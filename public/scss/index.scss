@@ -10,7 +10,6 @@ $gray_dk: #333333;
 $gray_md: #777777;
 $gray_lt: #C7C7C7;
 $postcard: #F6EBD4;
-$rust: #800000;
 
 $min_sm_width: 320px;
 $max_sm_width: 480px;
@@ -90,7 +89,6 @@ a:hover, a:active {
   background-position: 95% 10%;
 
   @media screen and (min-width: $max_md_width) { 
-    opacity: 0.9;
     position: absolute;
   }
 }
@@ -111,6 +109,9 @@ a:hover, a:active {
 
   @media screen and (min-width: $min_md_width) { 
     background-color: $blue;
+  }
+  @media screen and (min-width: $postcard_large) { 
+    background-color: white;
   }
 }
 .blue {

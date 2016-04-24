@@ -71,7 +71,6 @@ a:hover, a:active {
   background-position: 95% 10%; }
   @media screen and (min-width: 1024px) {
     .gameArea::before {
-      opacity: 0.9;
       position: absolute; } }
 
 .center_title {
@@ -91,6 +90,9 @@ a:hover, a:active {
   @media screen and (min-width: 768px) {
     .bkground_blue {
       background-color: #84D4EF; } }
+  @media screen and (min-width: 420px) {
+    .bkground_blue {
+      background-color: white; } }
 
 .blue {
   background-color: #84D4EF; }

@@ -82,9 +82,6 @@ html {
   height: 33%;
   float: left;
   background: transparent;
-  border: 2px solid #333;
-  border-color: rgba(0, 0, 0, 0.5);
-  border-radius: 5px;
   text-align: center; }
   @media screen and (min-width: 768px) {
     .grid-item {
@@ -93,7 +90,8 @@ html {
   @media screen and (min-width: 1024px) {
     .grid-item {
       width: 33.3%;
-      height: 40%; } }
+      height: 45%;
+      margin-top: 5%; } }
 
 .stamp_cont_music, .stamp_cont_science, .stamp_cont_olympics, .stamp_cont_presidents, .stamp_cont_movies, .stamp_cont_aviation {
   overflow: hidden; }

@@ -25,7 +25,7 @@ $min_xl_width: 1824px;
 
 // Dimensions: 1800 × 1270 / 2.35 = 765.9 x 540.4
 $max_postcard_width: 1420px;
-$postcard_large: 420px;
+$postcard_lg_width: 1067px;
 
 // $bp_small : 24em;
 // $bp_small_2 : 29.75em;
@@ -89,9 +89,11 @@ $postcard_large: 420px;
       height: 92vh;
     }
 
-    // @media screen and (max-width: $min_md_width) { 
-    //   background-size: cover;
-    // }
+    @media screen and (min-width: $postcard_lg_width) { 
+      background-size: 100%;
+      margin-top: 0;
+      height: 100vh;
+    }
 }
 .welcome_text {
   @include fill-parent;
@@ -145,6 +147,9 @@ $postcard_large: 420px;
 
   @media screen and (min-width: $min_md_width) { 
     margin-top: 19vh;
+  }
+  @media screen and (min-width: $postcard_lg_width) { 
+    margin-top: 30vh;
   }
 }
 .userName_input {

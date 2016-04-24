@@ -60,112 +60,64 @@ html {
   display: inline; }
 
 /*---------Categories----------*/
-.music_block, .science_block, .movies_block, .aviation_block, .presidents_block, .olympics_block {
+.grid {
+  width: 100%;
+  height: 92vh; }
+
+.grid:after {
+  content: '';
+  display: block;
+  clear: both; }
+
+.grid-sizer {
+  width: 50%; }
+
+.grid-item {
+  width: 50%;
+  height: 33%;
+  float: left;
+  background: transparent;
+  border: 2px solid #333;
+  border-color: rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  text-align: center; }
+  @media screen and (min-device-width: 1024px) {
+    .grid-item {
+      width: 33.3%;
+      height: 40%; } }
+
+.stamp_cont_music, .stamp_cont_science, .stamp_cont_olympics, .stamp_cont_presidents, .stamp_cont_movies, .stamp_cont_aviation {
   overflow: hidden; }
-  @media screen and (min-width: 768px) and (max-width: 1024px) {
-    .music_block, .science_block, .movies_block, .aviation_block, .presidents_block, .olympics_block {
-      height: 28vh;
-      z-index: 2; } }
-
-.music_block {
-  width: 100%; }
-  @media screen and (min-width: 768px) and (max-width: 1024px) {
-    .music_block {
-      float: left;
-      display: block;
-      margin-right: 2.35765%;
-      width: 40.29137%;
-      margin-left: 8.5298%;
-      margin-right: 0;
-      margin-top: 4vh; }
-      .music_block:last-child {
-        margin-right: 0; } }
-
-.science_block {
-  width: 100%; }
-  @media screen and (min-width: 768px) and (max-width: 1024px) {
-    .science_block {
-      float: left;
-      display: block;
-      margin-right: 2.35765%;
-      width: 40.29137%;
-      margin-right: 0;
-      margin-top: 4vh; }
-      .science_block:last-child {
-        margin-right: 0; } }
-
-.olympics_block {
-  width: 100%; }
-  @media screen and (min-width: 768px) and (max-width: 1024px) {
-    .olympics_block {
-      float: left;
-      display: block;
-      margin-right: 2.35765%;
-      width: 40.29137%;
-      margin-left: 8.5298%;
-      margin-right: 0; }
-      .olympics_block:last-child {
-        margin-right: 0; } }
-
-.presidents_block {
-  width: 100%; }
-  @media screen and (min-width: 768px) and (max-width: 1024px) {
-    .presidents_block {
-      float: left;
-      display: block;
-      margin-right: 2.35765%;
-      width: 40.29137%;
-      margin-right: 0; }
-      .presidents_block:last-child {
-        margin-right: 0; } }
-
-.movies_block {
-  width: 100%; }
-  @media screen and (min-width: 768px) and (max-width: 1024px) {
-    .movies_block {
-      float: left;
-      display: block;
-      margin-right: 2.35765%;
-      width: 40.29137%;
-      margin-left: 8.5298%;
-      margin-right: 0; }
-      .movies_block:last-child {
-        margin-right: 0; } }
-
-.aviation_block {
-  width: 100%; }
-  @media screen and (min-width: 768px) and (max-width: 1024px) {
-    .aviation_block {
-      float: left;
-      display: block;
-      margin-right: 2.35765%;
-      width: 40.29137%;
-      margin-right: 0; }
-      .aviation_block:last-child {
-        margin-right: 0; } }
 
 .stamp {
   border-radius: 5px;
   border: #F2F2F2 2px solid;
   box-shadow: 6px 5px 5px #333333; }
+  @media screen and (min-device-width: 320px) and (max-device-width: 505px) {
+    .stamp {
+      max-width: 60%; } }
+  @media screen and (min-device-width: 506px) and (max-device-width: 1024px) {
+    .stamp {
+      max-width: 50%; } }
 
 .category_label {
-  position: relative;
   overflow: hidden;
   background-color: #F2F2F2;
-  border: #F2F2F2 3px solid;
+  opacity: 0.8;
   border-radius: 0.5em;
-  opacity: 0.7; }
+  margin: 0.1em 0; }
 
 .category {
   display: inline;
-  height: 2em;
-  margin-top: -1em;
-  transform: translate(0, 50%); }
+  font-size: 1em;
+  margin: 0; }
+  @media screen and (min-device-width: 767px) {
+    .category {
+      font-size: 1.5em; } }
 
 .category_icon {
-  transform: translate(50px, 100px);
   display: inline;
-  height: 2em;
-  margin-top: -1em;
-  transform: translate(0, 50%); }
+  height: 1em; }
+  @media screen and (min-device-width: 767px) {
+    .category_icon {
+      font-size: 1.5em; } }

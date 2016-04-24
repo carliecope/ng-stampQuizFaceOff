@@ -51,20 +51,22 @@ a:hover, a:active {
   overflow: hidden;
   height: 92vh; }
 
-@media screen and (min-device-width: 768px) {
-  .gameArea::before {
-    content: ' ';
-    display: block;
-    position: absolute;
-    right: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    z-index: -1;
-    opacity: 0.9;
-    background-image: url("../img/vintage-postcard.jpg");
-    background-repeat: no-repeat;
-    background-position: 96% 4%; } }
+.gameArea::before {
+  content: ' ';
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  opacity: 0.5;
+  background-image: url("../img/vintage-postcard.jpg");
+  background-repeat: no-repeat;
+  background-position: 95% 10%; }
+  @media screen and (min-device-width: 768px) {
+    .gameArea::before {
+      opacity: 0.9; } }
 
 .center_title {
   color: #333333;

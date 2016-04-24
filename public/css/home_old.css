@@ -1,0 +1,171 @@
+@import url(https://fonts.googleapis.com/css?family=Coming+Soon);
+html {
+  box-sizing: border-box; }
+
+*, *::after, *::before {
+  box-sizing: inherit; }
+
+/*-----------------------Home------------------------*/
+/*---------Title Bar----------*/
+.home_title_block {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 40.29137%;
+  margin-left: 8.5298%;
+  margin-right: 0;
+  height: 100%; }
+  .home_title_block:last-child {
+    margin-right: 0; }
+  .home_title_block .home_title {
+    width: 100%;
+    color: #333333;
+    height: 4vh;
+    font-size: 2.6vh;
+    padding: 0;
+    margin: 0.5vh 0 0 0; }
+  .home_title_block .choose {
+    width: 100%;
+    color: #333333;
+    font-size: 1.7vh;
+    padding: 0;
+    margin: 0; }
+
+.userName_block {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 40.29137%;
+  margin-right: 0;
+  overflow: hidden;
+  height: 100%; }
+  .userName_block:last-child {
+    margin-right: 0; }
+
+.username_cont {
+  float: right;
+  overflow: hidden;
+  margin-top: 2vh; }
+
+.username_home {
+  color: #333333;
+  font-size: 2vh;
+  margin: 0;
+  display: inline;
+  margin-right: 1vw; }
+
+.home_username_icon {
+  height: 2vh;
+  margin: 0;
+  display: inline; }
+
+/*---------Categories----------*/
+.music_block, .science_block, .movies_block, .aviation_block, .presidents_block, .olympics_block {
+  overflow: hidden; }
+  @media screen and (min-width: 768px) and (max-width: 1024px) {
+    .music_block, .science_block, .movies_block, .aviation_block, .presidents_block, .olympics_block {
+      height: 28vh;
+      z-index: 2; } }
+
+.music_block {
+  width: 100%; }
+  @media screen and (min-width: 768px) and (max-width: 1024px) {
+    .music_block {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 40.29137%;
+      margin-left: 8.5298%;
+      margin-right: 0;
+      margin-top: 4vh; }
+      .music_block:last-child {
+        margin-right: 0; } }
+
+.science_block {
+  width: 100%; }
+  @media screen and (min-width: 768px) and (max-width: 1024px) {
+    .science_block {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 40.29137%;
+      margin-right: 0;
+      margin-top: 4vh; }
+      .science_block:last-child {
+        margin-right: 0; } }
+
+.olympics_block {
+  width: 100%; }
+  @media screen and (min-width: 768px) and (max-width: 1024px) {
+    .olympics_block {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 40.29137%;
+      margin-left: 8.5298%;
+      margin-right: 0; }
+      .olympics_block:last-child {
+        margin-right: 0; } }
+
+.presidents_block {
+  width: 100%; }
+  @media screen and (min-width: 768px) and (max-width: 1024px) {
+    .presidents_block {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 40.29137%;
+      margin-right: 0; }
+      .presidents_block:last-child {
+        margin-right: 0; } }
+
+.movies_block {
+  width: 100%; }
+  @media screen and (min-width: 768px) and (max-width: 1024px) {
+    .movies_block {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 40.29137%;
+      margin-left: 8.5298%;
+      margin-right: 0; }
+      .movies_block:last-child {
+        margin-right: 0; } }
+
+.aviation_block {
+  width: 100%; }
+  @media screen and (min-width: 768px) and (max-width: 1024px) {
+    .aviation_block {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 40.29137%;
+      margin-right: 0; }
+      .aviation_block:last-child {
+        margin-right: 0; } }
+
+.stamp {
+  border-radius: 5px;
+  border: #F2F2F2 2px solid;
+  box-shadow: 6px 5px 5px #333333; }
+
+.category_label {
+  position: relative;
+  overflow: hidden;
+  background-color: #F2F2F2;
+  border: #F2F2F2 3px solid;
+  border-radius: 0.5em;
+  opacity: 0.7; }
+
+.category {
+  display: inline;
+  height: 2em;
+  margin-top: -1em;
+  transform: translate(0, 50%); }
+
+.category_icon {
+  transform: translate(50px, 100px);
+  display: inline;
+  height: 2em;
+  margin-top: -1em;
+  transform: translate(0, 50%); }

@@ -12,6 +12,12 @@ angular.module('myApp')
 }])
 //Home Screen -----------------------------
 .controller('HomeCtrl', ['$scope', '$location', '$q', '$timeout', 'socket', 'currentCategory', 'gameData', function($scope, $location, $q, $timeout, socket, currentCategory, gameData) {
+	$('.grid').masonry({
+	  itemSelector: '.grid-item',
+	  columnWidth: '.grid-sizer',
+	  percentPosition: true
+	});
+
 	$scope.gameData = gameData;
 	$scope.currentCategory = currentCategory;
 

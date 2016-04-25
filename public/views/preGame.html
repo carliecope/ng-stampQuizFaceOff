@@ -23,8 +23,8 @@
 				<div ng-hide="!waiting" class="play_solo_ask">
 					<h2 ng-hide="opponentCountdown">Looks like there are no available opponents at this time.</h2>
 					<div ng-hide="opponentCountdown" class="btn_cont">
-						<button id="playSoloBtn" ng-click="toGame()">Play Solo</button>
-						<button id="waitBtn" ng-click="wait()">Wait for Opponent</button>
+						<button class="playSoloBtn" ng-click="toGame()">Play Solo</button>
+						<button class="waitBtn" ng-click="wait()">Wait for Opponent</button>
 					</div>
 						<h2 ng-hide="!opponentCountdown">Wating for new opponent...</h2>
 						<div ng-hide="!opponentCountdown" class="countdownNum" ng-bind="countdownNum"></div>

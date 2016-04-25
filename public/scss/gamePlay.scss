@@ -43,7 +43,7 @@ $postcard_lg_width: 1067px;
   overflow: hidden;
   text-align: center;
   background-color: $blue;
-  border-radius: 0.5em;
+  border-radius: 0.4em;
   padding: 0.5em;
   top: 50%; 
   left: 50%;
@@ -60,7 +60,7 @@ $postcard_lg_width: 1067px;
     color: $gray_dk;
     background-color: $white;
     font-weight: bolder;
-    border-radius: 0.5em;
+    border-radius: 0.4em;
   }
 }
 /*--------Game Play---------------*/
@@ -178,6 +178,7 @@ $postcard_lg_width: 1067px;
   text-align: center;
 }
 .answerBtn {
+  font-family: 'Coming Soon', cursive;
   width: 90%;
   height: 20%;
   margin-top: 2%;

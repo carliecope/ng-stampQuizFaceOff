@@ -125,7 +125,7 @@ $postcard_large: 420px;
   font-size: 2vh;
   color: $gray_dk;
 }
-#playSoloBtn {
+.playSoloBtn {
   font-family: 'Coming Soon', cursive;
   padding: 0.5em;
   margin: 0.5em 0;
@@ -134,8 +134,15 @@ $postcard_large: 420px;
   border: $blue solid 3px;
   border-radius: 0.5em;
   color: $gray_dk;
+
+  &:focus {outline: 0;}
+
+  &:hover {
+    cursor: pointer;
+    background-color: $off_white; 
+  }
 }
-#waitBtn {
+.waitBtn {
   font-family: 'Coming Soon', cursive;
   padding: 0.5em;
   margin: 0.5em 0;
@@ -144,13 +151,12 @@ $postcard_large: 420px;
   border: $blue solid 3px;
   border-radius: 0.5em;
   color: $gray_dk;
+
+  &:focus {outline: 0;}
+
+  &:hover {cursor: pointer;}
 }
-#waitBtn:hover {
-  cursor: pointer;
-}
-#playSoloBtn:hover {
-  cursor: pointer;
-  background-color: $off_white;
-}
+
+
 
 

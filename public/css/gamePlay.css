@@ -22,7 +22,7 @@ html {
   overflow: hidden;
   text-align: center;
   background-color: #84D4EF;
-  border-radius: 0.5em;
+  border-radius: 0.4em;
   padding: 0.5em;
   top: 50%;
   left: 50%;
@@ -38,7 +38,7 @@ html {
     color: #333333;
     background-color: #F2F2F2;
     font-weight: bolder;
-    border-radius: 0.5em; }
+    border-radius: 0.4em; }
 
 /*--------Game Play---------------*/
 /*-----Header----------*/
@@ -160,6 +160,7 @@ html {
   text-align: center; }
 
 .answerBtn {
+  font-family: 'Coming Soon', cursive;
   width: 90%;
   height: 20%;
   margin-top: 2%;

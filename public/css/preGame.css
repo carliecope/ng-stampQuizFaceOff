@@ -112,7 +112,7 @@ html {
   font-size: 2vh;
   color: #333333; }
 
-#playSoloBtn {
+.playSoloBtn {
   font-family: 'Coming Soon', cursive;
   padding: 0.5em;
   margin: 0.5em 0;
@@ -121,8 +121,13 @@ html {
   border: #84D4EF solid 3px;
   border-radius: 0.5em;
   color: #333333; }
+  .playSoloBtn:focus {
+    outline: 0; }
+  .playSoloBtn:hover {
+    cursor: pointer;
+    background-color: #ECECEC; }
 
-#waitBtn {
+.waitBtn {
   font-family: 'Coming Soon', cursive;
   padding: 0.5em;
   margin: 0.5em 0;
@@ -131,10 +136,7 @@ html {
   border: #84D4EF solid 3px;
   border-radius: 0.5em;
   color: #333333; }
-
-#waitBtn:hover {
-  cursor: pointer; }
-
-#playSoloBtn:hover {
-  cursor: pointer;
-  background-color: #ECECEC; }
+  .waitBtn:focus {
+    outline: 0; }
+  .waitBtn:hover {
+    cursor: pointer; }

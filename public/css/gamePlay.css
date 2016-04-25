@@ -120,15 +120,14 @@ html {
   padding: 0 0.2em; }
   @media screen and (min-width: 768px) {
     .question_block {
-      padding: 0.2em 1em 0 1em; } }
+      padding: 0.5em 3em 0 3em; } }
 
 .question {
   width: 100%;
   background-color: #F2F2F2;
   color: #333333;
-  border-radius: 1em;
-  padding: 0.5em;
-  opacity: 0.9;
+  border-radius: 0.4em;
+  padding: 0.8em;
   margin: 0;
   font-size: 1em; }
   @media screen and (min-width: 1024px) {
@@ -138,7 +137,9 @@ html {
       margin-right: 2.35765%;
       width: 48.82117%;
       margin-right: 0;
-      margin-top: 8vh; }
+      margin-top: 8vh;
+      border: 4px solid #84D4EF;
+      font-size: 1.2em; }
       .question:last-child {
         margin-right: 0; } }
 
@@ -166,8 +167,9 @@ html {
   background-color: #F2F2F2;
   border: 2px solid #F2F2F2;
   border-radius: 0.4em;
-  opacity: 0.8;
   color: #333333; }
+  .answerBtn:focus {
+    outline: 0; }
   @media screen and (min-width: 768px) {
     .answerBtn {
       font-size: 1.6em; } }

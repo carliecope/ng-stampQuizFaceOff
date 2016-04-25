@@ -4,7 +4,6 @@ angular.module('myApp')
 .controller('WelcomeCtrl', ['$scope', '$location', 'socket', 'gameData', function($scope, $location, socket, gameData) {
 
 	$scope.updateUserName = function(userName) {
-		gameData.setFirstTimeUser(false);
 		gameData.setPlayer1Name(userName);
 		
 		$location.path('/home');
@@ -320,6 +319,10 @@ angular.module('myApp')
 	$scope.player2Score = gameData.getPlayer2Score();
 
 	$scope.returnHome = function() {
+		gameData.clearPlayer1Score(0);
+		gameData.clearPlayer2Score(0);
+
+		gameData.setPlayer2Name("");
 
 		socket.emit('exitRoom', {
 			userName: gameData.getPlayer1Name(),
@@ -327,9 +330,6 @@ angular.module('myApp')
 			category: currentCategory.getCategory()
 		});
 
-		//reset scores and categories here ---------------------
-
-		//increase player game count??
 		$location.path('/home');
 	};
 }]);

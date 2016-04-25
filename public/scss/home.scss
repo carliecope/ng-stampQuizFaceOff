@@ -121,13 +121,13 @@ $postcard_large: 420px;
   border: $gray_dk 2px solid;
   box-shadow: 6px 5px 5px $gray_dk;
   position: inline;
-
+  
   @media screen and (max-width: $max_md_width) { 
     max-height: 69%;
   }
 
-  @media screen and (min-width: $max_md_width) { 
-
+  @media screen and (max-width: $min_md_width) { 
+    max-width: 64%;
   }
 }
 .category_label {
@@ -137,6 +137,11 @@ $postcard_large: 420px;
   border-radius: 0.5em;
   margin: 0.1em 0;
   margin: 0;
+
+  @media screen and (min-width: $min_md_width) { 
+    margin: 0 20%;
+    background-color: white;
+  }
 }
 .category {
   display: inline;

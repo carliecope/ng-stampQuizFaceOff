@@ -54,7 +54,7 @@ a:hover, a:active {
   
   @media screen and (min-width: $min_md_width) { 
     height: 100vh;
-    border-top: 1px solid $blue;
+    border-top: 1px solid white;
   }
 }
 /*-----Header----------*/
@@ -104,27 +104,13 @@ a:hover, a:active {
   font-size: 1.5vh;
   margin: 0.5vh 0;
 }
-.bkground_blue {
-  background-color: white; 
-
-  @media screen and (min-width: $min_md_width) { 
-    background-color: $blue;
-  }
-  @media screen and (min-width: $postcard_large) { 
-    background-color: white;
-  }
-}
 .blue {
   background-color: $blue;
 }
-
 .white {
   background-color: $white;
 }
-.gray_dk {
-  background-color: $gray_dk;
-  opacity: 0.9;
-}
+
 
 
 

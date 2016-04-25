@@ -99,8 +99,8 @@ html {
   background-color: #F2F2F2;
   border-radius: 4px;
   padding: 0.2em; }
-  .userName_input .userName_input:focus {
-    outline: none; }
+  .userName_input:focus {
+    outline: 0; }
 
 input[type="text"] {
   font-family: 'Coming Soon', cursive;

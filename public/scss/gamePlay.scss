@@ -140,16 +140,15 @@ $postcard_lg_width: 1067px;
   padding: 0 0.2em;
 
   @media screen and (min-width: $min_md_width) { 
-    padding: 0.2em 1em 0 1em;
+    padding: 0.5em 3em 0 3em;
   }
 }
 .question {
   @include fill-parent;
   background-color: $white;
   color: $gray_dk;
-  border-radius: 1em;
-  padding: 0.5em;
-  opacity: 0.9;
+  border-radius: 0.4em;
+  padding: 0.8em;
   margin: 0;
   font-size: 1em;
 
@@ -157,6 +156,8 @@ $postcard_lg_width: 1067px;
     @include span-columns(6);
     @include omega();
     margin-top: 8vh;
+    border: 4px solid $blue;
+    font-size: 1.2em;
   }
 }
 
@@ -184,8 +185,9 @@ $postcard_lg_width: 1067px;
   background-color: $white;
   border: 2px solid $white;
   border-radius: 0.4em;
-  opacity: 0.8;
   color: $gray_dk;
+  
+  &:focus {outline: 0;}
 
   @media screen and (min-width: $min_md_width) { 
     font-size: 1.6em;

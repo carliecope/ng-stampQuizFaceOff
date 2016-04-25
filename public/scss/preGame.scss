@@ -126,22 +126,24 @@ $postcard_large: 420px;
   color: $gray_dk;
 }
 #playSoloBtn {
-    padding: 0.5em;
-    margin: 0.5em 0;
-    font-size: 1.5vh;
-    background-color: white;
-    border: $blue solid 3px;
-    border-radius: 0.5em;
-    color: $gray_dk;
+  font-family: 'Coming Soon', cursive;
+  padding: 0.5em;
+  margin: 0.5em 0;
+  font-size: 1.5vh;
+  background-color: white;
+  border: $blue solid 3px;
+  border-radius: 0.5em;
+  color: $gray_dk;
 }
 #waitBtn {
-    padding: 0.5em;
-    margin: 0.5em 0;
-    font-size: 1.5vh;
-    background-color: $blue;
-    border: $blue solid 3px;
-    border-radius: 0.5em;
-    color: $gray_dk;
+  font-family: 'Coming Soon', cursive;
+  padding: 0.5em;
+  margin: 0.5em 0;
+  font-size: 1.5vh;
+  background-color: $blue;
+  border: $blue solid 3px;
+  border-radius: 0.5em;
+  color: $gray_dk;
 }
 #waitBtn:hover {
   cursor: pointer;

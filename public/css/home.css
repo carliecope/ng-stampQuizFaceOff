@@ -104,6 +104,9 @@ html {
   @media screen and (max-width: 1024px) {
     .stamp {
       max-height: 69%; } }
+  @media screen and (max-width: 768px) {
+    .stamp {
+      max-width: 64%; } }
 
 .category_label {
   overflow: hidden;
@@ -112,6 +115,10 @@ html {
   border-radius: 0.5em;
   margin: 0.1em 0;
   margin: 0; }
+  @media screen and (min-width: 768px) {
+    .category_label {
+      margin: 0 20%;
+      background-color: white; } }
 
 .category {
   display: inline;

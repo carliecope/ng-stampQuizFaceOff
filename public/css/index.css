@@ -38,7 +38,7 @@ a:hover, a:active {
   @media screen and (min-width: 768px) {
     .wrapper {
       height: 100vh;
-      border-top: 1px solid #84D4EF; } }
+      border-top: 1px solid white; } }
 
 /*-----Header----------*/
 .header {
@@ -85,21 +85,8 @@ a:hover, a:active {
   font-size: 1.5vh;
   margin: 0.5vh 0; }
 
-.bkground_blue {
-  background-color: white; }
-  @media screen and (min-width: 768px) {
-    .bkground_blue {
-      background-color: #84D4EF; } }
-  @media screen and (min-width: 420px) {
-    .bkground_blue {
-      background-color: white; } }
-
 .blue {
   background-color: #84D4EF; }
 
 .white {
   background-color: #F2F2F2; }
-
-.gray_dk {
-  background-color: #333333;
-  opacity: 0.9; }

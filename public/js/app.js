@@ -37,7 +37,6 @@ angular.module('myApp', ['ngRoute', 'btford.socket-io', 'ngAnimate'])
 		};
 	})
 	.factory('gameData', function() {
-		var firstTimeUser = true;
 		var gameCopy = {};
 
 		var player1 = {
@@ -51,9 +50,6 @@ angular.module('myApp', ['ngRoute', 'btford.socket-io', 'ngAnimate'])
 		var roomId = "";
 
 		return {
-			setFirstTimeUser: function(value) {
-				firstTimeUser = value;
-			},
 			setGameInfo: function(response) {
 				gameCopy = response;
 			},
@@ -71,12 +67,15 @@ angular.module('myApp', ['ngRoute', 'btford.socket-io', 'ngAnimate'])
 				player2.score += score;
 				return player2.score;
 			},
+			clearPlayer1Score: function(score) {
+				player1.score = score;
+			},
+			clearPlayer2Score: function(score) {
+				player2.score = score;
+			},
 			setRoomId: function(newRoomId) {
 				roomId = newRoomId;
 				return roomId;
-			},
-			getFirstTimeUser: function() {
-				return firstTimeUser;
 			},
 			getGameInfo: function() {
 				return gameCopy;

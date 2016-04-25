@@ -113,6 +113,7 @@ html {
   color: #333333; }
 
 #playSoloBtn {
+  font-family: 'Coming Soon', cursive;
   padding: 0.5em;
   margin: 0.5em 0;
   font-size: 1.5vh;
@@ -122,6 +123,7 @@ html {
   color: #333333; }
 
 #waitBtn {
+  font-family: 'Coming Soon', cursive;
   padding: 0.5em;
   margin: 0.5em 0;
   font-size: 1.5vh;

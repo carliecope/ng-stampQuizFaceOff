@@ -159,8 +159,8 @@ $postcard_lg_width: 1067px;
   border-radius: 4px;
   padding: 0.2em;
 
-  .userName_input:focus {
-    outline: none;
+  &:focus {
+    outline: 0;
   }
 }
 input[type="text"] {

@@ -19,8 +19,7 @@ html {
 .pregame_container {
   width: 100%;
   background-color: transparent;
-  height: 26vh;
-  margin: 32vh 0 0 0;
+  margin: 20vh 0 0 0;
   position: relative;
   overflow: hidden; }
 
@@ -55,32 +54,37 @@ html {
     margin-right: 0; }
   .player1 .player1_icon {
     display: inline;
-    margin-left: 2em; }
+    margin-left: 2em;
+    height: 1em; }
+    @media screen and (min-width: 768px) {
+      .player1 .player1_icon {
+        height: 2em; } }
   .player1 .player1_name {
     display: inline;
     color: #333333;
-    font-size: 2vh; }
+    font-size: 1em; }
+    @media screen and (min-width: 768px) {
+      .player1 .player1_name {
+        font-size: 2em; } }
 
 /*------------divide----------*/
 .divider {
   width: 100%;
   height: 4vh;
   overflow: hidden;
-  background-color: #84D4EF; }
+  background-color: #84D4EF;
+  text-align: center; }
 
 .mail_icon {
-  height: 4vh;
-  width: 4vh;
-  position: relative;
-  left: 50vw;
-  margin-left: -2vw; }
+  height: 100%;
+  padding: 0.1em 0; }
 
 /*------------bottom----------*/
 .bottom {
   width: 100%;
   background-color: transparent;
-  height: 12vh;
-  color: #333333; }
+  color: #333333;
+  min-height: 10vh; }
 
 .player2 {
   float: left;
@@ -88,13 +92,21 @@ html {
   margin-right: 2.35765%;
   width: 48.82117%;
   margin-left: 51.17883%;
-  top: 0; }
+  margin-top: 0.5em; }
   .player2:last-child {
     margin-right: 0; }
   .player2 .player2_name {
     display: inline;
     color: #333333;
-    font-size: 2vh; }
+    font-size: 1em; }
+    @media screen and (min-width: 768px) {
+      .player2 .player2_name {
+        font-size: 2em; } }
+  .player2 .player2_icon {
+    height: 1em; }
+    @media screen and (min-width: 768px) {
+      .player2 .player2_icon {
+        height: 2em; } }
 
 /*---no opponent----*/
 .play_solo_ask {
@@ -102,41 +114,53 @@ html {
   text-align: center; }
   .play_solo_ask h2 {
     color: #333333;
-    font-size: 2vh;
-    margin: 0.5vh 0; }
+    font-size: 0.8em;
+    margin: 0.2em 0; }
+    @media screen and (min-width: 768px) {
+      .play_solo_ask h2 {
+        font-size: 1em; } }
 
 .btn_cont {
   width: 100%; }
 
 .countdownNum {
-  font-size: 2vh;
+  font-size: 0.8em;
   color: #333333; }
+  @media screen and (min-width: 768px) {
+    .countdownNum {
+      font-size: 1em; } }
 
 .playSoloBtn {
   font-family: 'Coming Soon', cursive;
-  padding: 0.5em;
+  padding: 0.2em;
   margin: 0.5em 0;
-  font-size: 1.5vh;
+  font-size: 0.8em;
   background-color: white;
   border: #84D4EF solid 3px;
-  border-radius: 0.5em;
+  border-radius: 0.4em;
   color: #333333; }
   .playSoloBtn:focus {
     outline: 0; }
   .playSoloBtn:hover {
     cursor: pointer;
     background-color: #ECECEC; }
+  @media screen and (min-width: 768px) {
+    .playSoloBtn {
+      font-size: 1em; } }
 
 .waitBtn {
   font-family: 'Coming Soon', cursive;
-  padding: 0.5em;
+  padding: 0.2em;
   margin: 0.5em 0;
-  font-size: 1.5vh;
+  font-size: 0.8em;
   background-color: #84D4EF;
   border: #84D4EF solid 3px;
-  border-radius: 0.5em;
+  border-radius: 0.4em;
   color: #333333; }
   .waitBtn:focus {
     outline: 0; }
   .waitBtn:hover {
     cursor: pointer; }
+  @media screen and (min-width: 768px) {
+    .waitBtn {
+      font-size: 1em; } }

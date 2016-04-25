@@ -10,6 +10,7 @@ $gray_dk: #333333;
 $gray_md: #777777;
 $gray_lt: #C7C7C7;
 $postcard: #F6EBD4;
+$rust: #800000;
 
 $min_sm_width: 320px;
 $max_sm_width: 480px;
@@ -22,9 +23,8 @@ $min_lg_width: 1224px;
 
 $min_xl_width: 1824px;
 
-// Dimensions: 1800 × 1270 / 2.35 = 765.9 x 540.4
 $max_postcard_width: 1420px;
-$postcard_large: 420px;
+$postcard_lg_width: 1067px;
 
 html {
   box-sizing: border-box;
@@ -95,14 +95,22 @@ a:hover, a:active {
 .center_title {
   color: $gray_dk;
   text-align: center;
-  font-size: 2.3vh;
-  margin: 0.5vh 0 0 0;
+  font-size: 1em;
+  margin: 0.2em 0 0 0;
+
+  @media screen and (min-width: $min_md_width) { 
+    font-size: 1.5em;
+  }
 }
 .center_category {
   color: $gray_dk;
   text-align: center;
-  font-size: 1.5vh;
-  margin: 0.5vh 0;
+  font-size: 0.6em;
+  margin: 0.2em 0 0 0;
+
+  @media screen and (min-width: $min_md_width) { 
+      font-size: 1em;
+  }
 }
 .blue {
   background-color: $blue;

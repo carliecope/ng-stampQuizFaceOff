@@ -310,13 +310,27 @@ angular.module('myApp')
 	$scope.gameData = gameData;
 
 	$scope.category = $scope.currentCategory.getCategory();
-	$scope.game_outcome = "";
 
 	$scope.player1Name = gameData.getPlayer1Name();
 	$scope.player1Score = gameData.getPlayer1Score();
 
 	$scope.player2Name = gameData.getPlayer2Name();
 	$scope.player2Score = gameData.getPlayer2Score();
+
+	$scope.soloPlayer = true;
+	
+	if ($scope.player2Name !== "") {
+
+		$scope.soloPlayer = false;
+
+		if($scope.player1Score > $scope.player2Score) {
+			$scope.game_outcome = "You Won!";
+		} else if ($scope.player1Score === $scope.player2Score) {
+			$scope.game_outcome = "It's a tie!";
+		} else {
+			$scope.game_outcome = "You Lost";
+		}
+	}
 
 	$scope.returnHome = function() {
 		gameData.clearPlayer1Score(0);

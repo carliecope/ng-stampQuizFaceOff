@@ -10,6 +10,7 @@ $gray_dk: #333333;
 $gray_md: #777777;
 $gray_lt: #C7C7C7;
 $postcard: #F6EBD4;
+$rust: #800000;
 
 $min_sm_width: 320px;
 $max_sm_width: 480px;
@@ -22,23 +23,26 @@ $min_lg_width: 1224px;
 
 $min_xl_width: 1824px;
 
-// Dimensions: 1800 × 1270 / 2.35 = 765.9 x 540.4
 $max_postcard_width: 1420px;
-$postcard_large: 420px;
+$postcard_lg_width: 1067px;
 
 /*-----------------------Home------------------------*/
 /*---------Title Bar----------*/
 .home_title_block {
-  @include span-columns(5);
-  @include shift(1);
+  @include span-columns(8);
   @include omega();
+  padding-left: 0.5em;
   height: 100%;
+
+  @media screen and (min-width: $min_md_width) { 
+    padding-left: 1em;
+  }
 
   .home_title {
     @include fill-parent;
     color: $gray_dk;
     font-size: 1em;
-    margin: 0.1em 0;
+    margin: 0.2em 0 0 0;
     padding: 0;
 
     @media screen and (min-width: $min_md_width) { 
@@ -58,7 +62,7 @@ $postcard_large: 420px;
   }
 }
 .userName_block {
-  @include span-columns(5);
+  @include span-columns(4);
   @include omega();
   overflow: hidden;
   height: 100%;
@@ -70,15 +74,22 @@ $postcard_large: 420px;
 }
 .username_home {
   color: $gray_dk;
-  font-size: 1.2em;
+  font-size: 1em;
   margin: 0;
   display: inline;
-  margin-right: 0.5em;
+
+  @media screen and (min-width: $min_md_width) { 
+    font-size: 1.5em;
+  }
 }
 .home_username_icon {
-  height: 2vh;
+  height: 1em;
   margin: 0;
   display: inline;
+
+  @media screen and (min-width: $min_md_width) { 
+    height: 1.5em;
+  }
 }
 /*---------Categories----------*/
 .grid {
@@ -115,6 +126,7 @@ $postcard_large: 420px;
 }
 .stamp_cont_music, .stamp_cont_science, .stamp_cont_olympics, .stamp_cont_presidents, .stamp_cont_movies, .stamp_cont_aviation {
   overflow: hidden;
+  text-align: center;
 }
 .stamp {
   border-radius: 5px;
@@ -130,36 +142,20 @@ $postcard_large: 420px;
     max-width: 64%;
   }
 }
-.category_label {
-  overflow: hidden;
+.category {
   background-color: transparent;
-  opacity: 0.8;
+  display: inline;
+  padding: 0.1em 0.4em;
   border-radius: 0.5em;
   margin: 0.1em 0;
-  margin: 0;
-
-  @media screen and (min-width: $min_md_width) { 
-    margin: 0 20%;
-    background-color: white;
-  }
-}
-.category {
-  display: inline;
   font-size: 2em;
   margin: 0;
 
   @media screen and (min-width: $min_md_width) { 
     font-size: 1.5em;
+    background-color: white;
+    opacity: 0.8
   }
 }
-.category_icon {
-  display: inline;
-  height: 2em;
-  margin: 0.5em 0.5em 0 0;
 
-    @media screen and (min-width: $min_md_width) { 
-      font-size: 1em;
-      margin: 0.1em 0.1em 0 0;
-  }
-}
 

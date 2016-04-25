@@ -11,17 +11,20 @@ html {
   float: left;
   display: block;
   margin-right: 2.35765%;
-  width: 40.29137%;
-  margin-left: 8.5298%;
+  width: 65.88078%;
   margin-right: 0;
+  padding-left: 0.5em;
   height: 100%; }
   .home_title_block:last-child {
     margin-right: 0; }
+  @media screen and (min-width: 768px) {
+    .home_title_block {
+      padding-left: 1em; } }
   .home_title_block .home_title {
     width: 100%;
     color: #333333;
     font-size: 1em;
-    margin: 0.1em 0;
+    margin: 0.2em 0 0 0;
     padding: 0; }
     @media screen and (min-width: 768px) {
       .home_title_block .home_title {
@@ -40,7 +43,7 @@ html {
   float: left;
   display: block;
   margin-right: 2.35765%;
-  width: 40.29137%;
+  width: 31.76157%;
   margin-right: 0;
   overflow: hidden;
   height: 100%; }
@@ -54,15 +57,20 @@ html {
 
 .username_home {
   color: #333333;
-  font-size: 1.2em;
-  margin: 0;
-  display: inline;
-  margin-right: 0.5em; }
-
-.home_username_icon {
-  height: 2vh;
+  font-size: 1em;
   margin: 0;
   display: inline; }
+  @media screen and (min-width: 768px) {
+    .username_home {
+      font-size: 1.5em; } }
+
+.home_username_icon {
+  height: 1em;
+  margin: 0;
+  display: inline; }
+  @media screen and (min-width: 768px) {
+    .home_username_icon {
+      height: 1.5em; } }
 
 /*---------Categories----------*/
 .grid {
@@ -94,7 +102,8 @@ html {
       margin-top: 5%; } }
 
 .stamp_cont_music, .stamp_cont_science, .stamp_cont_olympics, .stamp_cont_presidents, .stamp_cont_movies, .stamp_cont_aviation {
-  overflow: hidden; }
+  overflow: hidden;
+  text-align: center; }
 
 .stamp {
   border-radius: 5px;
@@ -108,31 +117,16 @@ html {
     .stamp {
       max-width: 64%; } }
 
-.category_label {
-  overflow: hidden;
+.category {
   background-color: transparent;
-  opacity: 0.8;
+  display: inline;
+  padding: 0.1em 0.4em;
   border-radius: 0.5em;
   margin: 0.1em 0;
-  margin: 0; }
-  @media screen and (min-width: 768px) {
-    .category_label {
-      margin: 0 20%;
-      background-color: white; } }
-
-.category {
-  display: inline;
   font-size: 2em;
   margin: 0; }
   @media screen and (min-width: 768px) {
     .category {
-      font-size: 1.5em; } }
-
-.category_icon {
-  display: inline;
-  height: 2em;
-  margin: 0.5em 0.5em 0 0; }
-  @media screen and (min-width: 768px) {
-    .category_icon {
-      font-size: 1em;
-      margin: 0.1em 0.1em 0 0; } }
+      font-size: 1.5em;
+      background-color: white;
+      opacity: 0.8; } }

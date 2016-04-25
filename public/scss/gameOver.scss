@@ -10,17 +10,21 @@ $gray_dk: #333333;
 $gray_md: #777777;
 $gray_lt: #C7C7C7;
 $postcard: #F6EBD4;
+$rust: #800000;
 
-$min_phone_width: 320px;
-$max_phone_width: 414px;
-$min_tablet_width: 768px;
-$max_tablet_width: 1024px;
-$min_laptop_width: 1200px;
-$max_laptop_width: 1600px;
-$max_desktop_width: 2000px;
+$min_sm_width: 320px;
+$max_sm_width: 480px;
+
+$min_md_width: 768px;
+$max_md_width: 1024px;
+
+$min_lg_width: 1224px;
+// $max_lg_width: 1600px;
+
+$min_xl_width: 1824px;
 
 $max_postcard_width: 1420px;
-$postcard_large: 420px;
+$postcard_lg_width: 1067px;
 
 
 /*-----------------------gameOver------------------------*/
@@ -48,15 +52,34 @@ $postcard_large: 420px;
 .player_results {
   @include fill-parent;
   overflow: hidden;
+  margin-top: 1em;
+  
+  h2 {
+    margin: 0.1em 0;
+    font-size: 1em;
+    color: $gray_dk;
+
+    @media screen and (min-width: $min_md_width) { 
+      font-size: 1.5em;
+    }
+  }
 }
 .game_outcome {
   @include fill-parent;
   text-align: center;
+  color: $gray_dk;
+  margin: 0.1em 0;
+  font-size: 1.5em;
+
+  @media screen and (min-width: $min_md_width) { 
+    font-size: 2.5em;
+  }
 }
 .player1_soloResult {
   @include fill-parent;
   text-align: center;
   overflow: hidden;
+  color: $gray_dk;
 }
 .player1_pairResult {
   @include span-columns(6);
@@ -73,12 +96,37 @@ $postcard_large: 420px;
   text-align: center;
   overflow: hidden;
 }
+.name { display: inline;
+}
+.p1_icon, .p2_icon {
+  display: inline;
+  height: 1.2em;
+
+  @media screen and (min-width: $min_md_width) { 
+    height: 2em;
+  }
+}
 .homeBtn {
+    font-family: 'Coming Soon', cursive;
     padding: 0.5em;
-    margin: 0.5em 0;
-    font-size: 1.5vh;
+    margin: 0.5em 0 1em 0;
+    font-size: 0.5em;
     background-color: $white;
     border: $blue solid 3px;
     border-radius: 0.5em;
     color: $gray_dk;
+
+  &:focus {outline: 0;}
+
+  &:hover {
+    cursor: pointer;
+    background-color: $off_white;
+  }
+
+  @media screen and (min-width: $min_md_width) { 
+    font-size: 1em;
+  }
 }
+
+
+

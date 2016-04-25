@@ -26,47 +26,6 @@ $min_xl_width: 1824px;
 $max_postcard_width: 1420px;
 $postcard_lg_width: 1067px;
 
-// $bp_small : 24em;
-// $bp_small_2 : 29.75em;
-// $bp_small_3 : 39.8em;
-// $bp_med : 46.8em;
-// $bp_med_2 : 48em;
-// $bp_large : 50em;
-// $bp_large_2 : 54.5em;
-// $bp_xl : 60em;
-// $bp_xl_2 : 67em;
-
-// @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (orientation : portrait) { 
-//     /* iPhone 6 Portrait */ 
-// }
-
-
-// @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (orientation : landscape) { 
-//     /* iPhone 6 landscape */
-// }
-
-
-// @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (orientation : portrait) { 
-//     /* iPhone 6+ Portrait */
-// }
-
-
-// @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (orientation : landscape) { 
-//     /* iPhone 6+ landscape */
-// }
-
-// @media only screen and (max-device-width: 640px), only screen and (max-device-width: 667px), only screen and (max-width: 480px){ 
-//     /* iPhone 6 and iPhone 6+ portrait and landscape */
-// }
-
-// @media only screen and (max-device-width: 640px), only screen and (max-device-width: 667px), only screen and (max-width: 480px) and (orientation : portrait){ 
-//     /* iPhone 6 and iPhone 6+ portrait */
-// }
-
-// @media only screen and (max-device-width: 640px), only screen and (max-device-width: 667px), only screen and (max-width: 480px) and (orientation : landscape){ 
-//     /* iPhone 6 and iPhone 6+ landscape */
-// }
-
 /*-----------------------Welcome------------------------*/
 .postcard {
   @include fill-parent;

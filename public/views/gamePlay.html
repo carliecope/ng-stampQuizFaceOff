@@ -10,7 +10,7 @@
 <div class='wrapper'>
 	<header class="header">
 		<div class="header_element">
-			<img class="playerOneIcon" src="../img/user_icon_white32.png">
+			<img class="playerOneIcon" src="../img/p1_icon_wht.png">
 			<div class="playerOne">
 				<h3 ng-bind="gameData.getPlayer1Name()"></h3>
 				<h3>Points: {{ gameData.getPlayer1Score() }}</h3>
@@ -23,11 +23,11 @@
 			</div>
 		</div>
 		<div ng-show="haveOpponent" class="header_element">
+			<img class="playerTwoIcon" src="../img/p2_icon_wht.png">
 			<div class="playerTwo">
 				<h3 ng-bind="gameData.getPlayer2Name()">playerTwo</h3>
 				<h3>Points: {{ player2Score }}</h3>
 			</div>
-			<img class="playerTwoIcon" src="../img/user_icon_white32.png">
 		</div>
 	</header>
 	<div class="gameArea">

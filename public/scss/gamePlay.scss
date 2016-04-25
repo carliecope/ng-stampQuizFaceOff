@@ -72,31 +72,57 @@ $postcard_lg_width: 1067px;
 }
 // Play One
 .playerOneIcon {
-  height: 1em;
+  height: 1.5em;
   display: inline;
   float: left;
+  margin: 0.4em 0.4em;
+
+  @media screen and (min-width: $min_md_width) { 
+    height: 2.5em;
+    margin: 1em 1em;
+  }
 }
 .playerOne {
   overflow: hidden;
   display: inline;
   float: left;
-  h3 {
-    font-size: 0.7em;
+  margin: 0.4em 0.4em;
+  font-size: 0.7em;
+
+  @media screen and (min-width: $min_md_width) { 
+    font-size: 1.2em;
+  } 
+
+  h3 { 
+    font-size: inherit;
     margin: 0;
   }
 }
 // Play Two
 .playerTwoIcon {
-  height: 1em;
+  height: 1.5em;
   display: inline;
   float: right;
+  margin: 0.4em 0.4em;
+
+  @media screen and (min-width: $min_md_width) { 
+    height: 2.5em;
+    margin: 1em 1em;
+  }
 } 
 .playerTwo {
   overflow: hidden;
   display: inline;
   float: right;
-  h3 {
-    font-size: 0.7em;
+  margin: 0.4em 0.4em;
+  font-size: 0.7em;
+
+  @media screen and (min-width: $min_md_width) { 
+    font-size: 1.2em;
+  } 
+  
+  h3 { 
+    font-size: inherit;
     margin: 0;
   }
 }
@@ -104,10 +130,15 @@ $postcard_lg_width: 1067px;
 .timeBox {
   overflow: hidden;
   text-align: center;
+  margin-top: 0.4em;
   h3 {
     font-size: 0.7em;
     margin: 0;
     color: $gray_dk;
+
+    @media screen and (min-width: $min_md_width) { 
+      font-size: 1.2em;
+    } 
   }
 }
 /*----------Ask Container----------*/
@@ -156,7 +187,6 @@ $postcard_lg_width: 1067px;
     @include span-columns(6);
     @include omega();
     margin-top: 8vh;
-    border: 4px solid $blue;
     font-size: 1.2em;
   }
 }

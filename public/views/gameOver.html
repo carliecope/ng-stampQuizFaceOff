@@ -7,17 +7,20 @@
 		<div class="gameOver_container">
 			<div class="player_results">
 				<h1 class="game_outcome">{{ game_outcome }}</h1>
-				<div class="player1_soloResult" ng-hide="true">
-					<h2>{{ player1Name }}</h2>
-					<h3>{{ player1Score }}</h3>
+				<div class="player1_soloResult" ng-show="soloPlayer">
+					<img class="p1_icon" src="../img/p1_icon_blk.png">
+					<h2 class="name">{{ player1Name }}</h2>
+					<h2>Final Score: {{ player1Score }}</h2>
 				</div>
-				<div class="player1_pairResult">
-					<h2>{{ player1Name }}</h2>
-					<h3>{{ player1Score }}</h3>
+				<div class="player1_pairResult" ng-hide="soloPlayer">
+					<img class="p1_icon" src="../img/p1_icon_blk.png">
+					<h2 class="name">{{ player1Name }}</h2>
+					<h2>{{ player1Score }}</h2>
 				</div>
-				<div class="player2_pairResult">
-					<h2>{{ player2Name }}</h2>
-					<h3>{{ player2Score }}</h3>
+				<div class="player2_pairResult" ng-hide="soloPlayer">
+					<h2 class="name">{{ player2Name }}</h2>
+					<img class="p2_icon" src="../img/p2_icon_blk.png">
+					<h2>{{ player2Score }}</h2>
 				</div>
 			</div>
 			<div class="homeBtn_container">

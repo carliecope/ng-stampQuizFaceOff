@@ -24,7 +24,7 @@ $min_lg_width: 1224px;
 $min_xl_width: 1824px;
 
 $max_postcard_width: 1420px;
-$postcard_lg_width: 1067px;
+$postcard_lg_width: 927px;
 
 /*-----------------------Welcome------------------------*/
 .postcard {
@@ -43,7 +43,7 @@ $postcard_lg_width: 1067px;
       background-color: transparent;
       padding: 0;
       border-radius: 0;
-      margin-top: 8vh;
+      margin-top: 0;
       height: 92vh;
     }
 
@@ -62,7 +62,7 @@ $postcard_lg_width: 1067px;
     height: 100%;
     padding-left: 4em;
     padding-right: 1em;
-    margin-top: 10vh;
+    margin-top: 20%;
   }
 }
 .welcome {
@@ -104,10 +104,7 @@ $postcard_lg_width: 1067px;
   @include fill-parent;
 
   @media screen and (min-width: $min_md_width) { 
-    margin-top: 19vh;
-  }
-  @media screen and (min-width: $postcard_lg_width) { 
-    margin-top: 30vh;
+    margin-top: 60%;
   }
 }
 .userName_input {

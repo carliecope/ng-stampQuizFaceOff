@@ -106,6 +106,11 @@ module.exports = function (io) {
 				// console.log(category.openRoom);
 			}
 		});
+		socket.on('sendCloseRoomNotice', function(data) {
+			var category = categories[data.category];
+			category.openRoom = null;
+
+		});
 		socket.on('sendAnsFeedback', function(data) {
 			var category = categories[data.category];
 			var room = category.rooms[data.roomId];
@@ -114,7 +119,6 @@ module.exports = function (io) {
 				userName: data.userName,
 				score: data.score,
 			});
-			console.log(data);
 		});
 		socket.on('sendNoAnswer', function(data) {
 			var category = categories[data.category];
@@ -123,13 +127,15 @@ module.exports = function (io) {
 			io.to(data.roomId).emit('getNoAnswer', {
 				userName: data.userName
 			});
-			console.log(data);
 		});
 		socket.on('exitRoom', function(data) {
 			var category = categories[data.category];
 			var room = category.rooms[data.roomId];
 
 			socket.leave(category.roomId);
+
+			// // delete object['property']
+			// delete category.rooms[room];
 		});
 	});
 };

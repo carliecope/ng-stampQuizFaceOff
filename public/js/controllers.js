@@ -11,6 +11,7 @@ angular.module('myApp')
 }])
 //Home Screen -----------------------------
 .controller('HomeCtrl', ['$scope', '$location', '$q', '$timeout','$window', 'socket', 'currentCategory', 'gameData', function($scope, $location, $q, $timeout, $window, socket, currentCategory, gameData) {
+	console.log("in home ctrl");
 	//Grid styles
 	$('.grid').masonry({
 	  itemSelector: '.grid-item',
@@ -23,9 +24,13 @@ angular.module('myApp')
 	$scope.currentCategory = currentCategory;
 
 	$scope.categoryClick = function(category) {
+		// console.log('in category click');
 		$scope.currentCategory.setCategory(category);
 
 		var userName = gameData.getPlayer1Name();
+
+		// console.log($scope.currentCategory.getCategory());
+		// console.log("userName = " + userName);
 
 		socket.emit('join', {
 			category : $scope.currentCategory.getCategory(),
@@ -34,6 +39,8 @@ angular.module('myApp')
 	};
 
 	$scope.$on('socket:gameStarted', function(e, response) {
+		// console.log('received gameStarted response =' + response);
+
 		gameData.setGameInfo(response);
 
 		if(response.player2) {
@@ -64,6 +71,10 @@ angular.module('myApp')
 	
 	$scope.toGame = function() {
 		$location.path('/gamePlay');
+		
+		socket.emit('sendCloseRoomNotice', {
+			category: currentCategory.getCategory()
+		});
 	};
 	$scope.wait = function() {
 		$scope.opponentCountdown = true;
@@ -167,7 +178,6 @@ angular.module('myApp')
 	};
 
 	$scope.submitAnswer = function(answer) {
-		console.log('submit ans function');
 		if (!$scope.timeUp) {
 
 			if (answer === $scope.currentRoundText.correct) {
@@ -179,8 +189,6 @@ angular.module('myApp')
 			} else {
 				$scope.p1CorrectArray.push(false);
 			}
-			console.log('p1CorrectArray' + $scope.p1CorrectArray);
-			console.log( 'getPlayer1Score() is ' + gameData.getPlayer1Score());
 
 			socket.emit('sendAnsFeedback', {
 				userName: gameData.getPlayer1Name(),
@@ -288,7 +296,6 @@ angular.module('myApp')
 				$scope.p2CorrectArray.push(false);
 			}
 			$scope.player2Score = gameData.setPlayer2Score(response.score);
-			console.log('p2CorrectArray' + $scope.p2CorrectArray);
 		}
 	});
 
@@ -297,7 +304,8 @@ angular.module('myApp')
 
 			$scope.player2Answered = false;
 			$scope.p2CorrectArray.push(false);
-			console.log('p2CorrectArray' + $scope.p2CorrectArray);
+			
+			console.log($scope.p2CorrectArray);
 		}
 	});
 	
@@ -333,16 +341,20 @@ angular.module('myApp')
 	}
 
 	$scope.returnHome = function() {
-		gameData.clearPlayer1Score(0);
-		gameData.clearPlayer2Score(0);
-
-		gameData.setPlayer2Name("");
 
 		socket.emit('exitRoom', {
 			userName: gameData.getPlayer1Name(),
 			roomId: $scope.gameData.getRoomId(),
 			category: currentCategory.getCategory()
 		});
+
+		gameData.clearPlayer1Score(0);
+		gameData.clearPlayer2Score(0);
+		gameData.setRoomId("");
+		gameData.setGameInfo({});
+		currentCategory.setCategory("");
+
+		gameData.setPlayer2Name("");
 
 		$location.path('/home');
 	};

@@ -22,9 +22,9 @@ html {
       background-color: transparent;
       padding: 0;
       border-radius: 0;
-      margin-top: 8vh;
+      margin-top: 0;
       height: 92vh; } }
-  @media screen and (min-width: 1067px) {
+  @media screen and (min-width: 927px) {
     .postcard {
       background-size: 100%;
       margin-top: 0;
@@ -42,7 +42,7 @@ html {
       height: 100%;
       padding-left: 4em;
       padding-right: 1em;
-      margin-top: 10vh; }
+      margin-top: 20%; }
       .welcome_text:last-child {
         margin-right: 0; } }
 
@@ -87,10 +87,7 @@ html {
   width: 100%; }
   @media screen and (min-width: 768px) {
     .usernameForm {
-      margin-top: 19vh; } }
-  @media screen and (min-width: 1067px) {
-    .usernameForm {
-      margin-top: 30vh; } }
+      margin-top: 60%; } }
 
 .userName_input {
   width: 100%;

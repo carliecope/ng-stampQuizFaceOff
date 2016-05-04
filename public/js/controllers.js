@@ -296,6 +296,11 @@ angular.module('myApp')
 				$scope.p2CorrectArray.push(false);
 			}
 			$scope.player2Score = gameData.setPlayer2Score(response.score);
+
+			if ($scope.currentRoundNum > 4) {
+				$location.path('/gameOver');
+				return;
+			}
 		}
 	});
 
@@ -304,7 +309,12 @@ angular.module('myApp')
 
 			$scope.player2Answered = false;
 			$scope.p2CorrectArray.push(false);
-			
+
+			if ($scope.currentRoundNum > 4) {
+				$location.path('/gameOver');
+				return;
+			}
+
 			console.log($scope.p2CorrectArray);
 		}
 	});

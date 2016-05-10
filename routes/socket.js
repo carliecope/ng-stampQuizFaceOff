@@ -1,77 +1,88 @@
 module.exports = function (io) {
 	var uuid = require('node-uuid');
+	var http = require('http');
+	var request = require("request");
 
 	var categories = {
 		Music : {
 			rooms: {},
-			openRoom: null 
+			openRoom: null,
+			gameData: null 
 		},
 		Science : {
 			rooms: {},
-			openRoom: null 
+			openRoom: null,
+			gameData: null  
 		},
 		Movies : {
 			rooms: {},
-			openRoom: null 
+			openRoom: null,
+			gameData: null  
 		},
 		Aviation : {
 			rooms: {},
-			openRoom: null 
+			openRoom: null,
+			gameData: null  
 		},
 		USPresidents : {
 			rooms: {},
-			openRoom: null 
+			openRoom: null,
+			gameData: null  
 		},
 		Olympics : {
 			rooms: {},
-			openRoom: null 
+			openRoom: null,
+			gameData: null  
 		}
 	};
 
-	//Sample object returned from database
-	var gameData = {
-		round1 : {
-			stampImg: "url('public/img/ET.jpg')",
-			question: "In the movie ET, a ten year old boy named Elliot, lures an alien to his bedroom using which candy?",
-			correct: "Reese's Pieces",
-			ans1: "M & M's",
-			ans2: "Skittles",
-			ans3: "Gum drops"
-		},
-		round2 : {
-			stampImg: "url('public/img/ET.jpg')",
-			question: "In the movie ET, a ten year old boy named Elliot, lures an alien to his bedroom using which candy?",
-			correct: "Reese's Pieces",
-			ans1: "M & M's",
-			ans2: "Skittles",
-			ans3: "Gum drops"
-		},
-		round3 : {
-			stampImg: "url('public/img/ET.jpg')",
-			question: "In the movie ET, a ten year old boy named Elliot, lures an alien to his bedroom using which candy?",
-			correct: "Reese's Pieces",
-			ans1: "M & M's",
-			ans2: "Skittles",
-			ans3: "Gum drops"
-		},
-		round4 : {
-			stampImg: "url('public/img/ET.jpg')",
-			question: "In the movie ET, a ten year old boy named Elliot, lures an alien to his bedroom using which candy?",
-			correct: "Reese's Pieces",
-			ans1: "M & M's",
-			ans2: "Skittles",
-			ans3: "Gum drops"
-		}
-	};
+	// http://stampgames-memsearch.rhcloud.com/api/questions/{category}
+	function getGameInfo(category, callback) {
+
+	    return http.get({
+	        host: 'stampgames-memsearch.rhcloud.com',
+	        path: '/api/questions/' + category
+	    }, function(response) {
+	        // Continuously update stream with data
+	        var body = '';
+	        response.on('data', function(d) {
+	            body += d;
+	        });
+	        response.on('end', function() {
+
+	            // Data reception is done, do whatever with it!
+	            var parsed = JSON.parse(body);
+	            callback(parsed);
+	        });
+	    });
+	}
+	function shuffleQuestions(array) {
+  		var currentIndex = array.length, temporaryValue, randomIndex;
+
+		// While there remain elements to shuffle...
+		while (0 !== currentIndex) {
+
+	    // Pick a remaining element...
+	    randomIndex = Math.floor(Math.random() * currentIndex);
+	    currentIndex -= 1;
+
+	    // And swap it with the current element.
+	    temporaryValue = array[currentIndex];
+	    array[currentIndex] = array[randomIndex];
+	    array[randomIndex] = temporaryValue;
+  		
+  		}
+  		return array;
+	}
 
 	io.on('connection', function(socket) {
 
 		socket.on('join', function(data) {
+
 			var category = categories[data.category];
+
 			var response = {};
-			response.gameData = gameData;
-			// console.log(data);
-			
+
 			if (category.openRoom != null) {
 				
 				var room = category.rooms[category.openRoom];
@@ -80,15 +91,9 @@ module.exports = function (io) {
 				socket.join(category.openRoom);
 				io.to(category.openRoom);
 
-				// console.log(category.openRoom);
-
 				response.player1 = room.player1;
 				response.player2 = room.player2;
 				response.roomId = category.openRoom;
-
-				// console.log(response);
-
-				io.emit('gameStarted', response);
 
 				category.openRoom = null;
 			} else {
@@ -100,11 +105,27 @@ module.exports = function (io) {
 				response.roomId = roomId;
 				response.player1 = data.userName;
 
-				io.to(roomId).emit('gameStarted', response);
+				io.to(roomId);
 				category.openRoom = roomId;
-
-				// console.log(category.openRoom);
 			}
+
+			if (category.gameData === null) {
+				getGameInfo(data.category, function(categoryData) {
+					
+					var shuffledArray = [];
+					shuffledArray = shuffleQuestions(categoryData);
+					category.gameData = {};
+
+					for(var i = 0; i < shuffledArray.length; i++) {
+						category.gameData['round' + (i+1)] = shuffledArray[i];
+					}
+					response.gameData = category.gameData;
+					io.emit('gameStarted', response);
+				});
+			} else {
+				response.gameData = category.gameData;
+				io.emit('gameStarted', response);
+			}		
 		});
 		socket.on('sendCloseRoomNotice', function(data) {
 			var category = categories[data.category];

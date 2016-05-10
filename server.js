@@ -10,5 +10,7 @@ var server = http.createServer(app);
 var io = socket_io.listen(server);
 require('./routes/socket.js')(io);
 
+//Request game info from API
+
 
 server.listen(process.env.PORT || 8080);

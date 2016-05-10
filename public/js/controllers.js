@@ -11,7 +11,7 @@ angular.module('myApp')
 }])
 //Home Screen -----------------------------
 .controller('HomeCtrl', ['$scope', '$location', '$q', '$timeout','$window', 'socket', 'currentCategory', 'gameData', function($scope, $location, $q, $timeout, $window, socket, currentCategory, gameData) {
-	console.log("in home ctrl");
+	
 	//Grid styles
 	$('.grid').masonry({
 	  itemSelector: '.grid-item',
@@ -123,7 +123,10 @@ angular.module('myApp')
 .controller('GamePlayCtrl', ['$scope', '$interval', '$location', 'socket', 'currentCategory', 'gameData', function($scope, $interval, $location, socket, currentCategory, gameData) {
 	//Get game info
 	$scope.gameData = gameData;
+
 	var game = gameData.getGameInfo();
+	console.log(game);
+
 	$scope.currentCategory = currentCategory;
 
 	if (gameData.getPlayer2Name() === "") {
@@ -142,10 +145,6 @@ angular.module('myApp')
 	
 	$scope.p1CorrectArray = [];
 	$scope.p2CorrectArray = [];
-
-	$scope.showCorrectAnswer = function() {
-
-	};
 	
 	$scope.shuffleAnswers = function(array) {
   		var currentIndex = array.length, temporaryValue, randomIndex;
@@ -170,17 +169,16 @@ angular.module('myApp')
 		$scope.player2Answered = true;
 
 		$scope.currentRoundText = game.gameData['round' + $scope.currentRoundNum];
-		//console.log($scope.currentRoundText);
 
-		$scope.question = $scope.currentRoundText.question;
-		$scope.answerArray = $scope.shuffleAnswers([$scope.currentRoundText.correct, $scope.currentRoundText.ans1, $scope.currentRoundText.ans2, $scope.currentRoundText.ans3]);
-		//console.log($scope.answerArray);
+		$scope.question = $scope.currentRoundText.body;
+		$scope.stampImgURL = $scope.currentRoundText.image;
+		$scope.answerArray = $scope.shuffleAnswers([$scope.currentRoundText['correct answer'], $scope.currentRoundText.answers[0], $scope.currentRoundText.answers[1], $scope.currentRoundText.answers[2]]);
 	};
 
 	$scope.submitAnswer = function(answer) {
 		if (!$scope.timeUp) {
 
-			if (answer === $scope.currentRoundText.correct) {
+			if (answer === $scope.currentRoundText['correct answer']) {
 				
 				$scope.p1CorrectArray.push(true);
 
@@ -361,7 +359,6 @@ angular.module('myApp')
 		gameData.clearPlayer1Score(0);
 		gameData.clearPlayer2Score(0);
 		gameData.setRoomId("");
-		gameData.setGameInfo({});
 		currentCategory.setCategory("");
 
 		gameData.setPlayer2Name("");

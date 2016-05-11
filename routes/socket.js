@@ -56,23 +56,29 @@ module.exports = function (io) {
 	        });
 	    });
 	}
-	function shuffleQuestions(array) {
-  		var currentIndex = array.length, temporaryValue, randomIndex;
+	function pickRandomQuestion(obj) {
+	    var result;
+	    var count = 0;
+	    for (var prop in obj)
+	        if (Math.random() < 1/++count)
+	           result = prop;
+	    return result;
+	}
+	function setGameQuestions(categoryGameData) {
+		responseGameData = {};
+		count = 1;
 
-		// While there remain elements to shuffle...
-		while (0 !== currentIndex) {
+		while(count < 5) {
+			var newQuestion = pickRandomQuestion(categoryGameData);
 
-	    // Pick a remaining element...
-	    randomIndex = Math.floor(Math.random() * currentIndex);
-	    currentIndex -= 1;
-
-	    // And swap it with the current element.
-	    temporaryValue = array[currentIndex];
-	    array[currentIndex] = array[randomIndex];
-	    array[randomIndex] = temporaryValue;
-  		
-  		}
-  		return array;
+			if (responseGameData.hasOwnProperty(newQuestion)) {
+				newQuestion = pickRandomQuestion(categoryGameData);
+			} else {
+				responseGameData['round' + count] = categoryGameData[newQuestion];
+				count ++;
+			}	
+		}
+		return responseGameData;
 	}
 
 	io.on('connection', function(socket) {
@@ -112,18 +118,16 @@ module.exports = function (io) {
 			if (category.gameData === null) {
 				getGameInfo(data.category, function(categoryData) {
 					
-					var shuffledArray = [];
-					shuffledArray = shuffleQuestions(categoryData);
 					category.gameData = {};
 
-					for(var i = 0; i < shuffledArray.length; i++) {
-						category.gameData['round' + (i+1)] = shuffledArray[i];
+					for(var i = 0; i < categoryData.length; i++) {
+						category.gameData['round' + (i+1)] = categoryData[i];
 					}
-					response.gameData = category.gameData;
+					response.gameData = setGameQuestions(category.gameData);
 					io.emit('gameStarted', response);
 				});
 			} else {
-				response.gameData = category.gameData;
+				response.gameData = setGameQuestions(category.gameData);
 				io.emit('gameStarted', response);
 			}		
 		});

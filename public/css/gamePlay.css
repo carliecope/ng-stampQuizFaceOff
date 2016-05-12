@@ -233,3 +233,10 @@ html {
   height: 23%;
   border: #84D4EF 3px solid;
   border-radius: 0.5em; }
+
+.blueBorder {
+  border: #84D4EF 3px solid;
+  border-radius: 0.5em; }
+
+.correctAnswer {
+  background-color: #84D4EF; }

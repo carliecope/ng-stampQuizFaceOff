@@ -51,8 +51,8 @@
 				<div class="bar_left"></div>
 				<div class="bar_left"></div>
 			</div>
-			<div class="answers" ng-click="state.selected = $index">
-				<button class="answerBtn" ng-class="{'blue_border': $index == state.selected}" ng-repeat="answer in answerArray" ng-click="submitAnswer(answer)">{{ answer }}</button>
+			<div class="answers">
+				<button ng-class="{ blueBorder: $index == index, answerBtn: true, correctAnswer: answer == correct }" ng-repeat="answer in answerArray" ng-click="submitAnswer(answer, $index)">{{ answer }}</button>
 			</div>
 			<div class="scoreBar" ng-show="haveOpponent">
 				<div class="scoreBar_overlay">

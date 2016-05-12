@@ -24,7 +24,10 @@ angular.module('myApp')
 	$scope.currentCategory = currentCategory;
 
 	$scope.categoryClick = function(category) {
-		
+		console.log(category);
+		category.replace(" ", "%20");
+		console.log(category);
+
 		$scope.currentCategory.setCategory(category);
 
 		var userName = gameData.getPlayer1Name();
@@ -171,11 +174,14 @@ angular.module('myApp')
 		$scope.answerArray = $scope.shuffleAnswers([$scope.currentRoundText['correct answer'], $scope.currentRoundText.answers[0], $scope.currentRoundText.answers[1], $scope.currentRoundText.answers[2]]);
 	};
 
-	$scope.submitAnswer = function(answer) {
+	$scope.submitAnswer = function(answer, index) {
+		$scope.index = index;
+
+		$scope.correct = $scope.currentRoundText['correct answer'];
+
 		if (!$scope.timeUp) {
 
 			if (answer === $scope.currentRoundText['correct answer']) {
-				
 				$scope.p1CorrectArray.push(true);
 
 				gameData.setPlayer1Score(10);
@@ -198,35 +204,49 @@ angular.module('myApp')
 
 	$scope.haveAllResponses = function() {
 		
-		$interval.cancel($scope.answerTimeInterval);
-		$scope.timeUp = false;
 		$scope.nextRoundTickNum = 3;
 		$scope.answerTimeTickNum = 10;
 		
 		if ($scope.haveOpponent) {
 			
 			if ($scope.player1Answered && $scope.player2Answered) {
-				
-				$scope.player1Answered = false;
-				$scope.player2Answered = false;
 
+				$interval.cancel($scope.answerTimeInterval);
+
+				$interval(function(){ 
+					$scope.index = 10;
+					$scope.correct = false;
+					$scope.timeUp = false;
+				
+					$scope.player1Answered = false;
+					$scope.player2Answered = false;
+
+					if ($scope.currentRoundNum > 4) {
+						$location.path('/gameOver');
+						return;
+					}
+					$scope.currentRoundNum++;
+
+					$scope.showModal = true;
+					$scope.nextRoundInterval = $interval($scope.nextRoundTick.bind(this), 1000);
+
+				}, 2000, 1);
+			}
+		} else {
+			$interval.cancel($scope.answerTimeInterval);
+			$interval(function(){ 
+				$scope.index = 10;
+				$scope.correct = false;
+				$scope.timeUp = false;
+				$scope.currentRoundNum++;
+				
 				if ($scope.currentRoundNum > 4) {
 					$location.path('/gameOver');
 					return;
 				}
-				$scope.currentRoundNum++;
 				$scope.showModal = true;
 				$scope.nextRoundInterval = $interval($scope.nextRoundTick.bind(this), 1000);
-			}
-		} else {
-			$scope.currentRoundNum++;
-			
-			if ($scope.currentRoundNum > 4) {
-				$location.path('/gameOver');
-				return;
-			}
-			$scope.showModal = true;
-			$scope.nextRoundInterval = $interval($scope.nextRoundTick.bind(this), 1000);
+			}, 2000, 1);
 		}
 	};
 
@@ -247,18 +267,21 @@ angular.module('myApp')
 				category: currentCategory.getCategory()
 			});
 
-			$scope.timeUp = true;
-			$scope.answerTimeTickNum = 10;
-			$scope.nextRoundTickNum = 3;
+			$interval(function(){
+				$scope.correct = $scope.currentRoundText['correct answer']; 
+				$scope.timeUp = true;
+				$scope.answerTimeTickNum = 10;
+				$scope.nextRoundTickNum = 3;
 
-			if ($scope.currentRoundNum === 4) {
-				$interval.cancel($scope.answerTimeInterval);
-				$location.path('/gameOver');
-				return;
-			}
-			$scope.currentRoundNum++;
-			$scope.showModal = true;
-			$scope.nextRoundInterval = $interval($scope.nextRoundTick.bind(this), 1000);
+				if ($scope.currentRoundNum === 4) {
+					$interval.cancel($scope.answerTimeInterval);
+					$location.path('/gameOver');
+					return;
+				}
+				$scope.currentRoundNum++;
+				$scope.showModal = true;
+				$scope.nextRoundInterval = $interval($scope.nextRoundTick.bind(this), 1000);
+			}, 2000, 1);
 		}
 	};
 	
@@ -352,8 +375,6 @@ angular.module('myApp')
 
 		gameData.clearPlayer1Score(0);
 		gameData.clearPlayer2Score(0);
-		gameData.setRoomId("");
-		currentCategory.setCategory("");
 
 		gameData.setPlayer2Name("");
 

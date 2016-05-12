@@ -38,10 +38,15 @@ module.exports = function (io) {
 
 	// http://stampgames-memsearch.rhcloud.com/api/questions/{category}
 	function getGameInfo(category, callback) {
+		var newCategory = category;
+
+		if(newCategory === "USPresidents") {
+			newCategory = "US%20Presidents";
+		}
 
 	    return http.get({
 	        host: 'stampgames-memsearch.rhcloud.com',
-	        path: '/api/questions/' + category
+	        path: '/api/questions/' + newCategory
 	    }, function(response) {
 	        // Continuously update stream with data
 	        var body = '';

@@ -72,16 +72,18 @@ module.exports = function (io) {
 	function setGameQuestions(categoryGameData) {
 		responseGameData = {};
 		count = 1;
+		var selected = [];
 
 		while(count < 5) {
 			var newQuestion = pickRandomQuestion(categoryGameData);
 
-			if (responseGameData.hasOwnProperty(newQuestion)) {
-				newQuestion = pickRandomQuestion(categoryGameData);
-			} else {
+			if (selected.indexOf(newQuestion) === -1) {
+				selected.push(newQuestion);
 				responseGameData['round' + count] = categoryGameData[newQuestion];
 				count ++;
-			}	
+			} else {
+				newQuestion = pickRandomQuestion(categoryGameData);
+			}
 		}
 		return responseGameData;
 	}

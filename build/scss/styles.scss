@@ -1,0 +1,1068 @@
+@import "bourbon";
+@import "neat";
+@import url(https://fonts.googleapis.com/css?family=Coming+Soon);
+
+$red: #DC2829;
+$blue: #84D4EF;
+$white: #F2F2F2;
+$off_white: #ECECEC;
+$gray_dk: #333333;
+$gray_md: #777777;
+$gray_lt: #C7C7C7;
+$postcard: #F6EBD4;
+$rust: #800000;
+
+$min_sm_width: 320px;
+$max_sm_width: 480px;
+
+$min_md_width: 768px;
+$max_md_width: 1024px;
+
+$min_lg_width: 1224px;
+// $max_lg_width: 1600px;
+
+$min_xl_width: 1824px;
+
+$max_postcard_width: 1420px;
+$postcard_lg_width: 1067px;
+
+
+/*-----------------------gameOver------------------------*/
+
+.gameOver_container {
+  @include fill-parent;
+  background-color: transparent;
+  height: 26vh;
+  margin: 10vh 0 0 0;
+  position: relative;
+  overflow: hidden;
+}
+.gameOver_container::before {
+  content: ' ';
+  display: block;
+  position: absolute;
+  background-color: $white;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  opacity: 0.7;
+}
+.player_results {
+  @include fill-parent;
+  overflow: hidden;
+  margin-top: 1em;
+  
+  h2 {
+    margin: 0.1em 0;
+    font-size: 1em;
+    color: $gray_dk;
+
+    @media screen and (min-width: $min_md_width) { 
+      font-size: 1.5em;
+    }
+  }
+}
+.game_outcome {
+  @include fill-parent;
+  text-align: center;
+  color: $gray_dk;
+  margin: 0.1em 0;
+  font-size: 1.5em;
+
+  @media screen and (min-width: $min_md_width) { 
+    font-size: 2.5em;
+  }
+}
+.player1_soloResult {
+  @include fill-parent;
+  text-align: center;
+  overflow: hidden;
+  color: $gray_dk;
+}
+.player1_pairResult {
+  @include span-columns(6);
+  text-align: right;
+  overflow: hidden;
+}
+.player2_pairResult {
+  @include span-columns(6);
+  text-align: left;
+  overflow: hidden;
+}
+.homeBtn_container {
+  @include fill-parent;
+  text-align: center;
+  overflow: hidden;
+}
+.name { display: inline;
+}
+.p1_icon, .p2_icon {
+  display: inline;
+  height: 1.2em;
+
+  @media screen and (min-width: $min_md_width) { 
+    height: 2em;
+  }
+}
+.homeBtn {
+    font-family: 'Coming Soon', cursive;
+    padding: 0.5em;
+    margin: 0.5em 0 1em 0;
+    font-size: 0.5em;
+    background-color: $white;
+    border: $blue solid 3px;
+    border-radius: 0.5em;
+    color: $gray_dk;
+
+  &:focus {outline: 0;}
+
+  &:hover {
+    cursor: pointer;
+    background-color: $off_white;
+  }
+
+  @media screen and (min-width: $min_md_width) { 
+    font-size: 1em;
+  }
+}
+
+
+
+
+@import "bourbon";
+@import "neat";
+@import url(https://fonts.googleapis.com/css?family=Coming+Soon);
+
+$red: #DC2829;
+$blue: #84D4EF;
+$white: #F2F2F2;
+$off_white: #ECECEC;
+$gray_dk: #333333;
+$gray_md: #777777;
+$gray_lt: #C7C7C7;
+$postcard: #F6EBD4;
+$rust: #800000;
+
+$min_sm_width: 320px;
+$max_sm_width: 480px;
+
+$min_md_width: 768px;
+$max_md_width: 1024px;
+
+$min_lg_width: 1224px;
+// $max_lg_width: 1600px;
+
+$min_xl_width: 1824px;
+
+$max_postcard_width: 1420px;
+$postcard_lg_width: 1067px;
+
+/*-----------------------gamePlay------------------------*/
+/*--------Countdown Modal---------------*/
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 10;
+}
+.nextRoundModal {
+  z-index: 11;
+  position: fixed;
+  overflow: hidden;
+  text-align: center;
+  background-color: $blue;
+  border-radius: 0.4em;
+  padding: 0.5em;
+  top: 50%; 
+  left: 50%;
+  width: 16em;
+  height: 14em;
+  margin-left: -8em;
+  margin-top: -7em;
+  h1 {
+    color: $gray_dk;
+    text-align: center;
+    margin: 0 auto;
+  }
+  .roundText {
+    color: $gray_dk;
+    background-color: $white;
+    font-weight: bolder;
+    border-radius: 0.4em;
+  }
+}
+/*--------Game Play---------------*/
+/*-----Header----------*/
+.header_element {
+  @include span-columns(4);
+  display: inline;
+  color: $gray_dk;
+}
+// Play One
+.playerOneIcon {
+  height: 1.5em;
+  display: inline;
+  float: left;
+  margin: 0.4em 0.4em;
+
+  @media screen and (min-width: $min_md_width) { 
+    height: 2.5em;
+    margin: 1em 1em;
+  }
+}
+.playerOne {
+  overflow: hidden;
+  display: inline;
+  float: left;
+  margin: 0.4em 0.4em;
+  font-size: 0.7em;
+
+  @media screen and (min-width: $min_md_width) { 
+    font-size: 1.2em;
+  } 
+
+  h3 { 
+    font-size: inherit;
+    margin: 0;
+  }
+}
+// Play Two
+.playerTwoIcon {
+  height: 1.5em;
+  display: inline;
+  float: right;
+  margin: 0.4em 0.4em;
+
+  @media screen and (min-width: $min_md_width) { 
+    height: 2.5em;
+    margin: 1em 1em;
+  }
+} 
+.playerTwo {
+  overflow: hidden;
+  display: inline;
+  float: right;
+  margin: 0.4em 0.4em;
+  font-size: 0.7em;
+
+  @media screen and (min-width: $min_md_width) { 
+    font-size: 1.2em;
+  } 
+  
+  h3 { 
+    font-size: inherit;
+    margin: 0;
+  }
+}
+// Timebox 
+.timeBox {
+  overflow: hidden;
+  text-align: center;
+  margin-top: 0.4em;
+  h3 {
+    font-size: 0.7em;
+    margin: 0;
+    color: $gray_dk;
+
+    @media screen and (min-width: $min_md_width) { 
+      font-size: 1.2em;
+    } 
+  }
+}
+/*----------Ask Container----------*/
+.ask_container {
+  @include fill-parent;
+  overflow: hidden;
+  height: 46vh;
+  background-color: transparent;
+  color: $gray_dk;
+}
+.stamp_block {
+  @include fill-parent;
+  overflow: hidden;
+  text-align: center;
+
+  @media screen and (min-width: $max_md_width) { 
+    @include span-columns(6);
+    @include omega();
+    margin-top: 8vh;
+  }
+}
+#stampImg {
+  max-height: 25vh;
+  border-radius: 5px;
+  border: $white 2px solid;
+  box-shadow: 6px 5px 5px #333333;
+}
+.question_block {
+  @include fill-parent;
+  padding: 0 0.2em;
+
+  @media screen and (min-width: $min_md_width) { 
+    padding: 0.5em 3em 0 3em;
+  }
+}
+.question {
+  @include fill-parent;
+  background-color: $white;
+  color: $gray_dk;
+  border-radius: 0.4em;
+  padding: 0.8em;
+  margin: 0;
+  font-size: 1em;
+
+  @media screen and (min-width: $max_md_width) { 
+    @include span-columns(6);
+    @include omega();
+    margin-top: 8vh;
+    font-size: 1.2em;
+  }
+}
+
+/*---------Answer Container----------*/
+.answer_container {
+  @include fill-parent;
+  overflow: hidden;
+  height: 40vh;
+  padding: 0;
+  background-color: transparent;
+}
+.answers {
+  width: 80%;
+  height: 100%;
+  float: left;
+  overflow: hidden;
+  background-color: transparent;
+  text-align: center;
+}
+.answerBtn {
+  font-family: 'Coming Soon', cursive;
+  width: 90%;
+  height: 20%;
+  margin-top: 2%;
+  font-size: 1em;
+  background-color: $white;
+  border: 2px solid $white;
+  border-radius: 0.4em;
+  color: $gray_dk;
+  
+  &:focus {outline: 0;}
+
+  @media screen and (min-width: $min_md_width) { 
+    font-size: 1.6em;
+  }
+
+  @media screen and (min-width: $max_md_width) { 
+    width: 40%;
+    height: 40%;
+    margin: 1% 3%;
+  }
+}
+.scoreBar {
+  width: 10%;
+  float: left;
+  height: 100%;
+  overflow: hidden;
+  padding: 0;
+  position: relative;
+}
+.scoreBar_overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+.bar_left {
+  width: 100%;
+  margin: 0;
+  height: 23%;
+  border: $blue 3px solid;
+  border-radius: 0.5em;
+}
+.bar_right {
+  width: 100%;
+  float: right;
+  margin: 0;
+  height: 23%;
+  border: $blue 3px solid;
+  border-radius: 0.5em;
+}
+.blueBorder  {
+  border: $blue 3px solid;
+  border-radius: 0.5em;
+}
+.correctAnswer {
+  background-color: $blue;
+  border: $blue 3px solid;
+  border-radius: 0.5em;
+}
+
+
+
+
+@import "bourbon";
+@import "neat";
+@import url(https://fonts.googleapis.com/css?family=Coming+Soon);
+
+$red: #DC2829;
+$blue: #84D4EF;
+$white: #F2F2F2;
+$off_white: #ECECEC;
+$gray_dk: #333333;
+$gray_md: #777777;
+$gray_lt: #C7C7C7;
+$postcard: #F6EBD4;
+$rust: #800000;
+
+$min_sm_width: 320px;
+$max_sm_width: 480px;
+
+$min_md_width: 768px;
+$max_md_width: 1024px;
+
+$min_lg_width: 1224px;
+// $max_lg_width: 1600px;
+
+$min_xl_width: 1824px;
+
+$max_postcard_width: 1420px;
+$postcard_lg_width: 1067px;
+
+/*-----------------------Home------------------------*/
+/*---------Title Bar----------*/
+.home_title_block {
+  @include span-columns(8);
+  @include omega();
+  padding-left: 0.5em;
+  height: 100%;
+
+  @media screen and (min-width: $min_md_width) { 
+    padding-left: 1em;
+  }
+
+  .home_title {
+    @include fill-parent;
+    color: $gray_dk;
+    font-size: 1em;
+    margin: 0.2em 0 0 0;
+    padding: 0;
+
+    @media screen and (min-width: $min_md_width) { 
+      font-size: 2em;
+    }
+  }
+  .choose {
+    @include fill-parent;
+    color: $gray_dk;
+    font-size: 0.7em;
+    padding: 0;
+    margin: 0;
+
+    @media screen and (min-width: $min_md_width) { 
+      font-size: 1em;
+    }
+  }
+}
+.userName_block {
+  @include span-columns(4);
+  @include omega();
+  overflow: hidden;
+  height: 100%;
+}
+.username_cont {
+  float: right;
+  overflow: hidden;
+  margin-top: 2vh;
+}
+.username_home {
+  color: $gray_dk;
+  font-size: 1em;
+  margin: 0;
+  display: inline;
+
+  @media screen and (min-width: $min_md_width) { 
+    font-size: 1.5em;
+  }
+}
+.home_username_icon {
+  height: 1em;
+  margin: 0;
+  display: inline;
+
+  @media screen and (min-width: $min_md_width) { 
+    height: 1.5em;
+  }
+}
+/*---------Categories----------*/
+.grid {
+  width: 100%;
+  height: 92vh;
+}
+.grid:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+.grid-sizer {
+  width: 50%;
+}
+.grid-item {
+  width: 100%;
+  height: 33%;
+  float: left;
+  background: transparent;
+  // border: 2px solid #333;
+  // border-color: rgba(0, 0, 0, 0.5);
+  // border-radius: 5px;
+  text-align: center;
+
+  @media screen and (min-width: $min_md_width) { 
+    width: 50%;
+    height: 33%;
+  }
+  @media screen and (min-width: $max_md_width) { 
+    width: 33.3%;
+    height: 45%;
+    margin-top: 5%;
+  }
+}
+.stamp_cont_music, .stamp_cont_science, .stamp_cont_olympics, .stamp_cont_presidents, .stamp_cont_movies, .stamp_cont_aviation {
+  overflow: hidden;
+  text-align: center;
+}
+.stamp {
+  border-radius: 5px;
+  border: $gray_dk 2px solid;
+  box-shadow: 6px 5px 5px $gray_dk;
+  position: inline;
+  
+  @media screen and (max-width: $max_md_width) { 
+    max-height: 69%;
+  }
+
+  @media screen and (max-width: $min_md_width) { 
+    max-width: 64%;
+  }
+}
+.category {
+  background-color: transparent;
+  display: inline;
+  padding: 0.1em 0.4em;
+  border-radius: 0.5em;
+  margin: 0.1em 0;
+  font-size: 2em;
+  margin: 0;
+
+  @media screen and (min-width: $min_md_width) { 
+    font-size: 1.5em;
+    background-color: white;
+    opacity: 0.8
+  }
+}
+
+
+
+@import "bourbon";
+@import "neat";
+@import url(https://fonts.googleapis.com/css?family=Coming+Soon);
+
+$red: #DC2829;
+$blue: #84D4EF;
+$white: #F2F2F2;
+$off_white: #ECECEC;
+$gray_dk: #333333;
+$gray_md: #777777;
+$gray_lt: #C7C7C7;
+$postcard: #F6EBD4;
+$rust: #800000;
+
+$min_sm_width: 320px;
+$max_sm_width: 480px;
+
+$min_md_width: 768px;
+$max_md_width: 1024px;
+
+$min_lg_width: 1224px;
+// $max_lg_width: 1600px;
+
+$min_xl_width: 1824px;
+
+$max_postcard_width: 1420px;
+$postcard_lg_width: 1067px;
+
+html {
+  box-sizing: border-box;
+  list-style-type: none;
+  font-family: 'Coming Soon', cursive;
+  margin: 0;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+a:link, a:visited {
+    text-decoration: none;
+    color: #2A221E;
+}
+a:hover, a:active {
+    text-decoration: none;
+    color: #2A221E;
+}
+body {
+  margin: 0;
+  padding: 0;
+}
+.body {
+  margin: 0;
+  @include outer-container(100%);
+  @include fill-parent;
+}
+
+/*--------Game Play Wrapper---------------*/
+.wrapper {
+  border-top: 1px solid white;
+  
+  // @media screen and (min-width: $min_md_width) { 
+  //   height: 100vh;
+  //   border-top: 1px solid white;
+  // }
+}
+/*-----Header----------*/
+.header {
+  @include fill-parent;
+  overflow: hidden;
+  background-color: $blue;
+  color: white;
+  height: 8vh;
+}
+.gameArea {
+  @include fill-parent;
+  position: relative;
+  overflow: hidden;
+
+  @media screen and (min-width: $min_md_width) { 
+    height: 92vh;
+  }
+}
+.gameArea::before {
+  content: ' ';
+  display: block;
+  position: fixed;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  opacity: 0.5;
+  background-image: url("../img/vintage-postcard.jpg");
+  background-repeat: no-repeat;
+  background-position: 95% 10%;
+
+  @media screen and (min-width: $max_md_width) { 
+    position: absolute;
+  }
+}
+.center_title {
+  color: $gray_dk;
+  text-align: center;
+  font-size: 1em;
+  margin: 0.2em 0 0 0;
+
+  @media screen and (min-width: $min_md_width) { 
+    font-size: 1.5em;
+  }
+}
+.center_category {
+  color: $gray_dk;
+  text-align: center;
+  font-size: 0.6em;
+  margin: 0.2em 0 0 0;
+
+  @media screen and (min-width: $min_md_width) { 
+      font-size: 1em;
+  }
+}
+.blue {
+  background-color: $blue;
+}
+.white {
+  background-color: $white;
+}
+
+
+
+
+
+@import "bourbon";
+@import "neat";
+@import url(https://fonts.googleapis.com/css?family=Coming+Soon);
+
+$red: #DC2829;
+$blue: #84D4EF;
+$white: #F2F2F2;
+$off_white: #ECECEC;
+$gray_dk: #333333;
+$gray_md: #777777;
+$gray_lt: #C7C7C7;
+$postcard: #F6EBD4;
+$rust: #800000;
+
+$min_sm_width: 320px;
+$max_sm_width: 480px;
+
+$min_md_width: 768px;
+$max_md_width: 1024px;
+
+$min_lg_width: 1224px;
+// $max_lg_width: 1600px;
+
+$min_xl_width: 1824px;
+
+$max_postcard_width: 1420px;
+$postcard_lg_width: 1067px;
+
+/*-----------------------preGame------------------------*/
+.preGame_title {
+  text-align: center;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+.preGame_category {
+  text-align: center;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+.pregame_container {
+  @include fill-parent;
+  background-color: transparent;
+  margin: 20vh 0 0 0;
+  position: relative;
+  overflow: hidden;
+}
+.pregame_container::before {
+  content: ' ';
+  display: block;
+  position: absolute;
+  background-color: $white;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  opacity: 0.7;
+}
+/*------------top----------*/
+.top {
+  @include fill-parent;
+  position: relative;
+  background-color: transparent;
+  height: 10vh;
+}
+.player1 {
+  @include span-columns(6);
+  position: absolute;
+  bottom: 5%;
+  left: 5%;
+
+  .player1_icon {
+    display: inline;
+    margin-left: 2em;
+    height: 1em;
+
+    @media screen and (min-width: $min_md_width) { 
+      height: 2em;
+    }
+  }
+  .player1_name {
+    display: inline;
+    color: $gray_dk;
+    font-size: 1em;
+
+    @media screen and (min-width: $min_md_width) { 
+      font-size: 2em;
+    }
+  }
+}
+/*------------divide----------*/
+.divider {
+  @include fill-parent;
+  height: 4vh;
+  overflow: hidden;
+  background-color: $blue;
+  text-align: center;
+}
+.mail_icon {
+  height: 100%;
+  padding: 0.1em 0;
+}
+/*------------bottom----------*/
+.bottom {
+  @include fill-parent;
+  background-color: transparent;
+  color: $gray_dk;
+  min-height: 10vh;
+}
+.player2 {
+  @include span-columns(6);
+  @include shift(6);
+  margin-top: 0.5em;
+
+  .player2_name {
+    display: inline;
+    color: $gray_dk;
+    font-size: 1em;
+
+    @media screen and (min-width: $min_md_width) { 
+      font-size: 2em;
+    }
+  }
+  .player2_icon {
+    height: 1em;
+
+    @media screen and (min-width: $min_md_width) { 
+      height: 2em;
+    }
+  }
+}
+/*---no opponent----*/
+.play_solo_ask {
+  @include fill-parent;
+  text-align: center;
+  h2 {
+    color: $gray_dk;
+    font-size: 0.8em;
+    margin: 0.2em 0;
+
+    @media screen and (min-width: $min_md_width) { 
+      font-size: 1em;
+    }
+  }
+}
+.btn_cont {
+  @include fill-parent;
+}
+.countdownNum {
+  font-size: 0.8em;
+  color: $gray_dk;
+
+  @media screen and (min-width: $min_md_width) { 
+    font-size: 1em;
+  }
+}
+.playSoloBtn {
+  font-family: 'Coming Soon', cursive;
+  padding: 0.2em;
+  margin: 0.5em 0;
+  font-size: 0.8em;
+  background-color: white;
+  border: $blue solid 3px;
+  border-radius: 0.4em;
+  color: $gray_dk;
+
+  &:focus {outline: 0;}
+
+  &:hover {
+    cursor: pointer;
+    background-color: $off_white; 
+  }
+  @media screen and (min-width: $min_md_width) { 
+    font-size: 1em;
+  }
+}
+.waitBtn {
+  font-family: 'Coming Soon', cursive;
+  padding: 0.2em;
+  margin: 0.5em 0;
+  font-size: 0.8em;
+  background-color: $blue;
+  border: $blue solid 3px;
+  border-radius: 0.4em;
+  color: $gray_dk;
+
+  &:focus {outline: 0;}
+
+  &:hover {cursor: pointer;}
+
+  @media screen and (min-width: $min_md_width) { 
+    font-size: 1em;
+  }
+}
+
+
+
+
+
+@import "bourbon";
+@import "neat";
+@import url(https://fonts.googleapis.com/css?family=Coming+Soon);
+
+$red: #DC2829;
+$blue: #84D4EF;
+$white: #F2F2F2;
+$off_white: #ECECEC;
+$gray_dk: #333333;
+$gray_md: #777777;
+$gray_lt: #C7C7C7;
+$postcard: #F6EBD4;
+$rust: #800000;
+
+$min_sm_width: 320px;
+$max_sm_width: 480px;
+
+$min_md_width: 768px;
+$max_md_width: 1024px;
+
+$min_lg_width: 1224px;
+// $max_lg_width: 1600px;
+
+$min_xl_width: 1824px;
+
+$max_postcard_width: 1420px;
+$postcard_lg_width: 927px;
+
+/*-----------------------Welcome------------------------*/
+.postcard {
+  @include fill-parent;
+  overflow: hidden;
+  background-color: white;
+  padding: 0 1em;
+  border-radius: 5px;
+  padding: 0.4em;
+  margin-top: 10vh;
+
+    @media screen and (min-width: $min_md_width) { 
+      background-image: url("../img/vintage-postcard.jpg");
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-color: transparent;
+      padding: 0;
+      border-radius: 0;
+      margin-top: 0;
+      height: 92vh;
+    }
+
+    @media screen and (min-width: $postcard_lg_width) { 
+      background-size: 100%;
+      margin-top: 0;
+      height: 100vh;
+    }
+}
+.welcome_text {
+  @include fill-parent;
+  overflow: hidden;
+  
+  @media screen and (min-width: $min_md_width) { 
+    @include span-columns(5);
+    height: 100%;
+    padding-left: 4em;
+    padding-right: 1em;
+    margin-top: 20%;
+  }
+}
+.welcome {
+    @include fill-parent;
+    color: $rust;
+    font-size: 2.5em;
+    margin: 0;
+    
+    @media screen and (min-width: $min_md_width) { 
+      font-size: 3em;
+    }
+}
+.wel_instruction {
+  @include fill-parent;
+  font-size: 1em;
+  font-weight: bolder;
+  color: $rust;
+  padding: 0.5em;
+  border-radius: 0.8em; 
+  background-color: $white;
+
+  @media screen and (min-width: $min_md_width) { 
+    font-size: 1em;
+    opacity: 0.9;
+  }
+}
+.form_cont {
+  @include fill-parent;
+  overflow: hidden;
+  
+ @media screen and (min-width: $min_md_width) { 
+    @include span-columns(7);
+    height: 100%;
+    padding-right: 7em;
+    padding-left: 2em;
+  }
+}
+.usernameForm {
+  @include fill-parent;
+
+  @media screen and (min-width: $min_md_width) { 
+    margin-top: 60%;
+  }
+}
+.userName_input {
+  @include fill-parent;
+  margin: 0 auto;
+  border: $white 2px solid;
+  background-color: $white;
+  border-radius: 4px;
+  padding: 0.2em;
+
+  &:focus {
+    outline: 0;
+  }
+}
+input[type="text"] {
+    font-family: 'Coming Soon', cursive;
+    font-size: 1em;
+    height: 3em;
+    border: none;
+
+    input[type="text"]:focus {
+      outline: none;
+    }
+
+    @media screen and (min-width: $min_md_width) { 
+      font-size: 1em;
+      height: 2em;
+    }
+}
+.submitBtn_cont {
+  @include fill-parent;
+  padding-right: 0.4em;
+  overflow: hidden;
+  margin: 0.5em 0;
+}
+#userSubmitBtn {
+  float: right;
+  font-family: 'Coming Soon', cursive;
+  font-weight: bolder;
+  font-size: 1em;
+  background-color: $white;
+  border: 2px $white solid;
+  text-shadow: none;
+  text-shadow: none;
+  border-radius: 4px;
+  padding: 0.4em;
+  color: $rust;
+  &:focus {
+    outline: 0;
+  }
+  &:hover {
+    background-color: $rust;
+    border: 2px $rust solid;
+    color: $white;
+    cursor: pointer;
+  }
+  @media screen and (min-width: $min_md_width) { 
+    font-size: 1em;
+    padding: 0.3em;
+  }
+}

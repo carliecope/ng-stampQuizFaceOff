@@ -239,4 +239,6 @@ html {
   border-radius: 0.5em; }
 
 .correctAnswer {
-  background-color: #84D4EF; }
+  background-color: #84D4EF;
+  border: #84D4EF 3px solid;
+  border-radius: 0.5em; }

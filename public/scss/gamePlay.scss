@@ -267,6 +267,8 @@ $postcard_lg_width: 1067px;
 }
 .correctAnswer {
   background-color: $blue;
+  border: $blue 3px solid;
+  border-radius: 0.5em;
 }
 
 

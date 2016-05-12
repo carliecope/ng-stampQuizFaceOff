@@ -204,9 +204,6 @@ angular.module('myApp')
 
 	$scope.haveAllResponses = function() {
 		
-		$scope.nextRoundTickNum = 3;
-		$scope.answerTimeTickNum = 10;
-		
 		if ($scope.haveOpponent) {
 			
 			if ($scope.player1Answered && $scope.player2Answered) {
@@ -227,6 +224,8 @@ angular.module('myApp')
 					}
 					$scope.currentRoundNum++;
 
+					$scope.nextRoundTickNum = 3;
+					$scope.answerTimeTickNum = 10;
 					$scope.showModal = true;
 					$scope.nextRoundInterval = $interval($scope.nextRoundTick.bind(this), 1000);
 
@@ -244,6 +243,8 @@ angular.module('myApp')
 					$location.path('/gameOver');
 					return;
 				}
+				$scope.nextRoundTickNum = 3;
+				$scope.answerTimeTickNum = 10;
 				$scope.showModal = true;
 				$scope.nextRoundInterval = $interval($scope.nextRoundTick.bind(this), 1000);
 			}, 2000, 1);

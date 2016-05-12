@@ -27,22 +27,19 @@ body {
   padding: 0; }
 
 .body {
-  margin: 0; }
-
-/*--------Game Play Wrapper---------------*/
-.wrapper {
-  max-width: 68em;
+  margin: 0;
+  max-width: 100%;
   margin-left: auto;
   margin-right: auto;
-  border-top: 1px solid white; }
-  .wrapper::after {
+  width: 100%; }
+  .body::after {
     clear: both;
     content: "";
     display: table; }
-  @media screen and (min-width: 768px) {
-    .wrapper {
-      height: 100vh;
-      border-top: 1px solid white; } }
+
+/*--------Game Play Wrapper---------------*/
+.wrapper {
+  border-top: 1px solid white; }
 
 /*-----Header----------*/
 .header {

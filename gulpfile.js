@@ -35,15 +35,21 @@ gulp.task('watch', function() {
   gulp.watch(['public/scss/**/*.scss'], ['sass']);
 }); 
 
-/* Styles build task, concatenates all the files
+// Styles build task, concatenates all the files
 gulp.task('styles', function() {
-  return gulp.src('app/css/*.css')
+  return gulp.src('public/css/*.css')
     .pipe(concat('styles.css'))
-    .pipe(gulp.dest('app/build/css'));
+    .pipe(gulp.dest('./build/css'))
 }); 
-*/
+
+// StyleSass build task, concatenates all the files
+gulp.task('styleSass', function() {
+  return gulp.src('public/scss/*.scss')
+    .pipe(concat('styles.scss'))
+    .pipe(gulp.dest('./build/scss'))
+}); 
 
 // Default task
-gulp.task('default', ['jshint', 'sass', 'watch']);
+gulp.task('default', ['jshint', 'sass', 'watch', 'styles', 'styleSass']);
 
 

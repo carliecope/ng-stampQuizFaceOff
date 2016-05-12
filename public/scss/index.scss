@@ -49,17 +49,13 @@ body {
 }
 .body {
   margin: 0;
+  @include outer-container(100%);
+  @include fill-parent;
 }
 
 /*--------Game Play Wrapper---------------*/
 .wrapper {
-  @include outer-container();
   border-top: 1px solid white;
-  
-  @media screen and (min-width: $min_md_width) { 
-    height: 100vh;
-    border-top: 1px solid white;
-  }
 }
 /*-----Header----------*/
 .header {

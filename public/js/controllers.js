@@ -24,13 +24,10 @@ angular.module('myApp')
 	$scope.currentCategory = currentCategory;
 
 	$scope.categoryClick = function(category) {
-		// console.log('in category click');
+		
 		$scope.currentCategory.setCategory(category);
 
 		var userName = gameData.getPlayer1Name();
-
-		// console.log($scope.currentCategory.getCategory());
-		// console.log("userName = " + userName);
 
 		socket.emit('join', {
 			category : $scope.currentCategory.getCategory(),
@@ -39,7 +36,6 @@ angular.module('myApp')
 	};
 
 	$scope.$on('socket:gameStarted', function(e, response) {
-		// console.log('received gameStarted response =' + response);
 
 		gameData.setGameInfo(response);
 
@@ -120,7 +116,7 @@ angular.module('myApp')
 	});
 }])
 //Game Play ---------------------------------------------------
-.controller('GamePlayCtrl', ['$scope', '$interval', '$location', 'socket', 'currentCategory', 'gameData', function($scope, $interval, $location, socket, currentCategory, gameData) {
+.controller('GamePlayCtrl', ['$scope', '$interval', '$location', '$timeout', 'socket', 'currentCategory', 'gameData', function($scope, $interval, $location, $timeout, socket, currentCategory, gameData) {
 	//Get game info
 	$scope.gameData = gameData;
 
@@ -312,8 +308,6 @@ angular.module('myApp')
 				$location.path('/gameOver');
 				return;
 			}
-
-			console.log($scope.p2CorrectArray);
 		}
 	});
 	

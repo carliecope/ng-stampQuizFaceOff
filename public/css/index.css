@@ -98,5 +98,9 @@ body {
 .blue {
   background-color: #84D4EF; }
 
+.blue_border {
+  border: #84D4EF 3px solid;
+  border-radius: 0.5em; }
+
 .white {
   background-color: #F2F2F2; }

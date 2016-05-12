@@ -158,9 +158,6 @@ module.exports = function (io) {
 			var room = category.rooms[data.roomId];
 
 			socket.leave(category.roomId);
-
-			// // delete object['property']
-			// delete category.rooms[room];
 		});
 	});
 };

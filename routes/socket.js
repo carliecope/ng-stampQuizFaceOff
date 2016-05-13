@@ -123,6 +123,8 @@ module.exports = function (io) {
 
 			if (category.gameData === null) {
 				getGameInfo(data.category, function(categoryData) {
+					
+					category.gameData = {};
 
 					for(var i = 0; i < categoryData.length; i++) {
 						category.gameData['round' + (i+1)] = categoryData[i];

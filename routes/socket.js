@@ -123,17 +123,16 @@ module.exports = function (io) {
 
 			if (category.gameData === null) {
 				getGameInfo(data.category, function(categoryData) {
-					
-					category.gameData = {};
 
 					for(var i = 0; i < categoryData.length; i++) {
 						category.gameData['round' + (i+1)] = categoryData[i];
 					}
 					response.gameData = setGameQuestions(category.gameData);
+					category.rooms[roomId].gameData = response.gameData;
 					io.emit('gameStarted', response);
 				});
 			} else {
-				response.gameData = setGameQuestions(category.gameData);
+				response.gameData = category.rooms[roomId].gameData;
 				io.emit('gameStarted', response);
 			}		
 		});

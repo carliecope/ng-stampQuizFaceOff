@@ -28,42 +28,9 @@ $postcard_lg_width: 1067px;
 
 /*-----------------------Home------------------------*/
 /*---------Title Bar----------*/
-.home_title_block {
-  @include span-columns(8);
-  @include omega();
-  padding-left: 0.5em;
-  height: 100%;
-
-  @media screen and (min-width: $min_md_width) { 
-    padding-left: 1em;
-  }
-
-  .home_title {
-    @include fill-parent;
-    color: $gray_dk;
-    font-size: 1em;
-    margin: 0.2em 0 0 0;
-    padding: 0;
-
-    @media screen and (min-width: $min_md_width) { 
-      font-size: 2em;
-    }
-  }
-  .choose {
-    @include fill-parent;
-    color: $gray_dk;
-    font-size: 0.7em;
-    padding: 0;
-    margin: 0;
-
-    @media screen and (min-width: $min_md_width) { 
-      font-size: 1em;
-    }
-  }
-}
 .userName_block {
   @include span-columns(4);
-  @include omega();
+  @include shift(8);
   overflow: hidden;
   height: 100%;
 }
@@ -71,6 +38,7 @@ $postcard_lg_width: 1067px;
   float: right;
   overflow: hidden;
   margin-top: 2vh;
+  margin-right: 1em;
 }
 .username_home {
   color: $gray_dk;

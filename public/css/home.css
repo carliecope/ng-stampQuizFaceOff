@@ -7,44 +7,12 @@ html {
 
 /*-----------------------Home------------------------*/
 /*---------Title Bar----------*/
-.home_title_block {
-  float: left;
-  display: block;
-  margin-right: 2.35765%;
-  width: 65.88078%;
-  margin-right: 0;
-  padding-left: 0.5em;
-  height: 100%; }
-  .home_title_block:last-child {
-    margin-right: 0; }
-  @media screen and (min-width: 768px) {
-    .home_title_block {
-      padding-left: 1em; } }
-  .home_title_block .home_title {
-    width: 100%;
-    color: #333333;
-    font-size: 1em;
-    margin: 0.2em 0 0 0;
-    padding: 0; }
-    @media screen and (min-width: 768px) {
-      .home_title_block .home_title {
-        font-size: 2em; } }
-  .home_title_block .choose {
-    width: 100%;
-    color: #333333;
-    font-size: 0.7em;
-    padding: 0;
-    margin: 0; }
-    @media screen and (min-width: 768px) {
-      .home_title_block .choose {
-        font-size: 1em; } }
-
 .userName_block {
   float: left;
   display: block;
   margin-right: 2.35765%;
   width: 31.76157%;
-  margin-right: 0;
+  margin-left: 68.23843%;
   overflow: hidden;
   height: 100%; }
   .userName_block:last-child {
@@ -53,7 +21,8 @@ html {
 .username_cont {
   float: right;
   overflow: hidden;
-  margin-top: 2vh; }
+  margin-top: 2vh;
+  margin-right: 1em; }
 
 .username_home {
   color: #333333;

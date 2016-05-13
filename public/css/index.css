@@ -47,15 +47,15 @@ body {
   overflow: hidden;
   background-color: #84D4EF;
   color: white;
-  height: 8vh; }
+  height: 8vh;
+  z-index: 9999;
+  position: fixed; }
 
 .gameArea {
   width: 100%;
   position: relative;
-  overflow: hidden; }
-  @media screen and (min-width: 768px) {
-    .gameArea {
-      height: 92vh; } }
+  overflow: hidden;
+  margin-top: 8vh; }
 
 .gameArea::before {
   content: ' ';
@@ -86,8 +86,8 @@ body {
 .center_category {
   color: #333333;
   text-align: center;
-  font-size: 0.6em;
-  margin: 0.2em 0 0 0; }
+  font-size: 0.8em;
+  margin: 0.8em 0 0 0; }
   @media screen and (min-width: 768px) {
     .center_category {
       font-size: 1em; } }

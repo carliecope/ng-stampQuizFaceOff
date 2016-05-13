@@ -27,16 +27,6 @@ $max_postcard_width: 1420px;
 $postcard_lg_width: 1067px;
 
 /*-----------------------preGame------------------------*/
-.preGame_title {
-  text-align: center;
-  margin-bottom: 0;
-  margin-top: 0;
-}
-.preGame_category {
-  text-align: center;
-  margin-bottom: 0;
-  margin-top: 0;
-}
 .pregame_container {
   @include fill-parent;
   background-color: transparent;

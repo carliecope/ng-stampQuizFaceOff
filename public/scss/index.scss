@@ -64,15 +64,14 @@ body {
   background-color: $blue;
   color: white;
   height: 8vh;
+  z-index: 9999;
+  position: fixed;
 }
 .gameArea {
   @include fill-parent;
   position: relative;
   overflow: hidden;
-
-  @media screen and (min-width: $min_md_width) { 
-    height: 92vh;
-  }
+  margin-top: 8vh;
 }
 .gameArea::before {
   content: ' ';
@@ -105,8 +104,8 @@ body {
 .center_category {
   color: $gray_dk;
   text-align: center;
-  font-size: 0.6em;
-  margin: 0.2em 0 0 0;
+  font-size: 0.8em;
+  margin: 0.8em 0 0 0;
 
   @media screen and (min-width: $min_md_width) { 
       font-size: 1em;

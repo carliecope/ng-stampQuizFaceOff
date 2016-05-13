@@ -1,7 +1,6 @@
 module.exports = function (io) {
 	var uuid = require('node-uuid');
 	var http = require('http');
-	var request = require("request");
 
 	var categories = {
 		Music : {

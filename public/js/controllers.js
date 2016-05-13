@@ -60,7 +60,12 @@ angular.module('myApp')
 	$scope.gameData = gameData;
 	$scope.currentCategory = currentCategory;
 
-	$scope.category = $scope.currentCategory.getCategory();
+	$scope.category = "";
+	if ($scope.currentCategory.getCategory() === "USPresidents") {
+		$scope.category = "US Presidents"
+	} else {
+		$scope.category = $scope.currentCategory.getCategory();
+	}
 
 	if (gameData.getPlayer2Name() === "") {
 		$scope.waiting = true;
@@ -343,7 +348,12 @@ angular.module('myApp')
 	$scope.currentCategory = currentCategory;
 	$scope.gameData = gameData;
 
-	$scope.category = $scope.currentCategory.getCategory();
+	$scope.category = "";
+	if ($scope.currentCategory.getCategory() === "USPresidents") {
+		$scope.category = "US Presidents"
+	} else {
+		$scope.category = $scope.currentCategory.getCategory();
+	}
 
 	$scope.player1Name = gameData.getPlayer1Name();
 	$scope.player1Score = gameData.getPlayer1Score();

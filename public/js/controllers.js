@@ -146,6 +146,7 @@ angular.module('myApp')
 	$scope.answerTimeTickNum = 10;
 	$scope.question = "";
 	$scope.answerArray = [];
+	$scope.answerWasSubmitted = false;
 	
 	$scope.p1CorrectArray = [];
 	$scope.p2CorrectArray = [];
@@ -184,8 +185,9 @@ angular.module('myApp')
 
 		$scope.correct = $scope.currentRoundText['correct answer'];
 
-		if (!$scope.timeUp) {
+		if (!$scope.timeUp && $scope.answerWasSubmitted === false) {
 
+			$scope.answerWasSubmitted = true;
 			if (answer === $scope.currentRoundText['correct answer']) {
 				$scope.p1CorrectArray.push(true);
 
@@ -229,6 +231,7 @@ angular.module('myApp')
 					}
 					$scope.currentRoundNum++;
 
+					$scope.answerWasSubmitted = false;
 					$scope.nextRoundTickNum = 3;
 					$scope.answerTimeTickNum = 10;
 					$scope.showModal = true;
@@ -248,6 +251,8 @@ angular.module('myApp')
 					$location.path('/gameOver');
 					return;
 				}
+
+				$scope.answerWasSubmitted = false;
 				$scope.nextRoundTickNum = 3;
 				$scope.answerTimeTickNum = 10;
 				$scope.showModal = true;

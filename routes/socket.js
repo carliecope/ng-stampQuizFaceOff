@@ -92,6 +92,7 @@ module.exports = function (io) {
 		socket.on('join', function(data) {
 
 			var category = categories[data.category];
+			var roomId = "";
 
 			var response = {};
 
@@ -107,9 +108,10 @@ module.exports = function (io) {
 				response.player2 = room.player2;
 				response.roomId = category.openRoom;
 
+				roomId = category.openRoom;
 				category.openRoom = null;
 			} else {
-				var roomId = uuid.v4();
+				roomId = uuid.v4();
 				category.rooms[roomId] = {};
 				category.rooms[roomId].player1 = data.userName;
 				socket.join(roomId);

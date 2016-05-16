@@ -12,19 +12,12 @@ $gray_lt: #C7C7C7;
 $postcard: #F6EBD4;
 $rust: #800000;
 
-$min_sm_width: 320px;
-$max_sm_width: 480px;
-
 $min_md_width: 768px;
 $max_md_width: 1024px;
 
 $min_lg_width: 1224px;
-// $max_lg_width: 1600px;
 
 $min_xl_width: 1824px;
-
-$max_postcard_width: 1420px;
-$postcard_lg_width: 1067px;
 
 /*-----------------------Home------------------------*/
 /*---------Title Bar----------*/
@@ -61,57 +54,34 @@ $postcard_lg_width: 1067px;
 }
 /*---------Categories----------*/
 .grid {
-  width: 100%;
-  height: 92vh;
+  @include outer-container;
+  margin-top: 9vh;
+  overflow: hidden;
+  text-align: center;
 }
-.grid:after {
-  content: '';
-  display: block;
-  clear: both;
-}
-.grid-sizer {
-  width: 50%;
-}
-.grid-item {
-  width: 100%;
-  height: 33%;
-  float: left;
-  background: transparent;
-  // border: 2px solid #333;
-  // border-color: rgba(0, 0, 0, 0.5);
-  // border-radius: 5px;
+.stamp_cont_music, .stamp_cont_science, .stamp_cont_olympics, .stamp_cont_presidents, .stamp_cont_movies, .stamp_cont_aviation {
+  @include fill-parent();
+  overflow: hidden;
   text-align: center;
 
   @media screen and (min-width: $min_md_width) { 
-    width: 50%;
-    height: 33%;
+    @include span-columns(6);
+    @include omega();
+    height: 23em;
   }
-  @media screen and (min-width: $max_md_width) { 
-    width: 33.3%;
-    height: 45%;
-    margin-top: 5%;
-  }
-}
-.stamp_cont_music, .stamp_cont_science, .stamp_cont_olympics, .stamp_cont_presidents, .stamp_cont_movies, .stamp_cont_aviation {
-  overflow: hidden;
-  text-align: center;
 }
 .stamp {
   border-radius: 5px;
   border: $gray_dk 2px solid;
   box-shadow: 6px 5px 5px $gray_dk;
-  position: inline;
   
-  @media screen and (max-width: $max_md_width) { 
-    max-height: 69%;
-  }
-
   @media screen and (max-width: $min_md_width) { 
-    max-width: 64%;
+    width: 60%;
   }
 }
 .category {
-  background-color: transparent;
+  background-color: white;
+  opacity: 0.8;
   display: inline;
   padding: 0.1em 0.4em;
   border-radius: 0.5em;
@@ -121,8 +91,6 @@ $postcard_lg_width: 1067px;
 
   @media screen and (min-width: $min_md_width) { 
     font-size: 1.5em;
-    background-color: white;
-    opacity: 0.8
   }
 }
 

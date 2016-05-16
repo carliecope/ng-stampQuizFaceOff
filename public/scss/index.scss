@@ -55,7 +55,8 @@ body {
 
 /*--------Game Play Wrapper---------------*/
 .wrapper {
-  border-top: 1px solid white;
+  border-top: 1px solid $blue;
+  width: 100%;
 }
 /*-----Header----------*/
 .header {
@@ -69,9 +70,10 @@ body {
 }
 .gameArea {
   @include fill-parent;
-  position: relative;
-  overflow: hidden;
+  position: fixed;
   margin-top: 8vh;
+  height: 92vh;
+  z-index: -1;
 }
 .gameArea::before {
   content: ' ';
@@ -81,15 +83,15 @@ body {
   top: 0;
   height: 100%;
   width: 100%;
-  z-index: -1;
-  opacity: 0.5;
+  z-index: -2;
   background-image: url("../img/vintage-postcard.jpg");
+  opacity: 0.5;
   background-repeat: no-repeat;
   background-position: 95% 10%;
 
-  @media screen and (min-width: $max_md_width) { 
-    position: absolute;
-  }
+  // @media screen and (min-width: $max_md_width) { 
+  //   position: absolute;
+  // }
 }
 .center_title {
   color: $gray_dk;

@@ -421,19 +421,12 @@ $gray_lt: #C7C7C7;
 $postcard: #F6EBD4;
 $rust: #800000;
 
-$min_sm_width: 320px;
-$max_sm_width: 480px;
-
 $min_md_width: 768px;
 $max_md_width: 1024px;
 
 $min_lg_width: 1224px;
-// $max_lg_width: 1600px;
 
 $min_xl_width: 1824px;
-
-$max_postcard_width: 1420px;
-$postcard_lg_width: 1067px;
 
 /*-----------------------Home------------------------*/
 /*---------Title Bar----------*/
@@ -470,57 +463,33 @@ $postcard_lg_width: 1067px;
 }
 /*---------Categories----------*/
 .grid {
-  width: 100%;
-  height: 92vh;
+  @include outer-container;
+  margin-top: 9vh;
+  overflow: hidden;
+  text-align: center;
 }
-.grid:after {
-  content: '';
-  display: block;
-  clear: both;
-}
-.grid-sizer {
-  width: 50%;
-}
-.grid-item {
-  width: 100%;
-  height: 33%;
-  float: left;
-  background: transparent;
-  // border: 2px solid #333;
-  // border-color: rgba(0, 0, 0, 0.5);
-  // border-radius: 5px;
+.stamp_cont_music, .stamp_cont_science, .stamp_cont_olympics, .stamp_cont_presidents, .stamp_cont_movies, .stamp_cont_aviation {
+  @include fill-parent();
+  overflow: hidden;
   text-align: center;
 
   @media screen and (min-width: $min_md_width) { 
-    width: 50%;
-    height: 33%;
+    @include span-columns(6);
+    @include omega();
   }
-  @media screen and (min-width: $max_md_width) { 
-    width: 33.3%;
-    height: 45%;
-    margin-top: 5%;
-  }
-}
-.stamp_cont_music, .stamp_cont_science, .stamp_cont_olympics, .stamp_cont_presidents, .stamp_cont_movies, .stamp_cont_aviation {
-  overflow: hidden;
-  text-align: center;
 }
 .stamp {
   border-radius: 5px;
   border: $gray_dk 2px solid;
   box-shadow: 6px 5px 5px $gray_dk;
-  position: inline;
   
-  @media screen and (max-width: $max_md_width) { 
-    max-height: 69%;
-  }
-
   @media screen and (max-width: $min_md_width) { 
-    max-width: 64%;
+    width: 60%;
   }
 }
 .category {
-  background-color: transparent;
+  background-color: white;
+  opacity: 0.8;
   display: inline;
   padding: 0.1em 0.4em;
   border-radius: 0.5em;
@@ -530,8 +499,6 @@ $postcard_lg_width: 1067px;
 
   @media screen and (min-width: $min_md_width) { 
     font-size: 1.5em;
-    background-color: white;
-    opacity: 0.8
   }
 }
 
@@ -594,7 +561,8 @@ body {
 
 /*--------Game Play Wrapper---------------*/
 .wrapper {
-  border-top: 1px solid white;
+  border-top: 1px solid $blue;
+  width: 100%;
 }
 /*-----Header----------*/
 .header {
@@ -608,9 +576,10 @@ body {
 }
 .gameArea {
   @include fill-parent;
-  position: relative;
-  overflow: hidden;
+  position: fixed;
   margin-top: 8vh;
+  height: 92vh;
+  z-index: -1;
 }
 .gameArea::before {
   content: ' ';
@@ -620,15 +589,15 @@ body {
   top: 0;
   height: 100%;
   width: 100%;
-  z-index: -1;
-  opacity: 0.5;
+  z-index: -2;
   background-image: url("../img/vintage-postcard.jpg");
+  opacity: 0.5;
   background-repeat: no-repeat;
   background-position: 95% 10%;
 
-  @media screen and (min-width: $max_md_width) { 
-    position: absolute;
-  }
+  // @media screen and (min-width: $max_md_width) { 
+  //   position: absolute;
+  // }
 }
 .center_title {
   color: $gray_dk;
@@ -854,7 +823,6 @@ $postcard_lg_width: 1067px;
 @import "neat";
 @import url(https://fonts.googleapis.com/css?family=Coming+Soon);
 
-$red: #DC2829;
 $blue: #84D4EF;
 $white: #F2F2F2;
 $off_white: #ECECEC;
@@ -879,7 +847,7 @@ $max_postcard_width: 1420px;
 $postcard_lg_width: 927px;
 
 /*-----------------------Welcome------------------------*/
-.postcard {
+.text_holder {
   @include fill-parent;
   overflow: hidden;
   background-color: transparent;
@@ -888,7 +856,7 @@ $postcard_lg_width: 927px;
   padding: 0.4em;
   margin-top: 10vh;
 
-    @media screen and (min-width: $max_md_width) { 
+    @media screen and (min-width: $min_md_width) { 
       // background-image: url("../img/vintage-postcard.jpg");
       // background-repeat: no-repeat;
       // background-size: contain;
@@ -896,16 +864,11 @@ $postcard_lg_width: 927px;
       padding: 0;
       border-radius: 0;
       margin-top: 0;
+      margin-left: 2em;
       height: 92vh;
     }
-
-    @media screen and (min-width: $postcard_lg_width) { 
-      background-size: 100%;
-      margin-top: 0;
-      height: 100vh;
-    }
 }
-.postcard::before {
+.text_holder::before {
   content: ' ';
   display: block;
   position: fixed;
@@ -920,14 +883,7 @@ $postcard_lg_width: 927px;
 .welcome_text {
   @include fill-parent;
   overflow: hidden;
-  
-  @media screen and (min-width: $min_md_width) { 
-    @include span-columns(5);
-    height: 100%;
-    padding-left: 4em;
-    padding-right: 1em;
-    margin-top: 20%;
-  }
+
 }
 .welcome {
     @include fill-parent;
@@ -936,6 +892,7 @@ $postcard_lg_width: 927px;
     margin: 0;
     
     @media screen and (min-width: $min_md_width) { 
+      width: 50%;
       font-size: 3em;
     }
 }
@@ -949,6 +906,7 @@ $postcard_lg_width: 927px;
   background-color: $white;
 
   @media screen and (min-width: $min_md_width) { 
+    width: 50%;
     font-size: 1em;
     opacity: 0.9;
   }
@@ -957,18 +915,16 @@ $postcard_lg_width: 927px;
   @include fill-parent;
   overflow: hidden;
   
- @media screen and (min-width: $min_md_width) { 
-    @include span-columns(7);
+  @media screen and (min-width: $min_md_width) { 
     height: 100%;
-    padding-right: 7em;
-    padding-left: 2em;
+    margin-top: 2em;
   }
 }
 .usernameForm {
   @include fill-parent;
 
   @media screen and (min-width: $min_md_width) { 
-    margin-top: 60%;
+    width: 50%;
   }
 }
 .userName_input {
@@ -1003,9 +959,12 @@ input[type="text"] {
   padding-right: 0.4em;
   overflow: hidden;
   margin: 0.5em 0;
+
+  @media screen and (min-width: $min_md_width) { 
+    width: 50%;
+  }
 }
 #userSubmitBtn {
-  float: right;
   font-family: 'Coming Soon', cursive;
   font-weight: bolder;
   font-size: 1em;

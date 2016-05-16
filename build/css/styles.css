@@ -398,50 +398,34 @@ html {
 /*---------Categories----------*/
 .grid {
   width: 100%;
-  height: 92vh; }
-
-.grid:after {
-  content: '';
-  display: block;
-  clear: both; }
-
-.grid-sizer {
-  width: 50%; }
-
-.grid-item {
-  width: 100%;
-  height: 33%;
-  float: left;
-  background: transparent;
-  text-align: center; }
-  @media screen and (min-width: 768px) {
-    .grid-item {
-      width: 50%;
-      height: 33%; } }
-  @media screen and (min-width: 1024px) {
-    .grid-item {
-      width: 33.3%;
-      height: 45%;
-      margin-top: 5%; } }
-
-.stamp_cont_music, .stamp_cont_science, .stamp_cont_olympics, .stamp_cont_presidents, .stamp_cont_movies, .stamp_cont_aviation {
+  margin-top: 9vh;
   overflow: hidden;
   text-align: center; }
+
+.stamp_cont_music, .stamp_cont_science, .stamp_cont_olympics, .stamp_cont_presidents, .stamp_cont_movies, .stamp_cont_aviation {
+  width: 100%;
+  overflow: hidden;
+  text-align: center; }
+  @media screen and (min-width: 768px) {
+    .stamp_cont_music, .stamp_cont_science, .stamp_cont_olympics, .stamp_cont_presidents, .stamp_cont_movies, .stamp_cont_aviation {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 48.82117%; }
+      .stamp_cont_music:last-child, .stamp_cont_science:last-child, .stamp_cont_olympics:last-child, .stamp_cont_presidents:last-child, .stamp_cont_movies:last-child, .stamp_cont_aviation:last-child {
+        margin-right: 0; } }
 
 .stamp {
   border-radius: 5px;
   border: #333333 2px solid;
-  box-shadow: 6px 5px 5px #333333;
-  position: inline; }
-  @media screen and (max-width: 1024px) {
-    .stamp {
-      max-height: 69%; } }
+  box-shadow: 6px 5px 5px #333333; }
   @media screen and (max-width: 768px) {
     .stamp {
-      max-width: 64%; } }
+      width: 60%; } }
 
 .category {
-  background-color: transparent;
+  background-color: white;
+  opacity: 0.8;
   display: inline;
   padding: 0.1em 0.4em;
   border-radius: 0.5em;
@@ -450,9 +434,7 @@ html {
   margin: 0; }
   @media screen and (min-width: 768px) {
     .category {
-      font-size: 1.5em;
-      background-color: white;
-      opacity: 0.8; } }
+      font-size: 1.5em; } }
 
 @import url(https://fonts.googleapis.com/css?family=Coming+Soon);
 html {
@@ -667,7 +649,8 @@ body {
 
 /*--------Game Play Wrapper---------------*/
 .wrapper {
-  border-top: 1px solid white; }
+  border-top: 1px solid #84D4EF;
+  width: 100%; }
 
 /*-----Header----------*/
 .header {
@@ -681,9 +664,10 @@ body {
 
 .gameArea {
   width: 100%;
-  position: relative;
-  overflow: hidden;
-  margin-top: 8vh; }
+  position: fixed;
+  margin-top: 8vh;
+  height: 92vh;
+  z-index: -1; }
 
 .gameArea::before {
   content: ' ';
@@ -693,14 +677,11 @@ body {
   top: 0;
   height: 100%;
   width: 100%;
-  z-index: -1;
-  opacity: 0.5;
+  z-index: -2;
   background-image: url("../img/vintage-postcard.jpg");
+  opacity: 0.5;
   background-repeat: no-repeat;
   background-position: 95% 10%; }
-  @media screen and (min-width: 1024px) {
-    .gameArea::before {
-      position: absolute; } }
 
 .center_title {
   color: #333333;
@@ -891,7 +872,7 @@ html {
   box-sizing: inherit; }
 
 /*-----------------------Welcome------------------------*/
-.postcard {
+.text_holder {
   width: 100%;
   overflow: hidden;
   background-color: transparent;
@@ -899,20 +880,16 @@ html {
   border-radius: 5px;
   padding: 0.4em;
   margin-top: 10vh; }
-  @media screen and (min-width: 1024px) {
-    .postcard {
+  @media screen and (min-width: 768px) {
+    .text_holder {
       background-color: transparent;
       padding: 0;
       border-radius: 0;
       margin-top: 0;
+      margin-left: 2em;
       height: 92vh; } }
-  @media screen and (min-width: 927px) {
-    .postcard {
-      background-size: 100%;
-      margin-top: 0;
-      height: 100vh; } }
 
-.postcard::before {
+.text_holder::before {
   content: ' ';
   display: block;
   position: fixed;
@@ -927,18 +904,6 @@ html {
 .welcome_text {
   width: 100%;
   overflow: hidden; }
-  @media screen and (min-width: 768px) {
-    .welcome_text {
-      float: left;
-      display: block;
-      margin-right: 2.35765%;
-      width: 40.29137%;
-      height: 100%;
-      padding-left: 4em;
-      padding-right: 1em;
-      margin-top: 20%; }
-      .welcome_text:last-child {
-        margin-right: 0; } }
 
 .welcome {
   width: 100%;
@@ -947,6 +912,7 @@ html {
   margin: 0; }
   @media screen and (min-width: 768px) {
     .welcome {
+      width: 50%;
       font-size: 3em; } }
 
 .wel_instruction {
@@ -959,6 +925,7 @@ html {
   background-color: #F2F2F2; }
   @media screen and (min-width: 768px) {
     .wel_instruction {
+      width: 50%;
       font-size: 1em;
       opacity: 0.9; } }
 
@@ -967,21 +934,14 @@ html {
   overflow: hidden; }
   @media screen and (min-width: 768px) {
     .form_cont {
-      float: left;
-      display: block;
-      margin-right: 2.35765%;
-      width: 57.35098%;
       height: 100%;
-      padding-right: 7em;
-      padding-left: 2em; }
-      .form_cont:last-child {
-        margin-right: 0; } }
+      margin-top: 2em; } }
 
 .usernameForm {
   width: 100%; }
   @media screen and (min-width: 768px) {
     .usernameForm {
-      margin-top: 60%; } }
+      width: 50%; } }
 
 .userName_input {
   width: 100%;
@@ -1010,9 +970,11 @@ input[type="text"] {
   padding-right: 0.4em;
   overflow: hidden;
   margin: 0.5em 0; }
+  @media screen and (min-width: 768px) {
+    .submitBtn_cont {
+      width: 50%; } }
 
 #userSubmitBtn {
-  float: right;
   font-family: 'Coming Soon', cursive;
   font-weight: bolder;
   font-size: 1em;

@@ -97,8 +97,6 @@ module.exports = function (io) {
 			var response = {};
 
 			if (category.openRoom != null) {
-				console.log("openRoom != null");
-				
 				var room = category.rooms[category.openRoom];
 				room.player2 = data.userName;
 
@@ -112,7 +110,6 @@ module.exports = function (io) {
 				roomId = category.openRoom;
 				category.openRoom = null;
 			} else {
-				console.log("else openRoom");
 				roomId = uuid.v4();
 				category.rooms[roomId] = {};
 				category.rooms[roomId].player1 = data.userName;

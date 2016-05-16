@@ -42,6 +42,9 @@ body {
   border-top: 1px solid #84D4EF;
   width: 100%; }
 
+.wrapper_clear_border {
+  border-top: 1px solid transparent; }
+
 /*-----Header----------*/
 .header {
   width: 100%;

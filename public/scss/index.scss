@@ -58,6 +58,9 @@ body {
   border-top: 1px solid $blue;
   width: 100%;
 }
+.wrapper_clear_border {
+  border-top: 1px solid transparent;
+}
 /*-----Header----------*/
 .header {
   @include fill-parent;

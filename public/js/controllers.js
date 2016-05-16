@@ -55,7 +55,7 @@ angular.module('myApp')
 
 	$scope.category = "";
 	if ($scope.currentCategory.getCategory() === "USPresidents") {
-		$scope.category = "US Presidents"
+		$scope.category = "US Presidents";
 	} else {
 		$scope.category = $scope.currentCategory.getCategory();
 	}
@@ -348,7 +348,7 @@ angular.module('myApp')
 
 	$scope.category = "";
 	if ($scope.currentCategory.getCategory() === "USPresidents") {
-		$scope.category = "US Presidents"
+		$scope.category = "US Presidents";
 	} else {
 		$scope.category = $scope.currentCategory.getCategory();
 	}

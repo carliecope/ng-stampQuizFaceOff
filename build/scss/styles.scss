@@ -135,7 +135,6 @@ $postcard_lg_width: 1067px;
 @import "neat";
 @import url(https://fonts.googleapis.com/css?family=Coming+Soon);
 
-$red: #DC2829;
 $blue: #84D4EF;
 $white: #F2F2F2;
 $off_white: #ECECEC;
@@ -298,6 +297,10 @@ $postcard_lg_width: 1067px;
   border-radius: 5px;
   border: $white 2px solid;
   box-shadow: 6px 5px 5px #333333;
+
+  @media screen and (min-width: $min_md_width) { 
+    
+  }
 }
 .question_block {
   @include fill-parent;
@@ -319,8 +322,8 @@ $postcard_lg_width: 1067px;
   margin: 0;
   font-size: 0.8em;
 
-  @media screen and (min-width: $max_md_width) { 
-    font-size: 1.2em;
+  @media screen and (min-width: $min_md_width) { 
+    font-size: 1.1em;
   }
 }
 
@@ -357,7 +360,7 @@ $postcard_lg_width: 1067px;
     font-size: 1.6em;
   }
 
-  @media screen and (min-width: $max_md_width) { 
+  @media screen and (min-width: $min_md_width) { 
     width: 40%;
     height: 40%;
     margin: 1% 3%;
@@ -430,11 +433,35 @@ $min_xl_width: 1824px;
 
 /*-----------------------Home------------------------*/
 /*---------Title Bar----------*/
+.choose {
+  @include span-columns(8);
+  margin-top: 2vh;
+
+  @media screen and (min-width: $min_md_width) { 
+    @include span-columns(7);
+    @include shift(1);
+  }
+}
+.choose_text {
+  color: $gray_dk;
+  font-size: 1em;
+  margin: 0;
+  display: inline;
+  margin-left: 1em;
+
+  @media screen and (min-width: $min_md_width) { 
+    font-size: 1.5em;
+    margin-left: 0;
+  }
+}
 .userName_block {
   @include span-columns(4);
-  @include shift(8);
   overflow: hidden;
   height: 100%;
+
+  @media screen and (min-width: $min_md_width) { 
+    @include span-columns(3);
+  }
 }
 .username_cont {
   float: right;
@@ -471,6 +498,9 @@ $min_xl_width: 1824px;
   @media screen and (min-width: $min_md_width) { 
     margin-top: 11vh;
   }
+  @media screen and (min-width: $max_md_width) { 
+    margin-top: 12vh;
+  }
 }
 .stamp_cont_music, .stamp_cont_science, .stamp_cont_olympics, .stamp_cont_presidents, .stamp_cont_movies, .stamp_cont_aviation {
   @include fill-parent();
@@ -480,7 +510,13 @@ $min_xl_width: 1824px;
   @media screen and (min-width: $min_md_width) { 
     @include span-columns(6);
     @include omega();
-    height: 23em;
+    height: 24.3em;
+  }
+
+  @media screen and (min-width: $max_md_width) {
+    @include span-columns(4);
+    @include omega();
+    height: 18em;
   }
 }
 .stamp {
@@ -488,7 +524,7 @@ $min_xl_width: 1824px;
   border: $gray_dk 2px solid;
   box-shadow: 6px 5px 5px $gray_dk;
   
-  @media screen and (max-width: $min_md_width) { 
+  @media screen and (min-width: $min_md_width) { 
     width: 60%;
   }
 }
@@ -629,7 +665,7 @@ body {
   margin: 0.8em 0 0 0;
 
   @media screen and (min-width: $min_md_width) { 
-      font-size: 1em;
+      font-size: 1.5em;
   }
 }
 .blue {

@@ -7,16 +7,52 @@ html {
 
 /*-----------------------Home------------------------*/
 /*---------Title Bar----------*/
+.choose {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 65.88078%;
+  margin-top: 2vh; }
+  .choose:last-child {
+    margin-right: 0; }
+  @media screen and (min-width: 768px) {
+    .choose {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 57.35098%;
+      margin-left: 8.5298%; }
+      .choose:last-child {
+        margin-right: 0; } }
+
+.choose_text {
+  color: #333333;
+  font-size: 1em;
+  margin: 0;
+  display: inline;
+  margin-left: 1em; }
+  @media screen and (min-width: 768px) {
+    .choose_text {
+      font-size: 1.5em;
+      margin-left: 0; } }
+
 .userName_block {
   float: left;
   display: block;
   margin-right: 2.35765%;
   width: 31.76157%;
-  margin-left: 68.23843%;
   overflow: hidden;
   height: 100%; }
   .userName_block:last-child {
     margin-right: 0; }
+  @media screen and (min-width: 768px) {
+    .userName_block {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 23.23176%; }
+      .userName_block:last-child {
+        margin-right: 0; } }
 
 .username_cont {
   float: right;
@@ -56,6 +92,9 @@ html {
   @media screen and (min-width: 768px) {
     .grid {
       margin-top: 11vh; } }
+  @media screen and (min-width: 1024px) {
+    .grid {
+      margin-top: 12vh; } }
 
 .stamp_cont_music, .stamp_cont_science, .stamp_cont_olympics, .stamp_cont_presidents, .stamp_cont_movies, .stamp_cont_aviation {
   width: 100%;
@@ -68,7 +107,17 @@ html {
       margin-right: 2.35765%;
       width: 48.82117%;
       margin-right: 0;
-      height: 23em; }
+      height: 24.3em; }
+      .stamp_cont_music:last-child, .stamp_cont_science:last-child, .stamp_cont_olympics:last-child, .stamp_cont_presidents:last-child, .stamp_cont_movies:last-child, .stamp_cont_aviation:last-child {
+        margin-right: 0; } }
+  @media screen and (min-width: 1024px) {
+    .stamp_cont_music, .stamp_cont_science, .stamp_cont_olympics, .stamp_cont_presidents, .stamp_cont_movies, .stamp_cont_aviation {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 31.76157%;
+      margin-right: 0;
+      height: 18em; }
       .stamp_cont_music:last-child, .stamp_cont_science:last-child, .stamp_cont_olympics:last-child, .stamp_cont_presidents:last-child, .stamp_cont_movies:last-child, .stamp_cont_aviation:last-child {
         margin-right: 0; } }
 
@@ -76,7 +125,7 @@ html {
   border-radius: 5px;
   border: #333333 2px solid;
   box-shadow: 6px 5px 5px #333333; }
-  @media screen and (max-width: 768px) {
+  @media screen and (min-width: 768px) {
     .stamp {
       width: 60%; } }
 

@@ -162,9 +162,9 @@ html {
   padding: 0.8em;
   margin: 0;
   font-size: 0.8em; }
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 768px) {
     .question {
-      font-size: 1.2em; } }
+      font-size: 1.1em; } }
 
 /*---------Answer Container----------*/
 .answer_container {
@@ -197,7 +197,7 @@ html {
   @media screen and (min-width: 768px) {
     .answerBtn {
       font-size: 1.6em; } }
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 768px) {
     .answerBtn {
       width: 40%;
       height: 40%;

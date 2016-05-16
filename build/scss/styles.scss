@@ -278,7 +278,7 @@ $postcard_lg_width: 1067px;
 .ask_container {
   @include fill-parent;
   overflow: hidden;
-  height: 46vh;
+  height: 44vh;
   background-color: transparent;
   color: $gray_dk;
 }
@@ -287,10 +287,10 @@ $postcard_lg_width: 1067px;
   overflow: hidden;
   text-align: center;
 
-  @media screen and (min-width: $max_md_width) { 
+  @media screen and (min-width: $min_md_width) { 
     @include span-columns(6);
     @include omega();
-    margin-top: 8vh;
+    margin-top: 10vh;
   }
 }
 #stampImg {
@@ -304,6 +304,9 @@ $postcard_lg_width: 1067px;
   padding: 0 0.2em;
 
   @media screen and (min-width: $min_md_width) { 
+    @include span-columns(6);
+    @include omega();
+    margin-top: 10vh;
     padding: 0.5em 3em 0 3em;
   }
 }
@@ -317,9 +320,6 @@ $postcard_lg_width: 1067px;
   font-size: 0.8em;
 
   @media screen and (min-width: $max_md_width) { 
-    @include span-columns(6);
-    @include omega();
-    margin-top: 8vh;
     font-size: 1.2em;
   }
 }
@@ -467,6 +467,10 @@ $min_xl_width: 1824px;
   margin-top: 9vh;
   overflow: hidden;
   text-align: center;
+
+  @media screen and (min-width: $min_md_width) { 
+    margin-top: 11vh;
+  }
 }
 .stamp_cont_music, .stamp_cont_science, .stamp_cont_olympics, .stamp_cont_presidents, .stamp_cont_movies, .stamp_cont_aviation {
   @include fill-parent();
@@ -476,6 +480,7 @@ $min_xl_width: 1824px;
   @media screen and (min-width: $min_md_width) { 
     @include span-columns(6);
     @include omega();
+    height: 23em;
   }
 }
 .stamp {
@@ -573,6 +578,10 @@ body {
   height: 8vh;
   z-index: 9999;
   position: fixed;
+
+  @media screen and (min-width: $min_md_width) { 
+    height: 10vh;
+  }
 }
 .gameArea {
   @include fill-parent;
@@ -580,6 +589,10 @@ body {
   margin-top: 8vh;
   height: 92vh;
   z-index: -1;
+
+  @media screen and (min-width: $min_md_width) { 
+    height: 90vh;
+  }
 }
 .gameArea::before {
   content: ' ';
@@ -924,7 +937,7 @@ $postcard_lg_width: 927px;
   @include fill-parent;
 
   @media screen and (min-width: $min_md_width) { 
-    width: 50%;
+    width: 35%;
   }
 }
 .userName_input {

@@ -58,6 +58,10 @@ $min_xl_width: 1824px;
   margin-top: 9vh;
   overflow: hidden;
   text-align: center;
+
+  @media screen and (min-width: $min_md_width) { 
+    margin-top: 11vh;
+  }
 }
 .stamp_cont_music, .stamp_cont_science, .stamp_cont_olympics, .stamp_cont_presidents, .stamp_cont_movies, .stamp_cont_aviation {
   @include fill-parent();

@@ -75,7 +75,7 @@ html {
   width: 100%; }
   @media screen and (min-width: 768px) {
     .usernameForm {
-      width: 50%; } }
+      width: 35%; } }
 
 .userName_input {
   width: 100%;

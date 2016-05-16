@@ -103,7 +103,7 @@ $postcard_lg_width: 927px;
   @include fill-parent;
 
   @media screen and (min-width: $min_md_width) { 
-    width: 50%;
+    width: 35%;
   }
 }
 .userName_input {

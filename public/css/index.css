@@ -51,6 +51,9 @@ body {
   height: 8vh;
   z-index: 9999;
   position: fixed; }
+  @media screen and (min-width: 768px) {
+    .header {
+      height: 10vh; } }
 
 .gameArea {
   width: 100%;
@@ -58,6 +61,9 @@ body {
   margin-top: 8vh;
   height: 92vh;
   z-index: -1; }
+  @media screen and (min-width: 768px) {
+    .gameArea {
+      height: 90vh; } }
 
 .gameArea::before {
   content: ' ';

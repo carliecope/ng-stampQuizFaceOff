@@ -9,7 +9,6 @@ html {
 .gameOver_container {
   width: 100%;
   background-color: transparent;
-  height: 26vh;
   margin: 10vh 0 0 0;
   position: relative;
   overflow: hidden; }

@@ -1,16 +1,16 @@
 <div class="wrapper wrapper_clear_border">
-	<div class="header transparent">
+	<div class="header">
 		<div class="userName_block"></div>
 	</div>
 	<div class="gameArea">
 		<div class="text_holder">
 		<div class="welcome_text">
 			<h3 class="welcome">Greetings!</h3>
-			<p class="wel_instruction">Welcome to Philatelist Face-Off, a quiz game all about stamp-related trivia. <br>Earn points for correct answers ... and earn some bonus points if you're fast! <br>Please create a username:</p>
+			<p class="wel_instruction">Welcome to Philatelist Face-Off, a quiz game all about stamp-related trivia. <br> <br>Earn points for correct answers ... and earn some bonus points if you're fast! <br><br>Please create a username:</p>
 		</div>
 		<div class="form_cont">
 			<form name="usernameForm" class="usernameForm" ng-submit="updateUserName(userName)">
-				<input class="userName_input" type=text name="userName" ng-model="userName" placeholder="Username (e.g. 'stampChamp')" required>
+				<input class="userName_input" type="text" name="userName" ng-model="userName" placeholder="Username (e.g. 'stampChamp')" required>
 				<div class="submitBtn_cont">
 					<input type="submit" id="userSubmitBtn">
 				</div>

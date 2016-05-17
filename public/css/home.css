@@ -108,7 +108,7 @@ html {
       margin-right: 2.35765%;
       width: 48.82117%;
       margin-right: 0;
-      height: 19.3em; }
+      height: 21em; }
       .stamp_cont_music:last-child, .stamp_cont_science:last-child, .stamp_cont_olympics:last-child, .stamp_cont_presidents:last-child, .stamp_cont_movies:last-child, .stamp_cont_aviation:last-child {
         margin-right: 0; } }
   @media screen and (min-width: 1024px) {
@@ -121,6 +121,9 @@ html {
       height: 18em; }
       .stamp_cont_music:last-child, .stamp_cont_science:last-child, .stamp_cont_olympics:last-child, .stamp_cont_presidents:last-child, .stamp_cont_movies:last-child, .stamp_cont_aviation:last-child {
         margin-right: 0; } }
+  @media screen and (min-width: 1600px) {
+    .stamp_cont_music, .stamp_cont_science, .stamp_cont_olympics, .stamp_cont_presidents, .stamp_cont_movies, .stamp_cont_aviation {
+      height: 22em; } }
 
 .stamp {
   border-radius: 5px;
@@ -134,7 +137,10 @@ html {
       width: 69%; } }
 
 .large_stamp {
-  width: 80%; }
+  width: 60%; }
+  @media screen and (min-width: 510px) {
+    .large_stamp {
+      width: 40%; } }
   @media screen and (min-width: 768px) {
     .large_stamp {
       width: 60%; } }

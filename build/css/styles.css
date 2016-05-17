@@ -470,7 +470,7 @@ html {
       margin-right: 2.35765%;
       width: 48.82117%;
       margin-right: 0;
-      height: 19.3em; }
+      height: 21em; }
       .stamp_cont_music:last-child, .stamp_cont_science:last-child, .stamp_cont_olympics:last-child, .stamp_cont_presidents:last-child, .stamp_cont_movies:last-child, .stamp_cont_aviation:last-child {
         margin-right: 0; } }
   @media screen and (min-width: 1024px) {
@@ -483,6 +483,9 @@ html {
       height: 18em; }
       .stamp_cont_music:last-child, .stamp_cont_science:last-child, .stamp_cont_olympics:last-child, .stamp_cont_presidents:last-child, .stamp_cont_movies:last-child, .stamp_cont_aviation:last-child {
         margin-right: 0; } }
+  @media screen and (min-width: 1600px) {
+    .stamp_cont_music, .stamp_cont_science, .stamp_cont_olympics, .stamp_cont_presidents, .stamp_cont_movies, .stamp_cont_aviation {
+      height: 22em; } }
 
 .stamp {
   border-radius: 5px;
@@ -496,7 +499,10 @@ html {
       width: 69%; } }
 
 .large_stamp {
-  width: 80%; }
+  width: 60%; }
+  @media screen and (min-width: 510px) {
+    .large_stamp {
+      width: 40%; } }
   @media screen and (min-width: 768px) {
     .large_stamp {
       width: 60%; } }
@@ -743,13 +749,27 @@ body {
 .header {
   width: 100%;
   overflow: hidden;
-  background-color: #84D4EF;
+  background-color: transparent;
   color: white;
   height: 8vh;
   z-index: 9999;
   position: fixed; }
   @media screen and (min-width: 768px) {
     .header {
+      height: 10vh; } }
+
+.header::before {
+  content: ' ';
+  display: block;
+  position: fixed;
+  background-color: white;
+  right: 0;
+  height: 8vh;
+  width: 100%;
+  z-index: -2;
+  opacity: 0.8; }
+  @media screen and (min-width: 768px) {
+    .header::before {
       height: 10vh; } }
 
 .gameArea {
@@ -760,21 +780,26 @@ body {
   z-index: -1; }
   @media screen and (min-width: 768px) {
     .gameArea {
-      height: 90vh; } }
+      height: 90vh;
+      margin-top: 10vh; } }
 
 .gameArea::before {
   content: ' ';
   display: block;
   position: fixed;
   right: 0;
-  top: 0;
-  height: 100%;
+  top: 8vh;
+  height: 92vh;
   width: 100%;
   z-index: -2;
   background-image: url("../img/vintage-postcard.jpg");
   opacity: 0.5;
   background-repeat: no-repeat;
   background-position: 95% 10%; }
+  @media screen and (min-width: 768px) {
+    .gameArea::before {
+      height: 90vh;
+      top: 10vh; } }
 
 .center_title {
   color: #333333;
@@ -972,15 +997,14 @@ html {
   padding: 0 1em;
   border-radius: 5px;
   padding: 0.4em;
-  margin-top: 10vh; }
+  margin-top: 11vh; }
   @media screen and (min-width: 768px) {
     .text_holder {
       background-color: transparent;
       padding: 0;
       border-radius: 0;
       margin-top: 0;
-      margin-left: 2em;
-      height: 92vh; } }
+      margin-left: 2em; } }
   @media screen and (min-width: 1600px) {
     .text_holder {
       margin-left: 15em; } }
@@ -1003,7 +1027,7 @@ html {
 
 .welcome {
   width: 100%;
-  color: #800000;
+  color: #333333;
   font-size: 2.5em;
   margin: 0; }
   @media screen and (min-width: 768px) {
@@ -1015,10 +1039,10 @@ html {
   width: 100%;
   font-size: 1em;
   font-weight: bolder;
-  color: #800000;
+  color: #333333;
   padding: 0.5em;
   border-radius: 0.8em;
-  background-color: #F2F2F2; }
+  background-color: white; }
   @media screen and (min-width: 768px) {
     .wel_instruction {
       width: 50%;
@@ -1029,8 +1053,7 @@ html {
   overflow: hidden; }
   @media screen and (min-width: 768px) {
     .form_cont {
-      height: 100%;
-      margin-top: 2em; } }
+      height: 100%; } }
 
 .usernameForm {
   width: 100%; }
@@ -1041,15 +1064,15 @@ html {
 .userName_input {
   width: 100%;
   margin: 0 auto;
-  border: #F2F2F2 2px solid;
-  background-color: #F2F2F2;
+  border: white 2px solid;
+  background-color: white;
   border-radius: 4px;
   padding: 0.2em; }
   .userName_input:focus {
     outline: 0; }
 
 input[type="text"] {
-  font-family: 'Coming Soon', cursive;
+  font-family: 'Coming Soon', sans-serif;
   font-size: 1em;
   height: 3em;
   border: none; }
@@ -1073,24 +1096,21 @@ input[type="text"] {
   font-family: 'Coming Soon', cursive;
   font-weight: bolder;
   font-size: 1em;
-  background-color: #F2F2F2;
-  border: 2px #F2F2F2 solid;
+  background-color: white;
+  border: 2px white solid;
   text-shadow: none;
   text-shadow: none;
   border-radius: 4px;
   padding: 0.4em;
-  color: #800000; }
+  color: #333333; }
   #userSubmitBtn:focus {
     outline: 0; }
   #userSubmitBtn:hover {
-    background-color: #800000;
-    border: 2px #800000 solid;
-    color: #F2F2F2;
+    background-color: #333333;
+    border: 2px #333333 solid;
+    color: white;
     cursor: pointer; }
   @media screen and (min-width: 768px) {
     #userSubmitBtn {
       font-size: 1em;
       padding: 0.3em; } }
-
-.transparent {
-  background-color: transparent; }

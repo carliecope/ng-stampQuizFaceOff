@@ -42,7 +42,7 @@ body {
 
 /*--------Game Play Wrapper---------------*/
 .wrapper {
-  border-top: 1px solid $blue;
+  border-top: 1px solid transparent;
   width: 100%;
 }
 .wrapper_clear_border {
@@ -52,11 +52,26 @@ body {
 .header {
   @include fill-parent;
   overflow: hidden;
-  background-color: $blue;
+  background-color: transparent;
   color: white;
   height: 8vh;
   z-index: 9999;
   position: fixed;
+
+  @media screen and (min-width: $min_md_width) { 
+    height: 10vh;
+  }
+}
+.header::before {
+  content: ' ';
+  display: block;
+  position: fixed;
+  background-color: white;
+  right: 0;
+  height: 8vh;
+  width: 100%;
+  z-index: -2;
+  opacity: 0.8;
 
   @media screen and (min-width: $min_md_width) { 
     height: 10vh;
@@ -71,6 +86,7 @@ body {
 
   @media screen and (min-width: $min_md_width) { 
     height: 90vh;
+    margin-top: 10vh;
   }
 }
 .gameArea::before {
@@ -78,8 +94,8 @@ body {
   display: block;
   position: fixed;
   right: 0;
-  top: 0;
-  height: 100%;
+  top: 8vh;
+  height: 92vh;
   width: 100%;
   z-index: -2;
   background-image: url("../img/vintage-postcard.jpg");
@@ -87,9 +103,10 @@ body {
   background-repeat: no-repeat;
   background-position: 95% 10%;
 
-  // @media screen and (min-width: $max_md_width) { 
-  //   position: absolute;
-  // }
+  @media screen and (min-width: $min_md_width) { 
+    height: 90vh;
+    top: 10vh;
+  }
 }
 .center_title {
   color: $gray_dk;

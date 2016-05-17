@@ -21,18 +21,14 @@ $lg_width: 1600px;
   padding: 0 1em;
   border-radius: 5px;
   padding: 0.4em;
-  margin-top: 10vh;
+  margin-top: 11vh;
 
     @media screen and (min-width: $min_md_width) { 
-      // background-image: url("../img/vintage-postcard.jpg");
-      // background-repeat: no-repeat;
-      // background-size: contain;
       background-color: transparent;
       padding: 0;
       border-radius: 0;
       margin-top: 0;
       margin-left: 2em;
-      height: 92vh;
     }
     @media screen and (min-width: $lg_width) {
       margin-left: 15em;
@@ -73,7 +69,7 @@ $lg_width: 1600px;
   color: $rust;
   padding: 0.5em;
   border-radius: 0.8em; 
-  background-color: $white;
+  background-color: white;
 
   @media screen and (min-width: $min_md_width) { 
     width: 50%;
@@ -86,7 +82,6 @@ $lg_width: 1600px;
   
   @media screen and (min-width: $min_md_width) { 
     height: 100%;
-    margin-top: 2em;
   }
 }
 .usernameForm {
@@ -99,8 +94,8 @@ $lg_width: 1600px;
 .userName_input {
   @include fill-parent;
   margin: 0 auto;
-  border: $white 2px solid;
-  background-color: $white;
+  border: white 2px solid;
+  background-color: white;
   border-radius: 4px;
   padding: 0.2em;
 
@@ -109,7 +104,7 @@ $lg_width: 1600px;
   }
 }
 input[type="text"] {
-    font-family: 'Coming Soon', cursive;
+    font-family: 'Coming Soon', sans-serif;
     font-size: 1em;
     height: 3em;
     border: none;
@@ -137,8 +132,8 @@ input[type="text"] {
   font-family: 'Coming Soon', cursive;
   font-weight: bolder;
   font-size: 1em;
-  background-color: $white;
-  border: 2px $white solid;
+  background-color: white;
+  border: 2px white solid;
   text-shadow: none;
   text-shadow: none;
   border-radius: 4px;
@@ -150,14 +145,11 @@ input[type="text"] {
   &:hover {
     background-color: $rust;
     border: 2px $rust solid;
-    color: $white;
+    color: white;
     cursor: pointer;
   }
   @media screen and (min-width: $min_md_width) { 
     font-size: 1em;
     padding: 0.3em;
   }
-}
-.transparent {
-  background-color: transparent;
 }

@@ -91,7 +91,7 @@ $max_md_width: 1024px;
   @media screen and (min-width: $min_md_width) { 
     @include span-columns(6);
     @include omega();
-    height: 24.3em;
+    height: 18.3em;
   }
 
   @media screen and (min-width: $max_md_width) {
@@ -105,6 +105,17 @@ $max_md_width: 1024px;
   border: $gray_dk 2px solid;
   box-shadow: 6px 5px 5px $gray_dk;
   
+  @media screen and (min-width: $min_md_width) { 
+    width: 60%;
+  }
+}
+.large_stamp {
+  width: 60%;
+
+  @media screen and (min-width: $min_md_width) { 
+    width: 40%;
+  }
+
   @media screen and (min-width: $min_md_width) { 
     width: 60%;
   }

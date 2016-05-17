@@ -11,37 +11,40 @@ angular.module('myApp')
 }])
 //Home Screen -----------------------------
 .controller('HomeCtrl', ['$scope', '$location', '$q', '$timeout','$window', 'socket', 'currentCategory', 'gameData', function($scope, $location, $q, $timeout, $window, socket, currentCategory, gameData) {
+	$scope.category_selected = false;
 
 	//Game and category selection handling 
 	$scope.gameData = gameData;
 	$scope.currentCategory = currentCategory;
 
 	$scope.categoryClick = function(category) {
-		console.log(category);
-		category.replace(" ", "%20");
-		console.log(category);
+		if ($scope.category_selected === false) {
+			console.log(category);
+			category.replace(" ", "%20");
+			console.log(category);
 
-		$scope.currentCategory.setCategory(category);
+			$scope.currentCategory.setCategory(category);
 
-		var userName = gameData.getPlayer1Name();
+			var userName = gameData.getPlayer1Name();
 
-		socket.emit('join', {
-			category : $scope.currentCategory.getCategory(),
-			userName : userName
-		});
+			socket.emit('join', {
+				category : $scope.currentCategory.getCategory(),
+				userName : userName
+			});
+		}
 	};
 
 	$scope.$on('socket:gameStarted', function(e, response) {
 
 		gameData.setGameInfo(response);
 
-		if(response.player2) {
-			if (response.player1 === $scope.userName) {
-				gameData.setPlayer2Name(response.player2);
-			} else {
-				gameData.setPlayer2Name(response.player1);
-			}
-		}
+		// if(response.player2) {
+		// 	if (response.player1 === $scope.userName) {
+		// 		gameData.setPlayer2Name(response.player2);
+		// 	} else {
+		// 		gameData.setPlayer2Name(response.player1);
+		// 	}
+		// }
 		
 		gameData.setRoomId(response.roomId);
 

@@ -20,10 +20,10 @@
 					<img class="player2_icon" src="../img/p2_icon_blk.png">
 				</div>
 				<div ng-hide="!waiting" class="play_solo_ask">
-					<h2 ng-hide="opponentCountdown">Looks like there are no available opponents at this time.</h2>
+					<h2 ng-hide="opponentCountdown">On to the game... Be sure to answer before time is up!</h2>
 					<div ng-hide="opponentCountdown" class="btn_cont">
-						<button class="playSoloBtn" ng-click="toGame()">Play Solo</button>
-						<button class="waitBtn" ng-click="wait()">Wait for Opponent</button>
+						<button class="playSoloBtn" ng-click="toGame()">Let's Play!</button>
+						<button class="waitBtn" ng-hide="true" ng-click="wait()">Wait for Opponent</button>
 					</div>
 						<h2 ng-hide="!opponentCountdown">Waiting for new opponent...</h2>
 						<div ng-hide="!opponentCountdown" class="countdownNum" ng-bind="countdownNum"></div>

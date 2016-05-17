@@ -107,7 +107,7 @@ html {
       margin-right: 2.35765%;
       width: 48.82117%;
       margin-right: 0;
-      height: 24.3em; }
+      height: 18.3em; }
       .stamp_cont_music:last-child, .stamp_cont_science:last-child, .stamp_cont_olympics:last-child, .stamp_cont_presidents:last-child, .stamp_cont_movies:last-child, .stamp_cont_aviation:last-child {
         margin-right: 0; } }
   @media screen and (min-width: 1024px) {
@@ -127,6 +127,15 @@ html {
   box-shadow: 6px 5px 5px #333333; }
   @media screen and (min-width: 768px) {
     .stamp {
+      width: 60%; } }
+
+.large_stamp {
+  width: 60%; }
+  @media screen and (min-width: 768px) {
+    .large_stamp {
+      width: 40%; } }
+  @media screen and (min-width: 768px) {
+    .large_stamp {
       width: 60%; } }
 
 .category {

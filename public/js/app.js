@@ -41,11 +41,9 @@ angular.module('myApp', ['ngRoute', 'btford.socket-io', 'ngAnimate'])
 
 		var player1 = {
 			name: "",
-			score: 0
-		};
-		var player2 = {
-			name: "",
-			score: 0
+			score: 0,
+			totalPoints: 0,
+			speedyPoints: 0
 		};
 		var roomId = "";
 
@@ -56,22 +54,23 @@ angular.module('myApp', ['ngRoute', 'btford.socket-io', 'ngAnimate'])
 			setPlayer1Name: function(name) {
 				player1.name = name;
 			},
-			setPlayer2Name: function(name) {
-				player2.name = name;
-			},
 			setPlayer1Score: function(score) {
 				player1.score += score;
 				return player1.score;
 			},
-			setPlayer2Score: function(score) {
-				player2.score += score;
-				return player2.score;
+			setPlayer1SpeedyPoints: function(points) {
+				player1.speedyPoints += points;
+				return player1.speedyPoints;
+			},
+			setTotalPoints: function(newPoints) {
+				player1.totalPoints += newPoints;
+				return player1.totalPoints;
 			},
 			clearPlayer1Score: function(score) {
 				player1.score = score;
 			},
-			clearPlayer2Score: function(score) {
-				player2.score = score;
+			clearPlayer1SpeedyPoints: function(score) {
+				player1.speedyPoints = score;
 			},
 			setRoomId: function(newRoomId) {
 				roomId = newRoomId;
@@ -86,14 +85,14 @@ angular.module('myApp', ['ngRoute', 'btford.socket-io', 'ngAnimate'])
 			getPlayer1Name: function() {
 				return player1.name;
 			},
-			getPlayer2Name: function() {
-				return player2.name;
-			},
 			getPlayer1Score: function() {
 				return player1.score;
 			},
-			getPlayer2Score: function() {
-				return player2.score;
+			getPlayer1TotalPoints: function() {
+				return player1.totalPoints;
+			},
+			getPlayer1SpeedyPoints: function(points) { 
+				return player1.speedyPoints;
 			}
 		};
 	});

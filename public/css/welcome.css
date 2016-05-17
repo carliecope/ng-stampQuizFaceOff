@@ -22,6 +22,9 @@ html {
       margin-top: 0;
       margin-left: 2em;
       height: 92vh; } }
+  @media screen and (min-width: 1600px) {
+    .text_holder {
+      margin-left: 15em; } }
 
 .text_holder::before {
   content: ' ';

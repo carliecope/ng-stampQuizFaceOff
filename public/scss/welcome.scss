@@ -11,6 +11,7 @@ $rust: #800000;
 
 $min_md_width: 768px;
 $max_md_width: 1024px;
+$lg_width: 1600px;
 
 /*-----------------------Welcome------------------------*/
 .text_holder {
@@ -32,6 +33,9 @@ $max_md_width: 1024px;
       margin-top: 0;
       margin-left: 2em;
       height: 92vh;
+    }
+    @media screen and (min-width: $lg_width) {
+      margin-left: 15em;
     }
 }
 .text_holder::before {

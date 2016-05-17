@@ -96,31 +96,15 @@ module.exports = function (io) {
 
 			var response = {};
 
-			if (category.openRoom != null) {
-				var room = category.rooms[category.openRoom];
-				room.player2 = data.userName;
+			roomId = uuid.v4();
+			category.rooms[roomId] = {};
+			category.rooms[roomId].player1 = data.userName;
+			socket.join(roomId);
+			
+			response.roomId = roomId;
+			response.player1 = data.userName;
 
-				socket.join(category.openRoom);
-				io.to(category.openRoom);
-
-				response.player1 = room.player1;
-				response.player2 = room.player2;
-				response.roomId = category.openRoom;
-
-				roomId = category.openRoom;
-				category.openRoom = null;
-			} else {
-				roomId = uuid.v4();
-				category.rooms[roomId] = {};
-				category.rooms[roomId].player1 = data.userName;
-				socket.join(roomId);
-				
-				response.roomId = roomId;
-				response.player1 = data.userName;
-
-				io.to(roomId);
-				category.openRoom = roomId;
-			}
+			io.to(roomId);
 
 			if (category.gameData === null) {
 				getGameInfo(data.category, function(categoryData) {
@@ -144,23 +128,6 @@ module.exports = function (io) {
 			var category = categories[data.category];
 			category.openRoom = null;
 
-		});
-		socket.on('sendAnsFeedback', function(data) {
-			var category = categories[data.category];
-			var room = category.rooms[data.roomId];
-
-			io.to(data.roomId).emit('getOpponentFeedback', {
-				userName: data.userName,
-				score: data.score,
-			});
-		});
-		socket.on('sendNoAnswer', function(data) {
-			var category = categories[data.category];
-			var room = category.rooms[data.roomId];
-
-			io.to(data.roomId).emit('getNoAnswer', {
-				userName: data.userName
-			});
 		});
 		socket.on('exitRoom', function(data) {
 			var category = categories[data.category];

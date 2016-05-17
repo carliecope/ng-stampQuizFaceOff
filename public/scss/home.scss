@@ -12,14 +12,16 @@ $rust: #800000;
 $min_md_width: 768px;
 $max_md_width: 1024px;
 
+$lg_width: 1600px;
+
 /*-----------------------Home------------------------*/
 /*---------Title Bar----------*/
 .choose {
-  @include span-columns(8);
+  @include span-columns(6);
   margin-top: 2vh;
 
   @media screen and (min-width: $min_md_width) { 
-    @include span-columns(7);
+    @include span-columns(5);
     @include shift(1);
   }
 }
@@ -36,12 +38,12 @@ $max_md_width: 1024px;
   }
 }
 .userName_block {
-  @include span-columns(4);
+  @include span-columns(6);
   overflow: hidden;
   height: 100%;
 
   @media screen and (min-width: $min_md_width) { 
-    @include span-columns(3);
+    @include span-columns(5);
   }
 }
 .username_cont {
@@ -87,11 +89,12 @@ $max_md_width: 1024px;
   @include fill-parent();
   overflow: hidden;
   text-align: center;
+  margin-bottom: 1em;
 
   @media screen and (min-width: $min_md_width) { 
     @include span-columns(6);
     @include omega();
-    height: 18.3em;
+    height: 19.3em;
   }
 
   @media screen and (min-width: $max_md_width) {
@@ -108,17 +111,22 @@ $max_md_width: 1024px;
   @media screen and (min-width: $min_md_width) { 
     width: 60%;
   }
+  @media screen and (min-width:$lg_width) {
+    width: 69%;
+  }
 }
 .large_stamp {
-  width: 60%;
-
-  @media screen and (min-width: $min_md_width) { 
-    width: 40%;
-  }
+  width: 80%;
 
   @media screen and (min-width: $min_md_width) { 
     width: 60%;
   }
+  @media screen and (min-width: $lg_width) { 
+    width: 69%;
+  }
+}
+#presidents {
+  max-height: 80%;
 }
 .category {
   background-color: white;

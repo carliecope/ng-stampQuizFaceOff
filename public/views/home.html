@@ -5,7 +5,7 @@
 		</div>
 		<div class="userName_block">
 			<div class="username_cont">
-				<h2 class="username_home" ng-bind="gameData.getPlayer1Name()"></h2>
+				<h2 class="username_home">[{{player1Score}}] {{player1Name}}</h2>
 				<img class="home_username_icon" src="../img/p1_icon_blk.png">
 			</div>
 		</div>
@@ -34,7 +34,7 @@
 		</div>
 
 		<div class="stamp_cont_presidents" ng-click="categoryClick('USPresidents')">
-			<img class="stamp large_stamp" src="../img/stamp_presidents.gif">
+			<img class="stamp large_stamp" id="presidents" src="../img/stamp_presidents.gif">
 			<div class="category_label">
 				<h2 class="category">US Presidents</h2>
 			</div>

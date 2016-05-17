@@ -17,11 +17,13 @@ angular.module('myApp')
 	$scope.gameData = gameData;
 	$scope.currentCategory = currentCategory;
 
+	$scope.player1Name = gameData.getPlayer1Name();
+	$scope.player1Score = gameData.getPlayer1TotalPoints();
+
 	$scope.categoryClick = function(category) {
 		if ($scope.category_selected === false) {
-			console.log(category);
+
 			category.replace(" ", "%20");
-			console.log(category);
 
 			$scope.currentCategory.setCategory(category);
 
@@ -37,14 +39,6 @@ angular.module('myApp')
 	$scope.$on('socket:gameStarted', function(e, response) {
 
 		gameData.setGameInfo(response);
-
-		// if(response.player2) {
-		// 	if (response.player1 === $scope.userName) {
-		// 		gameData.setPlayer2Name(response.player2);
-		// 	} else {
-		// 		gameData.setPlayer2Name(response.player1);
-		// 	}
-		// }
 		
 		gameData.setRoomId(response.roomId);
 
@@ -63,9 +57,6 @@ angular.module('myApp')
 		$scope.category = $scope.currentCategory.getCategory();
 	}
 
-	if (gameData.getPlayer2Name() === "") {
-		$scope.waiting = true;
-	}
 	$scope.countdownNum = 15;
 	$scope.faceOffNum = 3;
 	
@@ -75,49 +66,7 @@ angular.module('myApp')
 		socket.emit('sendCloseRoomNotice', {
 			category: currentCategory.getCategory()
 		});
-	};
-	$scope.wait = function() {
-		$scope.opponentCountdown = true;
-		$scope.countdownNum = 15;
-
-		$scope.countdownInterval = $interval($scope.countdownTick.bind(this), 1000);
-	};
-	$scope.countdownTick = function() {
-
-		if ($scope.countdownNum >= 1) {
-			$scope.countdownNum--;
-		}
-		if ($scope.countdownNum === 0) {
-			$interval.cancel($scope.countdownInterval);
-			$scope.opponentCountdown = false;
-		}
-	};
-	$scope.faceOffTick = function() {
-		if ($scope.faceOffNum >= 1) {
-			$scope.faceOffNum--;
-		}
-		if ($scope.faceOffNum === 0) {
-			$interval.cancel($scope.faceOffInterval);
-			$location.path('/gamePlay');
-		}
-	};
-
-	if(gameData.getPlayer2Name()) {
-		$scope.faceOffInterval = $interval($scope.faceOffTick.bind(this), 1000);	
-	}	
-	$scope.$on('socket:gameStarted', function(e, response) {
-
-		if (response.player2) {
-			$interval.cancel($scope.countdownInterval);
-			$scope.newOpponent = true;
-			$scope.waiting = false;
-			gameData.setPlayer2Name(response.player2);
-
-			$scope.$apply();
-
-		}
-		$scope.faceOffInterval = $interval($scope.faceOffTick.bind(this), 1000);
-	});
+	};	
 }])
 //Game Play ---------------------------------------------------
 .controller('GamePlayCtrl', ['$scope', '$interval', '$location', '$timeout', 'socket', 'currentCategory', 'gameData', function($scope, $interval, $location, $timeout, socket, currentCategory, gameData) {
@@ -129,12 +78,6 @@ angular.module('myApp')
 
 	$scope.currentCategory = currentCategory;
 
-	if (gameData.getPlayer2Name() === "") {
-		$scope.haveOpponent = false;
-	} else {
-		$scope.haveOpponent = true;
-	}
-
  	//Game state variables
 	$scope.currentRoundNum = 1;
 	$scope.showModal = true;
@@ -143,6 +86,7 @@ angular.module('myApp')
 	$scope.question = "";
 	$scope.answerArray = [];
 	$scope.answerWasSubmitted = false;
+	$scope.speedyPoints = gameData.getPlayer1SpeedyPoints();
 	
 	$scope.p1CorrectArray = [];
 	$scope.p2CorrectArray = [];
@@ -167,7 +111,6 @@ angular.module('myApp')
 	};
 
 	$scope.showNewRound = function() {
-		$scope.player2Answered = true;
 
 		$scope.currentRoundText = game.gameData['round' + $scope.currentRoundNum];
 
@@ -184,77 +127,47 @@ angular.module('myApp')
 		if (!$scope.timeUp && $scope.answerWasSubmitted === false) {
 
 			$scope.answerWasSubmitted = true;
-			if (answer === $scope.currentRoundText['correct answer']) {
+			if (answer === $scope.correct) {
 				$scope.p1CorrectArray.push(true);
 
-				gameData.setPlayer1Score(10);
+				gameData.setPlayer1Score(5);
 
 			} else {
 				$scope.p1CorrectArray.push(false);
 			}
 
-			socket.emit('sendAnsFeedback', {
-				userName: gameData.getPlayer1Name(),
-				roomId: $scope.gameData.getRoomId(),
-				score: gameData.getPlayer1Score(),
-				category: currentCategory.getCategory()
-			});
-
 			$scope.player1Answered = true;
-			$scope.haveAllResponses();
+			$scope.haveAllResponses(answer);
 		}
 	};
 
-	$scope.haveAllResponses = function() {
+	$scope.haveAllResponses = function(answer) {
 		
-		if ($scope.haveOpponent) {
-			
-			if ($scope.player1Answered && $scope.player2Answered) {
-
-				$interval.cancel($scope.answerTimeInterval);
-
-				$interval(function(){ 
-					$scope.index = 10;
-					$scope.correct = false;
-					$scope.timeUp = false;
-				
-					$scope.player1Answered = false;
-					$scope.player2Answered = false;
-
-					if ($scope.currentRoundNum > 4) {
-						$location.path('/gameOver');
-						return;
-					}
-					$scope.currentRoundNum++;
-
-					$scope.answerWasSubmitted = false;
-					$scope.nextRoundTickNum = 3;
-					$scope.answerTimeTickNum = 10;
-					$scope.showModal = true;
-					$scope.nextRoundInterval = $interval($scope.nextRoundTick.bind(this), 1000);
-
-				}, 2000, 1);
-			}
-		} else {
-			$interval.cancel($scope.answerTimeInterval);
-			$interval(function(){ 
-				$scope.index = 10;
-				$scope.correct = false;
-				$scope.timeUp = false;
-				$scope.currentRoundNum++;
-				
-				if ($scope.currentRoundNum > 4) {
-					$location.path('/gameOver');
-					return;
-				}
-
-				$scope.answerWasSubmitted = false;
-				$scope.nextRoundTickNum = 3;
-				$scope.answerTimeTickNum = 10;
-				$scope.showModal = true;
-				$scope.nextRoundInterval = $interval($scope.nextRoundTick.bind(this), 1000);
-			}, 2000, 1);
+		if ($scope.answerTimeTickNum > 7 && answer === $scope.correct) {
+			gameData.setPlayer1SpeedyPoints(3);
+		} else if ($scope.answerTimeTickNum > 4 && answer === $scope.correct) {
+			gameData.setPlayer1SpeedyPoints(1);
 		}
+
+		$interval.cancel($scope.answerTimeInterval);
+
+		$interval(function(){ 
+			$scope.index = 10;
+			$scope.correct = false;
+			$scope.timeUp = false;
+			$scope.currentRoundNum++;
+			
+			if ($scope.currentRoundNum > 4) {
+				$location.path('/gameOver');
+				return;
+			}
+
+			$scope.answerWasSubmitted = false;
+			$scope.nextRoundTickNum = 3;
+			$scope.answerTimeTickNum = 10;
+			$scope.showModal = true;
+			$scope.nextRoundInterval = $interval($scope.nextRoundTick.bind(this), 1000);
+		}, 2000, 1);
 	};
 
 	$scope.answerTimeTick = function() {
@@ -267,12 +180,6 @@ angular.module('myApp')
 			$interval.cancel($scope.answerTimeInterval);
 
 			$scope.p1CorrectArray.push(false);
-
-			socket.emit('sendNoAnswer', {
-				userName: gameData.getPlayer1Name(),
-				roomId: $scope.gameData.getRoomId(),
-				category: currentCategory.getCategory()
-			});
 
 			$interval(function(){
 				$scope.correct = $scope.currentRoundText['correct answer']; 
@@ -309,38 +216,6 @@ angular.module('myApp')
 		}
 	};
 	
-	socket.on('getOpponentFeedback', function(response) {
-		if (response.userName != gameData.getPlayer1Name()) {
-
-			$scope.player2Answered = true;
-
-			if ($scope.player2Score != response.score) {
-				$scope.p2CorrectArray.push(true);
-			} else {
-				$scope.p2CorrectArray.push(false);
-			}
-			$scope.player2Score = gameData.setPlayer2Score(response.score);
-
-			if ($scope.currentRoundNum > 4) {
-				$location.path('/gameOver');
-				return;
-			}
-		}
-	});
-
-	socket.on('getNoAnswer', function(response) {
-		if (response.userName != gameData.getPlayer1Name()) {
-
-			$scope.player2Answered = false;
-			$scope.p2CorrectArray.push(false);
-
-			if ($scope.currentRoundNum > 4) {
-				$location.path('/gameOver');
-				return;
-			}
-		}
-	});
-	
 	$scope.nextRoundInterval = $interval($scope.nextRoundTick.bind(this), 1000);
  	
 }])
@@ -357,24 +232,13 @@ angular.module('myApp')
 	}
 
 	$scope.player1Name = gameData.getPlayer1Name();
-	$scope.player1Score = gameData.getPlayer1Score();
-
-	$scope.player2Name = gameData.getPlayer2Name();
-	$scope.player2Score = gameData.getPlayer2Score();
-
-	$scope.soloPlayer = true;
+	$scope.player1Score = gameData.getPlayer1Score() + gameData.getPlayer1SpeedyPoints();
+	$scope.player1SpeedyPoints = gameData.getPlayer1SpeedyPoints();
 	
-	if ($scope.player2Name !== "") {
-
-		$scope.soloPlayer = false;
-
-		if($scope.player1Score > $scope.player2Score) {
-			$scope.game_outcome = "You Won!";
-		} else if ($scope.player1Score === $scope.player2Score) {
-			$scope.game_outcome = "It's a tie!";
-		} else {
-			$scope.game_outcome = "You Lost";
-		}
+	if ($scope.player1Score > 0) {
+		$scope.game_outcome = "Nice Work!";
+	} else {
+		$scope.game_outcome = "Better luck next time...";
 	}
 
 	$scope.returnHome = function() {
@@ -386,9 +250,8 @@ angular.module('myApp')
 		});
 
 		gameData.clearPlayer1Score(0);
-		gameData.clearPlayer2Score(0);
-
-		gameData.setPlayer2Name("");
+		gameData.clearPlayer1SpeedyPoints(0);
+		gameData.setTotalPoints($scope.player1Score);
 
 		$location.path('/home');
 	};

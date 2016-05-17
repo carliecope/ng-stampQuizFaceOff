@@ -586,7 +586,7 @@ body {
 
 /*--------Game Play Wrapper---------------*/
 .wrapper {
-  border-top: 1px solid $blue;
+  border-top: 1px solid transparent;
   width: 100%;
 }
 .wrapper_clear_border {
@@ -596,7 +596,7 @@ body {
 .header {
   @include fill-parent;
   overflow: hidden;
-  background-color: transparent;
+  background-color: $blue;
   color: white;
   height: 8vh;
   z-index: 9999;
@@ -606,21 +606,21 @@ body {
     height: 10vh;
   }
 }
-.header::before {
-  content: ' ';
-  display: block;
-  position: fixed;
-  background-color: white;
-  right: 0;
-  height: 8vh;
-  width: 100%;
-  z-index: -2;
-  opacity: 0.8;
+// .header::before {
+//   content: ' ';
+//   display: block;
+//   position: fixed;
+//   background-color: white;
+//   right: 0;
+//   height: 8vh;
+//   width: 100%;
+//   z-index: -2;
+//   opacity: 0.8;
 
-  @media screen and (min-width: $min_md_width) { 
-    height: 10vh;
-  }
-}
+//   @media screen and (min-width: $min_md_width) { 
+//     height: 10vh;
+//   }
+// }
 .gameArea {
   @include fill-parent;
   position: fixed;

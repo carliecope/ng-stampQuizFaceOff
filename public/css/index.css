@@ -39,7 +39,7 @@ body {
 
 /*--------Game Play Wrapper---------------*/
 .wrapper {
-  border-top: 1px solid #84D4EF;
+  border-top: 1px solid transparent;
   width: 100%; }
 
 .wrapper_clear_border {
@@ -49,27 +49,13 @@ body {
 .header {
   width: 100%;
   overflow: hidden;
-  background-color: transparent;
+  background-color: #84D4EF;
   color: white;
   height: 8vh;
   z-index: 9999;
   position: fixed; }
   @media screen and (min-width: 768px) {
     .header {
-      height: 10vh; } }
-
-.header::before {
-  content: ' ';
-  display: block;
-  position: fixed;
-  background-color: white;
-  right: 0;
-  height: 8vh;
-  width: 100%;
-  z-index: -2;
-  opacity: 0.8; }
-  @media screen and (min-width: 768px) {
-    .header::before {
       height: 10vh; } }
 
 .gameArea {

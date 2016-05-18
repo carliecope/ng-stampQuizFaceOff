@@ -754,19 +754,12 @@ body {
 /*-----Header----------*/
 .header {
   width: 100%;
-  max-width: 68em;
-  margin-left: auto;
-  margin-right: auto;
   overflow: hidden;
   background-color: #84D4EF;
   color: white;
   height: 8vh;
   z-index: 9999;
   position: fixed; }
-  .header::after {
-    clear: both;
-    content: "";
-    display: table; }
   @media screen and (min-width: 768px) {
     .header {
       height: 10vh; } }
@@ -1083,7 +1076,7 @@ html {
       font-size: 1em; } }
   @media screen and (min-width: 1600px) {
     .wel_instruction {
-      width: 37%; } }
+      width: 34%; } }
 
 .form_cont {
   width: 100%;

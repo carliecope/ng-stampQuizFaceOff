@@ -7,10 +7,9 @@ $white: #F2F2F2;
 $off_white: #ECECEC;
 $gray_dk: #333333;
 
-$rust: #800000;
-
 $min_md_width: 768px;
 $max_md_width: 1024px;
+$lg_width: 1600px;
 
 /*-----------------------gameOver------------------------*/
 
@@ -124,11 +123,8 @@ $white: #F2F2F2;
 $off_white: #ECECEC;
 $gray_dk: #333333;
 
-$rust: #800000;
-
 $min_md_width: 768px;
 $max_md_width: 1024px;
-
 $lg_width: 1600px;
 
 /*-----------------------gamePlay------------------------*/
@@ -397,11 +393,8 @@ $white: #F2F2F2;
 $off_white: #ECECEC;
 $gray_dk: #333333;
 
-$rust: #800000;
-
 $min_md_width: 768px;
 $max_md_width: 1024px;
-
 $lg_width: 1600px;
 
 /*-----------------------Home------------------------*/
@@ -557,8 +550,6 @@ $white: #F2F2F2;
 $off_white: #ECECEC;
 $gray_dk: #333333;
 
-$rust: #333333;
-
 $min_md_width: 768px;
 $max_md_width: 1024px;
 $lg_width: 1600px;
@@ -601,7 +592,6 @@ body {
 /*-----Header----------*/
 .header {
   @include fill-parent;
-  @include outer-container;
   overflow: hidden;
   background-color: $blue;
   color: white;
@@ -862,8 +852,6 @@ $white: #F2F2F2;
 $off_white: #ECECEC;
 $gray_dk: #333333;
 
-$rust: #333333;
-
 $min_md_width: 768px;
 $max_md_width: 1024px;
 $lg_width: 1600px;
@@ -941,7 +929,7 @@ $lg_width: 1600px;
 }
 .welcome {
     @include fill-parent;
-    color: $rust;
+    color: $gray_dk;
     font-size: 2.5em;
     margin: 0;
     
@@ -957,7 +945,7 @@ $lg_width: 1600px;
   @include fill-parent;
   font-size: 1em;
   font-weight: bolder;
-  color: $rust;
+  color: $gray_dk;
   padding: 0.5em;
   border-radius: 0.8em; 
 
@@ -1034,13 +1022,13 @@ input[type="text"] {
   text-shadow: none;
   border-radius: 4px;
   padding: 0.4em;
-  color: $rust;
+  color: $gray_dk;
   &:focus {
     outline: 0;
   }
   &:hover {
-    background-color: $rust;
-    border: 2px $rust solid;
+    background-color: $gray_dk;
+    border: 2px $gray_dk solid;
     color: white;
     cursor: pointer;
   }

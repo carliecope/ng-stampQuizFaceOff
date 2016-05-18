@@ -891,7 +891,16 @@ $lg_width: 1600px;
       margin-left: 15em;
     }
 }
-.text_holder::before {
+.animate_view {
+  &.ng-enter { 
+    transition: 2s linear all;
+    opacity: 0;
+  }
+  &.ng-enter.ng-enter-active { 
+    opacity: 1;
+  }
+}
+.on::before {
   content: ' ';
   display: block;
   position: fixed;

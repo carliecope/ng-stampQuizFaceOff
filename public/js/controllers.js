@@ -1,7 +1,12 @@
 angular.module('myApp')
 
 //Username/Welcome View --------------------------
-.controller('WelcomeCtrl', ['$scope', '$location', 'socket', 'gameData', function($scope, $location, socket, gameData) {
+.controller('WelcomeCtrl', ['$scope', '$location', 'socket', 'gameData', function($scope, $location, socket, gameData) {            
+   
+   $scope.$on('$viewContentLoaded', function() {
+   		$(".text_holder").addClass("on").addClass("animate_view");
+   		console.log("ready");
+   });
 
 	$scope.updateUserName = function(userName) {
 		gameData.setPlayer1Name(userName);

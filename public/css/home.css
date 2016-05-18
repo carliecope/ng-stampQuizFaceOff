@@ -123,18 +123,24 @@ html {
         margin-right: 0; } }
   @media screen and (min-width: 1600px) {
     .stamp_cont_music, .stamp_cont_science, .stamp_cont_olympics, .stamp_cont_presidents, .stamp_cont_movies, .stamp_cont_aviation {
-      height: 22em; } }
+      height: 25em;
+      margin-top: 1em; } }
 
 .stamp {
   border-radius: 5px;
   border: #333333 2px solid;
-  box-shadow: 6px 5px 5px #333333; }
+  box-shadow: 6px 5px 5px #333333;
+  transition: 0.5s linear all;
+  -webkit-transition: 0.2s linear all; }
   @media screen and (min-width: 768px) {
     .stamp {
       width: 60%; } }
   @media screen and (min-width: 1600px) {
     .stamp {
-      width: 69%; } }
+      width: 85%; } }
+
+.stamp:hover {
+  opacity: 0.85; }
 
 .large_stamp {
   width: 60%; }
@@ -146,7 +152,7 @@ html {
       width: 60%; } }
   @media screen and (min-width: 1600px) {
     .large_stamp {
-      width: 69%; } }
+      width: 85%; } }
 
 #presidents {
   max-height: 80%; }

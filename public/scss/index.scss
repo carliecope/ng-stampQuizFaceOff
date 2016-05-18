@@ -7,8 +7,6 @@ $white: #F2F2F2;
 $off_white: #ECECEC;
 $gray_dk: #333333;
 
-$rust: #333333;
-
 $min_md_width: 768px;
 $max_md_width: 1024px;
 $lg_width: 1600px;
@@ -34,7 +32,7 @@ body {
   margin: 0;
   padding: 0;
 }
-.body {
+.view {
   margin: 0;
   @include outer-container(100%);
   @include fill-parent;
@@ -62,21 +60,6 @@ body {
     height: 10vh;
   }
 }
-// .header::before {
-//   content: ' ';
-//   display: block;
-//   position: fixed;
-//   background-color: white;
-//   right: 0;
-//   height: 8vh;
-//   width: 100%;
-//   z-index: -2;
-//   opacity: 0.8;
-
-//   @media screen and (min-width: $min_md_width) { 
-//     height: 10vh;
-//   }
-// }
 .gameArea {
   @include fill-parent;
   position: fixed;
@@ -106,6 +89,9 @@ body {
   @media screen and (min-width: $min_md_width) { 
     height: 90vh;
     top: 10vh;
+  }
+  @media screen and (min-width: $lg_width) {
+    background-position: 100% 10%;
   }
 }
 .center_title {

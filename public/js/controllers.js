@@ -5,7 +5,6 @@ angular.module('myApp')
    
    $scope.$on('$viewContentLoaded', function() {
    		$(".text_holder").addClass("on").addClass("animate_view");
-   		console.log("ready");
    });
 
 	$scope.updateUserName = function(userName) {

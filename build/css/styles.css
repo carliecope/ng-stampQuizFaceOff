@@ -485,18 +485,24 @@ html {
         margin-right: 0; } }
   @media screen and (min-width: 1600px) {
     .stamp_cont_music, .stamp_cont_science, .stamp_cont_olympics, .stamp_cont_presidents, .stamp_cont_movies, .stamp_cont_aviation {
-      height: 22em; } }
+      height: 25em;
+      margin-top: 1em; } }
 
 .stamp {
   border-radius: 5px;
   border: #333333 2px solid;
-  box-shadow: 6px 5px 5px #333333; }
+  box-shadow: 6px 5px 5px #333333;
+  transition: 0.5s linear all;
+  -webkit-transition: 0.2s linear all; }
   @media screen and (min-width: 768px) {
     .stamp {
       width: 60%; } }
   @media screen and (min-width: 1600px) {
     .stamp {
-      width: 69%; } }
+      width: 85%; } }
+
+.stamp:hover {
+  opacity: 0.85; }
 
 .large_stamp {
   width: 60%; }
@@ -508,7 +514,7 @@ html {
       width: 60%; } }
   @media screen and (min-width: 1600px) {
     .large_stamp {
-      width: 69%; } }
+      width: 85%; } }
 
 #presidents {
   max-height: 80%; }
@@ -726,13 +732,13 @@ body {
   margin: 0;
   padding: 0; }
 
-.body {
+.view {
   margin: 0;
   max-width: 100%;
   margin-left: auto;
   margin-right: auto;
   width: 100%; }
-  .body::after {
+  .view::after {
     clear: both;
     content: "";
     display: table; }
@@ -748,12 +754,19 @@ body {
 /*-----Header----------*/
 .header {
   width: 100%;
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto;
   overflow: hidden;
   background-color: #84D4EF;
   color: white;
   height: 8vh;
   z-index: 9999;
   position: fixed; }
+  .header::after {
+    clear: both;
+    content: "";
+    display: table; }
   @media screen and (min-width: 768px) {
     .header {
       height: 10vh; } }
@@ -786,6 +799,9 @@ body {
     .gameArea::before {
       height: 90vh;
       top: 10vh; } }
+  @media screen and (min-width: 1600px) {
+    .gameArea::before {
+      background-position: 100% 10%; } }
 
 .center_title {
   color: #333333;
@@ -993,11 +1009,11 @@ html {
       margin-left: 15em; } }
 
 .animate_view.ng-enter {
-  transition: 2s linear all;
+  transition: 0.4s linear all;
   opacity: 0; }
 
 .animate_view.ng-enter.ng-enter-active {
-  opacity: 1; }
+  opacity: 0.5; }
 
 .on::before {
   content: ' ';
@@ -1013,6 +1029,9 @@ html {
   width: 100%;
   z-index: -2;
   opacity: 0.5; }
+  @media screen and (min-width: 1600px) {
+    .on::before {
+      background-position: center top; } }
 
 .holder {
   width: 100%;
@@ -1047,6 +1066,9 @@ html {
     .welcome {
       width: 50%;
       font-size: 3em; } }
+  @media screen and (min-width: 1600px) {
+    .welcome {
+      width: 37%; } }
 
 .wel_instruction {
   width: 100%;
@@ -1059,6 +1081,9 @@ html {
     .wel_instruction {
       width: 50%;
       font-size: 1em; } }
+  @media screen and (min-width: 1600px) {
+    .wel_instruction {
+      width: 37%; } }
 
 .form_cont {
   width: 100%;
@@ -1072,6 +1097,9 @@ html {
   @media screen and (min-width: 768px) {
     .usernameForm {
       width: 35%; } }
+  @media screen and (min-width: 1600px) {
+    .usernameForm {
+      width: 25%; } }
 
 .userName_input {
   width: 100%;

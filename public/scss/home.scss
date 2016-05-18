@@ -7,11 +7,8 @@ $white: #F2F2F2;
 $off_white: #ECECEC;
 $gray_dk: #333333;
 
-$rust: #800000;
-
 $min_md_width: 768px;
 $max_md_width: 1024px;
-
 $lg_width: 1600px;
 
 /*-----------------------Home------------------------*/
@@ -104,20 +101,26 @@ $lg_width: 1600px;
   }
 
   @media screen and (min-width: $lg_width) {
-    height: 22em;
+    height: 25em;
+    margin-top: 1em;
   }
 }
 .stamp {
   border-radius: 5px;
   border: $gray_dk 2px solid;
   box-shadow: 6px 5px 5px $gray_dk;
+  transition: 0.5s linear all;
+  -webkit-transition: 0.2s linear all;
   
   @media screen and (min-width: $min_md_width) { 
     width: 60%;
   }
   @media screen and (min-width:$lg_width) {
-    width: 69%;
+    width: 85%;
   }
+} 
+.stamp:hover {
+  opacity: 0.85;
 }
 .large_stamp {
   width: 60%;
@@ -129,7 +132,7 @@ $lg_width: 1600px;
     width: 60%;
   }
   @media screen and (min-width: $lg_width) { 
-    width: 69%;
+    width: 85%;
   }
 }
 #presidents {

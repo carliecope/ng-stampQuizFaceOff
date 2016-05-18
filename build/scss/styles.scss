@@ -494,20 +494,26 @@ $lg_width: 1600px;
   }
 
   @media screen and (min-width: $lg_width) {
-    height: 22em;
+    height: 25em;
+    margin-top: 1em;
   }
 }
 .stamp {
   border-radius: 5px;
   border: $gray_dk 2px solid;
   box-shadow: 6px 5px 5px $gray_dk;
+  transition: 0.5s linear all;
+  -webkit-transition: 0.2s linear all;
   
   @media screen and (min-width: $min_md_width) { 
     width: 60%;
   }
   @media screen and (min-width:$lg_width) {
-    width: 69%;
+    width: 85%;
   }
+} 
+.stamp:hover {
+  opacity: 0.85;
 }
 .large_stamp {
   width: 60%;
@@ -519,7 +525,7 @@ $lg_width: 1600px;
     width: 60%;
   }
   @media screen and (min-width: $lg_width) { 
-    width: 69%;
+    width: 85%;
   }
 }
 #presidents {
@@ -578,7 +584,7 @@ body {
   margin: 0;
   padding: 0;
 }
-.body {
+.view {
   margin: 0;
   @include outer-container(100%);
   @include fill-parent;
@@ -595,6 +601,7 @@ body {
 /*-----Header----------*/
 .header {
   @include fill-parent;
+  @include outer-container;
   overflow: hidden;
   background-color: $blue;
   color: white;
@@ -606,21 +613,6 @@ body {
     height: 10vh;
   }
 }
-// .header::before {
-//   content: ' ';
-//   display: block;
-//   position: fixed;
-//   background-color: white;
-//   right: 0;
-//   height: 8vh;
-//   width: 100%;
-//   z-index: -2;
-//   opacity: 0.8;
-
-//   @media screen and (min-width: $min_md_width) { 
-//     height: 10vh;
-//   }
-// }
 .gameArea {
   @include fill-parent;
   position: fixed;
@@ -650,6 +642,9 @@ body {
   @media screen and (min-width: $min_md_width) { 
     height: 90vh;
     top: 10vh;
+  }
+  @media screen and (min-width: $lg_width) {
+    background-position: 100% 10%;
   }
 }
 .center_title {
@@ -893,11 +888,11 @@ $lg_width: 1600px;
 }
 .animate_view {
   &.ng-enter { 
-    transition: 2s linear all;
+    transition: 0.4s linear all;
     opacity: 0;
   }
   &.ng-enter.ng-enter-active { 
-    opacity: 1;
+    opacity: 0.5;
   }
 }
 .on::before {
@@ -914,6 +909,10 @@ $lg_width: 1600px;
   width: 100%;
   z-index: -2;
   opacity: 0.5;
+
+  @media screen and (min-width: $lg_width) {
+    background-position: center top;
+  }
 }
 .holder {
   @include fill-parent;
@@ -950,6 +949,9 @@ $lg_width: 1600px;
       width: 50%;
       font-size: 3em;
     }
+    @media screen and (min-width: $lg_width) {
+      width: 37%;
+    }
 }
 .wel_instruction {
   @include fill-parent;
@@ -962,6 +964,9 @@ $lg_width: 1600px;
   @media screen and (min-width: $min_md_width) { 
     width: 50%;
     font-size: 1em;
+  }
+  @media screen and (min-width: $lg_width) {
+    width: 34%;
   }
 }
 .form_cont {
@@ -977,6 +982,9 @@ $lg_width: 1600px;
 
   @media screen and (min-width: $min_md_width) { 
     width: 35%;
+  }
+  @media screen and (min-width: $lg_width) {
+    width: 25%;
   }
 }
 .userName_input {

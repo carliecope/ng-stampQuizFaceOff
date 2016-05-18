@@ -260,7 +260,7 @@ $lg_width: 1600px;
   text-align: center;
 
   @media screen and (min-width: $min_md_width) { 
-    @include span-columns(6);
+    @include span-columns(4);
     @include omega();
     margin-top: 10vh;
   }
@@ -551,7 +551,7 @@ $white: #F2F2F2;
 $off_white: #ECECEC;
 $gray_dk: #333333;
 
-$rust: #800000;
+$rust: #333333;
 
 $min_md_width: 768px;
 $max_md_width: 1024px;
@@ -867,7 +867,7 @@ $white: #F2F2F2;
 $off_white: #ECECEC;
 $gray_dk: #333333;
 
-$rust: #800000;
+$rust: #333333;
 
 $min_md_width: 768px;
 $max_md_width: 1024px;
@@ -878,8 +878,6 @@ $lg_width: 1600px;
   @include fill-parent;
   overflow: hidden;
   background-color: transparent;
-  padding: 0 1em;
-  border-radius: 5px;
   padding: 0.4em;
   margin-top: 11vh;
 
@@ -887,7 +885,6 @@ $lg_width: 1600px;
       background-color: transparent;
       padding: 0;
       border-radius: 0;
-      margin-top: 0;
       margin-left: 2em;
     }
     @media screen and (min-width: $lg_width) {
@@ -898,18 +895,41 @@ $lg_width: 1600px;
   content: ' ';
   display: block;
   position: fixed;
-  background-color: white;
+  background-image: url("../img/vintage-postcard.jpg");
+  opacity: 0.5;
+  background-repeat: no-repeat;
+  background-position: 95% 10%;
   right: 0;
   top: 0;
   height: 100%;
   width: 100%;
-  z-index: -1;
+  z-index: -2;
   opacity: 0.5;
+}
+.holder {
+  @include fill-parent;
+  overflow: hidden;
+}
+.holder::before {
+  content: ' ';
+  display: block;
+  position: absolute;
+  background-color: white;
+  right: 0;
+  top: 4em;
+  overflow: hidden;
+  width: 100%;
+  height: 74%;
+  z-index: -1;
+  opacity: 0.68;
+
+  @media screen and (min-width: $min_md_width) {
+    height: 60%;
+  }
 }
 .welcome_text {
   @include fill-parent;
   overflow: hidden;
-
 }
 .welcome {
     @include fill-parent;
@@ -929,7 +949,6 @@ $lg_width: 1600px;
   color: $rust;
   padding: 0.5em;
   border-radius: 0.8em; 
-  background-color: white;
 
   @media screen and (min-width: $min_md_width) { 
     width: 50%;

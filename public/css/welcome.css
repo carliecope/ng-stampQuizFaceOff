@@ -10,8 +10,6 @@ html {
   width: 100%;
   overflow: hidden;
   background-color: transparent;
-  padding: 0 1em;
-  border-radius: 5px;
   padding: 0.4em;
   margin-top: 11vh; }
   @media screen and (min-width: 768px) {
@@ -19,7 +17,6 @@ html {
       background-color: transparent;
       padding: 0;
       border-radius: 0;
-      margin-top: 0;
       margin-left: 2em; } }
   @media screen and (min-width: 1600px) {
     .text_holder {
@@ -29,13 +26,36 @@ html {
   content: ' ';
   display: block;
   position: fixed;
-  background-color: white;
+  background-image: url("../img/vintage-postcard.jpg");
+  opacity: 0.5;
+  background-repeat: no-repeat;
+  background-position: 95% 10%;
   right: 0;
   top: 0;
   height: 100%;
   width: 100%;
-  z-index: -1;
+  z-index: -2;
   opacity: 0.5; }
+
+.holder {
+  width: 100%;
+  overflow: hidden; }
+
+.holder::before {
+  content: ' ';
+  display: block;
+  position: absolute;
+  background-color: white;
+  right: 0;
+  top: 4em;
+  overflow: hidden;
+  width: 100%;
+  height: 74%;
+  z-index: -1;
+  opacity: 0.68; }
+  @media screen and (min-width: 768px) {
+    .holder::before {
+      height: 60%; } }
 
 .welcome_text {
   width: 100%;
@@ -43,7 +63,7 @@ html {
 
 .welcome {
   width: 100%;
-  color: #800000;
+  color: #333333;
   font-size: 2.5em;
   margin: 0; }
   @media screen and (min-width: 768px) {
@@ -55,10 +75,9 @@ html {
   width: 100%;
   font-size: 1em;
   font-weight: bolder;
-  color: #800000;
+  color: #333333;
   padding: 0.5em;
-  border-radius: 0.8em;
-  background-color: white; }
+  border-radius: 0.8em; }
   @media screen and (min-width: 768px) {
     .wel_instruction {
       width: 50%;
@@ -118,12 +137,12 @@ input[type="text"] {
   text-shadow: none;
   border-radius: 4px;
   padding: 0.4em;
-  color: #800000; }
+  color: #333333; }
   #userSubmitBtn:focus {
     outline: 0; }
   #userSubmitBtn:hover {
-    background-color: #800000;
-    border: 2px #800000 solid;
+    background-color: #333333;
+    border: 2px #333333 solid;
     color: white;
     cursor: pointer; }
   @media screen and (min-width: 768px) {

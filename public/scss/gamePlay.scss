@@ -143,7 +143,7 @@ $lg_width: 1600px;
   text-align: center;
 
   @media screen and (min-width: $min_md_width) { 
-    @include span-columns(6);
+    @include span-columns(4);
     @include omega();
     margin-top: 10vh;
   }

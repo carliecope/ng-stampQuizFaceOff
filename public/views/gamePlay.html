@@ -10,7 +10,7 @@
 <div class='wrapper'>
 	<header class="header">
 		<div class="header_element">
-			<img class="playerOneIcon" src="../img/p1_icon_wht.png">
+			<img alt="Player One Icon" class="playerOneIcon" src="../img/p1_icon_wht.png">
 			<div class="playerOne">
 				<h3>Game</h3>
 				<h3>Points: {{ gameData.getPlayer1Score() }}</h3>
@@ -23,7 +23,7 @@
 			</div>
 		</div>
 		<div class="header_element">
-			<img class="stopwatchIcon" src="../img/stopwatch_icon_wht.png">
+			<img alt="Stopwatch Icon" class="stopwatchIcon" src="../img/stopwatch_icon_wht.png">
 			<div class="stopwatchPoints">
 				<h3>Speed Bonus</h3>
 				<h3>Points: {{ gameData.getPlayer1SpeedyPoints() }}</h3>
@@ -33,7 +33,7 @@
 	<div class="gameArea">
 		<div class="ask_container">
 			<div class="stamp_block">
-				<img id="stampImg" ng-src="https://stampgames-memsearch.rhcloud.com/{{ stampImgURL }}">
+				<img alt="Stamp Image" id="stampImg" ng-src="https://stampgames-memsearch.rhcloud.com/{{ stampImgURL }}">
 			</div>
 			<div class="question_block">
 				<h2 class="question">{{ question }}</h2>

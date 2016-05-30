@@ -39,8 +39,8 @@ module.exports = function (io) {
 	function getGameInfo(category, callback) {
 		var newCategory = category;
 
-		if(newCategory === "USPresidents") {
-			newCategory = "US%20Presidents";
+		if(newCategory === 'USPresidents') {
+			newCategory = 'US%20Presidents';
 		}
 
 	    return http.get({

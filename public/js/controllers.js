@@ -2,11 +2,10 @@ angular.module('myApp')
 
 //Username/Welcome View --------------------------
 .controller('WelcomeCtrl', ['$scope', '$location', 'socket', 'gameData', function($scope, $location, socket, gameData) {            
-   
-   $scope.$on('$viewContentLoaded', function() {
+    $scope.$on('$viewContentLoaded', function() {
    		$(".text_holder").addClass("on").addClass("animate_view");
-   });
-
+   	});
+   	
 	$scope.updateUserName = function(userName) {
 		gameData.setPlayer1Name(userName);
 		
@@ -27,7 +26,7 @@ angular.module('myApp')
 	$scope.categoryClick = function(category) {
 		if ($scope.category_selected === false) {
 
-			category.replace(" ", "%20");
+			category.replace(' ', '%20');
 
 			$scope.currentCategory.setCategory(category);
 
@@ -54,9 +53,9 @@ angular.module('myApp')
 	$scope.gameData = gameData;
 	$scope.currentCategory = currentCategory;
 
-	$scope.category = "";
-	if ($scope.currentCategory.getCategory() === "USPresidents") {
-		$scope.category = "US Presidents";
+	$scope.category = '';
+	if ($scope.currentCategory.getCategory() === 'USPresidents') {
+		$scope.category = 'US Presidents';
 	} else {
 		$scope.category = $scope.currentCategory.getCategory();
 	}
@@ -86,8 +85,8 @@ angular.module('myApp')
 	$scope.currentRoundNum = 1;
 	$scope.showModal = true;
 	$scope.nextRoundTickNum = 3;
-	$scope.answerTimeTickNum = 10;
-	$scope.question = "";
+	$scope.answerTimeTickNum = 20;
+	$scope.question = '';
 	$scope.answerArray = [];
 	$scope.answerWasSubmitted = false;
 	$scope.speedyPoints = gameData.getPlayer1SpeedyPoints();
@@ -147,16 +146,16 @@ angular.module('myApp')
 
 	$scope.haveAllResponses = function(answer) {
 		
-		if ($scope.answerTimeTickNum > 7 && answer === $scope.correct) {
+		if ($scope.answerTimeTickNum > 15 && answer === $scope.correct) {
 			gameData.setPlayer1SpeedyPoints(3);
-		} else if ($scope.answerTimeTickNum > 4 && answer === $scope.correct) {
+		} else if ($scope.answerTimeTickNum > 10 && answer === $scope.correct) {
 			gameData.setPlayer1SpeedyPoints(1);
 		}
 
 		$interval.cancel($scope.answerTimeInterval);
 
 		$interval(function(){ 
-			$scope.index = 10;
+			$scope.index = 100;
 			$scope.correct = false;
 			$scope.timeUp = false;
 			$scope.currentRoundNum++;
@@ -168,7 +167,7 @@ angular.module('myApp')
 
 			$scope.answerWasSubmitted = false;
 			$scope.nextRoundTickNum = 3;
-			$scope.answerTimeTickNum = 10;
+			$scope.answerTimeTickNum = 20;
 			$scope.showModal = true;
 			$scope.nextRoundInterval = $interval($scope.nextRoundTick.bind(this), 1000);
 		}, 2000, 1);
@@ -188,7 +187,7 @@ angular.module('myApp')
 			$interval(function(){
 				$scope.correct = $scope.currentRoundText['correct answer']; 
 				$scope.timeUp = true;
-				$scope.answerTimeTickNum = 10;
+				$scope.answerTimeTickNum = 20;
 				$scope.nextRoundTickNum = 3;
 
 				if ($scope.currentRoundNum === 4) {
@@ -210,7 +209,7 @@ angular.module('myApp')
 		}
 		if ($scope.nextRoundTickNum === 0) {
 			$interval.cancel($scope.nextRoundInterval);
-			$scope.answerTimeTickNum = 10;
+			$scope.answerTimeTickNum = 20;
 
 			$scope.showModal = false;
 

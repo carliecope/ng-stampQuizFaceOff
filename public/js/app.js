@@ -25,7 +25,7 @@ angular.module('myApp', ['ngRoute', 'btford.socket-io', 'ngAnimate'])
 		return mySocket;
 	})
 	.factory('currentCategory', function() {
-		var category = "";
+		var category = '';
 		
 		return {
 			setCategory: function(newCategory) {
@@ -40,12 +40,12 @@ angular.module('myApp', ['ngRoute', 'btford.socket-io', 'ngAnimate'])
 		var gameCopy = {};
 
 		var player1 = {
-			name: "",
+			name: '',
 			score: 0,
 			totalPoints: 0,
 			speedyPoints: 0
 		};
-		var roomId = "";
+		var roomId = '';
 
 		return {
 			setGameInfo: function(response) {

@@ -7,6 +7,8 @@ $white: #F2F2F2;
 $off_white: #ECECEC;
 $gray_dk: #333333;
 
+$rust: #800000;
+
 $min_md_width: 768px;
 $max_md_width: 1024px;
 $lg_width: 1600px;
@@ -81,7 +83,7 @@ body {
   height: 92vh;
   width: 100%;
   z-index: -2;
-  background-image: url("../img/vintage-postcard.jpg");
+  background-image: url("../../img/vintage-postcard.jpg");
   opacity: 0.5;
   background-repeat: no-repeat;
   background-position: 95% 10%;

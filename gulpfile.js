@@ -39,17 +39,10 @@ gulp.task('watch', function() {
 gulp.task('styles', function() {
   return gulp.src('public/css/*.css')
     .pipe(concat('styles.css'))
-    .pipe(gulp.dest('./build/css'))
-}); 
-
-// StyleSass build task, concatenates all the files
-gulp.task('styleSass', function() {
-  return gulp.src('public/scss/*.scss')
-    .pipe(concat('styles.scss'))
-    .pipe(gulp.dest('./build/scss'))
+    .pipe(gulp.dest('./public/build/css'))
 }); 
 
 // Default task
-gulp.task('default', ['jshint', 'sass', 'watch', 'styles', 'styleSass']);
+gulp.task('default', ['jshint', 'sass', 'watch', 'styles']);
 
 

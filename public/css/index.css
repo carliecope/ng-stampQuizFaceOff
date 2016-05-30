@@ -78,7 +78,7 @@ body {
   height: 92vh;
   width: 100%;
   z-index: -2;
-  background-image: url("../img/vintage-postcard.jpg");
+  background-image: url("../../img/vintage-postcard.jpg");
   opacity: 0.5;
   background-repeat: no-repeat;
   background-position: 95% 10%; }
